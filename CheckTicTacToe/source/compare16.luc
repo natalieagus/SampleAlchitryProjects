@@ -1,0 +1,17 @@
+module compare16 (
+    input alufn21[2],
+    input z,
+    input v,
+    input n,
+    output out[16]
+  ) {
+
+  always {
+    out = 0;
+    case (alufn21){
+      b01: out[0] = z;
+      b10: out[0] = v ^ n;
+      b11: out[0] = z | (v ^ n);
+    }
+  }
+}

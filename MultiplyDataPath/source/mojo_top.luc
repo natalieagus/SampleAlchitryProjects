@@ -1,0 +1,103 @@
+module mojo_top (
+    input clk,              // 50MHz clock
+    input rst_n,            // reset button (active low)
+    output led [8],         // 8 user controllable LEDs
+    input cclk,             // configuration clock, AVR ready when high
+    output spi_miso,        // AVR SPI MISO
+    input spi_ss,           // AVR SPI Slave Select
+    input spi_mosi,         // AVR SPI MOSI
+    input spi_sck,          // AVR SPI Clock
+    output spi_channel [4], // AVR general purpose pins (used by default to select ADC channel)
+    input avr_tx,           // AVR TX (FPGA RX)
+    output avr_rx,          // AVR RX (FPGA TX)
+    input avr_rx_busy,      // AVR RX buffer full
+    output io_led [3][8],   // LEDs on IO Shield
+    output io_seg [8],      // 7-segment LEDs on IO Shield
+    output io_sel [4],      // Digit select on IO Shield
+    input io_button [5],    // 5 buttons on IO Shield
+    input io_dip [3][8]     // DIP switches on IO Shield
+  ) {
+  
+  sig rst;                  // reset signal
+  
+  .clk(clk) {
+    // The reset conditioner is used to synchronize the reset signal to the FPGA
+    // clock. This ensures the entire FPGA comes out of reset at the same time.
+    reset_conditioner reset_cond;
+    button_conditioner btn;
+    edge_detector edge;
+    
+    .rst(rst){
+      
+      counter sclk(#SIZE(1),#DIV(24));
+
+    }
+  }
+  .clk(sclk.value ){
+    .rst(rst){
+      fsm nn1(#INIT(S0))={S0,S1,S2,S3};
+      multnn1 multiply;
+    }
+  }
+
+  always {
+    reset_cond.in = ~rst_n; // input raw inverted reset signal
+    rst = reset_cond.out;   // conditioned reset
+    
+    led = 8h00;             // turn LEDs off
+    spi_miso = bz;          // not using SPI
+    spi_channel = bzzzz;    // not using flags
+    avr_rx = bz;            // not using serial port
+    
+    io_led = 3x{{8h00}};    // turn LEDs off
+    io_seg = 8hff;          // turn segments off
+    io_sel = 4hf;           // select no digits
+    
+    btn.in=io_button[0];
+    edge.in=btn.out;
+    if(edge.out==1)
+      nn1.d=nn1.S0;
+      
+    multiply.n=io_dip[0];
+        
+    multiply.asel=0;
+    multiply.ale=0;
+    multiply.bsel=0;
+    multiply.ble=0;
+
+  
+    io_led[0]=multiply.debug;
+    io_led[1]=multiply.debug1;
+    io_led[2]=multiply.out;
+    
+    
+    case(nn1.q){
+      nn1.S0:
+        nn1.d=nn1.S1;
+        multiply.asel=1;
+        multiply.ale=1;
+        multiply.bsel=0;
+        multiply.ble=1;
+      nn1.S1:
+        nn1.d=nn1.S2;
+        multiply.asel=0;
+        multiply.ale=1;
+        multiply.bsel=1;
+        multiply.ble=1;
+        
+      nn1.S2:
+        nn1.d=nn1.S3;
+        multiply.asel=0;
+        multiply.ale=1;
+        multiply.bsel=1;
+        multiply.ble=1;
+      nn1.S3:
+        nn1.d=nn1.S3;
+        multiply.asel=0;
+        multiply.ale=0;
+        multiply.bsel=0;
+        multiply.ble=0;
+    }
+    
+  }
+}

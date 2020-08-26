@@ -1,0 +1,24 @@
+module lightbox (
+    input clk,
+    input b,     // lightbox has only one input button
+    output out   // and one output 
+  ) {
+  
+  .clk(clk){
+  fsm lb={OFF,ON};
+  }
+  always {
+    lb.d=lb.q;
+    out=0;
+    case(lb.q){
+      lb.ON:
+        if (b==1)
+          lb.d=lb.OFF;
+        out=1;
+      lb.OFF:
+        if (b==1)
+          lb.d=lb.ON;
+        out=0;
+    }
+  }
+}

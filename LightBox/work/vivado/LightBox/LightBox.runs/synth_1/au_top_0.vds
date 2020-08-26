@@ -1,0 +1,464 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Tue Aug 25 00:41:40 2020
+# Process ID: 8144
+# Current directory: C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/vivado/LightBox/LightBox.runs/synth_1
+# Command line: vivado.exe -log au_top_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source au_top_0.tcl
+# Log file: C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/vivado/LightBox/LightBox.runs/synth_1/au_top_0.vds
+# Journal file: C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/vivado/LightBox/LightBox.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source au_top_0.tcl -notrace
+Command: synth_design -top au_top_0 -part xc7a35tftg256-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tftg256-1
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 9380 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 769.105 ; gain = 234.777
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'au_top_0' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/vivado/LightBox/LightBox.srcs/sources_1/imports/verilog/au_top_0.v:7]
+INFO: [Synth 8-6157] synthesizing module 'reset_conditioner_1' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/vivado/LightBox/LightBox.srcs/sources_1/imports/verilog/reset_conditioner_1.v:11]
+	Parameter STAGES bound to: 3'b100 
+INFO: [Synth 8-6155] done synthesizing module 'reset_conditioner_1' (1#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/vivado/LightBox/LightBox.srcs/sources_1/imports/verilog/reset_conditioner_1.v:11]
+INFO: [Synth 8-6157] synthesizing module 'button_conditioner_2' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/vivado/LightBox/LightBox.srcs/sources_1/imports/verilog/button_conditioner_2.v:13]
+	Parameter CLK_FREQ bound to: 26'b10111110101111000010000000 
+	Parameter MIN_DELAY bound to: 5'b10100 
+	Parameter NUM_SYNC bound to: 2'b10 
+INFO: [Synth 8-6157] synthesizing module 'pipeline_5' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/vivado/LightBox/LightBox.srcs/sources_1/imports/verilog/pipeline_5.v:11]
+	Parameter DEPTH bound to: 2'b10 
+INFO: [Synth 8-6155] done synthesizing module 'pipeline_5' (2#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/vivado/LightBox/LightBox.srcs/sources_1/imports/verilog/pipeline_5.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'button_conditioner_2' (3#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/vivado/LightBox/LightBox.srcs/sources_1/imports/verilog/button_conditioner_2.v:13]
+INFO: [Synth 8-6157] synthesizing module 'edge_detector_3' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/vivado/LightBox/LightBox.srcs/sources_1/imports/verilog/edge_detector_3.v:12]
+	Parameter RISE bound to: 1'b1 
+	Parameter FALL bound to: 1'b0 
+INFO: [Synth 8-6155] done synthesizing module 'edge_detector_3' (4#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/vivado/LightBox/LightBox.srcs/sources_1/imports/verilog/edge_detector_3.v:12]
+INFO: [Synth 8-6157] synthesizing module 'lightbox_4' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/vivado/LightBox/LightBox.srcs/sources_1/imports/verilog/lightbox_4.v:7]
+	Parameter OFF_lb bound to: 1'b0 
+	Parameter ON_lb bound to: 1'b1 
+INFO: [Synth 8-6155] done synthesizing module 'lightbox_4' (5#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/vivado/LightBox/LightBox.srcs/sources_1/imports/verilog/lightbox_4.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'au_top_0' (6#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/vivado/LightBox/LightBox.srcs/sources_1/imports/verilog/au_top_0.v:7]
+WARNING: [Synth 8-3917] design au_top_0 has port led[7] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[6] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[5] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[4] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[3] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[2] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[1] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[0] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[23] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[22] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[21] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[20] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[19] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[18] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[17] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[16] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[15] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[14] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[13] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[12] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[11] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[10] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[9] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[8] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[7] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[6] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[5] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[4] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[3] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[2] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[1] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[7] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[6] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[5] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[4] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[3] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[2] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[1] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[0] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[3] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[2] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[1] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[0] driven by constant 1
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[3]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[2]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[1]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[0]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[23]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[22]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[21]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[20]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[19]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[18]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[17]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[16]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[15]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[14]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[13]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[12]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[11]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[10]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[9]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[8]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[7]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[6]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[5]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[4]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[3]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[2]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[1]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[0]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 842.320 ; gain = 307.992
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 842.320 ; gain = 307.992
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 842.320 ; gain = 307.992
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 842.320 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/constraint/alchitry.xdc]
+Finished Parsing XDC File [C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/constraint/alchitry.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/constraint/alchitry.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/au_top_0_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/au_top_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/constraint/io.xdc]
+Finished Parsing XDC File [C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/constraint/io.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/constraint/io.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/au_top_0_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/au_top_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [C:/Program Files/Alchitry/Alchitry Labs/library/components/au.xdc]
+Finished Parsing XDC File [C:/Program Files/Alchitry/Alchitry Labs/library/components/au.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 924.441 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 924.441 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 924.441 ; gain = 390.113
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tftg256-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 924.441 ; gain = 390.113
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 924.441 ; gain = 390.113
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 924.441 ; gain = 390.113
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module reset_conditioner_1 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 1     
+Module pipeline_5 
+Detailed RTL Component Info : 
++---Registers : 
+	                2 Bit    Registers := 1     
+Module edge_detector_3 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module lightbox_4 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-3917] design au_top_0 has port led[7] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[6] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[5] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[4] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[3] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[2] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[1] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[0] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[23] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[22] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[21] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[20] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[19] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[18] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[17] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[16] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[15] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[14] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[13] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[12] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[11] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[10] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[9] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[8] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[7] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[6] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[5] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[4] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[3] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[2] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[1] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[7] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[6] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[5] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[4] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[3] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[2] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[1] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[0] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[3] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[2] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[1] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[0] driven by constant 1
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port rst_n
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[3]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[2]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[1]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[0]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[23]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[22]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[21]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[20]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[19]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[18]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[17]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[16]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[15]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[14]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[13]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[12]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[11]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[10]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[9]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[8]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[7]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[6]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[5]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[4]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[3]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[2]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[1]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[0]
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 924.441 ; gain = 390.113
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 924.441 ; gain = 390.113
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 932.742 ; gain = 398.414
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 932.742 ; gain = 398.414
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 939.570 ; gain = 405.242
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 939.570 ; gain = 405.242
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 939.570 ; gain = 405.242
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 939.570 ; gain = 405.242
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 939.570 ; gain = 405.242
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 939.570 ; gain = 405.242
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |     5|
+|3     |LUT1   |     3|
+|4     |LUT3   |     1|
+|5     |LUT4   |     5|
+|6     |LUT5   |     1|
+|7     |FDRE   |    24|
+|8     |IBUF   |     3|
+|9     |OBUF   |    45|
++------+-------+------+
+
+Report Instance Areas: 
++------+-----------+---------------------+------+
+|      |Instance   |Module               |Cells |
++------+-----------+---------------------+------+
+|1     |top        |                     |    88|
+|2     |  btn_cond |button_conditioner_2 |    37|
+|3     |    sync   |pipeline_5           |     3|
+|4     |  edge_dt  |edge_detector_3      |     1|
+|5     |  lb       |lightbox_4           |     1|
++------+-----------+---------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 939.570 ; gain = 405.242
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 72 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:25 . Memory (MB): peak = 939.570 ; gain = 323.121
+Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 939.570 ; gain = 405.242
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 939.570 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 5 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 949.777 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+25 Infos, 143 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 949.777 ; gain = 656.398
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 949.777 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/NatalieAgus/Desktop/Alchitry Projects/LightBox/work/vivado/LightBox/LightBox.runs/synth_1/au_top_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file au_top_0_utilization_synth.rpt -pb au_top_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue Aug 25 00:42:15 2020...

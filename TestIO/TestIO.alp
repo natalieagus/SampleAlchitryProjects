@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="TestIO" board="Alchitry Au" language="Lucid" version="2">
+  <files>
+    <src>multi_dec_ctr.luc</src>
+    <src>seven_seg.luc</src>
+    <component>counter.luc</component>
+    <src top="true">au_top.luc</src>
+    <src>multi_seven_seg.luc</src>
+    <component>reset_conditioner.luc</component>
+    <component>decoder.luc</component>
+    <component>edge_detector.luc</component>
+    <src>decimal_counter.luc</src>
+    <constraint lib="true">alchitry.acf</constraint>
+    <constraint lib="true">io.acf</constraint>
+    <constraint lib="true">au.xdc</constraint>
+  </files>
+</project>

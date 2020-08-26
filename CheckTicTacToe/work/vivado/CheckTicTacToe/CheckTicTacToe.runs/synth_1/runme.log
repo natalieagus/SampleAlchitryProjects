@@ -1,0 +1,527 @@
+
+*** Running vivado
+    with args -log au_top_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source au_top_0.tcl
+
+
+****** Vivado v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source au_top_0.tcl -notrace
+Command: synth_design -top au_top_0 -part xc7a35tftg256-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tftg256-1
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 11260 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 769.488 ; gain = 234.785
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'au_top_0' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/au_top_0.v:7]
+INFO: [Synth 8-6157] synthesizing module 'reset_conditioner_1' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/reset_conditioner_1.v:11]
+	Parameter STAGES bound to: 3'b100 
+INFO: [Synth 8-6155] done synthesizing module 'reset_conditioner_1' (1#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/reset_conditioner_1.v:11]
+INFO: [Synth 8-6157] synthesizing module 'button_conditioner_2' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/button_conditioner_2.v:13]
+	Parameter CLK_FREQ bound to: 26'b10111110101111000010000000 
+	Parameter MIN_DELAY bound to: 5'b10100 
+	Parameter NUM_SYNC bound to: 2'b10 
+INFO: [Synth 8-6157] synthesizing module 'pipeline_5' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/pipeline_5.v:11]
+	Parameter DEPTH bound to: 2'b10 
+INFO: [Synth 8-6155] done synthesizing module 'pipeline_5' (2#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/pipeline_5.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'button_conditioner_2' (3#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/button_conditioner_2.v:13]
+INFO: [Synth 8-6157] synthesizing module 'edge_detector_3' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/edge_detector_3.v:12]
+	Parameter RISE bound to: 1'b1 
+	Parameter FALL bound to: 1'b1 
+INFO: [Synth 8-6155] done synthesizing module 'edge_detector_3' (4#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/edge_detector_3.v:12]
+INFO: [Synth 8-6157] synthesizing module 'checktest_4' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/checktest_4.v:7]
+	Parameter INIT_loadcheck bound to: 3'b000 
+	Parameter S1_loadcheck bound to: 3'b001 
+	Parameter S2_loadcheck bound to: 3'b010 
+	Parameter S3_loadcheck bound to: 3'b011 
+	Parameter S4_loadcheck bound to: 3'b100 
+	Parameter END_loadcheck bound to: 3'b101 
+	Parameter IDLE_loadcheck bound to: 3'b110 
+	Parameter ORALUFN bound to: 6'b011110 
+	Parameter ANDALUFN bound to: 6'b011000 
+	Parameter AALUFN bound to: 6'b011010 
+	Parameter CMPEQALUFN bound to: 6'b110011 
+INFO: [Synth 8-6157] synthesizing module 'counter_6' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/counter_6.v:14]
+	Parameter SIZE bound to: 1'b1 
+	Parameter DIV bound to: 5'b11000 
+	Parameter TOP bound to: 1'b0 
+	Parameter UP bound to: 1'b1 
+	Parameter MAX_VALUE bound to: 25'b0111111111111111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'counter_6' (5#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/counter_6.v:14]
+INFO: [Synth 8-6157] synthesizing module 'checkplace_7' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/checkplace_7.v:7]
+INFO: [Synth 8-6157] synthesizing module 'register_8' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/registers_8.v:11]
+	Parameter WIDTH bound to: 4'b1001 
+INFO: [Synth 8-6155] done synthesizing module 'register_8' (6#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/registers_8.v:11]
+INFO: [Synth 8-6157] synthesizing module 'alu16_9' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/alu16_9.v:7]
+INFO: [Synth 8-6157] synthesizing module 'adder16_10' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/adder16_10.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'adder16_10' (7#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/adder16_10.v:7]
+INFO: [Synth 8-6157] synthesizing module 'shifter16_11' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/shifter16_11.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'shifter16_11' (8#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/shifter16_11.v:7]
+INFO: [Synth 8-6157] synthesizing module 'compare16_12' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/compare16_12.v:7]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/compare16_12.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'compare16_12' (9#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/compare16_12.v:7]
+INFO: [Synth 8-6157] synthesizing module 'bool16_13' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/bool16_13.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'bool16_13' (10#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/bool16_13.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'alu16_9' (11#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/alu16_9.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'checkplace_7' (12#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/checkplace_7.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'checktest_4' (13#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/checktest_4.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'au_top_0' (14#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/au_top_0.v:7]
+WARNING: [Synth 8-3917] design au_top_0 has port led[7] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[6] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[5] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[4] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[3] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[2] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[1] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[0] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[7] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[6] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[5] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[4] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[3] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[2] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[1] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[0] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[3] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[2] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[1] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[0] driven by constant 1
+WARNING: [Synth 8-3331] design shifter16_11 has unconnected port b[15]
+WARNING: [Synth 8-3331] design shifter16_11 has unconnected port b[14]
+WARNING: [Synth 8-3331] design shifter16_11 has unconnected port b[13]
+WARNING: [Synth 8-3331] design shifter16_11 has unconnected port b[12]
+WARNING: [Synth 8-3331] design shifter16_11 has unconnected port b[11]
+WARNING: [Synth 8-3331] design shifter16_11 has unconnected port b[10]
+WARNING: [Synth 8-3331] design shifter16_11 has unconnected port b[9]
+WARNING: [Synth 8-3331] design shifter16_11 has unconnected port b[8]
+WARNING: [Synth 8-3331] design shifter16_11 has unconnected port b[7]
+WARNING: [Synth 8-3331] design shifter16_11 has unconnected port b[6]
+WARNING: [Synth 8-3331] design shifter16_11 has unconnected port b[5]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[4]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[3]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[2]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[1]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[23]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[22]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[21]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[20]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[19]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[18]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[17]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[16]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[15]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[14]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[13]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[12]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[11]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[10]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[9]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 842.746 ; gain = 308.043
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 842.746 ; gain = 308.043
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 842.746 ; gain = 308.043
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 842.746 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/constraint/alchitry.xdc]
+Finished Parsing XDC File [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/constraint/alchitry.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/constraint/alchitry.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/au_top_0_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/au_top_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/constraint/io.xdc]
+Finished Parsing XDC File [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/constraint/io.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/constraint/io.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/au_top_0_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/au_top_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [C:/Program Files/Alchitry/Alchitry Labs/library/components/au.xdc]
+Finished Parsing XDC File [C:/Program Files/Alchitry/Alchitry Labs/library/components/au.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 939.266 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 939.266 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 939.266 ; gain = 404.563
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tftg256-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 939.266 ; gain = 404.563
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 939.266 ; gain = 404.563
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.srcs/sources_1/imports/verilog/adder16_10.v:24]
+INFO: [Synth 8-802] inferred FSM for state register 'M_loadcheck_q_reg' in module 'checktest_4'
+INFO: [Synth 8-5544] ROM "debug" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "M_check_alufn" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+          INIT_loadcheck |                              000 |                              000
+            S1_loadcheck |                              001 |                              001
+            S2_loadcheck |                              010 |                              010
+            S3_loadcheck |                              011 |                              011
+            S4_loadcheck |                              100 |                              100
+          IDLE_loadcheck |                              101 |                              110
+           END_loadcheck |                              110 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'M_loadcheck_q_reg' using encoding 'sequential' in module 'checktest_4'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 939.266 ; gain = 404.563
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     16 Bit       Adders := 1     
+	   3 Input      1 Bit       Adders := 1     
++---XORs : 
+	   2 Input     16 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	                9 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   4 Input     16 Bit        Muxes := 3     
+	   4 Input      9 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 1     
+	   7 Input      9 Bit        Muxes := 1     
+	   7 Input      8 Bit        Muxes := 1     
+	   7 Input      6 Bit        Muxes := 1     
+	   7 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 2     
+	   4 Input      1 Bit        Muxes := 16    
+	   7 Input      1 Bit        Muxes := 6     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module reset_conditioner_1 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 1     
+Module pipeline_5 
+Detailed RTL Component Info : 
++---Registers : 
+	                2 Bit    Registers := 1     
+Module edge_detector_3 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module register_8 
+Detailed RTL Component Info : 
++---Registers : 
+	                9 Bit    Registers := 1     
+Module adder16_10 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     16 Bit       Adders := 1     
+	   3 Input      1 Bit       Adders := 1     
++---XORs : 
+	   2 Input     16 Bit         XORs := 1     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+Module shifter16_11 
+Detailed RTL Component Info : 
++---Muxes : 
+	   4 Input     16 Bit        Muxes := 1     
+Module compare16_12 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Muxes : 
+	   4 Input     16 Bit        Muxes := 1     
+Module bool16_13 
+Detailed RTL Component Info : 
++---Muxes : 
+	   4 Input      1 Bit        Muxes := 16    
+Module alu16_9 
+Detailed RTL Component Info : 
++---Muxes : 
+	   4 Input     16 Bit        Muxes := 1     
+Module checkplace_7 
+Detailed RTL Component Info : 
++---Muxes : 
+	   4 Input      9 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 1     
+Module checktest_4 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   7 Input      9 Bit        Muxes := 1     
+	   7 Input      8 Bit        Muxes := 1     
+	   7 Input      6 Bit        Muxes := 1     
+	   7 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 1     
+	   7 Input      1 Bit        Muxes := 6     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-3917] design au_top_0 has port led[7] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[6] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[5] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[4] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[3] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[2] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[1] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port led[0] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[7] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[6] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[5] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[4] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[3] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[2] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[1] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[0] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[3] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[2] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[1] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[0] driven by constant 1
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port rst_n
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[4]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[3]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[2]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[1]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[23]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[22]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[21]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[20]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[19]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[18]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[17]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[16]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[15]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[14]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[13]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[12]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[11]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[10]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[9]
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 939.266 ; gain = 404.563
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 939.266 ; gain = 404.563
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 939.422 ; gain = 404.719
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 940.578 ; gain = 405.875
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 947.363 ; gain = 412.660
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 947.363 ; gain = 412.660
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 947.363 ; gain = 412.660
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 947.363 ; gain = 412.660
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 947.363 ; gain = 412.660
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 947.363 ; gain = 412.660
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    15|
+|3     |LUT1   |     3|
+|4     |LUT2   |     5|
+|5     |LUT3   |     8|
+|6     |LUT4   |    17|
+|7     |LUT5   |    10|
+|8     |LUT6   |    18|
+|9     |FDRE   |    70|
+|10    |IBUF   |    12|
+|11    |OBUF   |    45|
++------+-------+------+
+
+Report Instance Areas: 
++------+-----------------+---------------------+------+
+|      |Instance         |Module               |Cells |
++------+-----------------+---------------------+------+
+|1     |top              |                     |   204|
+|2     |  btn_cond       |button_conditioner_2 |    39|
+|3     |    sync         |pipeline_5           |     3|
+|4     |  button_pressed |edge_detector_3      |     1|
+|5     |  checkfsm       |checktest_4          |   106|
+|6     |    check        |checkplace_7         |    61|
+|7     |      alu        |alu16_9              |    28|
+|8     |      p1reg      |register_8           |    14|
+|9     |      p2reg      |register_8_0         |    19|
+|10    |    sclk         |counter_6            |    33|
++------+-----------------+---------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 947.363 ; gain = 412.660
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 40 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:23 . Memory (MB): peak = 947.363 ; gain = 316.141
+Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 947.363 ; gain = 412.660
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 952.766 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 15 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 959.250 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+47 Infos, 90 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 959.250 ; gain = 661.746
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 959.250 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/NatalieAgus/Desktop/Alchitry Projects/CheckTicTacToe/work/vivado/CheckTicTacToe/CheckTicTacToe.runs/synth_1/au_top_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file au_top_0_utilization_synth.rpt -pb au_top_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Aug 26 14:26:56 2020...

@@ -1,0 +1,54 @@
+module multnn1 (
+    input clk,
+    input rst,
+    input ale,
+    input ble,
+    input asel,
+    input bsel,
+    input n[8],
+    output debug[8],
+    output debug1[8],
+    output out[8]
+  ) {
+  
+  sig regAout[8];
+  sig regBout[8];
+  sig regAin[8];
+  sig regBin[8];
+  sig mulOut[8];
+  sig subOut[8];
+  
+  .clk(clk){
+  .rst(rst){
+    register regA(#WIDTH(8));
+    register regB(#WIDTH(8));
+  }
+  }
+  always {
+    regA.en=ale;
+    regB.en=ble;
+
+    regAout=regA.out;
+    regBout=regB.out;
+    out=regAout;
+    
+    mulOut=regAout*regBout;
+    subOut=regBout-1;
+    
+    if(asel==0)
+      regAin=mulOut;
+    else
+      regAin=8b1;
+      
+    if (bsel==0)
+      regBin=n;
+    else
+      regBin=subOut;
+      
+    regA.data=regAin;
+    regB.data=regBin;
+    
+    debug=regBout;
+    debug1=regAout;
+  }
+}

@@ -1,0 +1,147 @@
+module checktest (
+    input clk,  // clock
+    input rst,  // reset
+    input user[9],
+    output out[16],
+    output debug[8]
+  ) {
+  
+  .clk(clk){
+    .rst(rst){
+      counter sclk(#SIZE(1),#DIV(24));
+
+    }
+    dff btn;
+    
+  }
+  .clk(sclk.value){
+    fsm loadcheck = {INIT, S1, S2, S3, S4, END, IDLE};
+  }
+  
+  checkplace check(.clk(clk), .rst(rst));
+  const ORALUFN = 6b011110;
+  const ANDALUFN = 6b011000;
+  const AALUFN = 6b011010;
+  const CMPEQALUFN = 6b110011;
+  
+  always {
+  
+    if (btn.q == 0 && rst==1){
+      btn.d = 1;
+    }
+
+    check.p1en = 0;
+    check.p2en = 0;
+    check.alufn = 0;
+    
+    
+    out = check.aluout;
+    
+    // all winning mask
+    // 9b000000111
+    // 9b000111000
+    // 9b111000000
+    // 9b100010001
+    // 9b001010101
+    // 9b100100100
+    // 9b010010010
+    // 9b001001001
+    
+    
+    check.user = 0;
+    
+    case(loadcheck.q){
+      loadcheck.INIT: //store user into p1 
+        if (btn.q == 1){
+          btn.d = 0; //reset
+        }
+        check.psel = 0;
+        check.asel = 0; 
+        check.p1en = 1;
+        check.p2en = 0;
+        check.user = user;
+        check.alufn = AALUFN;
+        debug = b00000000;
+        loadcheck.d = loadcheck.S1;
+        
+      loadcheck.S1:
+        check.psel = 0;
+        check.asel = 0;
+        check.p1en = 0;
+        check.p2en = 1;
+        check.user = 9b000000111;
+        check.alufn = ANDALUFN;
+        debug = b00000001;
+        loadcheck.d = loadcheck.S2;
+        
+      loadcheck.S2:
+        check.psel = 1;
+        check.asel = 0;
+        check.p1en = 0;
+        check.p2en = 0;
+        check.user = 9b000000111;
+        check.alufn = CMPEQALUFN;
+        debug = b00000011;
+        
+        if (check.aluout != 1){
+          loadcheck.d = loadcheck.S3;
+        } else {
+          loadcheck.d = loadcheck.END;
+        } 
+        
+        
+      loadcheck.S3:
+        check.psel = 0;
+        check.asel = 0;
+        check.p1en = 0;
+        check.p2en = 1;
+        check.user = 9b000111000;
+        check.alufn = ANDALUFN;
+        debug = b00000111;
+        loadcheck.d = loadcheck.S4;
+        
+      loadcheck.S4:
+        check.psel = 1;
+        check.asel = 0;
+        check.p1en = 0;
+        check.p2en = 0;
+        check.user = 9b000111000;
+        check.alufn = CMPEQALUFN;
+        debug = b00001111;
+        
+        if (check.aluout != 1){
+          loadcheck.d = loadcheck.IDLE;
+        } else {
+          loadcheck.d = loadcheck.END;
+        } 
+        
+      loadcheck.IDLE:
+        check.psel = 0;
+        check.asel = 0;
+        check.p1en = 0;
+        check.p2en = 0;
+        debug = b11111111;
+        if (btn.q ==1){
+            loadcheck.d = loadcheck.INIT;
+        }
+          
+      loadcheck.END:
+        debug = b01010101;
+        check.psel = 0;
+        check.asel = 0;
+        check.p1en = 0;
+        check.p2en = 0;
+        if (btn.q ==1){
+            loadcheck.d = loadcheck.INIT;
+        }
+      default:
+        check.user = 0;
+        check.psel = 0;
+        check.asel = 0;
+        check.p1en = 0;
+        check.p2en = 0; 
+        check.alufn = AALUFN;
+        debug = b00000000;
+    }
+  }
+}

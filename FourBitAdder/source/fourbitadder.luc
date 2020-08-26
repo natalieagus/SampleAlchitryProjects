@@ -1,0 +1,10 @@
+module fourbitadder (
+    input a[4], //4-bit input
+    input b[4],
+    output out[5] //5-bit output
+  ) {
+
+  always {
+    out = a+b; // add the two input
+  }
+}

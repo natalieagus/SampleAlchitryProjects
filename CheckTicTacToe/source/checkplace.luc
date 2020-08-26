@@ -1,0 +1,53 @@
+module checkplace (
+    input clk,  // clock
+    input rst,  // reset
+    input psel,
+    input asel[2],
+    input user[9],
+    input p1en,
+    input p2en,
+    input alufn[6],
+    output p1[9],
+    output p2[9],
+    output aluout[16],
+    output debug[9]
+  ) {
+
+  .clk(clk){
+    .rst(rst){
+      
+        register p1reg(#WIDTH(9));
+        register p2reg(#WIDTH(9));
+    }
+  }
+  
+  alu16 alu;
+  always {
+    p1reg.en = p1en;
+    p2reg.en = p2en;
+    debug = alufn;
+    alu.alufn = alufn;
+    
+    alu.a=0;
+    alu.b = 0;
+    
+    p1reg.data = alu.out[8:0];
+    p2reg.data = alu.out[8:0];
+    
+    case(psel){
+      0: alu.b[8:0] = p1reg.out;
+      1: alu.b[8:0] = p2reg.out;
+    }
+    
+    case(asel){
+      0: alu.a[8:0] = user;
+      1: alu.a[8:0] = p1reg.out;
+      2: alu.a[8:0] = p2reg.out;
+      default: alu.a[8:0] = user;
+    }
+    
+    p1 = p1reg.out;
+    p2 = p2reg.out;
+    aluout = alu.out;
+  }
+}

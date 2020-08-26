@@ -1,0 +1,16 @@
+module shifter16 (
+    input a[16],
+    input b[16],
+    input alufn10[2],
+    output out[16]
+  ) {
+
+  always {
+    case (alufn10){
+      b00: out = a << b[4:0];
+      b01: out = a >> b[4:0];
+      b11: out = a >>> b[4:0];
+      default: out = a;
+    }
+  }
+}

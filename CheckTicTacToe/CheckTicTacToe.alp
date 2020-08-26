@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="CheckTicTacToe" board="Alchitry Au" language="Lucid" version="2">
+  <files>
+    <src>bool16.luc</src>
+    <component>pipeline.luc</component>
+    <component>counter.luc</component>
+    <src>alu16.luc</src>
+    <src>registers.luc</src>
+    <src>compare16.luc</src>
+    <src top="true">au_top.luc</src>
+    <src>checkplace.luc</src>
+    <src>shifter16.luc</src>
+    <src>checktest.luc</src>
+    <component>reset_conditioner.luc</component>
+    <component>edge_detector.luc</component>
+    <src>adder16.luc</src>
+    <component>button_conditioner.luc</component>
+    <constraint lib="true">alchitry.acf</constraint>
+    <constraint lib="true">io.acf</constraint>
+    <constraint lib="true">au.xdc</constraint>
+  </files>
+</project>

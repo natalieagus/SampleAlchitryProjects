@@ -1,0 +1,48 @@
+module alu16 (
+    input a[16],
+    input b[16],
+    input alufn[6],
+    output out[16],
+    output z,
+    output v,
+    output n
+  ) {
+  
+  adder16 adder;
+  shifter16 shifter;
+  compare16 comparator;
+  bool16 bool;
+  
+  always {
+    out = 0;
+    
+    adder.alufn0 = alufn[0];
+    adder.a = a;
+    adder.b = b;
+    z = adder.z;
+    v = adder.v;
+    n = adder.n;
+    
+    shifter.alufn10 = alufn[1:0];
+    shifter.a = a;
+    shifter.b = b;
+    
+    bool.a = a;
+    bool.b = b;
+    bool.alufn30 = alufn[3:0];
+    
+    comparator.z = adder.z;
+    comparator.v = adder.v;
+    comparator.n = adder.n;
+    comparator.alufn21 = alufn[2:1];
+    
+    case (alufn[5:4]){
+      b00: out = adder.out;
+      b01: out = bool.out;
+      b10: out = shifter.out;
+      b11: out = comparator.out;
+    }
+    
+    
+  }
+}

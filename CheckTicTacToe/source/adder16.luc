@@ -1,0 +1,36 @@
+module adder16 (
+    input alufn0,
+    input a[16],
+    input b[16],
+    output out[16],
+    output z,
+    output v,
+    output n
+  ) {
+  
+  sig sum[16];
+  sig xb[16];
+  
+  always {
+    if (alufn0 == 0){
+        sum = $signed(a) + $signed(b); 
+    }
+    else{
+        sum = $signed(a) - $signed(b);
+    }
+    
+    if (sum ==0){
+        z = 1;
+    }
+    else{
+        z = 0;
+    }
+    
+    n = sum[15];
+    
+    out = sum;
+    xb = b ^ alufn0;
+    v = a[15] & xb[15] & ~sum[15] + ~a[15] & ~xb[15] & sum[15];   
+    
+  }
+}

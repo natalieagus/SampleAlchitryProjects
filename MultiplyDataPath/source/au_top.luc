@@ -1,0 +1,116 @@
+module au_top (
+    input clk,              // 100MHz clock
+    input rst_n,            // reset button (active low)
+    output led [8],         // 8 user controllable LEDs
+    input usb_rx,           // USB->Serial input
+    output usb_tx,          // USB->Serial output
+    output io_led [3][8],   // LEDs on IO Shield
+    output io_seg [8],      // 7-segment LEDs on IO Shield
+    output io_sel [4],      // Digit select on IO Shield
+    input io_button [5],    // 5 buttons on IO Shield
+    input io_dip [3][8]     // DIP switches on IO Shield
+  ) {
+  
+ sig rst;                  // reset signal
+  
+  .clk(clk) {
+    // The reset conditioner is used to synchronize the reset signal to the FPGA
+    // clock. This ensures the entire FPGA comes out of reset at the same time.
+    reset_conditioner reset_cond;
+    button_conditioner btn;
+    edge_detector edge;
+    dff pressed;
+    .rst(rst){
+      
+      counter sclk(#SIZE(1),#DIV(26));
+
+    }
+  }
+  .clk(sclk.value){
+    .rst(rst){
+      fsm nn1(#INIT(S0))={S0,S1,S2,S3};
+      multnn1 multiply;
+    }
+  }
+  
+  always {
+    reset_cond.in = ~rst_n; // input raw inverted reset signal
+    rst = reset_cond.out;   // conditioned reset
+    
+    usb_tx = usb_rx;        // loop serial port
+    
+    led = 8h00;             // turn LEDs off
+    
+    io_led = 3x{{8h00}};    // turn LEDs off
+    io_seg = 8hff;          // turn segments off
+    io_sel = 4hf;           // select no digits
+    
+    btn.in=io_button[0];
+    edge.in=btn.out;
+    
+    // The clock to the nn1 is slower than the system clock
+    // We need a dff to hold a button press value to reset nn1
+    // The dff will output the button press value until nn1 saw it at S3 
+    // It wont be cleared right away at S3. if we do, then the dff is 
+    // cleared immediately before nn1.d "remembers" it has to go to S1
+    // We need to wait until nn1 reaches S0 before clearing it
+    if (edge.out == 1 && pressed.q == 0){ //register to contain button press
+      pressed.d = edge.out;
+    }
+    led[7] = pressed.q;
+
+      
+    multiply.n=io_dip[0];
+        
+    multiply.asel=0;
+    multiply.ale=0;
+    multiply.bsel=0;
+    multiply.ble=0;
+
+  
+    
+    io_led[0]=io_dip[0];
+    io_led[2]=multiply.out;
+    
+    led[4:0] = io_button;
+    
+    
+    case(nn1.q){
+      nn1.S0:
+        if(pressed.q==1){
+            pressed.d = 0; //clear it
+        }
+        io_led[1]=b00000001;
+        nn1.d=nn1.S1;
+        multiply.asel=1;
+        multiply.ale=1;
+        multiply.bsel=0;
+        multiply.ble=1;
+      nn1.S1:
+        io_led[1]=b00000011;
+        nn1.d=nn1.S2;
+        multiply.asel=0;
+        multiply.ale=1;
+        multiply.bsel=1;
+        multiply.ble=1;
+        
+      nn1.S2:
+        io_led[1]=b00000111;
+        nn1.d=nn1.S3;
+        multiply.asel=0;
+        multiply.ale=1;
+        multiply.bsel=1;
+        multiply.ble=1;
+      nn1.S3:
+        io_led[1]=b00001111;
+        nn1.d=nn1.S3;
+        multiply.asel=0;
+        multiply.ale=0;
+        multiply.bsel=0;
+        multiply.ble=0;
+        if(pressed.q==1){
+            nn1.d=nn1.S0; //switch to next state
+       }
+    }
+  }
+}
