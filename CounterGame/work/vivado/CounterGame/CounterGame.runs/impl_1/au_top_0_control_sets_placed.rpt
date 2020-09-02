@@ -1,0 +1,99 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+| Date         : Wed Sep  2 22:30:14 2020
+| Host         : DESKTOP-9GBQU5S running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file au_top_0_control_sets_placed.rpt
+| Design       : au_top_0
+| Device       : xc7a35t
+-------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    21 |
+|    Minimum number of control sets                        |    21 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    52 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    21 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |     6 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     1 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     1 |
+| >= 16              |    13 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               9 |            6 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              71 |           20 |
+| Yes          | No                    | No                     |              33 |           10 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             307 |          103 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+------------------------------------------------------------+------------------------------------+------------------+----------------+
+|  Clock Signal  |                        Enable Signal                       |          Set/Reset Signal          | Slice Load Count | Bel Load Count |
++----------------+------------------------------------------------------------+------------------------------------+------------------+----------------+
+|  clk_IBUF_BUFG |                                                            | reset_cond/M_reset_cond_in         |                2 |              4 |
+|  clk_IBUF_BUFG | gameMachine/game_controlunit/M_stage_q_reg[3]_1[0]         | gameMachine/game_controlunit/SR[0] |                2 |              4 |
+|  clk_IBUF_BUFG | dec_ctr/dctr_gen_0[0].dctr/E[0]                            | gameMachine/game_controlunit/SR[0] |                1 |              4 |
+|  clk_IBUF_BUFG | dec_ctr/dctr_gen_0[2].dctr/E[0]                            | gameMachine/game_controlunit/SR[0] |                1 |              4 |
+|  clk_IBUF_BUFG | dec_ctr/dctr_gen_0[1].dctr/E[0]                            | gameMachine/game_controlunit/SR[0] |                2 |              4 |
+|  clk_IBUF_BUFG | gameMachine/game_controlunit/M_game_fsm_q[4]_i_1_n_0       | reset_cond/Q[0]                    |                4 |              5 |
+|  clk_IBUF_BUFG |                                                            |                                    |                6 |              9 |
+|  clk_IBUF_BUFG | gameMachine/vc/slowerclock/M_stage_q_reg[3]                | reset_cond/Q[0]                    |                4 |             15 |
+|  clk_IBUF_BUFG | gameMachine/game_controlunit/M_stage_q_reg[3][0]           | reset_cond/Q[0]                    |                6 |             16 |
+|  clk_IBUF_BUFG | gameMachine/game_controlunit/M_game_fsm_q_reg[0]_0[0]      | reset_cond/Q[0]                    |                8 |             16 |
+|  clk_IBUF_BUFG | gameMachine/game_controlunit/M_game_fsm_q_reg[1]_5[0]      | reset_cond/Q[0]                    |                6 |             16 |
+|  clk_IBUF_BUFG | gameMachine/game_controlunit/M_stage_q_reg[3]_7[0]         | reset_cond/Q[0]                    |                7 |             16 |
+|  clk_IBUF_BUFG | gameMachine/vc/edge_detector_seed/M_edge_detector_seed_out |                                    |                4 |             16 |
+|  clk_IBUF_BUFG | gameMachine/vc/slowerclock/M_stage_q_reg[3]                |                                    |                6 |             17 |
+|  clk_IBUF_BUFG | btn_cond_p1/sel                                            | btn_cond_p1/sync/clear             |                5 |             20 |
+|  clk_IBUF_BUFG | btn_cond_p2/M_ctr_q[0]_i_2__0_n_0                          | btn_cond_p2/sync/M_pipe_q_reg[1]_0 |                5 |             20 |
+|  clk_IBUF_BUFG | gameMachine/game_controlunit/E[0]                          | reset_cond/Q[0]                    |                9 |             23 |
+|  clk_IBUF_BUFG | gameMachine/game_controlunit/M_game_fsm_q_reg[3]_1[0]      | reset_cond/Q[0]                    |               13 |             24 |
+|  clk_IBUF_BUFG | gameMachine/game_controlunit/M_stage_q_reg[3]_6[0]         | reset_cond/Q[0]                    |               11 |             24 |
+|  clk_IBUF_BUFG |                                                            | reset_cond/Q[0]                    |               18 |             67 |
+|  clk_IBUF_BUFG | gameMachine/vc/edge_detector_rng/E[0]                      | reset_cond/Q[0]                    |               19 |             96 |
++----------------+------------------------------------------------------------+------------------------------------+------------------+----------------+
+
+

@@ -1,0 +1,57 @@
+module alu (
+    input a[16],
+    input b[16],
+    input alufn_signal[6],
+    output out[16],
+    output zvn[3]
+  ) {
+  
+  adder adderUnit;
+  boolean booleanUnit;
+  shifter shifterUnit;
+  compare compareUnit; 
+  
+  sig z;
+  sig v;
+  sig n;
+  
+  
+  always {
+    
+    adderUnit.alufn_signal = alufn_signal;
+    adderUnit.a = a;
+    adderUnit.b = b;
+    
+    z = adderUnit.z;
+    v = adderUnit.v;
+    n = adderUnit.n; 
+    
+    zvn[0] = z;
+    zvn[1] = v;
+    zvn[2] = n;
+     
+    
+    compareUnit.alufn_signal = alufn_signal;
+    compareUnit.z = z;
+    compareUnit.v = v;
+    compareUnit.n = n;
+    
+    booleanUnit.alufn_signal = alufn_signal;
+    booleanUnit.a = a;
+    booleanUnit.b = b;
+    
+    shifterUnit.alufn_signal = alufn_signal;
+    shifterUnit.a = a;
+    shifterUnit.b = b[3:0];
+    
+    case(alufn_signal[5:4]){
+      b00 : out = adderUnit.out;
+      b01 : out = booleanUnit.out;
+      b10 : out = shifterUnit.out;
+      b11 : out = compareUnit.out;
+      default: out = 16b0;
+    }
+    
+    
+  }
+}

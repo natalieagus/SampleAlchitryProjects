@@ -1,0 +1,66 @@
+module variable_counter 
+#(
+SEED = 128h843233523a613966423b622562592c62: SEED.WIDTH == 128 && SEED[95:0] != 0
+  )
+  (
+    input clk,  // clock
+    input rst,
+    output out,
+    output debug[16]
+  ) {
+
+  
+.clk(clk){
+   edge_detector edge_detector_rng;
+   edge_detector edge_detector_seed;
+   dff seed[16]; //don't reset the seed because we don't want the same random number each time we press reset
+    
+  .rst(rst){
+     counter slowclock_forvariablecounter(#SIZE(1),#DIV(21)); 
+     counter slowerclock(#SIZE(1), #DIV(26));
+     pn_gen random_number;
+    }
+ }
+  
+sig temp_pointer[4];
+  
+always {
+    out = 0;
+    random_number.seed = seed.q;
+    
+    edge_detector_rng.in = slowerclock.value;
+    random_number.next = edge_detector_rng.out;
+    
+    edge_detector_seed.in = slowclock_forvariablecounter.value;
+    
+    
+    temp_pointer = random_number.num[3:0];
+    debug = random_number.num;
+    
+    if(edge_detector_seed.out){
+      seed.d = seed.q + 1;
+    }
+    
+    case (temp_pointer[2:0]){
+      0 : out = seed.q[0];
+      1 : out = seed.q[1];
+      2 : out = seed.q[2];
+      3 : out = seed.q[3];
+      4 : out = seed.q[4];
+      5 : out = seed.q[5];
+      6 : out = seed.q[6];
+      7 : out = seed.q[7];
+      8 : out = seed.q[8];
+      9 : out = seed.q[9];
+      10 : out = seed.q[10];
+      11 : out = seed.q[11];
+      12 : out = seed.q[12];
+      13 : out = seed.q[13];
+      14 : out = seed.q[14];
+      15 : out = seed.q[15];
+      out = 0;
+      
+    }
+    
+  }
+}

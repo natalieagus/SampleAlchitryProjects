@@ -1,0 +1,16 @@
+module shifter (
+    input a[16],
+    input b[4],
+    input alufn_signal[6],
+    output out[16]
+  ) {
+
+  always {
+  case (alufn_signal){
+    default: out = a;
+    b100000: out = a << b;
+    b100001: out = a >> b;
+    b100011: out = $signed(a) >>> b;
+    }
+  }
+}

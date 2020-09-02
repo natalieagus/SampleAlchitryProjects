@@ -1,0 +1,69 @@
+module au_top (
+    input clk,              // 100MHz clock
+    input rst_n,            // reset button (active low)
+    output led [8],         // 8 user controllable LEDs
+    input usb_rx,           // USB->Serial input
+    output usb_tx,          // USB->Serial output
+    output io_led [3][8],   // LEDs on IO Shield
+    output io_seg [8],      // 7-segment LEDs on IO Shield
+    output io_sel [4],      // Digit select on IO Shield
+    input io_button [5],    // 5 buttons on IO Shield
+    input io_dip [3][8]     // DIP switches on IO Shield
+  ) {
+  
+  sig rst;                  // reset signal
+  
+  .clk(clk) {
+    // The reset conditioner is used to synchronize the reset signal to the FPGA
+    // clock. This ensures the entire FPGA comes out of reset at the same time.
+    .rst(rst){
+      multi_seven_seg seg;
+      game_miniBeta gameMachine;
+    }
+    
+    reset_conditioner reset_cond;
+
+    edge_detector edge_dt_btn_p1 (#RISE(1), #FALL(0));
+    edge_detector edge_dt_btn_p2(#RISE(1), #FALL(0));
+
+    button_conditioner btn_cond_p1;
+    button_conditioner btn_cond_p2;
+    
+    multi_dec_ctr dec_ctr;
+  }
+  
+  always {
+    reset_cond.in = ~rst_n; // input raw inverted reset signal
+    rst = reset_cond.out;   // conditioned reset
+    
+    usb_tx = usb_rx;        // loop serial port
+    
+    led = 8h00;             // turn LEDs off
+    
+    io_led = 3x{{8h00}};    // turn LEDs off
+    io_seg = 8hff;          // turn segments off
+    io_sel = 4hf;           // select no digits
+     
+    btn_cond_p1.in=io_button[4]; //to reduce the bouncing effects of your button 
+    btn_cond_p2.in=io_button[3];
+    edge_dt_btn_p1.in=btn_cond_p1.out; //get the edge of button press
+    edge_dt_btn_p2.in=btn_cond_p2.out;
+    
+    gameMachine.p1_button = edge_dt_btn_p1.out;
+    gameMachine.p2_button = edge_dt_btn_p2.out;
+    
+    //show the counter value at led   
+    io_led[2] = gameMachine.debug_out; 
+    io_led[0] = gameMachine.p1_out;    
+    io_led[1] = gameMachine.p2_out;
+    led[0] = gameMachine.debug_slowclock;
+    led[1] = gameMachine.debug_vcclock;
+    
+    //update 7segments
+    dec_ctr.inc = gameMachine.decimal_counter_increase;
+    dec_ctr.rst = gameMachine.decimal_counter_rst;
+    seg.values = dec_ctr.digits;
+    io_seg = ~seg.seg;
+    io_sel = ~seg.sel;
+  }
+}

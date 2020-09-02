@@ -1,0 +1,105 @@
+module mojo_top (
+    input clk,              // 50MHz clock
+    input rst_n,            // reset button (active low)
+    output led [8],         // 8 user controllable LEDs
+    input cclk,             // configuration clock, AVR ready when high
+    output spi_miso,        // AVR SPI MISO
+    input spi_ss,           // AVR SPI Slave Select
+    input spi_mosi,         // AVR SPI MOSI
+    input spi_sck,          // AVR SPI Clock
+    output spi_channel [4], // AVR general purpose pins (used by default to select ADC channel)
+    input avr_tx,           // AVR TX (FPGA RX)
+    output avr_rx,          // AVR RX (FPGA TX)
+    input avr_rx_busy,      // AVR RX buffer full
+    output io_led [3][8],   // LEDs on IO Shield
+    output io_seg [8],      // 7-segment LEDs on IO Shield
+    output io_sel [4],      // Digit select on IO Shield
+    input io_button [5],    // 5 buttons on IO Shield
+    input io_dip [3][8]     // DIP switches on IO Shield
+  ) {
+  
+  sig rst;                  // reset signal
+  
+  //ALU fsm tester
+  //sig a[16];
+  //sig b[16];
+  //sig alufn_signal[6];
+  //alu alu_unit;
+  //alu_tester tester_unit;
+  
+ 
+  
+  .clk(clk) {
+    // The reset conditioner is used to synchronize the reset signal to the FPGA
+    // clock. This ensures the entire FPGA comes out of reset at the same time.
+    .rst(rst){
+      multi_seven_seg seg;
+      game_miniBeta gameMachine;
+    }
+    
+    reset_conditioner reset_cond;
+
+    edge_detector edge_dt_btn_p1 (#RISE(1), #FALL(0));
+    edge_detector edge_dt_btn_p2(#RISE(1), #FALL(0));
+
+    button_conditioner btn_cond_p1;
+    button_conditioner btn_cond_p2;
+    
+    multi_dec_ctr dec_ctr;
+  }
+  
+  always {
+    reset_cond.in = ~rst_n; // input raw inverted reset signal
+    rst = reset_cond.out;   // conditioned reset
+
+    led = 8h00;             // turn LEDs off
+    spi_miso = bz;          // not using SPI
+    spi_channel = bzzzz;    // not using flags
+    avr_rx = bz;            // not using serial port
+    
+    //set all to zero
+    io_led = 3x{{8h00}};    // turn LEDs off, using duplications
+    io_seg = 8hff;          // turn segments off, setting to all 1 will turn it off
+    io_sel = 4hf;           // select no digits
+
+    btn_cond_p1.in=io_button[4]; //to reduce the bouncing effects of your button 
+    btn_cond_p2.in=io_button[3];
+    edge_dt_btn_p1.in=btn_cond_p1.out; //get the edge of button press
+    edge_dt_btn_p2.in=btn_cond_p2.out;
+    
+    gameMachine.p1_button = edge_dt_btn_p1.out;
+    gameMachine.p2_button = edge_dt_btn_p2.out;
+    
+    //show the counter value at led   
+    io_led[2] = gameMachine.debug_out; 
+    io_led[0] = gameMachine.p1_out;    
+    io_led[1] = gameMachine.p2_out;
+    led[0] = gameMachine.debug_slowclock;
+    
+    //update 7segments
+    dec_ctr.inc = gameMachine.decimal_counter_increase;
+    dec_ctr.rst = gameMachine.decimal_counter_rst;
+    seg.values = dec_ctr.digits;
+    io_seg = ~seg.seg;
+    io_sel = ~seg.sel;
+    
+    // ALU FSM tester
+//   alufn_signal = io_dip[2][5:0];
+//   a[7:0] = io_dip[0];
+//   a[15:8] = 8b0;
+//   b[15:8] = 8b0;
+//   b[7:0] = io_dip[1];
+//    tester_unit.clk = slowclock.value;
+//    tester_unit.reset = rst;
+    
+//    alu_unit.a = a;
+//    alu_unit.b = b;
+//    alu_unit.alufn_signal = tester_unit.out;
+    
+ //   io_led[0] = a;
+ //   io_led[1] = b;
+ //   io_led[2] = alu_unit.out; //the output of the ALU
+
+    
+  }
+}

@@ -1,0 +1,1554 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+| Date         : Wed Sep  2 22:30:39 2020
+| Host         : DESKTOP-9GBQU5S running 64-bit major release  (build 9200)
+| Command      : report_timing_summary -max_paths 10 -file au_top_0_timing_summary_routed.rpt -pb au_top_0_timing_summary_routed.pb -rpx au_top_0_timing_summary_routed.rpx -warn_on_violation
+| Design       : au_top_0
+| Device       : 7a35t-ftg256
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  No
+  Borrow Time for Max Delay Exceptions       :  Yes
+  Merge Timing Exceptions                    :  Yes
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock
+2. checking constant_clock
+3. checking pulse_width_clock
+4. checking unconstrained_internal_endpoints
+5. checking no_input_delay
+6. checking no_output_delay
+7. checking multiple_clock
+8. checking generated_clocks
+9. checking loops
+10. checking partial_input_delay
+11. checking partial_output_delay
+12. checking latch_loops
+
+1. checking no_clock
+--------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock
+--------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock
+-----------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints
+--------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay
+--------------------------
+ There are 3 input ports with no input delay specified. (HIGH)
+
+ There are 0 input ports with no input delay but user has a false path constraint.
+
+
+6. checking no_output_delay
+---------------------------
+ There are 37 ports with no output delay specified. (HIGH)
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock
+--------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks
+----------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops
+-----------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay
+--------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay
+---------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops
+------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+      0.083        0.000                      0                 1131        0.163        0.000                      0                 1131        4.500        0.000                       0                   421  
+
+
+All user specified timing constraints are met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock  Waveform(ns)       Period(ns)      Frequency(MHz)
+-----  ------------       ----------      --------------
+clk_0  {0.000 5.000}      10.000          100.000         
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+clk_0               0.083        0.000                      0                 1131        0.163        0.000                      0                 1131        4.500        0.000                       0                   421  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  clk_0
+  To Clock:  clk_0
+
+Setup :            0  Failing Endpoints,  Worst Slack        0.083ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.163ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.083ns  (required time - arrival time)
+  Source:                 gameMachine/game_controlunit/M_game_fsm_q_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gameMachine/players/M_p1_buttonPress_q_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        9.809ns  (logic 3.204ns (32.665%)  route 6.605ns (67.335%))
+  Logic Levels:           14  (CARRY4=3 LUT3=2 LUT4=1 LUT5=3 LUT6=5)
+  Clock Path Skew:        -0.026ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.906ns = ( 14.906 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.203ns
+    Clock Pessimism Removal (CPR):    0.271ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.972     3.488    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         1.619     5.203    gameMachine/game_controlunit/clk_IBUF_BUFG
+    SLICE_X5Y62          FDRE                                         r  gameMachine/game_controlunit/M_game_fsm_q_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X5Y62          FDRE (Prop_fdre_C_Q)         0.456     5.659 r  gameMachine/game_controlunit/M_game_fsm_q_reg[4]/Q
+                         net (fo=43, routed)          0.911     6.570    gameMachine/game_controlunit/M_game_fsm_q[4]
+    SLICE_X7Y62          LUT5 (Prop_lut5_I4_O)        0.152     6.722 f  gameMachine/game_controlunit/g0_b0/O
+                         net (fo=65, routed)          0.875     7.597    gameMachine/game_controlunit/out[0]
+    SLICE_X9Y62          LUT4 (Prop_lut4_I0_O)        0.332     7.929 f  gameMachine/game_controlunit/M_game_fsm_q[4]_i_8/O
+                         net (fo=1, routed)           0.727     8.656    gameMachine/game_controlunit/M_game_fsm_q[4]_i_8_n_0
+    SLICE_X8Y63          LUT6 (Prop_lut6_I4_O)        0.124     8.780 r  gameMachine/game_controlunit/M_game_fsm_q[4]_i_3/O
+                         net (fo=24, routed)          0.513     9.293    gameMachine/game_controlunit/M_game_fsm_q[4]_i_3_n_0
+    SLICE_X9Y61          LUT6 (Prop_lut6_I4_O)        0.124     9.417 r  gameMachine/game_controlunit/out0_carry__2_i_14/O
+                         net (fo=33, routed)          0.426     9.843    gameMachine/players/out0_carry__0_i_22
+    SLICE_X10Y61         LUT5 (Prop_lut5_I3_O)        0.124     9.967 r  gameMachine/players/out0_carry_i_44/O
+                         net (fo=1, routed)           0.403    10.370    gameMachine/game_controlunit/out0_carry_i_8_0
+    SLICE_X11Y61         LUT6 (Prop_lut6_I2_O)        0.124    10.494 r  gameMachine/game_controlunit/out0_carry_i_26/O
+                         net (fo=1, routed)           0.591    11.085    gameMachine/game_controlunit/out0_carry_i_26_n_0
+    SLICE_X8Y64          LUT3 (Prop_lut3_I1_O)        0.124    11.209 r  gameMachine/game_controlunit/out0_carry_i_8/O
+                         net (fo=1, routed)           0.000    11.209    gameMachine/game_alu/S[1]
+    SLICE_X8Y64          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    11.742 r  gameMachine/game_alu/out0_carry/CO[3]
+                         net (fo=1, routed)           0.000    11.742    gameMachine/game_alu/out0_carry_n_0
+    SLICE_X8Y65          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.859 r  gameMachine/game_alu/out0_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    11.859    gameMachine/game_alu/out0_carry__0_n_0
+    SLICE_X8Y66          CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.315    12.174 f  gameMachine/game_alu/out0_carry__1/O[3]
+                         net (fo=2, routed)           1.054    13.228    gameMachine/game_alu/M_stage_q_reg[3]_0[3]
+    SLICE_X5Y65          LUT6 (Prop_lut6_I0_O)        0.307    13.535 f  gameMachine/game_alu/M_p2_score_q[0]_i_11/O
+                         net (fo=1, routed)           0.264    13.799    gameMachine/game_alu/M_p2_score_q[0]_i_11_n_0
+    SLICE_X5Y65          LUT5 (Prop_lut5_I3_O)        0.124    13.923 r  gameMachine/game_alu/M_p2_score_q[0]_i_6/O
+                         net (fo=1, routed)           0.154    14.077    gameMachine/game_alu/M_p2_score_q[0]_i_6_n_0
+    SLICE_X5Y65          LUT3 (Prop_lut3_I2_O)        0.124    14.201 r  gameMachine/game_alu/M_p2_score_q[0]_i_4/O
+                         net (fo=1, routed)           0.287    14.488    gameMachine/game_controlunit/M_p2_score_q_reg[0]
+    SLICE_X7Y65          LUT6 (Prop_lut6_I5_O)        0.124    14.612 r  gameMachine/game_controlunit/M_p2_score_q[0]_i_1/O
+                         net (fo=9, routed)           0.400    15.012    gameMachine/players/D[0]
+    SLICE_X7Y63          FDRE                                         r  gameMachine/players/M_p1_buttonPress_q_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)     10.000    10.000 r  
+    N14                                               0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.868    13.314    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         1.502    14.906    gameMachine/players/clk_IBUF_BUFG
+    SLICE_X7Y63          FDRE                                         r  gameMachine/players/M_p1_buttonPress_q_reg[0]/C
+                         clock pessimism              0.271    15.177    
+                         clock uncertainty           -0.035    15.142    
+    SLICE_X7Y63          FDRE (Setup_fdre_C_D)       -0.047    15.095    gameMachine/players/M_p1_buttonPress_q_reg[0]
+  -------------------------------------------------------------------
+                         required time                         15.095    
+                         arrival time                         -15.012    
+  -------------------------------------------------------------------
+                         slack                                  0.083    
+
+Slack (MET) :             0.086ns  (required time - arrival time)
+  Source:                 gameMachine/game_controlunit/M_game_fsm_q_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gameMachine/players/M_p2_score_q_reg[0]_lopt_replica/D
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        9.804ns  (logic 3.204ns (32.679%)  route 6.600ns (67.321%))
+  Logic Levels:           14  (CARRY4=3 LUT3=2 LUT4=1 LUT5=3 LUT6=5)
+  Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.905ns = ( 14.905 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.203ns
+    Clock Pessimism Removal (CPR):    0.271ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.972     3.488    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         1.619     5.203    gameMachine/game_controlunit/clk_IBUF_BUFG
+    SLICE_X5Y62          FDRE                                         r  gameMachine/game_controlunit/M_game_fsm_q_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X5Y62          FDRE (Prop_fdre_C_Q)         0.456     5.659 r  gameMachine/game_controlunit/M_game_fsm_q_reg[4]/Q
+                         net (fo=43, routed)          0.911     6.570    gameMachine/game_controlunit/M_game_fsm_q[4]
+    SLICE_X7Y62          LUT5 (Prop_lut5_I4_O)        0.152     6.722 f  gameMachine/game_controlunit/g0_b0/O
+                         net (fo=65, routed)          0.875     7.597    gameMachine/game_controlunit/out[0]
+    SLICE_X9Y62          LUT4 (Prop_lut4_I0_O)        0.332     7.929 f  gameMachine/game_controlunit/M_game_fsm_q[4]_i_8/O
+                         net (fo=1, routed)           0.727     8.656    gameMachine/game_controlunit/M_game_fsm_q[4]_i_8_n_0
+    SLICE_X8Y63          LUT6 (Prop_lut6_I4_O)        0.124     8.780 r  gameMachine/game_controlunit/M_game_fsm_q[4]_i_3/O
+                         net (fo=24, routed)          0.513     9.293    gameMachine/game_controlunit/M_game_fsm_q[4]_i_3_n_0
+    SLICE_X9Y61          LUT6 (Prop_lut6_I4_O)        0.124     9.417 r  gameMachine/game_controlunit/out0_carry__2_i_14/O
+                         net (fo=33, routed)          0.426     9.843    gameMachine/players/out0_carry__0_i_22
+    SLICE_X10Y61         LUT5 (Prop_lut5_I3_O)        0.124     9.967 r  gameMachine/players/out0_carry_i_44/O
+                         net (fo=1, routed)           0.403    10.370    gameMachine/game_controlunit/out0_carry_i_8_0
+    SLICE_X11Y61         LUT6 (Prop_lut6_I2_O)        0.124    10.494 r  gameMachine/game_controlunit/out0_carry_i_26/O
+                         net (fo=1, routed)           0.591    11.085    gameMachine/game_controlunit/out0_carry_i_26_n_0
+    SLICE_X8Y64          LUT3 (Prop_lut3_I1_O)        0.124    11.209 r  gameMachine/game_controlunit/out0_carry_i_8/O
+                         net (fo=1, routed)           0.000    11.209    gameMachine/game_alu/S[1]
+    SLICE_X8Y64          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    11.742 r  gameMachine/game_alu/out0_carry/CO[3]
+                         net (fo=1, routed)           0.000    11.742    gameMachine/game_alu/out0_carry_n_0
+    SLICE_X8Y65          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.859 r  gameMachine/game_alu/out0_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    11.859    gameMachine/game_alu/out0_carry__0_n_0
+    SLICE_X8Y66          CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.315    12.174 f  gameMachine/game_alu/out0_carry__1/O[3]
+                         net (fo=2, routed)           1.054    13.228    gameMachine/game_alu/M_stage_q_reg[3]_0[3]
+    SLICE_X5Y65          LUT6 (Prop_lut6_I0_O)        0.307    13.535 f  gameMachine/game_alu/M_p2_score_q[0]_i_11/O
+                         net (fo=1, routed)           0.264    13.799    gameMachine/game_alu/M_p2_score_q[0]_i_11_n_0
+    SLICE_X5Y65          LUT5 (Prop_lut5_I3_O)        0.124    13.923 r  gameMachine/game_alu/M_p2_score_q[0]_i_6/O
+                         net (fo=1, routed)           0.154    14.077    gameMachine/game_alu/M_p2_score_q[0]_i_6_n_0
+    SLICE_X5Y65          LUT3 (Prop_lut3_I2_O)        0.124    14.201 r  gameMachine/game_alu/M_p2_score_q[0]_i_4/O
+                         net (fo=1, routed)           0.287    14.488    gameMachine/game_controlunit/M_p2_score_q_reg[0]
+    SLICE_X7Y65          LUT6 (Prop_lut6_I5_O)        0.124    14.612 r  gameMachine/game_controlunit/M_p2_score_q[0]_i_1/O
+                         net (fo=9, routed)           0.396    15.007    gameMachine/players/D[0]
+    SLICE_X4Y65          FDRE                                         r  gameMachine/players/M_p2_score_q_reg[0]_lopt_replica/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)     10.000    10.000 r  
+    N14                                               0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.868    13.314    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         1.501    14.905    gameMachine/players/clk_IBUF_BUFG
+    SLICE_X4Y65          FDRE                                         r  gameMachine/players/M_p2_score_q_reg[0]_lopt_replica/C
+                         clock pessimism              0.271    15.176    
+                         clock uncertainty           -0.035    15.141    
+    SLICE_X4Y65          FDRE (Setup_fdre_C_D)       -0.047    15.094    gameMachine/players/M_p2_score_q_reg[0]_lopt_replica
+  -------------------------------------------------------------------
+                         required time                         15.094    
+                         arrival time                         -15.007    
+  -------------------------------------------------------------------
+                         slack                                  0.086    
+
+Slack (MET) :             0.088ns  (required time - arrival time)
+  Source:                 gameMachine/game_controlunit/M_game_fsm_q_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gameMachine/players/M_p1_score_q_reg[0]_lopt_replica/D
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        9.810ns  (logic 3.204ns (32.659%)  route 6.606ns (67.341%))
+  Logic Levels:           14  (CARRY4=3 LUT3=2 LUT4=1 LUT5=3 LUT6=5)
+  Clock Path Skew:        -0.026ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.906ns = ( 14.906 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.203ns
+    Clock Pessimism Removal (CPR):    0.271ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.972     3.488    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         1.619     5.203    gameMachine/game_controlunit/clk_IBUF_BUFG
+    SLICE_X5Y62          FDRE                                         r  gameMachine/game_controlunit/M_game_fsm_q_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X5Y62          FDRE (Prop_fdre_C_Q)         0.456     5.659 r  gameMachine/game_controlunit/M_game_fsm_q_reg[4]/Q
+                         net (fo=43, routed)          0.911     6.570    gameMachine/game_controlunit/M_game_fsm_q[4]
+    SLICE_X7Y62          LUT5 (Prop_lut5_I4_O)        0.152     6.722 f  gameMachine/game_controlunit/g0_b0/O
+                         net (fo=65, routed)          0.875     7.597    gameMachine/game_controlunit/out[0]
+    SLICE_X9Y62          LUT4 (Prop_lut4_I0_O)        0.332     7.929 f  gameMachine/game_controlunit/M_game_fsm_q[4]_i_8/O
+                         net (fo=1, routed)           0.727     8.656    gameMachine/game_controlunit/M_game_fsm_q[4]_i_8_n_0
+    SLICE_X8Y63          LUT6 (Prop_lut6_I4_O)        0.124     8.780 r  gameMachine/game_controlunit/M_game_fsm_q[4]_i_3/O
+                         net (fo=24, routed)          0.513     9.293    gameMachine/game_controlunit/M_game_fsm_q[4]_i_3_n_0
+    SLICE_X9Y61          LUT6 (Prop_lut6_I4_O)        0.124     9.417 r  gameMachine/game_controlunit/out0_carry__2_i_14/O
+                         net (fo=33, routed)          0.426     9.843    gameMachine/players/out0_carry__0_i_22
+    SLICE_X10Y61         LUT5 (Prop_lut5_I3_O)        0.124     9.967 r  gameMachine/players/out0_carry_i_44/O
+                         net (fo=1, routed)           0.403    10.370    gameMachine/game_controlunit/out0_carry_i_8_0
+    SLICE_X11Y61         LUT6 (Prop_lut6_I2_O)        0.124    10.494 r  gameMachine/game_controlunit/out0_carry_i_26/O
+                         net (fo=1, routed)           0.591    11.085    gameMachine/game_controlunit/out0_carry_i_26_n_0
+    SLICE_X8Y64          LUT3 (Prop_lut3_I1_O)        0.124    11.209 r  gameMachine/game_controlunit/out0_carry_i_8/O
+                         net (fo=1, routed)           0.000    11.209    gameMachine/game_alu/S[1]
+    SLICE_X8Y64          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    11.742 r  gameMachine/game_alu/out0_carry/CO[3]
+                         net (fo=1, routed)           0.000    11.742    gameMachine/game_alu/out0_carry_n_0
+    SLICE_X8Y65          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.859 r  gameMachine/game_alu/out0_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    11.859    gameMachine/game_alu/out0_carry__0_n_0
+    SLICE_X8Y66          CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.315    12.174 f  gameMachine/game_alu/out0_carry__1/O[3]
+                         net (fo=2, routed)           1.054    13.228    gameMachine/game_alu/M_stage_q_reg[3]_0[3]
+    SLICE_X5Y65          LUT6 (Prop_lut6_I0_O)        0.307    13.535 f  gameMachine/game_alu/M_p2_score_q[0]_i_11/O
+                         net (fo=1, routed)           0.264    13.799    gameMachine/game_alu/M_p2_score_q[0]_i_11_n_0
+    SLICE_X5Y65          LUT5 (Prop_lut5_I3_O)        0.124    13.923 r  gameMachine/game_alu/M_p2_score_q[0]_i_6/O
+                         net (fo=1, routed)           0.154    14.077    gameMachine/game_alu/M_p2_score_q[0]_i_6_n_0
+    SLICE_X5Y65          LUT3 (Prop_lut3_I2_O)        0.124    14.201 r  gameMachine/game_alu/M_p2_score_q[0]_i_4/O
+                         net (fo=1, routed)           0.287    14.488    gameMachine/game_controlunit/M_p2_score_q_reg[0]
+    SLICE_X7Y65          LUT6 (Prop_lut6_I5_O)        0.124    14.612 r  gameMachine/game_controlunit/M_p2_score_q[0]_i_1/O
+                         net (fo=9, routed)           0.402    15.013    gameMachine/players/D[0]
+    SLICE_X4Y64          FDRE                                         r  gameMachine/players/M_p1_score_q_reg[0]_lopt_replica/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)     10.000    10.000 r  
+    N14                                               0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.868    13.314    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         1.502    14.906    gameMachine/players/clk_IBUF_BUFG
+    SLICE_X4Y64          FDRE                                         r  gameMachine/players/M_p1_score_q_reg[0]_lopt_replica/C
+                         clock pessimism              0.271    15.177    
+                         clock uncertainty           -0.035    15.142    
+    SLICE_X4Y64          FDRE (Setup_fdre_C_D)       -0.040    15.102    gameMachine/players/M_p1_score_q_reg[0]_lopt_replica
+  -------------------------------------------------------------------
+                         required time                         15.102    
+                         arrival time                         -15.013    
+  -------------------------------------------------------------------
+                         slack                                  0.088    
+
+Slack (MET) :             0.089ns  (required time - arrival time)
+  Source:                 gameMachine/game_controlunit/M_game_fsm_q_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gameMachine/players/M_p1_score_q_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        9.807ns  (logic 3.204ns (32.672%)  route 6.603ns (67.328%))
+  Logic Levels:           14  (CARRY4=3 LUT3=2 LUT4=1 LUT5=3 LUT6=5)
+  Clock Path Skew:        -0.026ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.906ns = ( 14.906 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.203ns
+    Clock Pessimism Removal (CPR):    0.271ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.972     3.488    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         1.619     5.203    gameMachine/game_controlunit/clk_IBUF_BUFG
+    SLICE_X5Y62          FDRE                                         r  gameMachine/game_controlunit/M_game_fsm_q_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X5Y62          FDRE (Prop_fdre_C_Q)         0.456     5.659 r  gameMachine/game_controlunit/M_game_fsm_q_reg[4]/Q
+                         net (fo=43, routed)          0.911     6.570    gameMachine/game_controlunit/M_game_fsm_q[4]
+    SLICE_X7Y62          LUT5 (Prop_lut5_I4_O)        0.152     6.722 f  gameMachine/game_controlunit/g0_b0/O
+                         net (fo=65, routed)          0.875     7.597    gameMachine/game_controlunit/out[0]
+    SLICE_X9Y62          LUT4 (Prop_lut4_I0_O)        0.332     7.929 f  gameMachine/game_controlunit/M_game_fsm_q[4]_i_8/O
+                         net (fo=1, routed)           0.727     8.656    gameMachine/game_controlunit/M_game_fsm_q[4]_i_8_n_0
+    SLICE_X8Y63          LUT6 (Prop_lut6_I4_O)        0.124     8.780 r  gameMachine/game_controlunit/M_game_fsm_q[4]_i_3/O
+                         net (fo=24, routed)          0.513     9.293    gameMachine/game_controlunit/M_game_fsm_q[4]_i_3_n_0
+    SLICE_X9Y61          LUT6 (Prop_lut6_I4_O)        0.124     9.417 r  gameMachine/game_controlunit/out0_carry__2_i_14/O
+                         net (fo=33, routed)          0.426     9.843    gameMachine/players/out0_carry__0_i_22
+    SLICE_X10Y61         LUT5 (Prop_lut5_I3_O)        0.124     9.967 r  gameMachine/players/out0_carry_i_44/O
+                         net (fo=1, routed)           0.403    10.370    gameMachine/game_controlunit/out0_carry_i_8_0
+    SLICE_X11Y61         LUT6 (Prop_lut6_I2_O)        0.124    10.494 r  gameMachine/game_controlunit/out0_carry_i_26/O
+                         net (fo=1, routed)           0.591    11.085    gameMachine/game_controlunit/out0_carry_i_26_n_0
+    SLICE_X8Y64          LUT3 (Prop_lut3_I1_O)        0.124    11.209 r  gameMachine/game_controlunit/out0_carry_i_8/O
+                         net (fo=1, routed)           0.000    11.209    gameMachine/game_alu/S[1]
+    SLICE_X8Y64          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    11.742 r  gameMachine/game_alu/out0_carry/CO[3]
+                         net (fo=1, routed)           0.000    11.742    gameMachine/game_alu/out0_carry_n_0
+    SLICE_X8Y65          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.859 r  gameMachine/game_alu/out0_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    11.859    gameMachine/game_alu/out0_carry__0_n_0
+    SLICE_X8Y66          CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.315    12.174 f  gameMachine/game_alu/out0_carry__1/O[3]
+                         net (fo=2, routed)           1.054    13.228    gameMachine/game_alu/M_stage_q_reg[3]_0[3]
+    SLICE_X5Y65          LUT6 (Prop_lut6_I0_O)        0.307    13.535 f  gameMachine/game_alu/M_p2_score_q[0]_i_11/O
+                         net (fo=1, routed)           0.264    13.799    gameMachine/game_alu/M_p2_score_q[0]_i_11_n_0
+    SLICE_X5Y65          LUT5 (Prop_lut5_I3_O)        0.124    13.923 r  gameMachine/game_alu/M_p2_score_q[0]_i_6/O
+                         net (fo=1, routed)           0.154    14.077    gameMachine/game_alu/M_p2_score_q[0]_i_6_n_0
+    SLICE_X5Y65          LUT3 (Prop_lut3_I2_O)        0.124    14.201 r  gameMachine/game_alu/M_p2_score_q[0]_i_4/O
+                         net (fo=1, routed)           0.287    14.488    gameMachine/game_controlunit/M_p2_score_q_reg[0]
+    SLICE_X7Y65          LUT6 (Prop_lut6_I5_O)        0.124    14.612 r  gameMachine/game_controlunit/M_p2_score_q[0]_i_1/O
+                         net (fo=9, routed)           0.398    15.010    gameMachine/players/D[0]
+    SLICE_X7Y64          FDRE                                         r  gameMachine/players/M_p1_score_q_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)     10.000    10.000 r  
+    N14                                               0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.868    13.314    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         1.502    14.906    gameMachine/players/clk_IBUF_BUFG
+    SLICE_X7Y64          FDRE                                         r  gameMachine/players/M_p1_score_q_reg[0]/C
+                         clock pessimism              0.271    15.177    
+                         clock uncertainty           -0.035    15.142    
+    SLICE_X7Y64          FDRE (Setup_fdre_C_D)       -0.043    15.099    gameMachine/players/M_p1_score_q_reg[0]
+  -------------------------------------------------------------------
+                         required time                         15.099    
+                         arrival time                         -15.010    
+  -------------------------------------------------------------------
+                         slack                                  0.089    
+
+Slack (MET) :             0.091ns  (required time - arrival time)
+  Source:                 gameMachine/game_controlunit/M_game_fsm_q_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gameMachine/players/M_p2_score_q_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        9.807ns  (logic 3.204ns (32.669%)  route 6.603ns (67.331%))
+  Logic Levels:           14  (CARRY4=3 LUT3=2 LUT4=1 LUT5=3 LUT6=5)
+  Clock Path Skew:        -0.026ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.906ns = ( 14.906 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.203ns
+    Clock Pessimism Removal (CPR):    0.271ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.972     3.488    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         1.619     5.203    gameMachine/game_controlunit/clk_IBUF_BUFG
+    SLICE_X5Y62          FDRE                                         r  gameMachine/game_controlunit/M_game_fsm_q_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X5Y62          FDRE (Prop_fdre_C_Q)         0.456     5.659 r  gameMachine/game_controlunit/M_game_fsm_q_reg[4]/Q
+                         net (fo=43, routed)          0.911     6.570    gameMachine/game_controlunit/M_game_fsm_q[4]
+    SLICE_X7Y62          LUT5 (Prop_lut5_I4_O)        0.152     6.722 f  gameMachine/game_controlunit/g0_b0/O
+                         net (fo=65, routed)          0.875     7.597    gameMachine/game_controlunit/out[0]
+    SLICE_X9Y62          LUT4 (Prop_lut4_I0_O)        0.332     7.929 f  gameMachine/game_controlunit/M_game_fsm_q[4]_i_8/O
+                         net (fo=1, routed)           0.727     8.656    gameMachine/game_controlunit/M_game_fsm_q[4]_i_8_n_0
+    SLICE_X8Y63          LUT6 (Prop_lut6_I4_O)        0.124     8.780 r  gameMachine/game_controlunit/M_game_fsm_q[4]_i_3/O
+                         net (fo=24, routed)          0.513     9.293    gameMachine/game_controlunit/M_game_fsm_q[4]_i_3_n_0
+    SLICE_X9Y61          LUT6 (Prop_lut6_I4_O)        0.124     9.417 r  gameMachine/game_controlunit/out0_carry__2_i_14/O
+                         net (fo=33, routed)          0.426     9.843    gameMachine/players/out0_carry__0_i_22
+    SLICE_X10Y61         LUT5 (Prop_lut5_I3_O)        0.124     9.967 r  gameMachine/players/out0_carry_i_44/O
+                         net (fo=1, routed)           0.403    10.370    gameMachine/game_controlunit/out0_carry_i_8_0
+    SLICE_X11Y61         LUT6 (Prop_lut6_I2_O)        0.124    10.494 r  gameMachine/game_controlunit/out0_carry_i_26/O
+                         net (fo=1, routed)           0.591    11.085    gameMachine/game_controlunit/out0_carry_i_26_n_0
+    SLICE_X8Y64          LUT3 (Prop_lut3_I1_O)        0.124    11.209 r  gameMachine/game_controlunit/out0_carry_i_8/O
+                         net (fo=1, routed)           0.000    11.209    gameMachine/game_alu/S[1]
+    SLICE_X8Y64          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    11.742 r  gameMachine/game_alu/out0_carry/CO[3]
+                         net (fo=1, routed)           0.000    11.742    gameMachine/game_alu/out0_carry_n_0
+    SLICE_X8Y65          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.859 r  gameMachine/game_alu/out0_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    11.859    gameMachine/game_alu/out0_carry__0_n_0
+    SLICE_X8Y66          CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.315    12.174 f  gameMachine/game_alu/out0_carry__1/O[3]
+                         net (fo=2, routed)           1.054    13.228    gameMachine/game_alu/M_stage_q_reg[3]_0[3]
+    SLICE_X5Y65          LUT6 (Prop_lut6_I0_O)        0.307    13.535 f  gameMachine/game_alu/M_p2_score_q[0]_i_11/O
+                         net (fo=1, routed)           0.264    13.799    gameMachine/game_alu/M_p2_score_q[0]_i_11_n_0
+    SLICE_X5Y65          LUT5 (Prop_lut5_I3_O)        0.124    13.923 r  gameMachine/game_alu/M_p2_score_q[0]_i_6/O
+                         net (fo=1, routed)           0.154    14.077    gameMachine/game_alu/M_p2_score_q[0]_i_6_n_0
+    SLICE_X5Y65          LUT3 (Prop_lut3_I2_O)        0.124    14.201 r  gameMachine/game_alu/M_p2_score_q[0]_i_4/O
+                         net (fo=1, routed)           0.287    14.488    gameMachine/game_controlunit/M_p2_score_q_reg[0]
+    SLICE_X7Y65          LUT6 (Prop_lut6_I5_O)        0.124    14.612 r  gameMachine/game_controlunit/M_p2_score_q[0]_i_1/O
+                         net (fo=9, routed)           0.399    15.010    gameMachine/players/D[0]
+    SLICE_X5Y64          FDRE                                         r  gameMachine/players/M_p2_score_q_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)     10.000    10.000 r  
+    N14                                               0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.868    13.314    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         1.502    14.906    gameMachine/players/clk_IBUF_BUFG
+    SLICE_X5Y64          FDRE                                         r  gameMachine/players/M_p2_score_q_reg[0]/C
+                         clock pessimism              0.271    15.177    
+                         clock uncertainty           -0.035    15.142    
+    SLICE_X5Y64          FDRE (Setup_fdre_C_D)       -0.040    15.102    gameMachine/players/M_p2_score_q_reg[0]
+  -------------------------------------------------------------------
+                         required time                         15.102    
+                         arrival time                         -15.010    
+  -------------------------------------------------------------------
+                         slack                                  0.091    
+
+Slack (MET) :             0.093ns  (required time - arrival time)
+  Source:                 gameMachine/game_controlunit/M_game_fsm_q_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gameMachine/players/M_p2_buttonPress_q_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        9.818ns  (logic 3.204ns (32.635%)  route 6.614ns (67.365%))
+  Logic Levels:           14  (CARRY4=3 LUT3=2 LUT4=1 LUT5=3 LUT6=5)
+  Clock Path Skew:        -0.038ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.907ns = ( 14.907 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.203ns
+    Clock Pessimism Removal (CPR):    0.258ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.972     3.488    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         1.619     5.203    gameMachine/game_controlunit/clk_IBUF_BUFG
+    SLICE_X5Y62          FDRE                                         r  gameMachine/game_controlunit/M_game_fsm_q_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X5Y62          FDRE (Prop_fdre_C_Q)         0.456     5.659 r  gameMachine/game_controlunit/M_game_fsm_q_reg[4]/Q
+                         net (fo=43, routed)          0.911     6.570    gameMachine/game_controlunit/M_game_fsm_q[4]
+    SLICE_X7Y62          LUT5 (Prop_lut5_I4_O)        0.152     6.722 f  gameMachine/game_controlunit/g0_b0/O
+                         net (fo=65, routed)          0.875     7.597    gameMachine/game_controlunit/out[0]
+    SLICE_X9Y62          LUT4 (Prop_lut4_I0_O)        0.332     7.929 f  gameMachine/game_controlunit/M_game_fsm_q[4]_i_8/O
+                         net (fo=1, routed)           0.727     8.656    gameMachine/game_controlunit/M_game_fsm_q[4]_i_8_n_0
+    SLICE_X8Y63          LUT6 (Prop_lut6_I4_O)        0.124     8.780 r  gameMachine/game_controlunit/M_game_fsm_q[4]_i_3/O
+                         net (fo=24, routed)          0.513     9.293    gameMachine/game_controlunit/M_game_fsm_q[4]_i_3_n_0
+    SLICE_X9Y61          LUT6 (Prop_lut6_I4_O)        0.124     9.417 r  gameMachine/game_controlunit/out0_carry__2_i_14/O
+                         net (fo=33, routed)          0.426     9.843    gameMachine/players/out0_carry__0_i_22
+    SLICE_X10Y61         LUT5 (Prop_lut5_I3_O)        0.124     9.967 r  gameMachine/players/out0_carry_i_44/O
+                         net (fo=1, routed)           0.403    10.370    gameMachine/game_controlunit/out0_carry_i_8_0
+    SLICE_X11Y61         LUT6 (Prop_lut6_I2_O)        0.124    10.494 r  gameMachine/game_controlunit/out0_carry_i_26/O
+                         net (fo=1, routed)           0.591    11.085    gameMachine/game_controlunit/out0_carry_i_26_n_0
+    SLICE_X8Y64          LUT3 (Prop_lut3_I1_O)        0.124    11.209 r  gameMachine/game_controlunit/out0_carry_i_8/O
+                         net (fo=1, routed)           0.000    11.209    gameMachine/game_alu/S[1]
+    SLICE_X8Y64          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    11.742 r  gameMachine/game_alu/out0_carry/CO[3]
+                         net (fo=1, routed)           0.000    11.742    gameMachine/game_alu/out0_carry_n_0
+    SLICE_X8Y65          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.859 r  gameMachine/game_alu/out0_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    11.859    gameMachine/game_alu/out0_carry__0_n_0
+    SLICE_X8Y66          CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.315    12.174 f  gameMachine/game_alu/out0_carry__1/O[3]
+                         net (fo=2, routed)           1.054    13.228    gameMachine/game_alu/M_stage_q_reg[3]_0[3]
+    SLICE_X5Y65          LUT6 (Prop_lut6_I0_O)        0.307    13.535 f  gameMachine/game_alu/M_p2_score_q[0]_i_11/O
+                         net (fo=1, routed)           0.264    13.799    gameMachine/game_alu/M_p2_score_q[0]_i_11_n_0
+    SLICE_X5Y65          LUT5 (Prop_lut5_I3_O)        0.124    13.923 r  gameMachine/game_alu/M_p2_score_q[0]_i_6/O
+                         net (fo=1, routed)           0.154    14.077    gameMachine/game_alu/M_p2_score_q[0]_i_6_n_0
+    SLICE_X5Y65          LUT3 (Prop_lut3_I2_O)        0.124    14.201 r  gameMachine/game_alu/M_p2_score_q[0]_i_4/O
+                         net (fo=1, routed)           0.287    14.488    gameMachine/game_controlunit/M_p2_score_q_reg[0]
+    SLICE_X7Y65          LUT6 (Prop_lut6_I5_O)        0.124    14.612 r  gameMachine/game_controlunit/M_p2_score_q[0]_i_1/O
+                         net (fo=9, routed)           0.409    15.021    gameMachine/players/D[0]
+    SLICE_X2Y65          FDRE                                         r  gameMachine/players/M_p2_buttonPress_q_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)     10.000    10.000 r  
+    N14                                               0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.868    13.314    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         1.503    14.907    gameMachine/players/clk_IBUF_BUFG
+    SLICE_X2Y65          FDRE                                         r  gameMachine/players/M_p2_buttonPress_q_reg[0]/C
+                         clock pessimism              0.258    15.165    
+                         clock uncertainty           -0.035    15.130    
+    SLICE_X2Y65          FDRE (Setup_fdre_C_D)       -0.016    15.114    gameMachine/players/M_p2_buttonPress_q_reg[0]
+  -------------------------------------------------------------------
+                         required time                         15.114    
+                         arrival time                         -15.021    
+  -------------------------------------------------------------------
+                         slack                                  0.093    
+
+Slack (MET) :             0.117ns  (required time - arrival time)
+  Source:                 gameMachine/game_controlunit/M_game_fsm_q_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gameMachine/players/M_current_timer_q_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        9.806ns  (logic 3.204ns (32.675%)  route 6.602ns (67.325%))
+  Logic Levels:           14  (CARRY4=3 LUT3=2 LUT4=1 LUT5=3 LUT6=5)
+  Clock Path Skew:        -0.026ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.906ns = ( 14.906 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.203ns
+    Clock Pessimism Removal (CPR):    0.271ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.972     3.488    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         1.619     5.203    gameMachine/game_controlunit/clk_IBUF_BUFG
+    SLICE_X5Y62          FDRE                                         r  gameMachine/game_controlunit/M_game_fsm_q_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X5Y62          FDRE (Prop_fdre_C_Q)         0.456     5.659 r  gameMachine/game_controlunit/M_game_fsm_q_reg[4]/Q
+                         net (fo=43, routed)          0.911     6.570    gameMachine/game_controlunit/M_game_fsm_q[4]
+    SLICE_X7Y62          LUT5 (Prop_lut5_I4_O)        0.152     6.722 f  gameMachine/game_controlunit/g0_b0/O
+                         net (fo=65, routed)          0.875     7.597    gameMachine/game_controlunit/out[0]
+    SLICE_X9Y62          LUT4 (Prop_lut4_I0_O)        0.332     7.929 f  gameMachine/game_controlunit/M_game_fsm_q[4]_i_8/O
+                         net (fo=1, routed)           0.727     8.656    gameMachine/game_controlunit/M_game_fsm_q[4]_i_8_n_0
+    SLICE_X8Y63          LUT6 (Prop_lut6_I4_O)        0.124     8.780 r  gameMachine/game_controlunit/M_game_fsm_q[4]_i_3/O
+                         net (fo=24, routed)          0.513     9.293    gameMachine/game_controlunit/M_game_fsm_q[4]_i_3_n_0
+    SLICE_X9Y61          LUT6 (Prop_lut6_I4_O)        0.124     9.417 r  gameMachine/game_controlunit/out0_carry__2_i_14/O
+                         net (fo=33, routed)          0.426     9.843    gameMachine/players/out0_carry__0_i_22
+    SLICE_X10Y61         LUT5 (Prop_lut5_I3_O)        0.124     9.967 r  gameMachine/players/out0_carry_i_44/O
+                         net (fo=1, routed)           0.403    10.370    gameMachine/game_controlunit/out0_carry_i_8_0
+    SLICE_X11Y61         LUT6 (Prop_lut6_I2_O)        0.124    10.494 r  gameMachine/game_controlunit/out0_carry_i_26/O
+                         net (fo=1, routed)           0.591    11.085    gameMachine/game_controlunit/out0_carry_i_26_n_0
+    SLICE_X8Y64          LUT3 (Prop_lut3_I1_O)        0.124    11.209 r  gameMachine/game_controlunit/out0_carry_i_8/O
+                         net (fo=1, routed)           0.000    11.209    gameMachine/game_alu/S[1]
+    SLICE_X8Y64          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    11.742 r  gameMachine/game_alu/out0_carry/CO[3]
+                         net (fo=1, routed)           0.000    11.742    gameMachine/game_alu/out0_carry_n_0
+    SLICE_X8Y65          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.859 r  gameMachine/game_alu/out0_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    11.859    gameMachine/game_alu/out0_carry__0_n_0
+    SLICE_X8Y66          CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.315    12.174 f  gameMachine/game_alu/out0_carry__1/O[3]
+                         net (fo=2, routed)           1.054    13.228    gameMachine/game_alu/M_stage_q_reg[3]_0[3]
+    SLICE_X5Y65          LUT6 (Prop_lut6_I0_O)        0.307    13.535 f  gameMachine/game_alu/M_p2_score_q[0]_i_11/O
+                         net (fo=1, routed)           0.264    13.799    gameMachine/game_alu/M_p2_score_q[0]_i_11_n_0
+    SLICE_X5Y65          LUT5 (Prop_lut5_I3_O)        0.124    13.923 r  gameMachine/game_alu/M_p2_score_q[0]_i_6/O
+                         net (fo=1, routed)           0.154    14.077    gameMachine/game_alu/M_p2_score_q[0]_i_6_n_0
+    SLICE_X5Y65          LUT3 (Prop_lut3_I2_O)        0.124    14.201 r  gameMachine/game_alu/M_p2_score_q[0]_i_4/O
+                         net (fo=1, routed)           0.287    14.488    gameMachine/game_controlunit/M_p2_score_q_reg[0]
+    SLICE_X7Y65          LUT6 (Prop_lut6_I5_O)        0.124    14.612 r  gameMachine/game_controlunit/M_p2_score_q[0]_i_1/O
+                         net (fo=9, routed)           0.397    15.009    gameMachine/players/D[0]
+    SLICE_X6Y64          FDRE                                         r  gameMachine/players/M_current_timer_q_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)     10.000    10.000 r  
+    N14                                               0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.868    13.314    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         1.502    14.906    gameMachine/players/clk_IBUF_BUFG
+    SLICE_X6Y64          FDRE                                         r  gameMachine/players/M_current_timer_q_reg[0]/C
+                         clock pessimism              0.271    15.177    
+                         clock uncertainty           -0.035    15.142    
+    SLICE_X6Y64          FDRE (Setup_fdre_C_D)       -0.016    15.126    gameMachine/players/M_current_timer_q_reg[0]
+  -------------------------------------------------------------------
+                         required time                         15.126    
+                         arrival time                         -15.009    
+  -------------------------------------------------------------------
+                         slack                                  0.117    
+
+Slack (MET) :             0.241ns  (required time - arrival time)
+  Source:                 gameMachine/game_controlunit/M_game_fsm_q_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gameMachine/players/M_current_counter_q_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        9.666ns  (logic 3.204ns (33.148%)  route 6.462ns (66.852%))
+  Logic Levels:           14  (CARRY4=3 LUT3=2 LUT4=1 LUT5=3 LUT6=5)
+  Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.905ns = ( 14.905 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.203ns
+    Clock Pessimism Removal (CPR):    0.271ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.972     3.488    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         1.619     5.203    gameMachine/game_controlunit/clk_IBUF_BUFG
+    SLICE_X5Y62          FDRE                                         r  gameMachine/game_controlunit/M_game_fsm_q_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X5Y62          FDRE (Prop_fdre_C_Q)         0.456     5.659 r  gameMachine/game_controlunit/M_game_fsm_q_reg[4]/Q
+                         net (fo=43, routed)          0.911     6.570    gameMachine/game_controlunit/M_game_fsm_q[4]
+    SLICE_X7Y62          LUT5 (Prop_lut5_I4_O)        0.152     6.722 f  gameMachine/game_controlunit/g0_b0/O
+                         net (fo=65, routed)          0.875     7.597    gameMachine/game_controlunit/out[0]
+    SLICE_X9Y62          LUT4 (Prop_lut4_I0_O)        0.332     7.929 f  gameMachine/game_controlunit/M_game_fsm_q[4]_i_8/O
+                         net (fo=1, routed)           0.727     8.656    gameMachine/game_controlunit/M_game_fsm_q[4]_i_8_n_0
+    SLICE_X8Y63          LUT6 (Prop_lut6_I4_O)        0.124     8.780 r  gameMachine/game_controlunit/M_game_fsm_q[4]_i_3/O
+                         net (fo=24, routed)          0.513     9.293    gameMachine/game_controlunit/M_game_fsm_q[4]_i_3_n_0
+    SLICE_X9Y61          LUT6 (Prop_lut6_I4_O)        0.124     9.417 r  gameMachine/game_controlunit/out0_carry__2_i_14/O
+                         net (fo=33, routed)          0.426     9.843    gameMachine/players/out0_carry__0_i_22
+    SLICE_X10Y61         LUT5 (Prop_lut5_I3_O)        0.124     9.967 r  gameMachine/players/out0_carry_i_44/O
+                         net (fo=1, routed)           0.403    10.370    gameMachine/game_controlunit/out0_carry_i_8_0
+    SLICE_X11Y61         LUT6 (Prop_lut6_I2_O)        0.124    10.494 r  gameMachine/game_controlunit/out0_carry_i_26/O
+                         net (fo=1, routed)           0.591    11.085    gameMachine/game_controlunit/out0_carry_i_26_n_0
+    SLICE_X8Y64          LUT3 (Prop_lut3_I1_O)        0.124    11.209 r  gameMachine/game_controlunit/out0_carry_i_8/O
+                         net (fo=1, routed)           0.000    11.209    gameMachine/game_alu/S[1]
+    SLICE_X8Y64          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    11.742 r  gameMachine/game_alu/out0_carry/CO[3]
+                         net (fo=1, routed)           0.000    11.742    gameMachine/game_alu/out0_carry_n_0
+    SLICE_X8Y65          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.859 r  gameMachine/game_alu/out0_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    11.859    gameMachine/game_alu/out0_carry__0_n_0
+    SLICE_X8Y66          CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.315    12.174 f  gameMachine/game_alu/out0_carry__1/O[3]
+                         net (fo=2, routed)           1.054    13.228    gameMachine/game_alu/M_stage_q_reg[3]_0[3]
+    SLICE_X5Y65          LUT6 (Prop_lut6_I0_O)        0.307    13.535 f  gameMachine/game_alu/M_p2_score_q[0]_i_11/O
+                         net (fo=1, routed)           0.264    13.799    gameMachine/game_alu/M_p2_score_q[0]_i_11_n_0
+    SLICE_X5Y65          LUT5 (Prop_lut5_I3_O)        0.124    13.923 r  gameMachine/game_alu/M_p2_score_q[0]_i_6/O
+                         net (fo=1, routed)           0.154    14.077    gameMachine/game_alu/M_p2_score_q[0]_i_6_n_0
+    SLICE_X5Y65          LUT3 (Prop_lut3_I2_O)        0.124    14.201 r  gameMachine/game_alu/M_p2_score_q[0]_i_4/O
+                         net (fo=1, routed)           0.287    14.488    gameMachine/game_controlunit/M_p2_score_q_reg[0]
+    SLICE_X7Y65          LUT6 (Prop_lut6_I5_O)        0.124    14.612 r  gameMachine/game_controlunit/M_p2_score_q[0]_i_1/O
+                         net (fo=9, routed)           0.257    14.869    gameMachine/players/D[0]
+    SLICE_X6Y65          FDRE                                         r  gameMachine/players/M_current_counter_q_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)     10.000    10.000 r  
+    N14                                               0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.868    13.314    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         1.501    14.905    gameMachine/players/clk_IBUF_BUFG
+    SLICE_X6Y65          FDRE                                         r  gameMachine/players/M_current_counter_q_reg[0]/C
+                         clock pessimism              0.271    15.176    
+                         clock uncertainty           -0.035    15.141    
+    SLICE_X6Y65          FDRE (Setup_fdre_C_D)       -0.031    15.110    gameMachine/players/M_current_counter_q_reg[0]
+  -------------------------------------------------------------------
+                         required time                         15.110    
+                         arrival time                         -14.869    
+  -------------------------------------------------------------------
+                         slack                                  0.241    
+
+Slack (MET) :             0.558ns  (required time - arrival time)
+  Source:                 gameMachine/game_controlunit/M_game_fsm_q_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gameMachine/players/M_temp_var_q_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        9.409ns  (logic 3.204ns (34.053%)  route 6.205ns (65.947%))
+  Logic Levels:           14  (CARRY4=3 LUT3=2 LUT4=1 LUT5=3 LUT6=5)
+  Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.905ns = ( 14.905 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.203ns
+    Clock Pessimism Removal (CPR):    0.271ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.972     3.488    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         1.619     5.203    gameMachine/game_controlunit/clk_IBUF_BUFG
+    SLICE_X5Y62          FDRE                                         r  gameMachine/game_controlunit/M_game_fsm_q_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X5Y62          FDRE (Prop_fdre_C_Q)         0.456     5.659 r  gameMachine/game_controlunit/M_game_fsm_q_reg[4]/Q
+                         net (fo=43, routed)          0.911     6.570    gameMachine/game_controlunit/M_game_fsm_q[4]
+    SLICE_X7Y62          LUT5 (Prop_lut5_I4_O)        0.152     6.722 f  gameMachine/game_controlunit/g0_b0/O
+                         net (fo=65, routed)          0.875     7.597    gameMachine/game_controlunit/out[0]
+    SLICE_X9Y62          LUT4 (Prop_lut4_I0_O)        0.332     7.929 f  gameMachine/game_controlunit/M_game_fsm_q[4]_i_8/O
+                         net (fo=1, routed)           0.727     8.656    gameMachine/game_controlunit/M_game_fsm_q[4]_i_8_n_0
+    SLICE_X8Y63          LUT6 (Prop_lut6_I4_O)        0.124     8.780 r  gameMachine/game_controlunit/M_game_fsm_q[4]_i_3/O
+                         net (fo=24, routed)          0.513     9.293    gameMachine/game_controlunit/M_game_fsm_q[4]_i_3_n_0
+    SLICE_X9Y61          LUT6 (Prop_lut6_I4_O)        0.124     9.417 r  gameMachine/game_controlunit/out0_carry__2_i_14/O
+                         net (fo=33, routed)          0.426     9.843    gameMachine/players/out0_carry__0_i_22
+    SLICE_X10Y61         LUT5 (Prop_lut5_I3_O)        0.124     9.967 r  gameMachine/players/out0_carry_i_44/O
+                         net (fo=1, routed)           0.403    10.370    gameMachine/game_controlunit/out0_carry_i_8_0
+    SLICE_X11Y61         LUT6 (Prop_lut6_I2_O)        0.124    10.494 r  gameMachine/game_controlunit/out0_carry_i_26/O
+                         net (fo=1, routed)           0.591    11.085    gameMachine/game_controlunit/out0_carry_i_26_n_0
+    SLICE_X8Y64          LUT3 (Prop_lut3_I1_O)        0.124    11.209 r  gameMachine/game_controlunit/out0_carry_i_8/O
+                         net (fo=1, routed)           0.000    11.209    gameMachine/game_alu/S[1]
+    SLICE_X8Y64          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    11.742 r  gameMachine/game_alu/out0_carry/CO[3]
+                         net (fo=1, routed)           0.000    11.742    gameMachine/game_alu/out0_carry_n_0
+    SLICE_X8Y65          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.859 r  gameMachine/game_alu/out0_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    11.859    gameMachine/game_alu/out0_carry__0_n_0
+    SLICE_X8Y66          CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.315    12.174 f  gameMachine/game_alu/out0_carry__1/O[3]
+                         net (fo=2, routed)           1.054    13.228    gameMachine/game_alu/M_stage_q_reg[3]_0[3]
+    SLICE_X5Y65          LUT6 (Prop_lut6_I0_O)        0.307    13.535 f  gameMachine/game_alu/M_p2_score_q[0]_i_11/O
+                         net (fo=1, routed)           0.264    13.799    gameMachine/game_alu/M_p2_score_q[0]_i_11_n_0
+    SLICE_X5Y65          LUT5 (Prop_lut5_I3_O)        0.124    13.923 r  gameMachine/game_alu/M_p2_score_q[0]_i_6/O
+                         net (fo=1, routed)           0.154    14.077    gameMachine/game_alu/M_p2_score_q[0]_i_6_n_0
+    SLICE_X5Y65          LUT3 (Prop_lut3_I2_O)        0.124    14.201 r  gameMachine/game_alu/M_p2_score_q[0]_i_4/O
+                         net (fo=1, routed)           0.287    14.488    gameMachine/game_controlunit/M_p2_score_q_reg[0]
+    SLICE_X7Y65          LUT6 (Prop_lut6_I5_O)        0.124    14.612 r  gameMachine/game_controlunit/M_p2_score_q[0]_i_1/O
+                         net (fo=9, routed)           0.000    14.612    gameMachine/players/D[0]
+    SLICE_X7Y65          FDRE                                         r  gameMachine/players/M_temp_var_q_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)     10.000    10.000 r  
+    N14                                               0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.868    13.314    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         1.501    14.905    gameMachine/players/clk_IBUF_BUFG
+    SLICE_X7Y65          FDRE                                         r  gameMachine/players/M_temp_var_q_reg[0]/C
+                         clock pessimism              0.271    15.176    
+                         clock uncertainty           -0.035    15.141    
+    SLICE_X7Y65          FDRE (Setup_fdre_C_D)        0.029    15.170    gameMachine/players/M_temp_var_q_reg[0]
+  -------------------------------------------------------------------
+                         required time                         15.170    
+                         arrival time                         -14.612    
+  -------------------------------------------------------------------
+                         slack                                  0.558    
+
+Slack (MET) :             1.112ns  (required time - arrival time)
+  Source:                 gameMachine/game_controlunit/M_game_fsm_q_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gameMachine/players/M_p2_buttonPress_q_reg[13]/D
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        8.754ns  (logic 2.956ns (33.769%)  route 5.798ns (66.231%))
+  Logic Levels:           12  (CARRY4=4 LUT3=1 LUT4=1 LUT5=3 LUT6=3)
+  Clock Path Skew:        -0.038ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.907ns = ( 14.907 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.203ns
+    Clock Pessimism Removal (CPR):    0.258ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.972     3.488    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         1.619     5.203    gameMachine/game_controlunit/clk_IBUF_BUFG
+    SLICE_X5Y62          FDRE                                         r  gameMachine/game_controlunit/M_game_fsm_q_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X5Y62          FDRE (Prop_fdre_C_Q)         0.456     5.659 r  gameMachine/game_controlunit/M_game_fsm_q_reg[4]/Q
+                         net (fo=43, routed)          0.911     6.570    gameMachine/game_controlunit/M_game_fsm_q[4]
+    SLICE_X7Y62          LUT5 (Prop_lut5_I4_O)        0.152     6.722 f  gameMachine/game_controlunit/g0_b0/O
+                         net (fo=65, routed)          0.875     7.597    gameMachine/game_controlunit/out[0]
+    SLICE_X9Y62          LUT4 (Prop_lut4_I0_O)        0.332     7.929 f  gameMachine/game_controlunit/M_game_fsm_q[4]_i_8/O
+                         net (fo=1, routed)           0.727     8.656    gameMachine/game_controlunit/M_game_fsm_q[4]_i_8_n_0
+    SLICE_X8Y63          LUT6 (Prop_lut6_I4_O)        0.124     8.780 r  gameMachine/game_controlunit/M_game_fsm_q[4]_i_3/O
+                         net (fo=24, routed)          0.513     9.293    gameMachine/game_controlunit/M_game_fsm_q[4]_i_3_n_0
+    SLICE_X9Y61          LUT6 (Prop_lut6_I4_O)        0.124     9.417 r  gameMachine/game_controlunit/out0_carry__2_i_14/O
+                         net (fo=33, routed)          0.426     9.843    gameMachine/players/out0_carry__0_i_22
+    SLICE_X10Y61         LUT5 (Prop_lut5_I3_O)        0.124     9.967 r  gameMachine/players/out0_carry_i_44/O
+                         net (fo=1, routed)           0.403    10.370    gameMachine/game_controlunit/out0_carry_i_8_0
+    SLICE_X11Y61         LUT6 (Prop_lut6_I2_O)        0.124    10.494 r  gameMachine/game_controlunit/out0_carry_i_26/O
+                         net (fo=1, routed)           0.591    11.085    gameMachine/game_controlunit/out0_carry_i_26_n_0
+    SLICE_X8Y64          LUT3 (Prop_lut3_I1_O)        0.124    11.209 r  gameMachine/game_controlunit/out0_carry_i_8/O
+                         net (fo=1, routed)           0.000    11.209    gameMachine/game_alu/S[1]
+    SLICE_X8Y64          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    11.742 r  gameMachine/game_alu/out0_carry/CO[3]
+                         net (fo=1, routed)           0.000    11.742    gameMachine/game_alu/out0_carry_n_0
+    SLICE_X8Y65          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.859 r  gameMachine/game_alu/out0_carry__0/CO[3]
+                         net (fo=1, routed)           0.000    11.859    gameMachine/game_alu/out0_carry__0_n_0
+    SLICE_X8Y66          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    11.976 r  gameMachine/game_alu/out0_carry__1/CO[3]
+                         net (fo=1, routed)           0.000    11.976    gameMachine/game_alu/out0_carry__1_n_0
+    SLICE_X8Y67          CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323    12.299 r  gameMachine/game_alu/out0_carry__2/O[1]
+                         net (fo=2, routed)           0.686    12.985    gameMachine/game_controlunit/M_p2_score_q_reg[15][1]
+    SLICE_X6Y66          LUT5 (Prop_lut5_I3_O)        0.306    13.291 r  gameMachine/game_controlunit/M_p2_score_q[13]_i_1/O
+                         net (fo=7, routed)           0.666    13.957    gameMachine/players/D[13]
+    SLICE_X3Y65          FDRE                                         r  gameMachine/players/M_p2_buttonPress_q_reg[13]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)     10.000    10.000 r  
+    N14                                               0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.868    13.314    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         1.503    14.907    gameMachine/players/clk_IBUF_BUFG
+    SLICE_X3Y65          FDRE                                         r  gameMachine/players/M_p2_buttonPress_q_reg[13]/C
+                         clock pessimism              0.258    15.165    
+                         clock uncertainty           -0.035    15.130    
+    SLICE_X3Y65          FDRE (Setup_fdre_C_D)       -0.061    15.069    gameMachine/players/M_p2_buttonPress_q_reg[13]
+  -------------------------------------------------------------------
+                         required time                         15.069    
+                         arrival time                         -13.957    
+  -------------------------------------------------------------------
+                         slack                                  1.112    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.163ns  (arrival time - required time)
+  Source:                 gameMachine/vc/random_number/M_x_q_reg[18]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gameMachine/vc/random_number/M_w_q_reg[29]/D
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        0.268ns  (logic 0.186ns (69.483%)  route 0.082ns (30.517%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.040ns
+    Source Clock Delay      (SCD):    1.527ns
+    Clock Pessimism Removal (CPR):    0.501ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.634     0.918    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         0.583     1.527    gameMachine/vc/random_number/clk_IBUF_BUFG
+    SLICE_X1Y72          FDRE                                         r  gameMachine/vc/random_number/M_x_q_reg[18]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X1Y72          FDRE (Prop_fdre_C_Q)         0.141     1.668 r  gameMachine/vc/random_number/M_x_q_reg[18]/Q
+                         net (fo=4, routed)           0.082     1.749    gameMachine/vc/random_number/M_x_q[18]
+    SLICE_X0Y72          LUT3 (Prop_lut3_I1_O)        0.045     1.794 r  gameMachine/vc/random_number/M_w_q[29]_i_1/O
+                         net (fo=1, routed)           0.000     1.794    gameMachine/vc/random_number/M_w_q[29]_i_1_n_0
+    SLICE_X0Y72          FDRE                                         r  gameMachine/vc/random_number/M_w_q_reg[29]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.689     1.161    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         0.850     2.040    gameMachine/vc/random_number/clk_IBUF_BUFG
+    SLICE_X0Y72          FDRE                                         r  gameMachine/vc/random_number/M_w_q_reg[29]/C
+                         clock pessimism             -0.501     1.540    
+    SLICE_X0Y72          FDRE (Hold_fdre_C_D)         0.092     1.632    gameMachine/vc/random_number/M_w_q_reg[29]
+  -------------------------------------------------------------------
+                         required time                         -1.632    
+                         arrival time                           1.794    
+  -------------------------------------------------------------------
+                         slack                                  0.163    
+
+Slack (MET) :             0.166ns  (arrival time - required time)
+  Source:                 gameMachine/vc/random_number/M_y_q_reg[10]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gameMachine/vc/random_number/M_x_q_reg[10]/D
+                            (rising edge-triggered cell FDSE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        0.257ns  (logic 0.141ns (54.953%)  route 0.116ns (45.047%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.015ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.040ns
+    Source Clock Delay      (SCD):    1.525ns
+    Clock Pessimism Removal (CPR):    0.501ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.634     0.918    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         0.581     1.525    gameMachine/vc/random_number/clk_IBUF_BUFG
+    SLICE_X0Y73          FDRE                                         r  gameMachine/vc/random_number/M_y_q_reg[10]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X0Y73          FDRE (Prop_fdre_C_Q)         0.141     1.666 r  gameMachine/vc/random_number/M_y_q_reg[10]/Q
+                         net (fo=1, routed)           0.116     1.781    gameMachine/vc/random_number/M_y_q[10]
+    SLICE_X1Y72          FDSE                                         r  gameMachine/vc/random_number/M_x_q_reg[10]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.689     1.161    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         0.850     2.040    gameMachine/vc/random_number/clk_IBUF_BUFG
+    SLICE_X1Y72          FDSE                                         r  gameMachine/vc/random_number/M_x_q_reg[10]/C
+                         clock pessimism             -0.501     1.540    
+    SLICE_X1Y72          FDSE (Hold_fdse_C_D)         0.076     1.616    gameMachine/vc/random_number/M_x_q_reg[10]
+  -------------------------------------------------------------------
+                         required time                         -1.616    
+                         arrival time                           1.781    
+  -------------------------------------------------------------------
+                         slack                                  0.166    
+
+Slack (MET) :             0.170ns  (arrival time - required time)
+  Source:                 gameMachine/vc/random_number/M_w_q_reg[25]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gameMachine/vc/random_number/M_z_q_reg[25]/D
+                            (rising edge-triggered cell FDSE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        0.277ns  (logic 0.141ns (50.865%)  route 0.136ns (49.135%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.032ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.038ns
+    Source Clock Delay      (SCD):    1.527ns
+    Clock Pessimism Removal (CPR):    0.480ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.634     0.918    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         0.583     1.527    gameMachine/vc/random_number/clk_IBUF_BUFG
+    SLICE_X3Y72          FDRE                                         r  gameMachine/vc/random_number/M_w_q_reg[25]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y72          FDRE (Prop_fdre_C_Q)         0.141     1.668 r  gameMachine/vc/random_number/M_w_q_reg[25]/Q
+                         net (fo=3, routed)           0.136     1.804    gameMachine/vc/random_number/M_w_q_reg_n_0_[25]
+    SLICE_X5Y72          FDSE                                         r  gameMachine/vc/random_number/M_z_q_reg[25]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.689     1.161    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         0.849     2.038    gameMachine/vc/random_number/clk_IBUF_BUFG
+    SLICE_X5Y72          FDSE                                         r  gameMachine/vc/random_number/M_z_q_reg[25]/C
+                         clock pessimism             -0.480     1.559    
+    SLICE_X5Y72          FDSE (Hold_fdse_C_D)         0.075     1.634    gameMachine/vc/random_number/M_z_q_reg[25]
+  -------------------------------------------------------------------
+                         required time                         -1.634    
+                         arrival time                           1.804    
+  -------------------------------------------------------------------
+                         slack                                  0.170    
+
+Slack (MET) :             0.178ns  (arrival time - required time)
+  Source:                 gameMachine/vc/random_number/M_x_q_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gameMachine/vc/random_number/M_w_q_reg[2]/D
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        0.283ns  (logic 0.209ns (73.982%)  route 0.074ns (26.018%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.043ns
+    Source Clock Delay      (SCD):    1.529ns
+    Clock Pessimism Removal (CPR):    0.502ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.634     0.918    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         0.585     1.529    gameMachine/vc/random_number/clk_IBUF_BUFG
+    SLICE_X2Y69          FDRE                                         r  gameMachine/vc/random_number/M_x_q_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X2Y69          FDRE (Prop_fdre_C_Q)         0.164     1.693 r  gameMachine/vc/random_number/M_x_q_reg[2]/Q
+                         net (fo=3, routed)           0.074     1.766    gameMachine/vc/random_number/M_x_q[2]
+    SLICE_X3Y69          LUT6 (Prop_lut6_I2_O)        0.045     1.811 r  gameMachine/vc/random_number/M_w_q[2]_i_1/O
+                         net (fo=1, routed)           0.000     1.811    gameMachine/vc/random_number/M_w_d[2]
+    SLICE_X3Y69          FDRE                                         r  gameMachine/vc/random_number/M_w_q_reg[2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.689     1.161    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         0.853     2.043    gameMachine/vc/random_number/clk_IBUF_BUFG
+    SLICE_X3Y69          FDRE                                         r  gameMachine/vc/random_number/M_w_q_reg[2]/C
+                         clock pessimism             -0.502     1.542    
+    SLICE_X3Y69          FDRE (Hold_fdre_C_D)         0.092     1.634    gameMachine/vc/random_number/M_w_q_reg[2]
+  -------------------------------------------------------------------
+                         required time                         -1.634    
+                         arrival time                           1.811    
+  -------------------------------------------------------------------
+                         slack                                  0.178    
+
+Slack (MET) :             0.181ns  (arrival time - required time)
+  Source:                 gameMachine/vc/random_number/M_w_q_reg[6]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gameMachine/vc/random_number/M_z_q_reg[6]/D
+                            (rising edge-triggered cell FDSE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        0.265ns  (logic 0.141ns (53.220%)  route 0.124ns (46.780%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.038ns
+    Source Clock Delay      (SCD):    1.525ns
+    Clock Pessimism Removal (CPR):    0.501ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.634     0.918    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         0.581     1.525    gameMachine/vc/random_number/clk_IBUF_BUFG
+    SLICE_X4Y71          FDRE                                         r  gameMachine/vc/random_number/M_w_q_reg[6]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X4Y71          FDRE (Prop_fdre_C_Q)         0.141     1.666 r  gameMachine/vc/random_number/M_w_q_reg[6]/Q
+                         net (fo=2, routed)           0.124     1.790    gameMachine/vc/random_number/M_w_q_reg_n_0_[6]
+    SLICE_X5Y72          FDSE                                         r  gameMachine/vc/random_number/M_z_q_reg[6]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.689     1.161    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         0.849     2.038    gameMachine/vc/random_number/clk_IBUF_BUFG
+    SLICE_X5Y72          FDSE                                         r  gameMachine/vc/random_number/M_z_q_reg[6]/C
+                         clock pessimism             -0.501     1.538    
+    SLICE_X5Y72          FDSE (Hold_fdse_C_D)         0.071     1.609    gameMachine/vc/random_number/M_z_q_reg[6]
+  -------------------------------------------------------------------
+                         required time                         -1.609    
+                         arrival time                           1.790    
+  -------------------------------------------------------------------
+                         slack                                  0.181    
+
+Slack (MET) :             0.184ns  (arrival time - required time)
+  Source:                 gameMachine/vc/random_number/M_y_q_reg[12]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gameMachine/vc/random_number/M_x_q_reg[12]/D
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        0.254ns  (logic 0.141ns (55.511%)  route 0.113ns (44.489%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.041ns
+    Source Clock Delay      (SCD):    1.527ns
+    Clock Pessimism Removal (CPR):    0.515ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.634     0.918    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         0.583     1.527    gameMachine/vc/random_number/clk_IBUF_BUFG
+    SLICE_X3Y71          FDRE                                         r  gameMachine/vc/random_number/M_y_q_reg[12]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y71          FDRE (Prop_fdre_C_Q)         0.141     1.668 r  gameMachine/vc/random_number/M_y_q_reg[12]/Q
+                         net (fo=1, routed)           0.113     1.781    gameMachine/vc/random_number/M_y_q[12]
+    SLICE_X3Y71          FDRE                                         r  gameMachine/vc/random_number/M_x_q_reg[12]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.689     1.161    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         0.851     2.041    gameMachine/vc/random_number/clk_IBUF_BUFG
+    SLICE_X3Y71          FDRE                                         r  gameMachine/vc/random_number/M_x_q_reg[12]/C
+                         clock pessimism             -0.515     1.527    
+    SLICE_X3Y71          FDRE (Hold_fdre_C_D)         0.070     1.597    gameMachine/vc/random_number/M_x_q_reg[12]
+  -------------------------------------------------------------------
+                         required time                         -1.597    
+                         arrival time                           1.781    
+  -------------------------------------------------------------------
+                         slack                                  0.184    
+
+Slack (MET) :             0.184ns  (arrival time - required time)
+  Source:                 gameMachine/vc/random_number/M_z_q_reg[20]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gameMachine/vc/random_number/M_y_q_reg[20]/D
+                            (rising edge-triggered cell FDSE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        0.254ns  (logic 0.141ns (55.511%)  route 0.113ns (44.489%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.038ns
+    Source Clock Delay      (SCD):    1.525ns
+    Clock Pessimism Removal (CPR):    0.514ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.634     0.918    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         0.581     1.525    gameMachine/vc/random_number/clk_IBUF_BUFG
+    SLICE_X3Y73          FDRE                                         r  gameMachine/vc/random_number/M_z_q_reg[20]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y73          FDRE (Prop_fdre_C_Q)         0.141     1.666 r  gameMachine/vc/random_number/M_z_q_reg[20]/Q
+                         net (fo=1, routed)           0.113     1.779    gameMachine/vc/random_number/M_z_q[20]
+    SLICE_X3Y73          FDSE                                         r  gameMachine/vc/random_number/M_y_q_reg[20]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.689     1.161    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         0.848     2.038    gameMachine/vc/random_number/clk_IBUF_BUFG
+    SLICE_X3Y73          FDSE                                         r  gameMachine/vc/random_number/M_y_q_reg[20]/C
+                         clock pessimism             -0.514     1.525    
+    SLICE_X3Y73          FDSE (Hold_fdse_C_D)         0.070     1.595    gameMachine/vc/random_number/M_y_q_reg[20]
+  -------------------------------------------------------------------
+                         required time                         -1.595    
+                         arrival time                           1.779    
+  -------------------------------------------------------------------
+                         slack                                  0.184    
+
+Slack (MET) :             0.189ns  (arrival time - required time)
+  Source:                 gameMachine/vc/random_number/M_w_q_reg[7]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gameMachine/vc/random_number/M_z_q_reg[7]/D
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        0.256ns  (logic 0.141ns (55.087%)  route 0.115ns (44.913%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.014ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.041ns
+    Source Clock Delay      (SCD):    1.527ns
+    Clock Pessimism Removal (CPR):    0.501ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.634     0.918    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         0.583     1.527    gameMachine/vc/random_number/clk_IBUF_BUFG
+    SLICE_X0Y71          FDRE                                         r  gameMachine/vc/random_number/M_w_q_reg[7]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X0Y71          FDRE (Prop_fdre_C_Q)         0.141     1.668 r  gameMachine/vc/random_number/M_w_q_reg[7]/Q
+                         net (fo=2, routed)           0.115     1.783    gameMachine/vc/random_number/M_w_q_reg_n_0_[7]
+    SLICE_X2Y71          FDRE                                         r  gameMachine/vc/random_number/M_z_q_reg[7]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.689     1.161    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         0.851     2.041    gameMachine/vc/random_number/clk_IBUF_BUFG
+    SLICE_X2Y71          FDRE                                         r  gameMachine/vc/random_number/M_z_q_reg[7]/C
+                         clock pessimism             -0.501     1.541    
+    SLICE_X2Y71          FDRE (Hold_fdre_C_D)         0.053     1.594    gameMachine/vc/random_number/M_z_q_reg[7]
+  -------------------------------------------------------------------
+                         required time                         -1.594    
+                         arrival time                           1.783    
+  -------------------------------------------------------------------
+                         slack                                  0.189    
+
+Slack (MET) :             0.190ns  (arrival time - required time)
+  Source:                 gameMachine/vc/random_number/M_z_q_reg[23]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gameMachine/vc/random_number/M_y_q_reg[23]/D
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        0.256ns  (logic 0.141ns (55.114%)  route 0.115ns (44.886%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.041ns
+    Source Clock Delay      (SCD):    1.527ns
+    Clock Pessimism Removal (CPR):    0.515ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.634     0.918    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         0.583     1.527    gameMachine/vc/random_number/clk_IBUF_BUFG
+    SLICE_X4Y69          FDRE                                         r  gameMachine/vc/random_number/M_z_q_reg[23]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X4Y69          FDRE (Prop_fdre_C_Q)         0.141     1.668 r  gameMachine/vc/random_number/M_z_q_reg[23]/Q
+                         net (fo=1, routed)           0.115     1.783    gameMachine/vc/random_number/M_z_q[23]
+    SLICE_X4Y69          FDRE                                         r  gameMachine/vc/random_number/M_y_q_reg[23]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.689     1.161    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         0.851     2.041    gameMachine/vc/random_number/clk_IBUF_BUFG
+    SLICE_X4Y69          FDRE                                         r  gameMachine/vc/random_number/M_y_q_reg[23]/C
+                         clock pessimism             -0.515     1.527    
+    SLICE_X4Y69          FDRE (Hold_fdre_C_D)         0.066     1.593    gameMachine/vc/random_number/M_y_q_reg[23]
+  -------------------------------------------------------------------
+                         required time                         -1.593    
+                         arrival time                           1.783    
+  -------------------------------------------------------------------
+                         slack                                  0.190    
+
+Slack (MET) :             0.190ns  (arrival time - required time)
+  Source:                 gameMachine/vc/random_number/M_z_q_reg[29]/C
+                            (rising edge-triggered cell FDSE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            gameMachine/vc/random_number/M_y_q_reg[29]/D
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        0.256ns  (logic 0.141ns (55.114%)  route 0.115ns (44.886%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.038ns
+    Source Clock Delay      (SCD):    1.525ns
+    Clock Pessimism Removal (CPR):    0.514ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.634     0.918    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         0.581     1.525    gameMachine/vc/random_number/clk_IBUF_BUFG
+    SLICE_X0Y73          FDSE                                         r  gameMachine/vc/random_number/M_z_q_reg[29]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X0Y73          FDSE (Prop_fdse_C_Q)         0.141     1.666 r  gameMachine/vc/random_number/M_z_q_reg[29]/Q
+                         net (fo=1, routed)           0.115     1.781    gameMachine/vc/random_number/M_z_q[29]
+    SLICE_X0Y73          FDRE                                         r  gameMachine/vc/random_number/M_y_q_reg[29]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.689     1.161    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
+                         net (fo=420, routed)         0.848     2.038    gameMachine/vc/random_number/clk_IBUF_BUFG
+    SLICE_X0Y73          FDRE                                         r  gameMachine/vc/random_number/M_y_q_reg[29]/C
+                         clock pessimism             -0.514     1.525    
+    SLICE_X0Y73          FDRE (Hold_fdre_C_D)         0.066     1.591    gameMachine/vc/random_number/M_y_q_reg[29]
+  -------------------------------------------------------------------
+                         required time                         -1.591    
+                         arrival time                           1.781    
+  -------------------------------------------------------------------
+                         slack                                  0.190    
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         clk_0
+Waveform(ns):       { 0.000 5.000 }
+Period(ns):         10.000
+Sources:            { clk }
+
+Check Type        Corner  Lib Pin  Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location       Pin
+Min Period        n/a     BUFG/I   n/a            2.155         10.000      7.845      BUFGCTRL_X0Y0  clk_IBUF_BUFG_inst/I
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X6Y57    btn_cond_p1/M_ctr_q_reg[0]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X6Y59    btn_cond_p1/M_ctr_q_reg[10]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X6Y59    btn_cond_p1/M_ctr_q_reg[11]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X6Y60    btn_cond_p1/M_ctr_q_reg[12]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X6Y60    btn_cond_p1/M_ctr_q_reg[13]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X6Y60    btn_cond_p1/M_ctr_q_reg[14]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X6Y60    btn_cond_p1/M_ctr_q_reg[15]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X6Y61    btn_cond_p1/M_ctr_q_reg[16]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y53    btn_cond_p1/sync/M_pipe_q_reg[0]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X10Y64   gameMachine/players/M_current_counter_q_reg[1]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X10Y64   gameMachine/players/M_current_counter_q_reg[2]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X9Y64    gameMachine/players/M_current_counter_q_reg[3]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X10Y64   gameMachine/players/M_current_counter_q_reg[4]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X9Y64    gameMachine/players/M_current_counter_q_reg[5]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X9Y64    gameMachine/players/M_current_counter_q_reg[6]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X10Y64   gameMachine/players/M_current_counter_q_reg[7]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X9Y62    gameMachine/players/M_p1_score_q_reg[2]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X9Y62    gameMachine/players/M_p1_score_q_reg[3]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X11Y64   gameMachine/players/M_temp_var_q_reg[1]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y53    btn_cond_p1/sync/M_pipe_q_reg[0]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X6Y65    gameMachine/players/M_current_counter_q_reg[0]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X4Y66    gameMachine/players/M_current_counter_q_reg[11]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X5Y67    gameMachine/players/M_current_counter_q_reg[12]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X5Y67    gameMachine/players/M_current_counter_q_reg[13]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X4Y66    gameMachine/players/M_current_counter_q_reg[14]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X6Y65    gameMachine/players/M_current_counter_q_reg[15]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X6Y66    gameMachine/players/M_current_timer_q_reg[11]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X6Y66    gameMachine/players/M_current_timer_q_reg[12]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X5Y66    gameMachine/players/M_p1_score_q_reg[11]/C
+
+
+

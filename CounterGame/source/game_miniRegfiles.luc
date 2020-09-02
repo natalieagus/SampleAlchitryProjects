@@ -1,0 +1,86 @@
+//the regfile for all game information
+module game_miniRegfiles (
+    input clk,  // clock
+    input rst,  // reset
+    input write_address[4], // write address
+    input we, // write enable
+    input data[16], // data in
+    
+    
+    input read_address_a[4], //address port a 
+    input read_address_b[4], //address port b
+    output out_a[16], //read port a
+    output out_b[16], //read port b
+    
+    //debug
+    output out[16],
+    output all_scores[32],
+    output all_buttons[4],
+    output counter_out[16]
+
+  ) 
+
+{
+  .clk(clk){
+    .rst(rst){
+      dff p1_score[16];
+      dff p2_score[16];
+      dff p1_buttonPress[16];
+      dff p2_buttonPress[16];
+      dff current_counter[16];
+      dff temp_var[16];
+      dff current_timer[16];
+    }
+  }
+
+  always {
+  
+    //write port
+    if (we){
+      case(write_address){
+        b0000 : p1_score.d = data;
+        b0001 : p2_score.d = data;
+        b0010 : p1_buttonPress.d = data;
+        b0011 : p2_buttonPress.d = data;
+        b0111 : current_counter.d = data;
+        b1000 : current_timer.d = data;
+        b1111 : temp_var.d = data;
+      }
+    }
+    
+      
+    //read port a
+    case(read_address_a){
+        b0000 : out_a = p1_score.q;
+        b0001 : out_a = p2_score.q;
+        b0010 : out_a = p1_buttonPress.q;
+        b0011 : out_a = p2_buttonPress.q;
+        b0111 : out_a = current_counter.q;
+        b1000 : out_a = current_timer.q;
+        b1111 : out_a = temp_var.q;
+        default : out_a = 0;
+    }
+    
+    //read port b
+    case(read_address_b){
+        b0000 : out_b = p1_score.q;
+        b0001 : out_b = p2_score.q;
+        b0010 : out_b = p1_buttonPress.q;
+        b0011 : out_b = p2_buttonPress.q;
+        b0111 : out_b = current_counter.q;
+        b1000 : out_b = current_timer.q;
+        b1111 : out_b = temp_var.q;
+        default : out_b = 0;
+    }
+      
+    
+    
+    //For debugging
+    all_scores[15:0] = p1_score.q;
+    all_scores[31:16] = p2_score.q;
+    all_buttons[1:0] = p1_buttonPress.q[1:0];
+    all_buttons[3:2] = p2_buttonPress.q[1:0];
+    out = current_timer.q;
+    counter_out = current_counter.q;
+  }
+}

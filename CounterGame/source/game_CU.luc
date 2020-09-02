@@ -1,0 +1,353 @@
+module game_CU (
+    input clk,  // clock
+    input rst,  // reset
+    input increase_counter,
+    input decrease_timer,
+    input regfile_datain[16], //direct reading of regfile data from read_address_b
+    
+    input p1_button,
+    input p2_button,
+    
+    output alufn[6],
+    output asel[3],
+    output bsel[3],
+    output alu_out_sel[2],
+    output regfile_write_address[4],
+    output regfile_read_address_a[4],
+    output regfile_read_address_b[4],
+    output we_regfile,
+    output decimal_counter_increase,
+    output decimal_counter_rst,
+    output debug[4]
+  ) {
+
+  
+  .clk(clk){
+    fsm game_fsm={
+      START_SET_TIMER,
+      INC_COUNTER, 
+      IDLE, 
+      CHECK_P1BUTTONCOUNT, 
+      BRANCH_P1BUTTON,
+      INCREASE_P1SCORE, 
+      INCREASE_P1BUTTONCOUNT,
+      CHECK_P2BUTTONCOUNT, 
+      BRANCH_P2BUTTON,
+      INCREASE_P2SCORE, 
+      INCREASE_P2BUTTONCOUNT,
+      RESET_COUNTER, 
+      DECREASE_GAMETIMER, 
+      CHECK_GAMETIMER,
+      BRANCH_GAMETIMER,
+      CHECK_P1P2BUTTONCOUNT,
+      BRANCHCHECK_P1P2BUTTONCOUNT,
+      BRANCH_P1BUTTONCOUNT, 
+      CHECK_DRAW,
+      BRANCH_DRAW,
+      DRAW,
+      CHECK_WINNER,
+      BRANCH_WINNER,
+      P1WINS,
+      P2LOSE,
+      P2WINS,
+      P1LOSE,
+      GAMEOVER
+      };
+    
+  }
+  
+  always {
+  
+    // standard setting unless otherwise overwritten by each case 
+    alufn = 0;
+    asel = 0; 
+    bsel = 0;
+    we_regfile = 0;
+    regfile_write_address = 1111;
+    regfile_read_address_a = 0000;
+    regfile_read_address_b = 0000;
+    alu_out_sel = 0;
+    
+    debug = b0000;
+    
+    decimal_counter_increase = 0;
+    decimal_counter_rst = 0;
+    
+    if (rst){
+        game_fsm.d = game_fsm.START_SET_TIMER;
+        decimal_counter_rst = 1;
+    }
+    else{
+      
+    case(game_fsm.q){
+    
+      game_fsm.START_SET_TIMER: 
+        alufn = b011010;                             //ADD
+        asel = b11;                                  //30
+        we_regfile = 1; 
+        regfile_write_address = b1000;                     //timer reg
+        regfile_read_address_b = b1000;              //direct read (temp reg)
+        //if counter is set
+        if (regfile_datain[4]){                      //direct read in
+          game_fsm.d = game_fsm.INC_COUNTER;
+        }
+        else{
+          game_fsm.d =  game_fsm.START_SET_TIMER;
+        }
+        
+      game_fsm.INC_COUNTER:
+        //set output and next state
+        alufn = b000000;                             //ADD
+        regfile_read_address_a = b0111;              //counter reg
+        bsel = b01;                                  //constant 1 
+        asel = b00;                                  
+        we_regfile = 1;
+        regfile_write_address = b0111;                     //counter reg 
+        decimal_counter_increase = 1;
+        game_fsm.d = game_fsm.IDLE;
+      
+      game_fsm.CHECK_P1BUTTONCOUNT:
+        alufn = b110101;                             //CMPLT
+        regfile_read_address_a = b0010;              //p1 button count reg
+        bsel = b11;                                  //constant 3
+        asel = b00; 
+        we_regfile = 1;
+        regfile_write_address = b1111;                     //temp reg
+        game_fsm.d = game_fsm.BRANCH_P1BUTTON;
+        
+      game_fsm.BRANCH_P1BUTTON:
+        regfile_read_address_b = b1111;              //temp reg 
+        if (regfile_datain[0]){                      //direct read in
+          game_fsm.d = game_fsm.INCREASE_P1SCORE;
+        }
+        else{
+          game_fsm.d = game_fsm.IDLE;
+        }
+               
+      game_fsm.INCREASE_P1SCORE:
+         alufn = b000000;                           //ADD
+         regfile_read_address_b = b0000;            //P1 score reg 
+         regfile_read_address_a = b0111;            //counter reg 
+         bsel = b00;                                //P1 score reg 
+         asel = b00;                                //counter  reg
+         we_regfile = 1;                           
+         regfile_write_address = b0000;                   //P1 score reg
+         game_fsm.d = game_fsm.INCREASE_P1BUTTONCOUNT;
+
+      game_fsm.INCREASE_P1BUTTONCOUNT:
+        alufn = b000000;
+        regfile_read_address_b = b0010;
+        bsel = b00; // p1's button
+        asel = b01; // plus 1 
+        we_regfile = 1; 
+        regfile_write_address = b0010;
+        game_fsm.d = game_fsm.RESET_COUNTER;
+        
+      game_fsm.CHECK_P2BUTTONCOUNT:
+        alufn = b110101;                           //CMPLT
+        regfile_read_address_a = b0011;            //P2 button count reg
+        bsel = b11;                                //constant 3
+        asel = b00; 
+        we_regfile = 1;
+        regfile_write_address = b1111;                   //temp reg
+        game_fsm.d = game_fsm.BRANCH_P2BUTTON; 
+      
+      game_fsm.BRANCH_P2BUTTON:
+        regfile_read_address_b = b1111;            //temp reg
+        if (regfile_datain[0]){                    //direct read
+          game_fsm.d = game_fsm.INCREASE_P2SCORE;
+        }
+        else{
+          game_fsm.d = game_fsm.IDLE;
+        }
+           
+      game_fsm.INCREASE_P2SCORE:
+        //set output and next state 
+        alufn = b000000;                          //ADD
+        regfile_read_address_b = b0001;           //P2 score reg 
+        regfile_read_address_a = b0111;           //counter reg
+        bsel = b00; 
+        asel = b00; 
+        we_regfile = 1; 
+        regfile_write_address = b0001;                 //P2 score reg
+        game_fsm.d = game_fsm.INCREASE_P2BUTTONCOUNT;  
+        
+      game_fsm.INCREASE_P2BUTTONCOUNT:
+        alufn = b000000;
+        regfile_read_address_b = b0011;          //P2 button reg
+        bsel = b00;                         
+        asel = b01;                              //constant 1
+        we_regfile = 1; 
+        regfile_write_address = b0011;                 //P2 button reg
+        game_fsm.d = game_fsm.RESET_COUNTER;
+            
+      game_fsm.RESET_COUNTER:
+        alu_out_sel = b11;                       //constant 0
+        we_regfile = 1;
+        regfile_write_address = b0111;                 //counter reg
+        decimal_counter_rst = 1;
+        decimal_counter_increase = 0;
+        game_fsm.d = game_fsm.CHECK_P1P2BUTTONCOUNT; 
+               
+      game_fsm.DECREASE_GAMETIMER:
+        alufn = b000001;                         //SUB
+        regfile_read_address_a = b1000;          //timer reg
+        asel = b00; 
+        bsel = b01;                              //constant 1
+        we_regfile = 1;
+        regfile_write_address = b1000;
+        game_fsm.d = game_fsm.IDLE;
+          
+      game_fsm.CHECK_GAMETIMER:
+        alufn = b110011;                         //CMPEQ
+        regfile_read_address_a = b1000;          //timer reg
+        asel = b00;
+        bsel = b10;                              //constant 0
+        we_regfile = 1;
+        regfile_write_address = b1111;                 //temp eg 
+        game_fsm.d = game_fsm.BRANCH_GAMETIMER;
+      
+      game_fsm.BRANCH_GAMETIMER:
+        regfile_read_address_b = b1111;          //temp reg
+        if (~regfile_datain[0]){                 //if timer is not zero
+          game_fsm.d = game_fsm.DECREASE_GAMETIMER;
+          }
+        else{
+          game_fsm.d = game_fsm.CHECK_DRAW;
+          }
+          
+      game_fsm.CHECK_P1P2BUTTONCOUNT:
+        alufn = b110011; //CMPEQ
+        regfile_read_address_a = b0010;         //P1 button reg
+        regfile_read_address_b = b0011;         //P2 button reg
+        asel = b00;
+        bsel = b00;
+        we_regfile = 1;
+        regfile_write_address = b1111;                //temp reg
+        game_fsm.d = game_fsm.BRANCHCHECK_P1P2BUTTONCOUNT;
+          
+      game_fsm.BRANCHCHECK_P1P2BUTTONCOUNT:
+        regfile_read_address_b = b1111;        //temp reg
+        if(regfile_datain[0]){  
+          alufn = b110011;                     //CMPEQ 
+          regfile_read_address_a = b0010;      //P1 button reg
+          bsel = b11;                          //constant 3
+          we_regfile = 1;
+          regfile_write_address = b1111;             //temp reg
+          game_fsm.d = game_fsm.BRANCH_P1BUTTONCOUNT;  
+          }
+        else{
+          game_fsm.d = game_fsm.IDLE;
+          }
+      
+      game_fsm.BRANCH_P1BUTTONCOUNT:
+        regfile_read_address_b = b1111;       //temp reg
+        if(regfile_datain[0]){
+          game_fsm.d = game_fsm.CHECK_DRAW;   
+          }
+        else{
+          game_fsm.d = game_fsm.IDLE;
+          }
+      
+      game_fsm.CHECK_DRAW:
+        alufn = b110011; //CMPEQ
+        regfile_read_address_a = b0000;      //P1 score reg
+        regfile_read_address_b = b0001;      //P2 score reg
+        asel = b00;
+        bsel = b00;
+        we_regfile = 1;
+        regfile_write_address = b1111;             //temp reg
+        game_fsm.d = game_fsm.BRANCH_DRAW;
+      
+      game_fsm.BRANCH_DRAW:
+        regfile_read_address_b = b1111;      //temp reg
+        if (regfile_datain[0]){
+          //its draw
+          alu_out_sel = b10;                //draw signal
+          we_regfile = 1;
+          regfile_write_address = b0000;          //P1 score reg
+          game_fsm.d = game_fsm.DRAW;
+          }
+        else{
+          game_fsm.d = game_fsm.CHECK_WINNER;
+          }
+      
+      game_fsm.DRAW:
+        alu_out_sel = b10;                //draw signal
+        we_regfile = 1; 
+        regfile_write_address = b0001;          //P2 score reg
+        game_fsm.d = game_fsm.GAMEOVER;  
+              
+      game_fsm.CHECK_WINNER:
+        alufn = b110101;                 //CMPLT
+        regfile_read_address_a = b0000;  //P1 score reg 
+        regfile_read_address_b = b0001;  //P2 score reg
+        asel = b00;
+        bsel = b00;
+        we_regfile = 1;
+        regfile_write_address = b1111;         //temp reg
+        game_fsm.d = game_fsm.BRANCH_WINNER;
+          
+      game_fsm.BRANCH_WINNER:
+        regfile_read_address_b = b1111; //temp reg
+        if (regfile_datain[0]){
+            //P2 Wins
+            game_fsm.d = game_fsm.P2WINS; 
+          }
+        else{
+            //P1 Wins
+            game_fsm.d = game_fsm.P1WINS; 
+          }
+        
+          
+      game_fsm.P2WINS:
+         we_regfile = 1;
+         regfile_write_address = b0001;     //P2 score reg
+         alu_out_sel = b01;           //P2 winning signal
+         game_fsm.d = game_fsm.P1LOSE; 
+     
+      game_fsm.P1WINS:
+         we_regfile = 1;
+         regfile_write_address = b0000;     //P1 score reg
+         alu_out_sel = b01;           //P1 winning signal
+         game_fsm.d = game_fsm.P2LOSE; 
+ 
+      game_fsm.P1LOSE:
+         we_regfile = 1;
+         regfile_write_address = b0000;     //P1 score reg
+         alu_out_sel = b11;           //P1 losingsignal
+         game_fsm.d = game_fsm.GAMEOVER; 
+          
+      game_fsm.P2LOSE:
+         we_regfile = 1;
+         regfile_write_address = b0001;     //P2 score reg
+         alu_out_sel = b11;           //P2 losing signal
+         game_fsm.d = game_fsm.GAMEOVER; 
+      
+          
+      game_fsm.GAMEOVER:
+        debug = b1111;
+        game_fsm.d = game_fsm.GAMEOVER;           
+        
+      game_fsm.IDLE:
+        if (decrease_timer){
+          game_fsm.d = game_fsm.CHECK_GAMETIMER;
+        }
+        else if (increase_counter && ~p1_button && ~p2_button){
+            game_fsm.d = game_fsm.INC_COUNTER;
+        }
+        else if (p1_button && ~p2_button){
+            game_fsm.d = game_fsm.CHECK_P1BUTTONCOUNT;
+        }
+        else if (p2_button && ~p1_button){
+            game_fsm.d = game_fsm.CHECK_P2BUTTONCOUNT;
+        }
+        else{
+            game_fsm.d = game_fsm.IDLE;
+        }
+
+
+      }
+    } 
+  }
+}
