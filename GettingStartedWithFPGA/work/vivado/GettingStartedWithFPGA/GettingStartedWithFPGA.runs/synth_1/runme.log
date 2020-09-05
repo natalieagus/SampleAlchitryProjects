@@ -15,17 +15,28 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Device 21-403] Loading part xc7a35tftg256-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 7508 
+INFO: Helper process launched with PID 11592 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 769.191 ; gain = 234.285
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 768.480 ; gain = 233.715
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'au_top_0' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/au_top_0.v:7]
-INFO: [Synth 8-6157] synthesizing module 'full_adder_1' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/full_adder_1.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'full_adder_1' (1#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/full_adder_1.v:7]
-INFO: [Synth 8-6157] synthesizing module 'reset_conditioner_2' [C:/Users/NatalieAgus/Desktop/Alchitry Projects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/reset_conditioner_2.v:11]
+INFO: [Synth 8-6157] synthesizing module 'au_top_0' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/au_top_0.v:7]
+INFO: [Synth 8-6157] synthesizing module 'counter_1' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/counter_1.v:14]
+	Parameter SIZE bound to: 1'b1 
+	Parameter DIV bound to: 5'b11010 
+	Parameter TOP bound to: 1'b0 
+	Parameter UP bound to: 1'b1 
+	Parameter MAX_VALUE bound to: 27'b011111111111111111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'counter_1' (1#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/counter_1.v:14]
+INFO: [Synth 8-6157] synthesizing module 'seq_plus_two_withReset_2' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/seq_plus_two_withReset_2.v:7]
+INFO: [Synth 8-6157] synthesizing module 'eight_bit_adder_4' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/eight_bit_adder_4.v:7]
+INFO: [Synth 8-6157] synthesizing module 'full_adder_5' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/full_adder_5.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'full_adder_5' (2#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/full_adder_5.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'eight_bit_adder_4' (3#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/eight_bit_adder_4.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'seq_plus_two_withReset_2' (4#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/seq_plus_two_withReset_2.v:7]
+INFO: [Synth 8-6157] synthesizing module 'reset_conditioner_3' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/reset_conditioner_3.v:11]
 	Parameter STAGES bound to: 3'b100 
-INFO: [Synth 8-6155] done synthesizing module 'reset_conditioner_2' (2#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/reset_conditioner_2.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'au_top_0' (3#1) [C:/Users/NatalieAgus/Desktop/Alchitry Projects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/au_top_0.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'reset_conditioner_3' (5#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/reset_conditioner_3.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'au_top_0' (6#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/au_top_0.v:7]
 WARNING: [Synth 8-3917] design au_top_0 has port led[7] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port led[6] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port led[5] driven by constant 0
@@ -43,6 +54,8 @@ WARNING: [Synth 8-3917] design au_top_0 has port io_led[21] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[20] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[19] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[18] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[17] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[16] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[15] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[14] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[13] driven by constant 0
@@ -51,14 +64,6 @@ WARNING: [Synth 8-3917] design au_top_0 has port io_led[11] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[10] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[9] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[8] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[7] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[6] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[5] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[4] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[3] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[2] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[1] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[0] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_seg[7] driven by constant 1
 WARNING: [Synth 8-3917] design au_top_0 has port io_seg[6] driven by constant 1
 WARNING: [Synth 8-3917] design au_top_0 has port io_seg[5] driven by constant 1
@@ -75,7 +80,6 @@ WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[4]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[3]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[2]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[1]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[0]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[23]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[22]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[21]
@@ -97,8 +101,11 @@ WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[6]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[5]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[4]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[3]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[2]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[1]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 842.777 ; gain = 307.871
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 842.723 ; gain = 307.957
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -111,47 +118,47 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 842.777 ; gain = 307.871
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 842.723 ; gain = 307.957
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 842.777 ; gain = 307.871
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 842.723 ; gain = 307.957
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 842.777 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 842.723 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
+Parsing XDC File [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/constraint/custom.xdc]
+Finished Parsing XDC File [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/constraint/custom.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/constraint/custom.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/au_top_0_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/au_top_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Parsing XDC File [C:/Program Files/Alchitry/Alchitry Labs/library/components/au.xdc]
 Finished Parsing XDC File [C:/Program Files/Alchitry/Alchitry Labs/library/components/au.xdc]
-Parsing XDC File [C:/Users/NatalieAgus/Desktop/Alchitry Projects/GettingStartedWithFPGA/work/constraint/custom.xdc]
-Finished Parsing XDC File [C:/Users/NatalieAgus/Desktop/Alchitry Projects/GettingStartedWithFPGA/work/constraint/custom.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/NatalieAgus/Desktop/Alchitry Projects/GettingStartedWithFPGA/work/constraint/custom.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/au_top_0_propImpl.xdc].
-Resolution: To avoid this warning, move constraints listed in [.Xil/au_top_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 897.547 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 940.645 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 897.547 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 940.645 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 897.547 ; gain = 362.641
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 940.645 ; gain = 405.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tftg256-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 897.547 ; gain = 362.641
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 940.645 ; gain = 405.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 897.547 ; gain = 362.641
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 940.645 ; gain = 405.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 897.547 ; gain = 362.641
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 940.645 ; gain = 405.879
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -164,8 +171,9 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---XORs : 
-	   3 Input      1 Bit         XORs := 1     
+	   3 Input      1 Bit         XORs := 8     
 +---Registers : 
+	                8 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -174,11 +182,15 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
-Module full_adder_1 
+Module full_adder_5 
 Detailed RTL Component Info : 
 +---XORs : 
 	   3 Input      1 Bit         XORs := 1     
-Module reset_conditioner_2 
+Module seq_plus_two_withReset_2 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
+Module reset_conditioner_3 
 Detailed RTL Component Info : 
 +---Registers : 
 	                4 Bit    Registers := 1     
@@ -215,6 +227,8 @@ WARNING: [Synth 8-3917] design au_top_0 has port io_led[21] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[20] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[19] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[18] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[17] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[16] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[15] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[14] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[13] driven by constant 0
@@ -223,14 +237,6 @@ WARNING: [Synth 8-3917] design au_top_0 has port io_led[11] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[10] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[9] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_led[8] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[7] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[6] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[5] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[4] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[3] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[2] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[1] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[0] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_seg[7] driven by constant 1
 WARNING: [Synth 8-3917] design au_top_0 has port io_seg[6] driven by constant 1
 WARNING: [Synth 8-3917] design au_top_0 has port io_seg[5] driven by constant 1
@@ -243,13 +249,10 @@ WARNING: [Synth 8-3917] design au_top_0 has port io_sel[3] driven by constant 1
 WARNING: [Synth 8-3917] design au_top_0 has port io_sel[2] driven by constant 1
 WARNING: [Synth 8-3917] design au_top_0 has port io_sel[1] driven by constant 1
 WARNING: [Synth 8-3917] design au_top_0 has port io_sel[0] driven by constant 1
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port clk
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port rst_n
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[4]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[3]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[2]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[1]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[0]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[23]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[22]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[21]
@@ -271,8 +274,12 @@ WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[6]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[5]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[4]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[3]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[2]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[1]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[0]
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\seqplustwo/M_register_1_q_reg[0] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 897.547 ; gain = 362.641
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 940.645 ; gain = 405.879
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -284,13 +291,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 910.145 ; gain = 375.238
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 940.645 ; gain = 405.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 910.145 ; gain = 375.238
+Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 940.645 ; gain = 405.879
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -302,7 +309,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 919.809 ; gain = 384.902
+Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 940.645 ; gain = 405.879
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -326,13 +333,13 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 934.617 ; gain = 399.711
+Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 940.645 ; gain = 405.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 934.617 ; gain = 399.711
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 940.645 ; gain = 405.879
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -351,25 +358,25 @@ Report Check Netlist:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 934.617 ; gain = 399.711
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 940.645 ; gain = 405.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 934.617 ; gain = 399.711
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 940.645 ; gain = 405.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 934.617 ; gain = 399.711
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 940.645 ; gain = 405.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 934.617 ; gain = 399.711
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 940.645 ; gain = 405.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -382,42 +389,55 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+-----+------+
-|      |Cell |Count |
-+------+-----+------+
-|1     |LUT3 |     2|
-|2     |IBUF |     4|
-|3     |OBUF |    48|
-+------+-----+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |     7|
+|3     |LUT1   |     3|
+|4     |LUT2   |     1|
+|5     |LUT3   |     2|
+|6     |LUT4   |     1|
+|7     |LUT5   |     2|
+|8     |LUT6   |     1|
+|9     |FDRE   |    34|
+|10    |FDSE   |     4|
+|11    |IBUF   |     4|
+|12    |OBUF   |    48|
++------+-------+------+
 
 Report Instance Areas: 
-+------+------------+-------------+------+
-|      |Instance    |Module       |Cells |
-+------+------------+-------------+------+
-|1     |top         |             |    54|
-|2     |  fulladder |full_adder_1 |     2|
-+------+------------+-------------+------+
++------+-------------+-------------------------+------+
+|      |Instance     |Module                   |Cells |
++------+-------------+-------------------------+------+
+|1     |top          |                         |   108|
+|2     |  reset_cond |reset_conditioner_3      |     5|
+|3     |  seqplustwo |seq_plus_two_withReset_2 |    15|
+|4     |  slowclock  |counter_1                |    35|
++------+-------------+-------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 934.617 ; gain = 399.711
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 940.645 ; gain = 405.879
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 73 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:23 . Memory (MB): peak = 934.617 ; gain = 344.941
-Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 934.617 ; gain = 399.711
+Synthesis finished with 0 errors, 0 critical warnings and 67 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:23 . Memory (MB): peak = 940.645 ; gain = 307.957
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 940.645 ; gain = 405.879
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 947.684 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 940.645 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 7 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 953.422 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 945.875 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-16 Infos, 144 Warnings, 0 Critical Warnings and 0 Errors encountered.
+25 Infos, 134 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 953.422 ; gain = 655.992
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 953.422 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 945.875 ; gain = 648.035
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 945.875 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint 'C:/Users/NatalieAgus/Desktop/Alchitry Projects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.runs/synth_1/au_top_0.dcp' has been generated.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.runs/synth_1/au_top_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file au_top_0_utilization_synth.rpt -pb au_top_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Sep  5 17:11:48 2020...
+INFO: [Common 17-206] Exiting Vivado at Sun Sep  6 02:49:13 2020...

@@ -22,22 +22,23 @@ module au_top_0 (
   
   reg rst;
   
-  wire [1-1:0] M_fulladder_s;
-  wire [1-1:0] M_fulladder_cout;
-  reg [1-1:0] M_fulladder_x;
-  reg [1-1:0] M_fulladder_y;
-  reg [1-1:0] M_fulladder_cin;
-  full_adder_1 fulladder (
-    .x(M_fulladder_x),
-    .y(M_fulladder_y),
-    .cin(M_fulladder_cin),
-    .s(M_fulladder_s),
-    .cout(M_fulladder_cout)
+  wire [1-1:0] M_slowclock_value;
+  counter_1 slowclock (
+    .clk(clk),
+    .rst(rst),
+    .value(M_slowclock_value)
+  );
+  
+  wire [8-1:0] M_seqplustwo_out;
+  seq_plus_two_withReset_2 seqplustwo (
+    .clk(M_slowclock_value),
+    .rst(io_button[0+0-:1]),
+    .out(M_seqplustwo_out)
   );
   
   wire [1-1:0] M_reset_cond_out;
   reg [1-1:0] M_reset_cond_in;
-  reset_conditioner_2 reset_cond (
+  reset_conditioner_3 reset_cond (
     .clk(clk),
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
@@ -52,10 +53,6 @@ module au_top_0 (
     io_seg = 8'hff;
     io_sel = 4'hf;
     customout = 3'h7;
-    M_fulladder_x = io_dip[0+0+0-:1];
-    M_fulladder_y = io_dip[0+1+0-:1];
-    M_fulladder_cin = io_dip[0+2+0-:1];
-    io_led[16+1+0-:1] = M_fulladder_s;
-    io_led[16+0+0-:1] = M_fulladder_cout;
+    io_led[0+7-:8] = M_seqplustwo_out;
   end
 endmodule

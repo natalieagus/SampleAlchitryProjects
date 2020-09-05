@@ -17,16 +17,16 @@ module au_top (
   sig rst;              	// reset signal
   
   // ************PART 1*************// 
-    full_adder fulladder;
+ //   full_adder fulladder;
  // full_adder_ROM fulladderROM;   
  //eight_bit_adder eightbitadder;
  // eight_bit_shiftleft leftshifter;
  // ************END*************// 
   
  // ************PART 2*************// 
-//  counter slowclock(#SIZE(1),#DIV(26), .clk(clk), .rst(rst));
+  counter slowclock(#SIZE(1),#DIV(26), .clk(clk), .rst(rst));
 //  seq_plus_two seqplustwo(.clk(clk), .rst(rst)); // too fast!
-//  seq_plus_two_withReset seqplustwo(.fastclk(clk), .clk(slowclock.value), .rst(rst)); // use slow clock
+  seq_plus_two_withReset seqplustwo(.clk(slowclock.value), .rst(io_button[0])); // use slow clock
 //  seq_plus_vary seqplusvary(.clk(slowclock.value), .rst(rst));
  // ************END*************//   
   
@@ -61,11 +61,11 @@ module au_top (
   
   // ************PART 1*************// 	
  // a. test full adder
- fulladder.x = io_dip[0][0];
-	fulladder.y = io_dip[0][1];
-	fulladder.cin = io_dip[0][2];
-	io_led[2][1] = fulladder.s;
-	io_led[2][0] = fulladder.cout;
+// fulladder.x = io_dip[0][0];
+//	fulladder.y = io_dip[0][1];
+//	fulladder.cin = io_dip[0][2];
+//	io_led[2][1] = fulladder.s;
+//	io_led[2][0] = fulladder.cout;
     
  // b. test full adder ROM
  // fulladderROM.address[2] = io_dip[0][2];
@@ -88,8 +88,7 @@ module au_top (
     // ************END*************// 
     
   // ************PART 2*************//     
-//  io_led[0] = seqplustwo.out;
-//  io_led[1] = seqplustwo.reset_debug;
+  io_led[0] = seqplustwo.out;
 //  io_led[2] = seqplusvary.out;
     // ************END*************// 
        
