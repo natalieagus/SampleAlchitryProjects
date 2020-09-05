@@ -1,0 +1,38 @@
+
+module seq_plus_two_withReset (
+	input clk,  // clock
+ input fastclk, //actual clock
+	input rst,  // reset
+	output out[8],
+    output reset_debug[2]
+  ) {
+  dff reset_storage[2](#INIT(11),.clk(fastclk));
+  dff register_1[8](#INIT(0), .clk(clk));
+  eight_bit_adder plus_two;
+ 
+  always {
+
+    
+	plus_two.y = 8h02;
+	plus_two.x = register_1.q;
+	plus_two.cin = b0;
+	register_1.d = plus_two.s;
+	out = plus_two.s;
+    
+  if (reset_storage.q == b11 && rst == 1){
+      reset_storage.d = b10; //means reset, but not done
+  }
+    
+  if (reset_storage.q == b10){
+      register_1.d = 0; // must put this below the assignment as output of plus_two above. Instructions below has more priority. 
+   }
+  
+  if (reset_storage.q == b10 && register_1.q == 0){ //means already reset 
+      reset_storage.d = b11; //go back to initial state
+  }
+    
+    reset_debug = reset_storage.q;
+    
+    
+  }
+}

@@ -1,0 +1,37 @@
+module seq_plus_vary (
+	input clk,  // clock
+	input rst,  // reset
+	output out[8]
+  ) 
+
+{
+  dff register_1[8](#INIT(0), .clk(clk), .rst(rst));
+  fsm y_controller(.clk(clk), .rst(rst)) = {S0, S1, S2};
+  eight_bit_adder adder;
+ 
+  always {
+	adder.y = 8h00;
+	adder.x = register_1.q;
+	adder.cin = b0;
+	
+	case (y_controller.q){
+  	y_controller.S0:
+      	adder.y = 8h02;
+      	y_controller.d = y_controller.S1;
+  	y_controller.S1:
+      	adder.y = 8h07;
+      	y_controller.d = y_controller.S2;
+  	y_controller.S2:
+      	adder.y = 8h0C;
+      	y_controller.d = y_controller.S0;
+ 
+  	
+	}
+	adder.cin = b0;
+	register_1.d = adder.s;
+	out = adder.s;
+	
+  }
+}
+
+

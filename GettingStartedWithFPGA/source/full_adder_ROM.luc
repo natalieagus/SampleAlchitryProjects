@@ -1,0 +1,11 @@
+module full_adder_ROM (
+	input address[3], // 3 bit, address[2] is x, address[1] is y, address[0] is cin
+	output value[2] // 2 bit, value[0] is cout, value[1] is s
+  ) 
+{
+  const FULL_ADDER = {b11, b01, b01, b10, b01, b10, b10, b00};
+  always 
+  {
+    	value = FULL_ADDER[address];
+  }
+}

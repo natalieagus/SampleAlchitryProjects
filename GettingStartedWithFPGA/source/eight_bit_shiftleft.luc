@@ -1,0 +1,42 @@
+module eight_bit_shiftleft (
+	input a[8],
+	input b[3],
+	output s[8]
+  ) {
+ 
+  sig w[8];
+  sig x[8];
+  always {
+ 
+	case(b[2]){
+  	b0:
+    	w = a;
+  	b1:
+    	w[7:4] = a[3:0];
+    	w[3:0] = 4b0;
+  	default:
+    	w = a;
+	}
+	
+	case(b[1]){
+  	b0:
+    	x = w;
+  	b1:
+    	x[7:2] = w[5:0];
+    	x[1:0] = 2b0;
+  	default:
+    	x = w;
+	}
+	
+	case(b[0]){
+  	b0:
+    	s = x;
+  	b1:
+    	s[7:1] = x[6:0];
+    	s[0] = b0;
+  	default:
+    	s = x;
+	}
+	
+  }
+}

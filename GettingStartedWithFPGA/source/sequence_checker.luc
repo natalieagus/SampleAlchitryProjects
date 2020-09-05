@@ -1,0 +1,121 @@
+module sequence_checker (
+    input buttons[4],
+    input clk,  // clock
+    input rst,  // reset
+    output out_result[3],
+    output out_buttonseq[4],
+    output out_currentpress[4]    
+  ) 
+
+{
+  
+  dff sequence[4](#INIT(0), .clk(clk), .rst(rst));
+  dff currentPress[4](#INIT(0),.clk(clk), .rst(rst));
+  dff result[3](#INIT(0),.clk(clk), .rst(rst));
+  const MATCH = {b10, b11}; // press button 4, then 3
+  
+  fsm brain(.clk(clk), .rst(rst)) = {
+    WAITFIRSTPRESS, 
+    FIRSTPRESS, 
+    WAITSECONDPRESS,
+    SECONDPRESS,
+    CHECKPRESS
+  };
+    
+
+  always{     
+    case (brain.q)
+    {
+      brain.WAITFIRSTPRESS:
+        if (buttons[3] | buttons[2] | buttons[1] | buttons[0]){ //if any button is pressed
+            brain.d = brain.FIRSTPRESS;
+            currentPress.d = buttons;
+            // reset result 
+            result.d = b000;
+        }
+        else{
+            brain.d = brain.WAITFIRSTPRESS; //if no press, loop 
+        }
+      
+      brain.FIRSTPRESS:
+        if (currentPress.q != 0){
+          if (currentPress.q == b1000){
+              //fourth button pressed 
+              sequence.d[1:0] = b11;
+            }
+          else if (currentPress.q == b0100){
+              //third button pressed 
+              sequence.d[1:0] = b10;
+            }
+          else if (currentPress.q == b0010){
+              //second button pressed 
+              sequence.d[1:0] = b01;
+            }
+          else if (currentPress.q == b0001){
+              //first button pressed 
+              sequence.d[1:0] = b00;
+            }
+          // clear it 
+          currentPress.d = 4b0;          
+          brain.d = brain.WAITSECONDPRESS;
+        }
+        
+      brain.WAITSECONDPRESS:       
+          if (buttons[3] | buttons[2] | buttons[1] | buttons[0]){ //if any button is pressed
+            brain.d = brain.SECONDPRESS;
+            currentPress.d = buttons;
+           }
+          else{
+            brain.d = brain.WAITSECONDPRESS; //if no press, loop 
+          }
+      
+
+        
+      brain.SECONDPRESS:
+        if (currentPress.q != 0){
+          if (currentPress.q == b1000){
+              //fourth button pressed 
+              sequence.d[3:2] = b11;
+            }
+          else if (currentPress.q == b0100){
+              //third button pressed 
+              sequence.d[3:2] = b10;
+            }
+          else if (currentPress.q == b0010){
+              //second button pressed 
+              sequence.d[3:2] = b01;
+            }
+          else if (currentPress.q == b0001){
+              //first button pressed 
+              sequence.d[3:2] = b00;
+            }
+          // clear it 
+          currentPress.d = 4b0;          
+          brain.d = brain.SECONDPRESS; // loop
+        }
+        else{
+            brain.d = brain.CHECKPRESS; //if no press, loop 
+        }
+        
+      brain.CHECKPRESS:
+        if (sequence.q[1:0] == MATCH[0] && sequence.q[3:2] == MATCH[1]){
+            result.d = b111; //RIGHT
+        }
+        else{
+            result.d = b100; //WRONG
+        }
+        brain.d = brain.CHECKPRESS;
+          
+    }
+    
+    out_result = result.q;
+    out_currentpress = currentPress.q;
+    out_buttonseq = sequence.q;
+    
+           
+      
+  
+
+
+}
+}

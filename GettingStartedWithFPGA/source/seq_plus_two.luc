@@ -1,0 +1,17 @@
+module seq_plus_two (
+	input clk,  // clock
+	input rst,  // reset
+	output out[8]
+  ) {
+  dff register_1[8](#INIT(0), .clk(clk), .rst(rst)); //reset doesn't work because the CLK is to slow
+  eight_bit_adder plus_two;
+ 
+  always {
+	plus_two.y = 8h02;
+	plus_two.x = register_1.q;
+	plus_two.cin = b0;
+	register_1.d = plus_two.s;
+	out = plus_two.s;
+	
+  }
+}
