@@ -8,7 +8,7 @@ module seq_plus_twoSlow (
   
   dff register_1[8](#INIT(0), .clk(clk), .rst(rst));
   eight_bit_adder plus_two;
-  counter slowClock(#DIV(26), .clk(clk), .rst(rst));
+  counter slowClock(#SIZE(1), #DIV(26), .clk(clk), .rst(rst));
   edge_detector slowClockEdge(#RISE(1), #FALL(0), .clk(clk));
    
   

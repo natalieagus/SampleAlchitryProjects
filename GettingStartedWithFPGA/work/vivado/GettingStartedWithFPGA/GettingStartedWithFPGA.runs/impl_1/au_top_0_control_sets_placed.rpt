@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Sun Sep  6 15:35:56 2020
+| Date         : Sun Sep  6 17:53:29 2020
 | Host         : DESKTOP-9GBQU5S running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file au_top_0_control_sets_placed.rpt
 | Design       : au_top_0
@@ -27,7 +27,7 @@ Table of Contents
 |    Minimum number of control sets                        |     4 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    21 |
+| Unused register locations in slices containing registers |    22 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -60,23 +60,23 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | No           | No                    | No                     |               1 |            1 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              32 |            9 |
+| No           | Yes                   | No                     |              31 |            9 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              18 |            7 |
+| Yes          | Yes                   | No                     |              18 |            6 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------+-------------------------------+----------------------------+------------------+----------------+
-|  Clock Signal  |         Enable Signal         |      Set/Reset Signal      | Slice Load Count | Bel Load Count |
-+----------------+-------------------------------+----------------------------+------------------+----------------+
-|  clk_IBUF_BUFG |                               |                            |                1 |              1 |
-|  clk_IBUF_BUFG |                               | reset_cond/M_reset_cond_in |                2 |              4 |
-|  clk_IBUF_BUFG | seqplustwo/slowClockEdge/E[0] | reset_cond/Q[0]            |                7 |             18 |
-|  clk_IBUF_BUFG |                               | reset_cond/Q[0]            |                7 |             28 |
-+----------------+-------------------------------+----------------------------+------------------+----------------+
++----------------+---------------------------+----------------------------+------------------+----------------+
+|  Clock Signal  |       Enable Signal       |      Set/Reset Signal      | Slice Load Count | Bel Load Count |
++----------------+---------------------------+----------------------------+------------------+----------------+
+|  clk_IBUF_BUFG |                           |                            |                1 |              1 |
+|  clk_IBUF_BUFG |                           | reset_cond/M_reset_cond_in |                2 |              4 |
+|  clk_IBUF_BUFG | seqplustwo/slowClock/E[0] | reset_cond/Q[0]            |                6 |             18 |
+|  clk_IBUF_BUFG |                           | reset_cond/Q[0]            |                7 |             27 |
++----------------+---------------------------+----------------------------+------------------+----------------+
 
 

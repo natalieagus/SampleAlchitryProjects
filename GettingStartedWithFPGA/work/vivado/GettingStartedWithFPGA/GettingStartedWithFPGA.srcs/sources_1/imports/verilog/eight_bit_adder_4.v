@@ -23,7 +23,7 @@ module eight_bit_adder_4 (
   genvar GEN_fulladder0;
   generate
   for (GEN_fulladder0=0;GEN_fulladder0<4'h8;GEN_fulladder0=GEN_fulladder0+1) begin: fulladder_gen_0
-    full_adder_7 fulladder (
+    full_adder_8 fulladder (
       .x(M_fulladder_x[GEN_fulladder0*(1)+(1)-1-:(1)]),
       .y(M_fulladder_y[GEN_fulladder0*(1)+(1)-1-:(1)]),
       .cin(M_fulladder_cin[GEN_fulladder0*(1)+(1)-1-:(1)]),

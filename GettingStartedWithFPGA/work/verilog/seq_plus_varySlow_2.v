@@ -12,7 +12,7 @@ module seq_plus_varySlow_2 (
   
   
   
-  localparam SLOWCLOCK_SIZE = 5'h1c;
+  localparam SLOWCLOCK_SIZE = 5'h1b;
   
   reg [7:0] M_register_1_d, M_register_1_q = 1'h0;
   
@@ -36,8 +36,8 @@ module seq_plus_varySlow_2 (
     .cout(M_adder_cout)
   );
   
-  wire [28-1:0] M_slowClock_value;
-  counter_5 slowClock (
+  wire [27-1:0] M_slowClock_value;
+  counter_7 slowClock (
     .clk(clk),
     .rst(rst),
     .value(M_slowClock_value)
@@ -58,7 +58,7 @@ module seq_plus_varySlow_2 (
     M_adder_y = 8'h00;
     M_adder_x = M_register_1_q;
     M_adder_cin = 1'h0;
-    M_slowClockEdge_in = M_slowClock_value[27+0-:1];
+    M_slowClockEdge_in = M_slowClock_value[26+0-:1];
     
     case (M_y_controller_q)
       S0_y_controller: begin
@@ -88,18 +88,18 @@ module seq_plus_varySlow_2 (
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_y_controller_q <= 1'h0;
+      M_register_1_q <= 1'h0;
     end else begin
-      M_y_controller_q <= M_y_controller_d;
+      M_register_1_q <= M_register_1_d;
     end
   end
   
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_register_1_q <= 1'h0;
+      M_y_controller_q <= 1'h0;
     end else begin
-      M_register_1_q <= M_register_1_d;
+      M_y_controller_q <= M_y_controller_d;
     end
   end
   

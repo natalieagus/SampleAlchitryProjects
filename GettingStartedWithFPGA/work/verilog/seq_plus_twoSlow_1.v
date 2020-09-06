@@ -12,8 +12,6 @@ module seq_plus_twoSlow_1 (
   
   
   
-  localparam SLOWCLOCK_SIZE = 5'h1c;
-  
   reg [7:0] M_register_1_d, M_register_1_q = 1'h0;
   
   wire [8-1:0] M_plus_two_s;
@@ -29,7 +27,7 @@ module seq_plus_twoSlow_1 (
     .cout(M_plus_two_cout)
   );
   
-  wire [28-1:0] M_slowClock_value;
+  wire [1-1:0] M_slowClock_value;
   counter_5 slowClock (
     .clk(clk),
     .rst(rst),
@@ -47,7 +45,7 @@ module seq_plus_twoSlow_1 (
   always @* begin
     M_register_1_d = M_register_1_q;
     
-    M_slowClockEdge_in = M_slowClock_value[27+0-:1];
+    M_slowClockEdge_in = M_slowClock_value;
     M_plus_two_y = 8'h02;
     M_plus_two_x = M_register_1_q;
     M_plus_two_cin = 1'h0;

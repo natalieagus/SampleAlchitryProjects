@@ -7,7 +7,7 @@
 /*
    Parameters:
      RISE = 1
-     FALL = 1
+     FALL = 0
 */
 module edge_detector_6 (
     input clk,
@@ -16,7 +16,7 @@ module edge_detector_6 (
   );
   
   localparam RISE = 1'h1;
-  localparam FALL = 1'h1;
+  localparam FALL = 1'h0;
   
   
   reg M_last_d, M_last_q = 1'h0;
@@ -31,7 +31,7 @@ module edge_detector_6 (
         out = 1'h1;
       end
     end
-    if (1'h1) begin
+    if (1'h0) begin
       if (in == 1'h0 && M_last_q == 1'h1) begin
         out = 1'h1;
       end
