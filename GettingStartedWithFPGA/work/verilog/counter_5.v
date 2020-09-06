@@ -6,40 +6,40 @@
 
 /*
    Parameters:
-     SIZE = 1
-     DIV = 26
+     SIZE = SLOWCLOCK_SIZE
+     DIV = 0
      TOP = 0
      UP = 1
 */
-module counter_1 (
+module counter_5 (
     input clk,
     input rst,
-    output reg [0:0] value
+    output reg [27:0] value
   );
   
-  localparam SIZE = 1'h1;
-  localparam DIV = 5'h1a;
+  localparam SIZE = 5'h1c;
+  localparam DIV = 1'h0;
   localparam TOP = 1'h0;
   localparam UP = 1'h1;
   
   
-  reg [26:0] M_ctr_d, M_ctr_q = 1'h0;
+  reg [27:0] M_ctr_d, M_ctr_q = 1'h0;
   
-  localparam MAX_VALUE = 27'h3ffffff;
+  localparam MAX_VALUE = 1'h0;
   
   always @* begin
     M_ctr_d = M_ctr_q;
     
-    value = M_ctr_q[26+0-:1];
+    value = M_ctr_q[0+27-:28];
     if (1'h1) begin
       M_ctr_d = M_ctr_q + 1'h1;
-      if (1'h0 && M_ctr_q == 27'h3ffffff) begin
+      if (1'h0 && M_ctr_q == 1'h0) begin
         M_ctr_d = 1'h0;
       end
     end else begin
       M_ctr_d = M_ctr_q - 1'h1;
       if (1'h0 && M_ctr_q == 1'h0) begin
-        M_ctr_d = 27'h3ffffff;
+        M_ctr_d = 1'h0;
       end
     end
   end

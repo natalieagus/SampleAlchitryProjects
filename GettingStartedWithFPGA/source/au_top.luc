@@ -24,13 +24,16 @@ module au_top (
  // ************END*************// 
   
  // ************PART 2*************// 
-  counter slowclock(#SIZE(1),#DIV(26), .clk(clk), .rst(rst));
+ // counter slowclock(#SIZE(1),#DIV(26), .clk(clk), .rst(rst));
 //  seq_plus_two seqplustwo(.clk(clk), .rst(rst)); // too fast!
-  seq_plus_two_withReset seqplustwo(.clk(slowclock.value), .rst(io_button[0])); // use slow clock
 //  seq_plus_vary seqplusvary(.clk(slowclock.value), .rst(rst));
  // ************END*************//   
   
 // ***********PART 3**************//  
+  //  seq_plus_two_withReset seqplustwo(.clk(slowclock.value), .rst(io_button[0])); // use slowclock counter from Part 2
+    seq_plus_twoSlow seqplustwo(.clk(clk), .rst(rst));
+    seq_plus_varySlow seqplusvary(.clk(clk), .rst(rst));
+  
 //  sequence_checker sc(.clk(clk), .rst(rst));
 //  button_conditioner buttoncond[4](.clk(clk));
 //  edge_detector buttondetector[4](#RISE(1), #FALL(0),.clk(clk)); //detect on rising edge only
@@ -89,7 +92,7 @@ module au_top (
     
   // ************PART 2*************//     
   io_led[0] = seqplustwo.out;
-//  io_led[2] = seqplusvary.out;
+  io_led[2] = seqplusvary.out;
     // ************END*************// 
        
   // ************PART 3*************//     

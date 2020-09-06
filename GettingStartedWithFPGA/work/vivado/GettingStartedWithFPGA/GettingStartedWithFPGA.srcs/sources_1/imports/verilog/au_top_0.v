@@ -22,18 +22,18 @@ module au_top_0 (
   
   reg rst;
   
-  wire [1-1:0] M_slowclock_value;
-  counter_1 slowclock (
+  wire [8-1:0] M_seqplustwo_out;
+  seq_plus_twoSlow_1 seqplustwo (
     .clk(clk),
     .rst(rst),
-    .value(M_slowclock_value)
+    .out(M_seqplustwo_out)
   );
   
-  wire [8-1:0] M_seqplustwo_out;
-  seq_plus_two_withReset_2 seqplustwo (
-    .clk(M_slowclock_value),
-    .rst(io_button[0+0-:1]),
-    .out(M_seqplustwo_out)
+  wire [8-1:0] M_seqplusvary_out;
+  seq_plus_varySlow_2 seqplusvary (
+    .clk(clk),
+    .rst(rst),
+    .out(M_seqplusvary_out)
   );
   
   wire [1-1:0] M_reset_cond_out;
@@ -54,5 +54,6 @@ module au_top_0 (
     io_sel = 4'hf;
     customout = 3'h7;
     io_led[0+7-:8] = M_seqplustwo_out;
+    io_led[16+7-:8] = M_seqplusvary_out;
   end
 endmodule

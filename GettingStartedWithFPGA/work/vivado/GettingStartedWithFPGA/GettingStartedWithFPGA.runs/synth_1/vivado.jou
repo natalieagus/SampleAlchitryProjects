@@ -2,8 +2,8 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Sun Sep  6 02:48:40 2020
-# Process ID: 6856
+# Start of session at: Sun Sep  6 15:34:52 2020
+# Process ID: 2640
 # Current directory: C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.runs/synth_1
 # Command line: vivado.exe -log au_top_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source au_top_0.tcl
 # Log file: C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.runs/synth_1/au_top_0.vds

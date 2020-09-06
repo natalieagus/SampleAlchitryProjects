@@ -3,11 +3,13 @@
   <files>
     <src>full_adder.luc</src>
     <src>seq_plus_two_withReset.luc</src>
+    <src>seq_plus_twoSlow.luc</src>
     <component>pipeline.luc</component>
     <src>sequence_checker.luc</src>
     <component>counter.luc</component>
     <src>seq_plus_two.luc</src>
     <src>eight_bit_shiftleft.luc</src>
+    <src>seq_plus_varySlow.luc</src>
     <src>eight_bit_adder.luc</src>
     <src>seq_plus_vary.luc</src>
     <component>reset_conditioner.luc</component>

@@ -4,13 +4,15 @@
    This is a temporary file and any changes made to it will be destroyed.
 */
 
-module seq_plus_two_withReset_2 (
+module seq_plus_twoSlow_1 (
     input clk,
     input rst,
     output reg [7:0] out
   );
   
   
+  
+  localparam SLOWCLOCK_SIZE = 5'h1c;
   
   reg [7:0] M_register_1_d, M_register_1_q = 1'h0;
   
@@ -27,21 +29,40 @@ module seq_plus_two_withReset_2 (
     .cout(M_plus_two_cout)
   );
   
+  wire [28-1:0] M_slowClock_value;
+  counter_5 slowClock (
+    .clk(clk),
+    .rst(rst),
+    .value(M_slowClock_value)
+  );
+  
+  wire [1-1:0] M_slowClockEdge_out;
+  reg [1-1:0] M_slowClockEdge_in;
+  edge_detector_6 slowClockEdge (
+    .clk(clk),
+    .in(M_slowClockEdge_in),
+    .out(M_slowClockEdge_out)
+  );
+  
   always @* begin
     M_register_1_d = M_register_1_q;
     
+    M_slowClockEdge_in = M_slowClock_value[27+0-:1];
     M_plus_two_y = 8'h02;
     M_plus_two_x = M_register_1_q;
     M_plus_two_cin = 1'h0;
-    M_register_1_d = M_plus_two_s;
-    out = M_plus_two_s;
-    if (rst == 1'h1) begin
-      M_register_1_d = 1'h0;
+    if (M_slowClockEdge_out == 1'h1) begin
+      M_register_1_d = M_plus_two_s;
     end
+    out = M_plus_two_s;
   end
   
   always @(posedge clk) begin
-    M_register_1_q <= M_register_1_d;
+    if (rst == 1'b1) begin
+      M_register_1_q <= 1'h0;
+    end else begin
+      M_register_1_q <= M_register_1_d;
+    end
   end
   
 endmodule
