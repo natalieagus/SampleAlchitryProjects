@@ -11,7 +11,7 @@ module seq_plus_varySlow (
   fsm y_controller(.clk(clk), .rst(rst)) = {S0, S1, S2};
   eight_bit_adder adder;
   counter slowClock(#SIZE(SLOWCLOCK_SIZE), .clk(clk), .rst(rst));
-  edge_detector slowClockEdge(.clk(clk));
+  edge_detector slowClockEdge(#RISE(1), #FALL(0), .clk(clk));
  
   always {
 	adder.y = 8h00;
