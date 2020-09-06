@@ -3,7 +3,7 @@ module seq_plus_two (
 	input rst,  // reset
 	output out[8]
   ) {
-  dff register_1[8](#INIT(0), .clk(clk), .rst(rst)); //reset doesn't work because the CLK is to slow
+  dff register_1[8](#INIT(0), .clk(clk), .rst(rst)); 
   eight_bit_adder plus_two;
  
   always {
