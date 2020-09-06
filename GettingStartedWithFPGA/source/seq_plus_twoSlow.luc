@@ -5,17 +5,16 @@ module seq_plus_twoSlow (
 	output out[8]
   ) {
   
-  const SLOWCLOCK_SIZE = 28;
   
   dff register_1[8](#INIT(0), .clk(clk), .rst(rst));
   eight_bit_adder plus_two;
-  counter slowClock(#SIZE(SLOWCLOCK_SIZE), .clk(clk), .rst(rst));
+  counter slowClock(#DIV(26), .clk(clk), .rst(rst));
   edge_detector slowClockEdge(.clk(clk));
    
   
   always {
 
-   slowClockEdge.in = slowClock.value[SLOWCLOCK_SIZE-1];
+   slowClockEdge.in = slowClock.value;
     
   	plus_two.y = 8h02;
   	plus_two.x = register_1.q;
