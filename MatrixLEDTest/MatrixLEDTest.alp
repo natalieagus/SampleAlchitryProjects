@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="MatrixLEDTest" board="Alchitry Au" language="Lucid" version="3">
+  <files>
+    <src>matrix_writer.luc</src>
+    <src top="true">au_top.luc</src>
+    <component>reset_conditioner.luc</component>
+    <constraint lib="true">au.xdc</constraint>
+    <constraint>custom.acf</constraint>
+  </files>
+</project>

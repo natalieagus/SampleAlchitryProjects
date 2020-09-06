@@ -1,0 +1,60 @@
+module au_top (
+    input clk,              // 100MHz clock
+    input rst_n,            // reset button (active low)
+    output led [8],         // 8 user controllable LEDs
+    input usb_rx,           // USB->Serial input
+    output usb_tx,          // USB->Serial output
+    output io_led [3][8],   // LEDs on IO Shield
+    output io_seg [8],      // 7-segment LEDs on IO Shield
+    output io_sel [4],      // Digit select on IO Shield
+    input io_button [5],    // 5 buttons on IO Shield
+    input io_dip [3][8],     // DIP switches on IO Shield
+    
+    // to matrix. See custom.acf for pins
+    output red0,
+    output green0, 
+    output blue0,
+    output red1,
+    output green1,
+    output blue1,
+    output latch, 
+    output blank,
+    output sclk_out,
+    output address[4] //row address current write to LED matrix
+  ) {
+  
+  sig rst;                  // reset signal
+  
+  matrix_writer matrixwriter(.clk(clk), .rst(rst));
+  .clk(clk) {
+    // The reset conditioner is used to synchronize the reset signal to the FPGA
+    // clock. This ensures the entire FPGA comes out of reset at the same time.
+    reset_conditioner reset_cond;
+  }
+  
+  always {
+    reset_cond.in = ~rst_n; // input raw inverted reset signal
+    rst = reset_cond.out;   // conditioned reset
+    
+    usb_tx = usb_rx;        // loop serial port
+    
+    led = 8h00;             // turn LEDs off
+    
+    io_led = 3x{{8h00}};    // turn LEDs off
+    io_seg = 8hff;          // turn segments off
+    io_sel = 4hf;           // select no digits
+    
+    matrixwriter.data = 6b101101; // change to the output of some RAM unit 
+    red0 = matrixwriter.red0;
+    red1 = matrixwriter.red1;
+    green0 = matrixwriter.green0;
+    green1 = matrixwriter.green1;
+    blue0 = matrixwriter.blue0;
+    blue1 = matrixwriter.blue1;
+    latch = matrixwriter.latch;
+    sclk_out = matrixwriter.sclk_out;
+    blank = matrixwriter.blank;
+    address = matrixwriter.address;
+    
+  }
+}
