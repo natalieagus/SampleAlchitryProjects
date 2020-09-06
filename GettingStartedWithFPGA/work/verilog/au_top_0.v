@@ -22,23 +22,48 @@ module au_top_0 (
   
   reg rst;
   
-  wire [8-1:0] M_seqplustwo_out;
-  seq_plus_twoSlow_1 seqplustwo (
+  wire [3-1:0] M_sc_out_result;
+  wire [4-1:0] M_sc_out_buttonseq;
+  reg [4-1:0] M_sc_buttons;
+  sequence_checker_1 sc (
     .clk(clk),
     .rst(rst),
-    .out(M_seqplustwo_out)
+    .buttons(M_sc_buttons),
+    .out_result(M_sc_out_result),
+    .out_buttonseq(M_sc_out_buttonseq)
   );
   
-  wire [8-1:0] M_seqplusvary_out;
-  seq_plus_varySlow_2 seqplusvary (
-    .clk(clk),
-    .rst(rst),
-    .out(M_seqplusvary_out)
-  );
+  wire [(3'h4+0)-1:0] M_buttoncond_out;
+  reg [(3'h4+0)-1:0] M_buttoncond_in;
+  
+  genvar GEN_buttoncond0;
+  generate
+  for (GEN_buttoncond0=0;GEN_buttoncond0<3'h4;GEN_buttoncond0=GEN_buttoncond0+1) begin: buttoncond_gen_0
+    button_conditioner_2 buttoncond (
+      .clk(clk),
+      .in(M_buttoncond_in[GEN_buttoncond0*(1)+(1)-1-:(1)]),
+      .out(M_buttoncond_out[GEN_buttoncond0*(1)+(1)-1-:(1)])
+    );
+  end
+  endgenerate
+  
+  wire [(3'h4+0)-1:0] M_buttondetector_out;
+  reg [(3'h4+0)-1:0] M_buttondetector_in;
+  
+  genvar GEN_buttondetector0;
+  generate
+  for (GEN_buttondetector0=0;GEN_buttondetector0<3'h4;GEN_buttondetector0=GEN_buttondetector0+1) begin: buttondetector_gen_0
+    edge_detector_3 buttondetector (
+      .clk(clk),
+      .in(M_buttondetector_in[GEN_buttondetector0*(1)+(1)-1-:(1)]),
+      .out(M_buttondetector_out[GEN_buttondetector0*(1)+(1)-1-:(1)])
+    );
+  end
+  endgenerate
   
   wire [1-1:0] M_reset_cond_out;
   reg [1-1:0] M_reset_cond_in;
-  reset_conditioner_3 reset_cond (
+  reset_conditioner_4 reset_cond (
     .clk(clk),
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
@@ -53,7 +78,11 @@ module au_top_0 (
     io_seg = 8'hff;
     io_sel = 4'hf;
     customout = 3'h7;
-    io_led[0+7-:8] = M_seqplustwo_out;
-    io_led[16+7-:8] = M_seqplusvary_out;
+    io_led[0+0+3-:4] = io_button[0+3-:4];
+    M_buttoncond_in = io_button[0+3-:4];
+    M_buttondetector_in = M_buttoncond_out;
+    M_sc_buttons = M_buttondetector_out;
+    io_led[16+7-:8] = M_sc_out_buttonseq;
+    customout = M_sc_out_result;
   end
 endmodule

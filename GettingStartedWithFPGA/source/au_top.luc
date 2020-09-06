@@ -31,12 +31,12 @@ module au_top (
   
 // ***********PART 3**************//  
   //  seq_plus_two_withReset seqplustwo(.clk(slowclock.value), .rst(io_button[0])); // use slowclock counter from Part 2
-    seq_plus_twoSlow seqplustwo(.clk(clk), .rst(rst));
-    seq_plus_varySlow seqplusvary(.clk(clk), .rst(rst));
+//    seq_plus_twoSlow seqplustwo(.clk(clk), .rst(rst));
+//    seq_plus_varySlow seqplusvary(.clk(clk), .rst(rst));
   
-//  sequence_checker sc(.clk(clk), .rst(rst));
-//  button_conditioner buttoncond[4](.clk(clk));
-//  edge_detector buttondetector[4](#RISE(1), #FALL(0),.clk(clk)); //detect on rising edge only
+  sequence_checker sc(.clk(clk), .rst(rst));
+  button_conditioner buttoncond[4](.clk(clk));
+  edge_detector buttondetector[4](#RISE(1), #FALL(0),.clk(clk)); //detect on rising edge only
  // ************END*************//   
     
   .clk(clk) {
@@ -91,18 +91,18 @@ module au_top (
     // ************END*************// 
     
   // ************PART 2*************//     
-  io_led[0] = seqplustwo.out;
-  io_led[2] = seqplusvary.out;
+//  io_led[0] = seqplustwo.out;
+//  io_led[2] = seqplusvary.out;
     // ************END*************// 
        
   // ************PART 3*************//     
     // test IO Buttons
-//    io_led[0][3:0] = io_button[3:0];
-//    buttoncond.in = io_button[3:0];
-//    buttondetector.in = buttoncond.out;
-//    sc.buttons = buttondetector.out;
-//    io_led[2] = sc.out_buttonseq; //debug
- //   customout = sc.out_result; //result to external led
+    io_led[0][3:0] = io_button[3:0];
+    buttoncond.in = io_button[3:0];
+    buttondetector.in = buttoncond.out;
+    sc.buttons = buttondetector.out;
+    io_led[2] = sc.out_buttonseq; //debug
+    customout = sc.out_result; //result to external led
     // ************END*************// 
     
 	
