@@ -28,12 +28,8 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
-  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/button_conditioner_2.v
-  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/edge_detector_3.v
-  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/pipeline_6.v
-  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/ramtester_1.v
-  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/reset_conditioner_4.v
-  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/simple_dual_ram_5.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/full_adder_1.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/reset_conditioner_2.v
   C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/au_top_0.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being

@@ -22,39 +22,22 @@ module au_top_0 (
   
   reg rst;
   
-  wire [16-1:0] M_ram_out;
-  reg [6-1:0] M_ram_write_address;
-  reg [1-1:0] M_ram_button_enter;
-  reg [16-1:0] M_ram_data;
-  reg [6-1:0] M_ram_read_address;
-  ramtester_1 ram (
-    .clk(clk),
-    .write_address(M_ram_write_address),
-    .button_enter(M_ram_button_enter),
-    .data(M_ram_data),
-    .read_address(M_ram_read_address),
-    .out(M_ram_out)
-  );
-  
-  wire [1-1:0] M_buttonconditioner_out;
-  reg [1-1:0] M_buttonconditioner_in;
-  button_conditioner_2 buttonconditioner (
-    .clk(clk),
-    .in(M_buttonconditioner_in),
-    .out(M_buttonconditioner_out)
-  );
-  
-  wire [1-1:0] M_buttonedge_out;
-  reg [1-1:0] M_buttonedge_in;
-  edge_detector_3 buttonedge (
-    .clk(clk),
-    .in(M_buttonedge_in),
-    .out(M_buttonedge_out)
+  wire [1-1:0] M_fulladder_s;
+  wire [1-1:0] M_fulladder_cout;
+  reg [1-1:0] M_fulladder_x;
+  reg [1-1:0] M_fulladder_y;
+  reg [1-1:0] M_fulladder_cin;
+  full_adder_1 fulladder (
+    .x(M_fulladder_x),
+    .y(M_fulladder_y),
+    .cin(M_fulladder_cin),
+    .s(M_fulladder_s),
+    .cout(M_fulladder_cout)
   );
   
   wire [1-1:0] M_reset_cond_out;
   reg [1-1:0] M_reset_cond_in;
-  reset_conditioner_4 reset_cond (
+  reset_conditioner_2 reset_cond (
     .clk(clk),
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
@@ -69,15 +52,10 @@ module au_top_0 (
     io_seg = 8'hff;
     io_sel = 4'hf;
     customout = 3'h7;
-    io_led[0+7-:8] = io_dip[0+7-:8];
-    io_led[0+7+0-:1] = io_button[0+0-:1];
-    M_ram_read_address = io_dip[0+0+5-:6];
-    M_ram_write_address = io_dip[8+0+5-:6];
-    M_ram_data = {8'h00, io_dip[16+7-:8]};
-    M_buttonconditioner_in = io_button[0+0-:1];
-    M_buttonedge_in = M_buttonconditioner_out;
-    M_ram_button_enter = M_buttonedge_out;
-    io_led[16+7-:8] = M_ram_out[8+7-:8];
-    io_led[8+7-:8] = M_ram_out[0+7-:8];
+    M_fulladder_x = io_dip[0+0+0-:1];
+    M_fulladder_y = io_dip[0+1+0-:1];
+    M_fulladder_cin = io_dip[0+2+0-:1];
+    io_led[16+1+0-:1] = M_fulladder_s;
+    io_led[16+0+0-:1] = M_fulladder_cout;
   end
 endmodule

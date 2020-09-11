@@ -17,7 +17,7 @@ module au_top (
   sig rst;              	// reset signal
   
   // ************PART 1*************// 
- //   full_adder fulladder;
+    full_adder fulladder;
  // full_adder_ROM fulladderROM;   
  //eight_bit_adder eightbitadder;
  // eight_bit_shiftleft leftshifter;
@@ -40,9 +40,9 @@ module au_top (
 //  edge_detector buttondetector[4](#RISE(1), #FALL(0),.clk(clk)); //detect on rising edge only
   
   // ***********RAM Bonus************** 
-  ramtester ram(.clk(clk));
-  button_conditioner buttonconditioner(.clk(clk));
-  edge_detector buttonedge (#RISE(1), #FALL(0), .clk(clk));
+//  ramtester ram(.clk(clk));
+//  button_conditioner buttonconditioner(.clk(clk));
+//  edge_detector buttonedge (#RISE(1), #FALL(0), .clk(clk));
  // ************END*************//   
     
   .clk(clk) {
@@ -70,11 +70,11 @@ module au_top (
   
   // ************PART 1*************// 	
  // a. test full adder
-// fulladder.x = io_dip[0][0];
-//	fulladder.y = io_dip[0][1];
-//	fulladder.cin = io_dip[0][2];
-//	io_led[2][1] = fulladder.s;
-//	io_led[2][0] = fulladder.cout;
+ fulladder.x = io_dip[0][0];
+	fulladder.y = io_dip[0][1];
+	fulladder.cin = io_dip[0][2];
+	io_led[2][1] = fulladder.s;
+	io_led[2][0] = fulladder.cout;
     
  // b. test full adder ROM
  // fulladderROM.address[2] = io_dip[0][2];
@@ -111,20 +111,21 @@ module au_top (
  //   customout = sc.out_result; //result to external led
     
     
-    io_led[0] = io_dip[0];   // connect the DIP switches to the LEDs
-    io_led[0][7] = io_button[0];
+    // ********** BONUS RAM tester part *************//
+ //   io_led[0] = io_dip[0];   // connect the DIP switches to the LEDs
+ //   io_led[0][7] = io_button[0];
     
-    ram.read_address = io_dip[0][5:0];
+ //   ram.read_address = io_dip[0][5:0];
     
-    ram.write_address = io_dip[1][5:0];
-    ram.data = c{h00, io_dip[2]};
+ //   ram.write_address = io_dip[1][5:0];
+ //   ram.data = c{h00, io_dip[2]};
     
-    buttonconditioner.in = io_button[0];
-    buttonedge.in = buttonconditioner.out;
+ //   buttonconditioner.in = io_button[0];
+ //   buttonedge.in = buttonconditioner.out;
     
-    ram.button_enter = buttonedge.out;
-    io_led[2] = ram.out[15:8];
-    io_led[1] = ram.out[7:0];
+ //   ram.button_enter = buttonedge.out;
+//    io_led[2] = ram.out[15:8];
+ //   io_led[1] = ram.out[7:0];
     // ************END*************// 
     
 	

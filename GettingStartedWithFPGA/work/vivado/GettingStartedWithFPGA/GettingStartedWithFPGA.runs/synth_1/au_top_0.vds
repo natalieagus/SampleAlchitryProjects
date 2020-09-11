@@ -2,8 +2,8 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Fri Sep 11 16:56:13 2020
-# Process ID: 9900
+# Start of session at: Sat Sep 12 02:19:52 2020
+# Process ID: 8180
 # Current directory: C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.runs/synth_1
 # Command line: vivado.exe -log au_top_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source au_top_0.tcl
 # Log file: C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.runs/synth_1/au_top_0.vds
@@ -16,40 +16,17 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Device 21-403] Loading part xc7a35tftg256-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 3044 
+INFO: Helper process launched with PID 10868 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 768.969 ; gain = 233.645
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 768.965 ; gain = 234.699
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'au_top_0' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/au_top_0.v:7]
-INFO: [Synth 8-6157] synthesizing module 'ramtester_1' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/ramtester_1.v:7]
-	Parameter WRITETEST_1_ram_test bound to: 3'b000 
-	Parameter WRITETEST_2_ram_test bound to: 3'b001 
-	Parameter WRITETEST_3_ram_test bound to: 3'b010 
-	Parameter WRITETEST_4_ram_test bound to: 3'b011 
-	Parameter READ_ram_test bound to: 3'b100 
-	Parameter SHOW_ram_test bound to: 3'b101 
-INFO: [Synth 8-6157] synthesizing module 'simple_dual_ram_5' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/simple_dual_ram_5.v:48]
-	Parameter SIZE bound to: 5'b10000 
-	Parameter DEPTH bound to: 8'b10000000 
-INFO: [Synth 8-6155] done synthesizing module 'simple_dual_ram_5' (1#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/simple_dual_ram_5.v:48]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/ramtester_1.v:52]
-INFO: [Synth 8-6155] done synthesizing module 'ramtester_1' (2#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/ramtester_1.v:7]
-INFO: [Synth 8-6157] synthesizing module 'button_conditioner_2' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/button_conditioner_2.v:13]
-	Parameter CLK_FREQ bound to: 26'b10111110101111000010000000 
-	Parameter MIN_DELAY bound to: 5'b10100 
-	Parameter NUM_SYNC bound to: 2'b10 
-INFO: [Synth 8-6157] synthesizing module 'pipeline_6' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/pipeline_6.v:11]
-	Parameter DEPTH bound to: 2'b10 
-INFO: [Synth 8-6155] done synthesizing module 'pipeline_6' (3#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/pipeline_6.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'button_conditioner_2' (4#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/button_conditioner_2.v:13]
-INFO: [Synth 8-6157] synthesizing module 'edge_detector_3' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/edge_detector_3.v:12]
-	Parameter RISE bound to: 1'b1 
-	Parameter FALL bound to: 1'b0 
-INFO: [Synth 8-6155] done synthesizing module 'edge_detector_3' (5#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/edge_detector_3.v:12]
-INFO: [Synth 8-6157] synthesizing module 'reset_conditioner_4' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/reset_conditioner_4.v:11]
+INFO: [Synth 8-6157] synthesizing module 'full_adder_1' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/full_adder_1.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'full_adder_1' (1#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/full_adder_1.v:7]
+INFO: [Synth 8-6157] synthesizing module 'reset_conditioner_2' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/reset_conditioner_2.v:11]
 	Parameter STAGES bound to: 3'b100 
-INFO: [Synth 8-6155] done synthesizing module 'reset_conditioner_4' (6#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/reset_conditioner_4.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'au_top_0' (7#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/au_top_0.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'reset_conditioner_2' (2#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/reset_conditioner_2.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'au_top_0' (3#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.srcs/sources_1/imports/verilog/au_top_0.v:7]
 WARNING: [Synth 8-3917] design au_top_0 has port led[7] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port led[6] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port led[5] driven by constant 0
@@ -61,6 +38,28 @@ WARNING: [Synth 8-3917] design au_top_0 has port led[0] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port customout[2] driven by constant 1
 WARNING: [Synth 8-3917] design au_top_0 has port customout[1] driven by constant 1
 WARNING: [Synth 8-3917] design au_top_0 has port customout[0] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[23] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[22] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[21] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[20] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[19] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[18] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[15] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[14] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[13] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[12] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[11] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[10] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[9] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[8] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[7] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[6] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[5] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[4] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[3] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[2] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[1] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[0] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_seg[7] driven by constant 1
 WARNING: [Synth 8-3917] design au_top_0 has port io_seg[6] driven by constant 1
 WARNING: [Synth 8-3917] design au_top_0 has port io_seg[5] driven by constant 1
@@ -77,11 +76,30 @@ WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[4]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[3]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[2]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[1]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[0]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[23]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[22]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[21]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[20]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[19]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[18]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[17]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[16]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[15]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[14]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[13]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[12]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[11]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[10]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[9]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[8]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[7]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[6]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[5]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[4]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[3]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 842.500 ; gain = 307.176
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 842.168 ; gain = 307.902
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -94,12 +112,12 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 842.500 ; gain = 307.176
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 842.168 ; gain = 307.902
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 842.500 ; gain = 307.176
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 842.168 ; gain = 307.902
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 842.500 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 842.168 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -112,40 +130,29 @@ Parsing XDC File [C:/Program Files/Alchitry/Alchitry Labs/library/components/au.
 Finished Parsing XDC File [C:/Program Files/Alchitry/Alchitry Labs/library/components/au.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 919.551 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 894.223 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 919.551 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 894.223 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 919.551 ; gain = 384.227
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 894.223 ; gain = 359.957
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tftg256-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 919.551 ; gain = 384.227
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 894.223 ; gain = 359.957
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 919.551 ; gain = 384.227
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 894.223 ; gain = 359.957
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-802] inferred FSM for state register 'M_ram_test_q_reg' in module 'ramtester_1'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-    WRITETEST_1_ram_test |                            00001 |                              000
-    WRITETEST_2_ram_test |                            00010 |                              001
-    WRITETEST_3_ram_test |                            00100 |                              010
-    WRITETEST_4_ram_test |                            01000 |                              011
-           READ_ram_test |                            10000 |                              100
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'M_ram_test_q_reg' using encoding 'one-hot' in module 'ramtester_1'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 919.551 ; gain = 384.227
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 894.223 ; gain = 359.957
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -157,20 +164,10 @@ Report RTL Partitions:
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
++---XORs : 
+	   3 Input      1 Bit         XORs := 1     
 +---Registers : 
-	               16 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
-+---RAMs : 
-	               2K Bit         RAMs := 1     
-+---Muxes : 
-	   2 Input     16 Bit        Muxes := 1     
-	   5 Input     16 Bit        Muxes := 1     
-	   2 Input      6 Bit        Muxes := 1     
-	   5 Input      6 Bit        Muxes := 2     
-	   5 Input      5 Bit        Muxes := 1     
-	   5 Input      1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -178,30 +175,11 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
-Module simple_dual_ram_5 
+Module full_adder_1 
 Detailed RTL Component Info : 
-+---Registers : 
-	               16 Bit    Registers := 1     
-+---RAMs : 
-	               2K Bit         RAMs := 1     
-Module ramtester_1 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   2 Input     16 Bit        Muxes := 1     
-	   5 Input     16 Bit        Muxes := 1     
-	   2 Input      6 Bit        Muxes := 1     
-	   5 Input      6 Bit        Muxes := 2     
-	   5 Input      5 Bit        Muxes := 1     
-	   5 Input      1 Bit        Muxes := 2     
-Module pipeline_6 
-Detailed RTL Component Info : 
-+---Registers : 
-	                2 Bit    Registers := 1     
-Module edge_detector_3 
-Detailed RTL Component Info : 
-+---Registers : 
-	                1 Bit    Registers := 1     
-Module reset_conditioner_4 
++---XORs : 
+	   3 Input      1 Bit         XORs := 1     
+Module reset_conditioner_2 
 Detailed RTL Component Info : 
 +---Registers : 
 	                4 Bit    Registers := 1     
@@ -232,6 +210,28 @@ WARNING: [Synth 8-3917] design au_top_0 has port led[0] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port customout[2] driven by constant 1
 WARNING: [Synth 8-3917] design au_top_0 has port customout[1] driven by constant 1
 WARNING: [Synth 8-3917] design au_top_0 has port customout[0] driven by constant 1
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[23] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[22] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[21] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[20] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[19] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[18] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[15] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[14] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[13] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[12] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[11] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[10] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[9] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[8] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[7] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[6] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[5] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[4] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[3] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[2] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[1] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_led[0] driven by constant 0
 WARNING: [Synth 8-3917] design au_top_0 has port io_seg[7] driven by constant 1
 WARNING: [Synth 8-3917] design au_top_0 has port io_seg[6] driven by constant 1
 WARNING: [Synth 8-3917] design au_top_0 has port io_seg[5] driven by constant 1
@@ -244,32 +244,36 @@ WARNING: [Synth 8-3917] design au_top_0 has port io_sel[3] driven by constant 1
 WARNING: [Synth 8-3917] design au_top_0 has port io_sel[2] driven by constant 1
 WARNING: [Synth 8-3917] design au_top_0 has port io_sel[1] driven by constant 1
 WARNING: [Synth 8-3917] design au_top_0 has port io_sel[0] driven by constant 1
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port clk
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port rst_n
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[4]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[3]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[2]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[1]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[0]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[23]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[22]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[21]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[20]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[19]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[18]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[17]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[16]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[15]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[14]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[13]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[12]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[11]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[10]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[9]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[8]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[7]
-INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM ram/memory_unit/mem_reg to conserve power
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[6]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[5]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[4]
+WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[3]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 919.551 ; gain = 384.227
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-Block RAM: Preliminary Mapping	Report (see note below)
-+------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|Module Name | RTL Object              | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
-+------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|au_top_0    | ram/memory_unit/mem_reg | 128 x 16(READ_FIRST)   | W |   | 128 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
-+------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-
-Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 894.223 ; gain = 359.957
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -281,27 +285,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 919.551 ; gain = 384.227
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 909.645 ; gain = 375.379
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 925.066 ; gain = 389.742
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-Block RAM: Final Mapping	Report
-+------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|Module Name | RTL Object              | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
-+------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|au_top_0    | ram/memory_unit/mem_reg | 128 x 16(READ_FIRST)   | W |   | 128 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
-+------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
+Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 909.645 ; gain = 375.379
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -312,9 +302,8 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-7053] The timing for the instance ram/memory_unit/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 935.125 ; gain = 399.801
+Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 919.250 ; gain = 384.984
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -338,13 +327,13 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 939.930 ; gain = 404.605
+Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 934.063 ; gain = 399.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 939.930 ; gain = 404.605
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 934.063 ; gain = 399.797
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -363,25 +352,25 @@ Report Check Netlist:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 939.930 ; gain = 404.605
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 934.063 ; gain = 399.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 939.930 ; gain = 404.605
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 934.063 ; gain = 399.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 939.930 ; gain = 404.605
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 934.063 ; gain = 399.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 939.930 ; gain = 404.605
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 934.063 ; gain = 399.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -394,57 +383,42 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+---------+------+
-|      |Cell     |Count |
-+------+---------+------+
-|1     |BUFG     |     1|
-|2     |CARRY4   |     5|
-|3     |LUT1     |     2|
-|4     |LUT2     |     9|
-|5     |LUT3     |     4|
-|6     |LUT4     |     6|
-|7     |LUT5     |     4|
-|8     |LUT6     |    10|
-|9     |RAMB18E1 |     1|
-|10    |FDRE     |    28|
-|11    |IBUF     |    24|
-|12    |OBUF     |    48|
-+------+---------+------+
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT3 |     2|
+|2     |IBUF |     4|
+|3     |OBUF |    48|
++------+-----+------+
 
 Report Instance Areas: 
-+------+--------------------+---------------------+------+
-|      |Instance            |Module               |Cells |
-+------+--------------------+---------------------+------+
-|1     |top                 |                     |   142|
-|2     |  buttonconditioner |button_conditioner_2 |    37|
-|3     |    sync            |pipeline_6           |     3|
-|4     |  buttonedge        |edge_detector_3      |     1|
-|5     |  ram               |ramtester_1          |    31|
-|6     |    memory_unit     |simple_dual_ram_5    |    24|
-+------+--------------------+---------------------+------+
++------+------------+-------------+------+
+|      |Instance    |Module       |Cells |
++------+------------+-------------+------+
+|1     |top         |             |    54|
+|2     |  fulladder |full_adder_1 |     2|
++------+------------+-------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 939.930 ; gain = 404.605
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 934.063 ; gain = 399.797
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 31 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:30 . Memory (MB): peak = 939.930 ; gain = 327.555
-Synthesis Optimization Complete : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 939.930 ; gain = 404.605
+Synthesis finished with 0 errors, 0 critical warnings and 73 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:22 . Memory (MB): peak = 934.063 ; gain = 347.742
+Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 934.063 ; gain = 399.797
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 939.930 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 934.063 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 949.625 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 944.027 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-31 Infos, 61 Warnings, 0 Critical Warnings and 0 Errors encountered.
+16 Infos, 144 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 949.625 ; gain = 653.359
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 949.625 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 944.027 ; gain = 646.688
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 944.027 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/GettingStartedWithFPGA/work/vivado/GettingStartedWithFPGA/GettingStartedWithFPGA.runs/synth_1/au_top_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file au_top_0_utilization_synth.rpt -pb au_top_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Sep 11 16:56:54 2020...
+INFO: [Common 17-206] Exiting Vivado at Sat Sep 12 02:20:24 2020...
