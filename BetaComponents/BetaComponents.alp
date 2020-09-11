@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="BetaComponents" board="Alchitry Au" language="Lucid" version="3">
   <files>
+    <src>regfile.luc</src>
     <component>simple_dual_ram.v</component>
-    <src>control_unit.luc</src>
+    <src top="true">au_top.luc</src>
     <src>adder.luc</src>
     <component>pipeline.luc</component>
-    <src>alu.luc</src>
-    <src top="true">au_top.luc</src>
     <component>counter.luc</component>
-    <src>regfile.luc</src>
-    <src>seven_seg.luc</src>
-    <component>decoder.luc</component>
-    <src>decimal_counter.luc</src>
-    <src>shifter.luc</src>
     <src>compare.luc</src>
-    <src>multi_seven_seg.luc</src>
+    <component>decoder.luc</component>
+    <src>control_unit.luc</src>
     <src>multi_dec_ctr.luc</src>
+    <src>alu.luc</src>
+    <src>decimal_counter.luc</src>
+    <src>seven_seg.luc</src>
+    <src>shifter.luc</src>
     <component>reset_conditioner.luc</component>
-    <src>beta_cpu.luc</src>
     <src>boolean.luc</src>
     <component>edge_detector.luc</component>
+    <src>beta_cpu.luc</src>
+    <src>multi_seven_seg.luc</src>
     <component>button_conditioner.luc</component>
     <constraint lib="true">alchitry.acf</constraint>
     <constraint lib="true">io.acf</constraint>
