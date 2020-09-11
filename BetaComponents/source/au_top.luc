@@ -1,0 +1,125 @@
+module au_top (
+    input clk,              // 100MHz clock
+    input rst_n,            // reset button (active low)
+    output led [8],         // 8 user controllable LEDs
+    input usb_rx,           // USB->Serial input
+    output usb_tx,          // USB->Serial output
+    output io_led [3][8],   // LEDs on IO Shield
+    output io_seg [8],      // 7-segment LEDs on IO Shield
+    output io_sel [4],      // Digit select on IO Shield
+    input io_button [5],    // 5 buttons on IO Shield
+    input io_dip [3][8]     // DIP switches on IO Shield
+  ) {
+  
+  sig rst;                  // reset signa
+ // control_unit control;   // for test
+  
+  beta_cpu beta(.clk(clk));
+  counter slowclock(#SIZE(1), #DIV(28), .clk(clk), .rst(rst));
+  edge_detector slowclockedge(#RISE(1), #FALL(0), .clk(clk));
+  
+  //ADDC(R31, 7, R1)
+  //CMPEQ(R1, R1, R2)
+  //ST(R1, 32)
+  //BNE(R1, 0, R1)
+  const SAMPLE_CODE = {32h7BE3FFFB, 32h607F0020, 32h643F0020, 32h90410800, 32hC03F0007};
+  simple_dual_ram memory_unit(#SIZE(32), #DEPTH(16), .wclk(clk), .rclk(clk)); // can fit 16 * 32 bits 
+  
+  dff writer_counter[3](.clk(clk));
+  fsm code_writer(.clk(clk)) = {WRITE, GO};
+  
+  .clk(clk) {
+    // The reset conditioner is used to synchronize the reset signal to the FPGA
+    // clock. This ensures the entire FPGA comes out of reset at the same time.
+    reset_conditioner reset_cond;
+ 
+    
+    edge_detector edge_detector (#RISE(1), #FALL(0));
+    
+    .rst(rst) {
+      multi_seven_seg seg;
+      multi_dec_ctr dec_ctr;
+      counter ctr (#SIZE(1), #DIV(24));
+    }
+  }
+  
+  always {
+    reset_cond.in = ~rst_n;   // input raw inverted reset signal
+    rst = reset_cond.out;     // conditioned reset
+    
+    led = c{3b0, io_button};  // connect buttons to LEDs
+    
+    usb_tx = usb_rx;          // loop serial port
+    
+    edge_detector.in = ctr.value;
+    dec_ctr.inc = edge_detector.out;
+    seg.values = dec_ctr.digits;
+    
+    io_led = 3x{{h00}};
+    io_seg = ~seg.seg; // connect segments to the driver
+    io_sel = ~seg.sel; // connect digit select to the driver
+    
+    
+    // ****** CU test ******* //
+//    control.z = io_dip[0][0];
+//    control.reset = io_dip[0][1];
+//    control.irq = io_dip[0][2];
+//    control.opcode = io_dip[1][5:0];
+    
+//    io_led[2][7:5] = control.pcsel;
+//    io_led[2][4] = control.wasel;
+//    io_led[2][3] = control.asel;
+//    io_led[2][2] = control.ra2sel;
+//    io_led[2][1] = control.bsel;
+//    io_led[2][0] = control.alufn[5];
+//    io_led[1][7:3] = control.alufn[4:0]; 
+//    io_led[1][2:1] = control.wdsel;
+//    io_led[1][0] = control.werf;
+//    io_led[0][7:6] = c{control.moe, control.xwr};
+    // ******************* //
+
+    
+      // general setup
+      slowclockedge.in = slowclock.value;
+      beta.interrupt = 0;
+      beta.slowclk = slowclockedge.out;
+      beta.mem_data_input = 32b0;
+      beta.instruction = 32h0;
+      beta.rst = 0;
+      
+      io_led[1] = beta.mem_data_address[7:2]; //output of the ALU 
+      io_led[2] = beta.mem_data_output[7:0]; //output of the rb_data
+      io_led[0] = beta.ia[7:0];
+      
+     
+      //beta.instruction = SAMPLE_CODE[beta.ia[3:2]];
+    
+      // connect memory unit with beta 
+      beta.instruction = memory_unit.read_data;
+      led = memory_unit.read_data[31:24];  
+    
+      memory_unit.write_data = beta.mem_data_output;
+      memory_unit.write_en = beta.xwr; 
+      memory_unit.waddr = beta.mem_data_address[5:2];
+      memory_unit.raddr = beta.ia[3:2];
+      
+    
+      // write some values to RAM first, then run the beta 
+      case(code_writer.q){
+          code_writer.WRITE:
+              beta.rst = 1;
+              writer_counter.d = writer_counter.q + 1;
+              memory_unit.write_data = SAMPLE_CODE[writer_counter.q];
+              memory_unit.write_en = b1;
+              memory_unit.waddr = writer_counter.q;
+              if (writer_counter.q == b100){
+                  code_writer.d = code_writer.GO;
+              }
+        
+          code_writer.GO:
+             code_writer.d = code_writer.GO;
+      
+      }
+    
+  }
+}

@@ -1,0 +1,119 @@
+module beta_cpu (
+    input clk,  // clock
+    input slowclk,
+    input rst,
+    input interrupt,
+    output ia[32],
+    input instruction[32],
+    output mem_data_address[32],
+    output mem_data_output[32],
+    input mem_data_input[32],
+    output xwr
+  ) {
+  
+  control_unit control_system;
+  alu alu_system;
+  regfile regfile_system(.clk(clk));
+  
+  dff pc[32](#INIT(0),.clk(clk));
+ 
+
+  always {
+  
+   //*****CONTROL unit******// 
+    control_system.reset = rst;
+    control_system.irq = interrupt;
+    control_system.opcode = instruction[31:26];
+    
+   //*****PC unit******// 
+   ia = pc.q; 
+   
+   if (slowclk){ // a hack to slow down the CPU
+   // PCSEL mux 
+   case (control_system.pcsel){
+      b000: 
+        pc.d = pc.q + 4;
+      b001:
+        pc.d = pc.q + 4 + 4 * c{instruction[15], instruction[15:0]};
+      b010:
+        // protect jump
+        pc.d = c{pc.q[31] && regfile_system.read_data_1[31],regfile_system.read_data_1[30:0]};
+      b011:
+        pc.d = h00000008; // illop 
+      b100: 
+        pc.d = h00000004; // irq 
+      default:
+        pc.d = pc.q;
+    }
+    }
+    
+    //reset mux 
+    if (rst){
+        pc.d = 32b0;
+    }
+    
+    //*****REGFILE*******//
+    
+    // RA2SEL mux
+    case(control_system.ra2sel){
+      b0:
+        regfile_system.read_address_2 = instruction[15:11];
+      b1:
+        regfile_system.read_address_2 = instruction[25:21];
+      default:
+        regfile_system.read_address_2 = instruction[15:11];
+    }
+    
+    // WASEL mux 
+    case(control_system.wasel){
+      b0:
+        regfile_system.write_address = instruction[25:21];
+      b1:
+        regfile_system.write_address = b11110;
+      default:
+        regfile_system.write_address = instruction[25:21];
+    }
+    
+    regfile_system.read_address_1 = instruction[20:16];
+    regfile_system.write_enable = control_system.werf;
+    control_system.z = ~|regfile_system.read_data_1;
+    mem_data_output = regfile_system.read_data_2;
+    
+    //******ALU*******//
+    alu_system.alufn_signal = control_system.alufn;
+    case(control_system.asel){
+      b0:
+        alu_system.a = regfile_system.read_data_1;
+      b1:
+        alu_system.a = pc.q + 4 + 4 * c{instruction[15], instruction[15:0]};
+      default:
+        alu_system.a = regfile_system.read_data_1;
+    }
+    
+    case(control_system.bsel){
+      b0:
+        alu_system.b = regfile_system.read_data_2;
+      b1:
+        alu_system.b = c{instruction[15], instruction[15:0]};
+        
+      default:
+        alu_system.b = regfile_system.read_data_2;
+    }
+    
+    
+    // wdsel mux
+    case(control_system.wdsel){
+      b00:
+        regfile_system.write_data = pc.q + 4;
+      b01: 
+        regfile_system.write_data = alu_system.out;
+      b10:
+        regfile_system.write_data = mem_data_input;
+      default:
+        regfile_system.write_data = alu_system.out;
+    } 
+    
+    mem_data_address = alu_system.out;
+    xwr = control_system.xwr;
+  }
+}

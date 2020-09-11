@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="GettingStartedWithFPGA" board="Alchitry Au" language="Lucid" version="3">
   <files>
+    <component>simple_dual_ram.v</component>
     <src>full_adder.luc</src>
     <src>seq_plus_two_withReset.luc</src>
     <src>seq_plus_twoSlow.luc</src>
@@ -10,6 +11,7 @@
     <src>seq_plus_two.luc</src>
     <src>eight_bit_shiftleft.luc</src>
     <src>seq_plus_varySlow.luc</src>
+    <src>ramtester.luc</src>
     <src>eight_bit_adder.luc</src>
     <src>seq_plus_vary.luc</src>
     <component>reset_conditioner.luc</component>

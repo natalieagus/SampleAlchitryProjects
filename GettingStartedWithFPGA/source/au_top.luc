@@ -34,9 +34,15 @@ module au_top (
 //    seq_plus_twoSlow seqplustwo(.clk(clk), .rst(rst));
 //    seq_plus_varySlow seqplusvary(.clk(clk), .rst(rst));
   
-  sequence_checker sc(.clk(clk), .rst(rst));
-  button_conditioner buttoncond[4](.clk(clk));
-  edge_detector buttondetector[4](#RISE(1), #FALL(0),.clk(clk)); //detect on rising edge only
+  
+//  sequence_checker sc(.clk(clk), .rst(rst));
+//  button_conditioner buttoncond[4](.clk(clk));
+//  edge_detector buttondetector[4](#RISE(1), #FALL(0),.clk(clk)); //detect on rising edge only
+  
+  // ***********RAM Bonus************** 
+  ramtester ram(.clk(clk));
+  button_conditioner buttonconditioner(.clk(clk));
+  edge_detector buttonedge (#RISE(1), #FALL(0), .clk(clk));
  // ************END*************//   
     
   .clk(clk) {
@@ -97,12 +103,28 @@ module au_top (
        
   // ************PART 3*************//     
     // test IO Buttons
-    io_led[0][3:0] = io_button[3:0];
-    buttoncond.in = io_button[3:0];
-    buttondetector.in = buttoncond.out;
-    sc.buttons = buttondetector.out;
-    io_led[2] = sc.out_buttonseq; //debug
-    customout = sc.out_result; //result to external led
+ //   io_led[0][3:0] = io_button[3:0];
+ //   buttoncond.in = io_button[3:0];
+ //   buttondetector.in = buttoncond.out;
+ //   sc.buttons = buttondetector.out;
+ //   io_led[2] = sc.out_buttonseq; //debug
+ //   customout = sc.out_result; //result to external led
+    
+    
+    io_led[0] = io_dip[0];   // connect the DIP switches to the LEDs
+    io_led[0][7] = io_button[0];
+    
+    ram.read_address = io_dip[0][5:0];
+    
+    ram.write_address = io_dip[1][5:0];
+    ram.data = c{h00, io_dip[2]};
+    
+    buttonconditioner.in = io_button[0];
+    buttonedge.in = buttonconditioner.out;
+    
+    ram.button_enter = buttonedge.out;
+    io_led[2] = ram.out[15:8];
+    io_led[1] = ram.out[7:0];
     // ************END*************// 
     
 	

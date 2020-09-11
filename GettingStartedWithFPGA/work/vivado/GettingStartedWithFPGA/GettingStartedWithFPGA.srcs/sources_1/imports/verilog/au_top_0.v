@@ -22,44 +22,35 @@ module au_top_0 (
   
   reg rst;
   
-  wire [3-1:0] M_sc_out_result;
-  wire [4-1:0] M_sc_out_buttonseq;
-  reg [4-1:0] M_sc_buttons;
-  sequence_checker_1 sc (
+  wire [16-1:0] M_ram_out;
+  reg [6-1:0] M_ram_write_address;
+  reg [1-1:0] M_ram_button_enter;
+  reg [16-1:0] M_ram_data;
+  reg [6-1:0] M_ram_read_address;
+  ramtester_1 ram (
     .clk(clk),
-    .rst(rst),
-    .buttons(M_sc_buttons),
-    .out_result(M_sc_out_result),
-    .out_buttonseq(M_sc_out_buttonseq)
+    .write_address(M_ram_write_address),
+    .button_enter(M_ram_button_enter),
+    .data(M_ram_data),
+    .read_address(M_ram_read_address),
+    .out(M_ram_out)
   );
   
-  wire [(3'h4+0)-1:0] M_buttoncond_out;
-  reg [(3'h4+0)-1:0] M_buttoncond_in;
+  wire [1-1:0] M_buttonconditioner_out;
+  reg [1-1:0] M_buttonconditioner_in;
+  button_conditioner_2 buttonconditioner (
+    .clk(clk),
+    .in(M_buttonconditioner_in),
+    .out(M_buttonconditioner_out)
+  );
   
-  genvar GEN_buttoncond0;
-  generate
-  for (GEN_buttoncond0=0;GEN_buttoncond0<3'h4;GEN_buttoncond0=GEN_buttoncond0+1) begin: buttoncond_gen_0
-    button_conditioner_2 buttoncond (
-      .clk(clk),
-      .in(M_buttoncond_in[GEN_buttoncond0*(1)+(1)-1-:(1)]),
-      .out(M_buttoncond_out[GEN_buttoncond0*(1)+(1)-1-:(1)])
-    );
-  end
-  endgenerate
-  
-  wire [(3'h4+0)-1:0] M_buttondetector_out;
-  reg [(3'h4+0)-1:0] M_buttondetector_in;
-  
-  genvar GEN_buttondetector0;
-  generate
-  for (GEN_buttondetector0=0;GEN_buttondetector0<3'h4;GEN_buttondetector0=GEN_buttondetector0+1) begin: buttondetector_gen_0
-    edge_detector_3 buttondetector (
-      .clk(clk),
-      .in(M_buttondetector_in[GEN_buttondetector0*(1)+(1)-1-:(1)]),
-      .out(M_buttondetector_out[GEN_buttondetector0*(1)+(1)-1-:(1)])
-    );
-  end
-  endgenerate
+  wire [1-1:0] M_buttonedge_out;
+  reg [1-1:0] M_buttonedge_in;
+  edge_detector_3 buttonedge (
+    .clk(clk),
+    .in(M_buttonedge_in),
+    .out(M_buttonedge_out)
+  );
   
   wire [1-1:0] M_reset_cond_out;
   reg [1-1:0] M_reset_cond_in;
@@ -78,11 +69,15 @@ module au_top_0 (
     io_seg = 8'hff;
     io_sel = 4'hf;
     customout = 3'h7;
-    io_led[0+0+3-:4] = io_button[0+3-:4];
-    M_buttoncond_in = io_button[0+3-:4];
-    M_buttondetector_in = M_buttoncond_out;
-    M_sc_buttons = M_buttondetector_out;
-    io_led[16+7-:8] = M_sc_out_buttonseq;
-    customout = M_sc_out_result;
+    io_led[0+7-:8] = io_dip[0+7-:8];
+    io_led[0+7+0-:1] = io_button[0+0-:1];
+    M_ram_read_address = io_dip[0+0+5-:6];
+    M_ram_write_address = io_dip[8+0+5-:6];
+    M_ram_data = {8'h00, io_dip[16+7-:8]};
+    M_buttonconditioner_in = io_button[0+0-:1];
+    M_buttonedge_in = M_buttonconditioner_out;
+    M_ram_button_enter = M_buttonedge_out;
+    io_led[16+7-:8] = M_ram_out[8+7-:8];
+    io_led[8+7-:8] = M_ram_out[0+7-:8];
   end
 endmodule

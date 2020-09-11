@@ -1,0 +1,63 @@
+module ramtester (
+    input clk,  // clock
+    input write_address[6],
+    input button_enter,
+    input data[16],
+    input read_address[6],
+    output out[16]
+  ) {
+
+   simple_dual_ram memory_unit(#SIZE(16), #DEPTH(128), .wclk(clk), .rclk(clk)); // can fit 128 * 16 bits
+   fsm ram_test(.clk(clk)) = {WRITETEST_1, WRITETEST_2, WRITETEST_3, WRITETEST_4, READ, SHOW}; 
+  
+  always {
+    
+    // default preset, will be overwritten below where applicable
+    memory_unit.waddr = bx;
+    memory_unit.write_en = b0;
+    memory_unit.write_data = bx;
+    
+    memory_unit.raddr = bx;
+    out = memory_unit.read_data;
+    
+    case (ram_test.q){
+      ram_test.WRITETEST_1:
+        memory_unit.waddr = b000000;
+        memory_unit.write_data = hFFFF;
+        memory_unit.write_en = b1;
+        ram_test.d = ram_test.WRITETEST_2;
+
+      ram_test.WRITETEST_2:
+        memory_unit.waddr = b000001;
+        memory_unit.write_data = h0FFF;
+        memory_unit.write_en = b1;
+        ram_test.d = ram_test.WRITETEST_3;
+        
+      ram_test.WRITETEST_3:
+        memory_unit.waddr = b000010;
+        memory_unit.write_data = h00FF;
+        memory_unit.write_en = b1;
+        ram_test.d = ram_test.WRITETEST_4;
+        
+      ram_test.WRITETEST_4:
+        memory_unit.waddr = b000011;
+        memory_unit.write_data = h000F;
+        memory_unit.write_en = b1;
+        ram_test.d = ram_test.READ;      
+
+      ram_test.READ:
+            memory_unit.raddr = read_address; // address that will be read in the next cycle
+            if (button_enter){ //external write
+              memory_unit.waddr = write_address;
+              memory_unit.write_data = data;
+              memory_unit.write_en = b1;
+            }
+            ram_test.d = ram_test.READ; //shows what was at the RAM[read_address] in the previous cycle
+        
+    
+      }
+    
+    
+    
+  }
+}

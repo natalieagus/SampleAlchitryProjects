@@ -1,0 +1,18 @@
+module compare (
+    input z,
+    input v,
+    input n,
+    input alufn_signal[6],
+    output out[32] 
+  ) {
+  
+  always {
+    out = 32b0;
+    case (alufn_signal) {
+      default: out[0] = 0;
+      b110011: out[0] = z;
+      b110101: out[0] = n ^ v;
+      b110111: out[0] = z | (n ^ v);
+    }
+  }
+}
