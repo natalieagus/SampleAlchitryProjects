@@ -58,7 +58,7 @@ module au_top_0 (
     .out(M_slowclockedge_out)
   );
   
-  localparam SAMPLE_CODE = 160'h7be3fffb607f0020643f002090410800c03f0007;
+  localparam SAMPLE_CODE = 160'h7823fffb607f0020643f002090410800c03f0007;
   
   wire [32-1:0] M_memory_unit_read_data;
   reg [4-1:0] M_memory_unit_waddr;
@@ -90,37 +90,6 @@ module au_top_0 (
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
   );
-  wire [1-1:0] M_edge_detector_out;
-  reg [1-1:0] M_edge_detector_in;
-  edge_detector_3 edge_detector (
-    .clk(clk),
-    .in(M_edge_detector_in),
-    .out(M_edge_detector_out)
-  );
-  wire [7-1:0] M_seg_seg;
-  wire [4-1:0] M_seg_sel;
-  reg [16-1:0] M_seg_values;
-  multi_seven_seg_6 seg (
-    .clk(clk),
-    .rst(rst),
-    .values(M_seg_values),
-    .seg(M_seg_seg),
-    .sel(M_seg_sel)
-  );
-  wire [16-1:0] M_dec_ctr_digits;
-  reg [1-1:0] M_dec_ctr_inc;
-  multi_dec_ctr_7 dec_ctr (
-    .clk(clk),
-    .rst(rst),
-    .inc(M_dec_ctr_inc),
-    .digits(M_dec_ctr_digits)
-  );
-  wire [1-1:0] M_ctr_value;
-  counter_8 ctr (
-    .clk(clk),
-    .rst(rst),
-    .value(M_ctr_value)
-  );
   
   always @* begin
     M_code_writer_d = M_code_writer_q;
@@ -130,27 +99,24 @@ module au_top_0 (
     rst = M_reset_cond_out;
     led = {3'h0, io_button};
     usb_tx = usb_rx;
-    M_edge_detector_in = M_ctr_value;
-    M_dec_ctr_inc = M_edge_detector_out;
-    M_seg_values = M_dec_ctr_digits;
     io_led = 24'h000000;
-    io_seg = ~M_seg_seg;
-    io_sel = ~M_seg_sel;
+    io_seg = 8'h00;
+    io_sel = 4'h0;
     M_slowclockedge_in = M_slowclock_value;
     M_beta_interrupt = 1'h0;
     M_beta_slowclk = M_slowclockedge_out;
-    M_beta_mem_data_input = 32'h00000000;
     M_beta_instruction = 32'h00000000;
     M_beta_rst = 1'h0;
-    io_led[8+7-:8] = M_beta_mem_data_address[2+5-:6];
+    io_led[8+7-:8] = M_beta_mem_data_address[0+7-:8];
     io_led[16+7-:8] = M_beta_mem_data_output[0+7-:8];
     io_led[0+7-:8] = M_beta_ia[0+7-:8];
+    led[2+5-:6] = M_memory_unit_read_data[26+5-:6];
     M_beta_instruction = M_memory_unit_read_data;
-    led = M_memory_unit_read_data[24+7-:8];
+    M_beta_mem_data_input = M_memory_unit_read_data;
     M_memory_unit_write_data = M_beta_mem_data_output;
     M_memory_unit_write_en = M_beta_xwr;
     M_memory_unit_waddr = M_beta_mem_data_address[2+3-:4];
-    M_memory_unit_raddr = M_beta_ia[2+1-:2];
+    M_memory_unit_raddr = M_beta_ia[2+2-:3];
     
     case (M_code_writer_q)
       WRITE_code_writer: begin

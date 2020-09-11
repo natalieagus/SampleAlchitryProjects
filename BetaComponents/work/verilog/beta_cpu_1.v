@@ -33,7 +33,7 @@ module beta_cpu_1 (
   reg [1-1:0] M_control_system_z;
   reg [1-1:0] M_control_system_reset;
   reg [6-1:0] M_control_system_opcode;
-  control_unit_9 control_system (
+  control_unit_6 control_system (
     .irq(M_control_system_irq),
     .z(M_control_system_z),
     .reset(M_control_system_reset),
@@ -55,7 +55,7 @@ module beta_cpu_1 (
   reg [32-1:0] M_alu_system_a;
   reg [32-1:0] M_alu_system_b;
   reg [6-1:0] M_alu_system_alufn_signal;
-  alu_10 alu_system (
+  alu_7 alu_system (
     .a(M_alu_system_a),
     .b(M_alu_system_b),
     .alufn_signal(M_alu_system_alufn_signal),
@@ -70,7 +70,7 @@ module beta_cpu_1 (
   reg [5-1:0] M_regfile_system_write_address;
   reg [32-1:0] M_regfile_system_write_data;
   reg [1-1:0] M_regfile_system_write_enable;
-  regfile_11 regfile_system (
+  regfile_8 regfile_system (
     .clk(clk),
     .read_address_1(M_regfile_system_read_address_1),
     .read_address_2(M_regfile_system_read_address_2),
@@ -83,14 +83,20 @@ module beta_cpu_1 (
   
   reg [31:0] M_pc_d, M_pc_q = 1'h0;
   
+  reg M_read_state_d, M_read_state_q = 1'h0;
+  
   always @* begin
     M_pc_d = M_pc_q;
+    M_read_state_d = M_read_state_q;
     
     M_control_system_reset = rst;
     M_control_system_irq = interrupt;
     M_control_system_opcode = instruction[26+5-:6];
     ia = M_pc_q;
     if (slowclk) begin
+      M_read_state_d = 1'h1;
+    end
+    if (M_read_state_q == 1'h1) begin
       
       case (M_control_system_pcsel)
         3'h0: begin
@@ -112,6 +118,7 @@ module beta_cpu_1 (
           M_pc_d = M_pc_q;
         end
       endcase
+      M_read_state_d = 1'h0;
     end
     if (rst) begin
       M_pc_d = 32'h00000000;
@@ -190,6 +197,11 @@ module beta_cpu_1 (
   
   always @(posedge clk) begin
     M_pc_q <= M_pc_d;
+  end
+  
+  
+  always @(posedge clk) begin
+    M_read_state_q <= M_read_state_d;
   end
   
 endmodule

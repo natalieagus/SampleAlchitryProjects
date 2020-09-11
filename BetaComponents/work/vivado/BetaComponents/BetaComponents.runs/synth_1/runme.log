@@ -15,99 +15,78 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Device 21-403] Loading part xc7a35tftg256-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 12644 
+INFO: Helper process launched with PID 2688 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 769.352 ; gain = 234.980
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 769.184 ; gain = 234.434
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'au_top_0' [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/au_top_0.v:7]
-	Parameter SAMPLE_CODE bound to: 160'b0111101111100011111111111111101101100000011111110000000000100000011001000011111100000000001000001001000001000001000010000000000011000000001111110000000000000111 
+INFO: [Synth 8-6157] synthesizing module 'au_top_0' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/au_top_0.v:7]
+	Parameter SAMPLE_CODE bound to: 160'b0111100000100011111111111111101101100000011111110000000000100000011001000011111100000000001000001001000001000001000010000000000011000000001111110000000000000111 
 	Parameter WRITE_code_writer bound to: 1'b0 
 	Parameter GO_code_writer bound to: 1'b1 
-INFO: [Synth 8-6157] synthesizing module 'beta_cpu_1' [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/beta_cpu_1.v:7]
-INFO: [Synth 8-6157] synthesizing module 'control_unit_9' [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/control_unit_9.v:7]
+INFO: [Synth 8-6157] synthesizing module 'beta_cpu_1' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/beta_cpu_1.v:7]
+INFO: [Synth 8-6157] synthesizing module 'control_unit_6' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/control_unit_6.v:7]
 	Parameter CU_ROM bound to: 1152'b011100000000000100000000110001101100000000110000101100000000110000001100011100000000000100000000101011001100000000101111001100000000101100001100011100000000000100000000111011101100000000111010101100000000111001101100011100000000000100011100000000000100000000100000101100000000100000001100011100000000000100000000010001101100000000010000101100000000010000001100011100000000000100000000001011001100000000001111001100000000001100001100011100000000000100000000011011101100000000011010101100000000011001101100011100000000000100011100000000000100000000000000101100000000000000001100000010001101010110000010001101000100000010001101000100011100000000000100010010001101000100011100000000000100000001100000000001000000100000010110011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100011100000000000100 
-INFO: [Synth 8-6155] done synthesizing module 'control_unit_9' (1#1) [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/control_unit_9.v:7]
-INFO: [Synth 8-6157] synthesizing module 'alu_10' [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/alu_10.v:7]
-INFO: [Synth 8-6157] synthesizing module 'adder_16' [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/adder_16.v:7]
-INFO: [Synth 8-226] default block is never used [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/adder_16.v:24]
-INFO: [Synth 8-6155] done synthesizing module 'adder_16' (2#1) [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/adder_16.v:7]
-INFO: [Synth 8-6157] synthesizing module 'boolean_17' [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/boolean_17.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'boolean_17' (3#1) [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/boolean_17.v:7]
-INFO: [Synth 8-6157] synthesizing module 'shifter_18' [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/shifter_18.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'shifter_18' (4#1) [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/shifter_18.v:7]
-INFO: [Synth 8-6157] synthesizing module 'compare_19' [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/compare_19.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'compare_19' (5#1) [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/compare_19.v:7]
-INFO: [Synth 8-226] default block is never used [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/alu_10.v:96]
-INFO: [Synth 8-6155] done synthesizing module 'alu_10' (6#1) [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/alu_10.v:7]
-INFO: [Synth 8-6157] synthesizing module 'regfile_11' [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/regfile_11.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'regfile_11' (7#1) [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/regfile_11.v:7]
-INFO: [Synth 8-226] default block is never used [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/beta_cpu_1.v:120]
-INFO: [Synth 8-226] default block is never used [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/beta_cpu_1.v:132]
-INFO: [Synth 8-226] default block is never used [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/beta_cpu_1.v:149]
-INFO: [Synth 8-226] default block is never used [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/beta_cpu_1.v:161]
-INFO: [Synth 8-6155] done synthesizing module 'beta_cpu_1' (8#1) [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/beta_cpu_1.v:7]
-INFO: [Synth 8-6157] synthesizing module 'counter_2' [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/counter_2.v:14]
+INFO: [Synth 8-6155] done synthesizing module 'control_unit_6' (1#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/control_unit_6.v:7]
+INFO: [Synth 8-6157] synthesizing module 'alu_7' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/alu_7.v:7]
+INFO: [Synth 8-6157] synthesizing module 'adder_9' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/adder_9.v:7]
+INFO: [Synth 8-226] default block is never used [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/adder_9.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'adder_9' (2#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/adder_9.v:7]
+INFO: [Synth 8-6157] synthesizing module 'boolean_10' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/boolean_10.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'boolean_10' (3#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/boolean_10.v:7]
+INFO: [Synth 8-6157] synthesizing module 'shifter_11' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/shifter_11.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'shifter_11' (4#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/shifter_11.v:7]
+INFO: [Synth 8-6157] synthesizing module 'compare_12' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/compare_12.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'compare_12' (5#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/compare_12.v:7]
+INFO: [Synth 8-226] default block is never used [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/alu_7.v:96]
+INFO: [Synth 8-6155] done synthesizing module 'alu_7' (6#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/alu_7.v:7]
+INFO: [Synth 8-6157] synthesizing module 'regfile_8' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/regfile_8.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'regfile_8' (7#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/regfile_8.v:7]
+INFO: [Synth 8-226] default block is never used [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/beta_cpu_1.v:127]
+INFO: [Synth 8-226] default block is never used [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/beta_cpu_1.v:139]
+INFO: [Synth 8-226] default block is never used [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/beta_cpu_1.v:156]
+INFO: [Synth 8-226] default block is never used [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/beta_cpu_1.v:168]
+INFO: [Synth 8-6155] done synthesizing module 'beta_cpu_1' (8#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/beta_cpu_1.v:7]
+INFO: [Synth 8-6157] synthesizing module 'counter_2' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/counter_2.v:14]
 	Parameter SIZE bound to: 1'b1 
 	Parameter DIV bound to: 5'b11100 
 	Parameter TOP bound to: 1'b0 
 	Parameter UP bound to: 1'b1 
 	Parameter MAX_VALUE bound to: 29'b01111111111111111111111111111 
-INFO: [Synth 8-6155] done synthesizing module 'counter_2' (9#1) [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/counter_2.v:14]
-INFO: [Synth 8-6157] synthesizing module 'edge_detector_3' [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/edge_detector_3.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'counter_2' (9#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/counter_2.v:14]
+INFO: [Synth 8-6157] synthesizing module 'edge_detector_3' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/edge_detector_3.v:12]
 	Parameter RISE bound to: 1'b1 
 	Parameter FALL bound to: 1'b0 
-INFO: [Synth 8-6155] done synthesizing module 'edge_detector_3' (10#1) [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/edge_detector_3.v:12]
-INFO: [Synth 8-6157] synthesizing module 'simple_dual_ram_4' [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/simple_dual_ram_4.v:48]
+INFO: [Synth 8-6155] done synthesizing module 'edge_detector_3' (10#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/edge_detector_3.v:12]
+INFO: [Synth 8-6157] synthesizing module 'simple_dual_ram_4' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/simple_dual_ram_4.v:48]
 	Parameter SIZE bound to: 6'b100000 
 	Parameter DEPTH bound to: 5'b10000 
-INFO: [Synth 8-6155] done synthesizing module 'simple_dual_ram_4' (11#1) [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/simple_dual_ram_4.v:48]
-INFO: [Synth 8-6157] synthesizing module 'reset_conditioner_5' [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/reset_conditioner_5.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'simple_dual_ram_4' (11#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/simple_dual_ram_4.v:48]
+INFO: [Synth 8-6157] synthesizing module 'reset_conditioner_5' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/reset_conditioner_5.v:11]
 	Parameter STAGES bound to: 3'b100 
-INFO: [Synth 8-6155] done synthesizing module 'reset_conditioner_5' (12#1) [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/reset_conditioner_5.v:11]
-INFO: [Synth 8-6157] synthesizing module 'multi_seven_seg_6' [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/multi_seven_seg_6.v:12]
-	Parameter DIGITS bound to: 3'b100 
-	Parameter DIV bound to: 5'b10000 
-	Parameter DIGIT_BITS bound to: 2'b10 
-INFO: [Synth 8-6157] synthesizing module 'counter_12' [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/counter_12.v:14]
-	Parameter SIZE bound to: 2'b10 
-	Parameter DIV bound to: 5'b10000 
-	Parameter TOP bound to: 4'b0011 
-	Parameter UP bound to: 1'b1 
-	Parameter MAX_VALUE bound to: 20'b00111111111111111111 
-INFO: [Synth 8-6155] done synthesizing module 'counter_12' (13#1) [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/counter_12.v:14]
-INFO: [Synth 8-6157] synthesizing module 'seven_seg_13' [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/seven_seg_13.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'seven_seg_13' (14#1) [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/seven_seg_13.v:7]
-INFO: [Synth 8-6157] synthesizing module 'decoder_14' [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/decoder_14.v:11]
-	Parameter WIDTH bound to: 2'b10 
-INFO: [Synth 8-6155] done synthesizing module 'decoder_14' (15#1) [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/decoder_14.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'multi_seven_seg_6' (16#1) [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/multi_seven_seg_6.v:12]
-INFO: [Synth 8-6157] synthesizing module 'multi_dec_ctr_7' [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/multi_dec_ctr_7.v:11]
-	Parameter DIGITS bound to: 3'b100 
-INFO: [Synth 8-6157] synthesizing module 'decimal_counter_15' [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/decimal_counter_15.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'decimal_counter_15' (17#1) [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/decimal_counter_15.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'multi_dec_ctr_7' (18#1) [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/multi_dec_ctr_7.v:11]
-INFO: [Synth 8-6157] synthesizing module 'counter_8' [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/counter_8.v:14]
-	Parameter SIZE bound to: 1'b1 
-	Parameter DIV bound to: 5'b11000 
-	Parameter TOP bound to: 1'b0 
-	Parameter UP bound to: 1'b1 
-	Parameter MAX_VALUE bound to: 25'b0111111111111111111111111 
-INFO: [Synth 8-6155] done synthesizing module 'counter_8' (19#1) [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/counter_8.v:14]
-INFO: [Synth 8-6155] done synthesizing module 'au_top_0' (20#1) [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/au_top_0.v:7]
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[15] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[14] driven by constant 0
-WARNING: [Synth 8-3331] design boolean_17 has unconnected port alufn_signal[5]
-WARNING: [Synth 8-3331] design boolean_17 has unconnected port alufn_signal[4]
-WARNING: [Synth 8-3331] design adder_16 has unconnected port alufn_signal[5]
-WARNING: [Synth 8-3331] design adder_16 has unconnected port alufn_signal[4]
-WARNING: [Synth 8-3331] design adder_16 has unconnected port alufn_signal[3]
-WARNING: [Synth 8-3331] design adder_16 has unconnected port alufn_signal[2]
-WARNING: [Synth 8-3331] design adder_16 has unconnected port alufn_signal[1]
+INFO: [Synth 8-6155] done synthesizing module 'reset_conditioner_5' (12#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/reset_conditioner_5.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'au_top_0' (13#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/au_top_0.v:7]
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[7] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[6] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[5] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[4] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[3] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[2] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[1] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[0] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[3] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[2] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[1] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[0] driven by constant 0
+WARNING: [Synth 8-3331] design boolean_10 has unconnected port alufn_signal[5]
+WARNING: [Synth 8-3331] design boolean_10 has unconnected port alufn_signal[4]
+WARNING: [Synth 8-3331] design adder_9 has unconnected port alufn_signal[5]
+WARNING: [Synth 8-3331] design adder_9 has unconnected port alufn_signal[4]
+WARNING: [Synth 8-3331] design adder_9 has unconnected port alufn_signal[3]
+WARNING: [Synth 8-3331] design adder_9 has unconnected port alufn_signal[2]
+WARNING: [Synth 8-3331] design adder_9 has unconnected port alufn_signal[1]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[4]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[3]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[2]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[1]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[0]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[23]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[22]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[21]
@@ -133,7 +112,7 @@ WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[2]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[1]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 842.781 ; gain = 308.410
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 842.492 ; gain = 307.742
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -146,52 +125,52 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 842.781 ; gain = 308.410
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 842.492 ; gain = 307.742
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 842.781 ; gain = 308.410
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 842.492 ; gain = 307.742
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.100 . Memory (MB): peak = 842.781 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.077 . Memory (MB): peak = 842.492 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/NatalieAgus/Desktop/BetaComponents/work/constraint/alchitry.xdc]
-Finished Parsing XDC File [C:/Users/NatalieAgus/Desktop/BetaComponents/work/constraint/alchitry.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/NatalieAgus/Desktop/BetaComponents/work/constraint/alchitry.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/au_top_0_propImpl.xdc].
+Parsing XDC File [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/constraint/alchitry.xdc]
+Finished Parsing XDC File [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/constraint/alchitry.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/constraint/alchitry.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/au_top_0_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/au_top_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Parsing XDC File [C:/Users/NatalieAgus/Desktop/BetaComponents/work/constraint/io.xdc]
-Finished Parsing XDC File [C:/Users/NatalieAgus/Desktop/BetaComponents/work/constraint/io.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/NatalieAgus/Desktop/BetaComponents/work/constraint/io.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/au_top_0_propImpl.xdc].
+Parsing XDC File [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/constraint/io.xdc]
+Finished Parsing XDC File [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/constraint/io.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/constraint/io.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/au_top_0_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/au_top_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Parsing XDC File [C:/Program Files/Alchitry/Alchitry Labs/library/components/au.xdc]
 Finished Parsing XDC File [C:/Program Files/Alchitry/Alchitry Labs/library/components/au.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 962.586 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 954.902 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 962.586 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 954.902 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 962.586 ; gain = 428.215
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 954.902 ; gain = 420.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tftg256-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 962.586 ; gain = 428.215
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 954.902 ; gain = 420.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 962.586 ; gain = 428.215
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 954.902 ; gain = 420.152
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/adder_16.v:24]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/adder_9.v:24]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 962.586 ; gain = 428.215
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 954.902 ; gain = 420.152
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -206,8 +185,6 @@ Detailed RTL Component Info :
 +---Adders : 
 	   3 Input     32 Bit       Adders := 1     
 	   2 Input     32 Bit       Adders := 1     
-	   2 Input     18 Bit       Adders := 1     
-	   2 Input      4 Bit       Adders := 4     
 	   2 Input      3 Bit       Adders := 1     
 +---XORs : 
 	   2 Input     32 Bit         XORs := 1     
@@ -215,25 +192,24 @@ Detailed RTL Component Info :
 +---Registers : 
 	             1024 Bit    Registers := 1     
 	               32 Bit    Registers := 2     
-	               18 Bit    Registers := 1     
-	                4 Bit    Registers := 5     
+	                4 Bit    Registers := 1     
 	                3 Bit    Registers := 1     
 	                1 Bit    Registers := 3     
++---Multipliers : 
+	                32x32  Multipliers := 1     
 +---RAMs : 
 	              512 Bit         RAMs := 1     
 +---Muxes : 
 	   2 Input   1024 Bit        Muxes := 1     
-	   2 Input     32 Bit        Muxes := 6     
+	   2 Input     32 Bit        Muxes := 7     
 	   4 Input     32 Bit        Muxes := 4     
 	  33 Input     32 Bit        Muxes := 2     
 	   6 Input     32 Bit        Muxes := 1     
-	   2 Input     18 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 2     
-	   4 Input      4 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 5     
+	   2 Input      4 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 3     
 	   2 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 5     
 	   6 Input      1 Bit        Muxes := 1     
 	   3 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
@@ -255,13 +231,13 @@ Detailed RTL Component Info :
 	   2 Input      4 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 2     
 	   3 Input      1 Bit        Muxes := 1     
-Module control_unit_9 
+Module control_unit_6 
 Detailed RTL Component Info : 
 +---Muxes : 
 	   2 Input      3 Bit        Muxes := 3     
 	   2 Input      2 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 2     
-Module adder_16 
+Module adder_9 
 Detailed RTL Component Info : 
 +---Adders : 
 	   3 Input     32 Bit       Adders := 1     
@@ -269,27 +245,30 @@ Detailed RTL Component Info :
 	   2 Input      1 Bit         XORs := 1     
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 1     
-Module boolean_17 
+Module boolean_10 
 Detailed RTL Component Info : 
 +---XORs : 
 	   2 Input     32 Bit         XORs := 1     
-Module shifter_18 
+Module shifter_11 
 Detailed RTL Component Info : 
 +---Muxes : 
 	   4 Input     32 Bit        Muxes := 1     
 	   2 Input     32 Bit        Muxes := 1     
-Module compare_19 
+Module compare_12 
 Detailed RTL Component Info : 
 +---XORs : 
 	   2 Input      1 Bit         XORs := 1     
 +---Muxes : 
 	   4 Input     32 Bit        Muxes := 1     
 	   2 Input     32 Bit        Muxes := 1     
-Module alu_10 
+Module alu_7 
 Detailed RTL Component Info : 
++---Multipliers : 
+	                32x32  Multipliers := 1     
 +---Muxes : 
 	   4 Input     32 Bit        Muxes := 1     
-Module regfile_11 
+	   2 Input     32 Bit        Muxes := 1     
+Module regfile_8 
 Detailed RTL Component Info : 
 +---Registers : 
 	             1024 Bit    Registers := 1     
@@ -302,12 +281,14 @@ Detailed RTL Component Info :
 	   2 Input     32 Bit       Adders := 1     
 +---Registers : 
 	               32 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
 +---Muxes : 
 	   6 Input     32 Bit        Muxes := 1     
 	   4 Input     32 Bit        Muxes := 1     
 	   2 Input     32 Bit        Muxes := 2     
 	   2 Input      5 Bit        Muxes := 2     
 	   6 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
 Module edge_detector_3 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -322,26 +303,6 @@ Module reset_conditioner_5
 Detailed RTL Component Info : 
 +---Registers : 
 	                4 Bit    Registers := 1     
-Module counter_12 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     18 Bit       Adders := 1     
-+---Registers : 
-	               18 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input     18 Bit        Muxes := 1     
-Module multi_seven_seg_6 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   4 Input      4 Bit        Muxes := 1     
-Module decimal_counter_15 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 1     
-+---Registers : 
-	                4 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input      4 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -358,15 +319,35 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-4471] merging register 'M_writer_counter_q_reg[2:0]' into 'M_writer_counter_q_reg[2:0]' [C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/au_top_0.v:173]
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[15] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[14] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_seg[7] driven by constant 1
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/alu_7.v:114]
+DSP Report: Generating DSP alu_system/out0, operation Mode is: A*B.
+DSP Report: operator alu_system/out0 is absorbed into DSP alu_system/out0.
+DSP Report: operator alu_system/out0 is absorbed into DSP alu_system/out0.
+DSP Report: Generating DSP alu_system/out0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator alu_system/out0 is absorbed into DSP alu_system/out0.
+DSP Report: operator alu_system/out0 is absorbed into DSP alu_system/out0.
+DSP Report: Generating DSP alu_system/out0, operation Mode is: A*B.
+DSP Report: operator alu_system/out0 is absorbed into DSP alu_system/out0.
+DSP Report: operator alu_system/out0 is absorbed into DSP alu_system/out0.
+DSP Report: Generating DSP alu_system/out0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator alu_system/out0 is absorbed into DSP alu_system/out0.
+DSP Report: operator alu_system/out0 is absorbed into DSP alu_system/out0.
+INFO: [Synth 8-4471] merging register 'M_writer_counter_q_reg[2:0]' into 'M_writer_counter_q_reg[2:0]' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/au_top_0.v:139]
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[7] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[6] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[5] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[4] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[3] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[2] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[1] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_seg[0] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[3] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[2] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[1] driven by constant 0
+WARNING: [Synth 8-3917] design au_top_0 has port io_sel[0] driven by constant 0
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[4]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[3]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[2]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[1]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[0]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[23]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[22]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[21]
@@ -392,7 +373,7 @@ WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[2]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[1]
 WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[0]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:31 . Memory (MB): peak = 962.586 ; gain = 428.215
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 954.902 ; gain = 420.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -406,6 +387,18 @@ Distributed RAM: Preliminary Mapping	Report (see note below)
 +------------+---------------------+-----------+----------------------+-------------+
 
 Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping	Report (see note below)
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|beta_cpu_1  | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|beta_cpu_1  | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|beta_cpu_1  | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|beta_cpu_1  | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
@@ -419,13 +412,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 962.586 ; gain = 428.215
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 983.715 ; gain = 448.965
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:46 ; elapsed = 00:00:47 . Memory (MB): peak = 1038.262 ; gain = 503.891
+Finished Timing Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:00:48 . Memory (MB): peak = 1092.398 ; gain = 557.648
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -451,7 +444,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:54 ; elapsed = 00:00:55 . Memory (MB): peak = 1039.172 ; gain = 504.801
+Finished Technology Mapping : Time (s): cpu = 00:00:54 ; elapsed = 00:00:56 . Memory (MB): peak = 1093.316 ; gain = 558.566
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -475,13 +468,13 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:59 ; elapsed = 00:01:00 . Memory (MB): peak = 1039.172 ; gain = 504.801
+Finished IO Insertion : Time (s): cpu = 00:00:59 ; elapsed = 00:01:01 . Memory (MB): peak = 1093.316 ; gain = 558.566
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:59 ; elapsed = 00:01:00 . Memory (MB): peak = 1039.172 ; gain = 504.801
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:59 ; elapsed = 00:01:01 . Memory (MB): peak = 1093.316 ; gain = 558.566
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -500,25 +493,25 @@ Report Check Netlist:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:00 ; elapsed = 00:01:00 . Memory (MB): peak = 1039.172 ; gain = 504.801
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:59 ; elapsed = 00:01:01 . Memory (MB): peak = 1093.316 ; gain = 558.566
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:00 ; elapsed = 00:01:00 . Memory (MB): peak = 1039.172 ; gain = 504.801
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:59 ; elapsed = 00:01:01 . Memory (MB): peak = 1093.316 ; gain = 558.566
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:00 ; elapsed = 00:01:00 . Memory (MB): peak = 1039.172 ; gain = 504.801
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:00 ; elapsed = 00:01:01 . Memory (MB): peak = 1093.316 ; gain = 558.566
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:00 ; elapsed = 00:01:01 . Memory (MB): peak = 1039.172 ; gain = 504.801
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:00 ; elapsed = 00:01:01 . Memory (MB): peak = 1093.316 ; gain = 558.566
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -531,72 +524,65 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+-------+------+
-|      |Cell   |Count |
-+------+-------+------+
-|1     |BUFG   |     1|
-|2     |CARRY4 |    46|
-|3     |LUT1   |    10|
-|4     |LUT2   |   110|
-|5     |LUT3   |   134|
-|6     |LUT4   |   332|
-|7     |LUT5   |   512|
-|8     |LUT6   |   972|
-|9     |MUXF7  |   312|
-|10    |MUXF8  |    13|
-|11    |RAM32M |     6|
-|12    |FDRE   |  1150|
-|13    |FDSE   |     4|
-|14    |IBUF   |     3|
-|15    |OBUF   |    45|
-+------+-------+------+
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |BUFG    |     1|
+|2     |CARRY4  |    38|
+|3     |DSP48E1 |     3|
+|4     |LUT1    |    10|
+|5     |LUT2    |   116|
+|6     |LUT3    |   164|
+|7     |LUT4    |   207|
+|8     |LUT5    |   570|
+|9     |LUT6    |  1088|
+|10    |MUXF7   |   307|
+|11    |MUXF8   |    11|
+|12    |RAM32M  |     6|
+|13    |FDRE    |  1091|
+|14    |FDSE    |     4|
+|15    |IBUF    |     5|
+|16    |OBUF    |    45|
++------+--------+------+
 
 Report Instance Areas: 
-+------+-------------------------+---------------------+------+
-|      |Instance                 |Module               |Cells |
-+------+-------------------------+---------------------+------+
-|1     |top                      |                     |  3650|
-|2     |  beta                   |beta_cpu_1           |  2243|
-|3     |    control_system       |control_unit_9       |   238|
-|4     |    regfile_system       |regfile_11           |  1921|
-|5     |  ctr                    |counter_8            |    34|
-|6     |  dec_ctr                |multi_dec_ctr_7      |    46|
-|7     |    \dctr_gen_0[0].dctr  |decimal_counter_15   |     9|
-|8     |    \dctr_gen_0[1].dctr  |decimal_counter_15_1 |    20|
-|9     |    \dctr_gen_0[2].dctr  |decimal_counter_15_2 |     9|
-|10    |    \dctr_gen_0[3].dctr  |decimal_counter_15_3 |     8|
-|11    |  edge_detector          |edge_detector_3      |     1|
-|12    |  memory_unit            |simple_dual_ram_4    |  1175|
-|13    |  reset_cond             |reset_conditioner_5  |     5|
-|14    |  seg                    |multi_seven_seg_6    |    50|
-|15    |    ctr                  |counter_12           |    50|
-|16    |  slowclock              |counter_2            |    38|
-|17    |  slowclockedge          |edge_detector_3_0    |     1|
-+------+-------------------------+---------------------+------+
++------+-------------------+--------------------+------+
+|      |Instance           |Module              |Cells |
++------+-------------------+--------------------+------+
+|1     |top                |                    |  3666|
+|2     |  beta             |beta_cpu_1          |  2243|
+|3     |    alu_system     |alu_7               |    24|
+|4     |    control_system |control_unit_6      |   243|
+|5     |    regfile_system |regfile_8           |  1888|
+|6     |  memory_unit      |simple_dual_ram_4   |  1320|
+|7     |  reset_cond       |reset_conditioner_5 |     5|
+|8     |  slowclock        |counter_2           |    38|
+|9     |  slowclockedge    |edge_detector_3     |     1|
++------+-------------------+--------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:00 ; elapsed = 00:01:01 . Memory (MB): peak = 1039.172 ; gain = 504.801
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:00 ; elapsed = 00:01:01 . Memory (MB): peak = 1093.316 ; gain = 558.566
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 32 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 1039.172 ; gain = 384.996
-Synthesis Optimization Complete : Time (s): cpu = 00:01:00 ; elapsed = 00:01:01 . Memory (MB): peak = 1039.172 ; gain = 504.801
+Synthesis finished with 0 errors, 0 critical warnings and 39 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:53 ; elapsed = 00:00:59 . Memory (MB): peak = 1093.316 ; gain = 446.156
+Synthesis Optimization Complete : Time (s): cpu = 00:01:00 ; elapsed = 00:01:01 . Memory (MB): peak = 1093.316 ; gain = 558.566
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.066 . Memory (MB): peak = 1051.047 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 377 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.060 . Memory (MB): peak = 1093.316 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 365 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1051.047 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1093.316 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 6 instances were transformed.
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 6 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-61 Infos, 70 Warnings, 0 Critical Warnings and 0 Errors encountered.
+48 Infos, 85 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:06 ; elapsed = 00:01:07 . Memory (MB): peak = 1051.047 ; gain = 755.742
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1051.047 ; gain = 0.000
+synth_design: Time (s): cpu = 00:01:06 ; elapsed = 00:01:07 . Memory (MB): peak = 1093.316 ; gain = 795.859
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1093.316 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint 'C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.runs/synth_1/au_top_0.dcp' has been generated.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.runs/synth_1/au_top_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file au_top_0_utilization_synth.rpt -pb au_top_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Sep 12 00:01:36 2020...
+INFO: [Common 17-206] Exiting Vivado at Sat Sep 12 03:56:19 2020...

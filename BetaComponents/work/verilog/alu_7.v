@@ -4,7 +4,7 @@
    This is a temporary file and any changes made to it will be destroyed.
 */
 
-module alu_10 (
+module alu_7 (
     input [31:0] a,
     input [31:0] b,
     input [5:0] alufn_signal,
@@ -21,7 +21,7 @@ module alu_10 (
   reg [32-1:0] M_adderUnit_a;
   reg [32-1:0] M_adderUnit_b;
   reg [6-1:0] M_adderUnit_alufn_signal;
-  adder_16 adderUnit (
+  adder_9 adderUnit (
     .a(M_adderUnit_a),
     .b(M_adderUnit_b),
     .alufn_signal(M_adderUnit_alufn_signal),
@@ -35,7 +35,7 @@ module alu_10 (
   reg [32-1:0] M_booleanUnit_a;
   reg [32-1:0] M_booleanUnit_b;
   reg [6-1:0] M_booleanUnit_alufn_signal;
-  boolean_17 booleanUnit (
+  boolean_10 booleanUnit (
     .a(M_booleanUnit_a),
     .b(M_booleanUnit_b),
     .alufn_signal(M_booleanUnit_alufn_signal),
@@ -46,7 +46,7 @@ module alu_10 (
   reg [32-1:0] M_shifterUnit_a;
   reg [5-1:0] M_shifterUnit_b;
   reg [6-1:0] M_shifterUnit_alufn_signal;
-  shifter_18 shifterUnit (
+  shifter_11 shifterUnit (
     .a(M_shifterUnit_a),
     .b(M_shifterUnit_b),
     .alufn_signal(M_shifterUnit_alufn_signal),
@@ -58,7 +58,7 @@ module alu_10 (
   reg [1-1:0] M_compareUnit_v;
   reg [1-1:0] M_compareUnit_n;
   reg [6-1:0] M_compareUnit_alufn_signal;
-  compare_19 compareUnit (
+  compare_12 compareUnit (
     .z(M_compareUnit_z),
     .v(M_compareUnit_v),
     .n(M_compareUnit_n),
@@ -110,5 +110,8 @@ module alu_10 (
         out = 16'h0000;
       end
     endcase
+    if (alufn_signal == 6'h02) begin
+      out = a * b;
+    end
   end
 endmodule

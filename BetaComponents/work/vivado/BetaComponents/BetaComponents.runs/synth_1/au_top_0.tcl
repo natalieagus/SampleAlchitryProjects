@@ -22,32 +22,25 @@ create_project -in_memory -part xc7a35tftg256-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.cache/wt [current_project]
-set_property parent.project_path C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.cache/wt [current_project]
+set_property parent.project_path C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
-  C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/adder_16.v
-  C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/alu_10.v
-  C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/beta_cpu_1.v
-  C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/boolean_17.v
-  C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/compare_19.v
-  C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/control_unit_9.v
-  C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/counter_12.v
-  C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/counter_2.v
-  C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/counter_8.v
-  C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/decimal_counter_15.v
-  C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/decoder_14.v
-  C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/edge_detector_3.v
-  C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/multi_dec_ctr_7.v
-  C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/multi_seven_seg_6.v
-  C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/regfile_11.v
-  C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/reset_conditioner_5.v
-  C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/seven_seg_13.v
-  C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/shifter_18.v
-  C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/simple_dual_ram_4.v
-  C:/Users/NatalieAgus/Desktop/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/au_top_0.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/adder_9.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/alu_7.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/beta_cpu_1.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/boolean_10.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/compare_12.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/control_unit_6.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/counter_2.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/edge_detector_3.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/regfile_8.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/reset_conditioner_5.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/shifter_11.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/simple_dual_ram_4.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/au_top_0.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -57,11 +50,11 @@ read_verilog -library xil_defaultlib {
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/NatalieAgus/Desktop/BetaComponents/work/constraint/alchitry.xdc
-set_property used_in_implementation false [get_files C:/Users/NatalieAgus/Desktop/BetaComponents/work/constraint/alchitry.xdc]
+read_xdc C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/constraint/alchitry.xdc
+set_property used_in_implementation false [get_files C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/constraint/alchitry.xdc]
 
-read_xdc C:/Users/NatalieAgus/Desktop/BetaComponents/work/constraint/io.xdc
-set_property used_in_implementation false [get_files C:/Users/NatalieAgus/Desktop/BetaComponents/work/constraint/io.xdc]
+read_xdc C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/constraint/io.xdc
+set_property used_in_implementation false [get_files C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/constraint/io.xdc]
 
 read_xdc {{C:/Program Files/Alchitry/Alchitry Labs/library/components/au.xdc}}
 set_property used_in_implementation false [get_files {{C:/Program Files/Alchitry/Alchitry Labs/library/components/au.xdc}}]

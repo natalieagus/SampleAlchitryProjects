@@ -51,6 +51,10 @@ module alu (
       b11 : out = compareUnit.out;
       default: out = 16b0;
     }
+      
+    if (alufn_signal == b000010){
+      out = a*b; // fast multiplier hack
+    }
     
     
   }

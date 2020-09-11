@@ -4,10 +4,9 @@
    This is a temporary file and any changes made to it will be destroyed.
 */
 
-module compare_19 (
-    input z,
-    input v,
-    input n,
+module boolean_10 (
+    input [31:0] a,
+    input [31:0] b,
     input [5:0] alufn_signal,
     output reg [31:0] out
   );
@@ -15,20 +14,22 @@ module compare_19 (
   
   
   always @* begin
-    out = 32'h00000000;
     
-    case (alufn_signal)
+    case (alufn_signal[0+3-:4])
+      4'h8: begin
+        out = a & b;
+      end
+      4'he: begin
+        out = a | b;
+      end
+      4'h6: begin
+        out = a ^ b;
+      end
+      4'ha: begin
+        out = a;
+      end
       default: begin
-        out[0+0-:1] = 1'h0;
-      end
-      6'h33: begin
-        out[0+0-:1] = z;
-      end
-      6'h35: begin
-        out[0+0-:1] = n ^ v;
-      end
-      6'h37: begin
-        out[0+0-:1] = z | (n ^ v);
+        out = 32'h00000000;
       end
     endcase
   end

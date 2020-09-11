@@ -4,7 +4,7 @@
    This is a temporary file and any changes made to it will be destroyed.
 */
 
-module control_unit_9 (
+module control_unit_6 (
     input irq,
     input z,
     input reset,
