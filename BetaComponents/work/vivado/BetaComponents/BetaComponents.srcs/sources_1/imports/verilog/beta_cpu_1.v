@@ -99,9 +99,6 @@ module beta_cpu_1 (
       M_read_state_d = 2'h1;
     end
     if (M_read_state_q == 2'h1) begin
-      M_read_state_d = M_read_state_q + 1'h1;
-    end
-    if (M_read_state_q == 2'h2) begin
       
       case (M_control_system_pcsel)
         3'h0: begin
@@ -202,12 +199,12 @@ module beta_cpu_1 (
   end
   
   always @(posedge clk) begin
-    M_read_state_q <= M_read_state_d;
+    M_pc_q <= M_pc_d;
   end
   
   
   always @(posedge clk) begin
-    M_pc_q <= M_pc_d;
+    M_read_state_q <= M_read_state_d;
   end
   
 endmodule

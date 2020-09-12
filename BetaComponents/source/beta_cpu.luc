@@ -35,12 +35,8 @@ module beta_cpu (
    if (slowclk){ // a hack to slow down the CPU
       read_state.d = b01;
    }
-     
-   if (read_state.q == b01){
-        read_state.d = read_state.q + 1; 
-   }
     
-    if (read_state.q == b10){ //only change the pcsel 2 clock cycles later after we get the output from the RAM
+    if (read_state.q == b01){ //only change the pcsel 1 clock cycle later after we get the output from the RAM
    // PCSEL mux 
    case (control_system.pcsel){
       b000: 
