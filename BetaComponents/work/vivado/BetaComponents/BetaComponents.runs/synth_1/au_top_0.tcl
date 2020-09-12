@@ -28,18 +28,20 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
-  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/adder_9.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/adder_11.v
   C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/alu_7.v
   C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/beta_cpu_1.v
-  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/boolean_10.v
-  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/compare_12.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/boolean_12.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/compare_14.v
   C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/control_unit_6.v
   C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/counter_2.v
   C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/edge_detector_3.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/memoryunit_4.v
   C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/regfile_8.v
   C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/reset_conditioner_5.v
-  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/shifter_11.v
-  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/simple_dual_ram_4.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/shifter_13.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/simple_dual_ram_10.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/simple_ram_9.v
   C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/BetaComponents/work/vivado/BetaComponents/BetaComponents.srcs/sources_1/imports/verilog/au_top_0.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being

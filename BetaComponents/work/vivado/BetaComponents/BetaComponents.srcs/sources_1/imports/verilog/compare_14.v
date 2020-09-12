@@ -4,9 +4,10 @@
    This is a temporary file and any changes made to it will be destroyed.
 */
 
-module shifter_11 (
-    input [31:0] a,
-    input [4:0] b,
+module compare_14 (
+    input z,
+    input v,
+    input n,
     input [5:0] alufn_signal,
     output reg [31:0] out
   );
@@ -14,19 +15,20 @@ module shifter_11 (
   
   
   always @* begin
+    out = 32'h00000000;
     
     case (alufn_signal)
       default: begin
-        out = a;
+        out[0+0-:1] = 1'h0;
       end
-      6'h20: begin
-        out = a << b;
+      6'h33: begin
+        out[0+0-:1] = z;
       end
-      6'h21: begin
-        out = a >> b;
+      6'h35: begin
+        out[0+0-:1] = n ^ v;
       end
-      6'h23: begin
-        out = $signed(a) >>> b;
+      6'h37: begin
+        out[0+0-:1] = z | (n ^ v);
       end
     endcase
   end

@@ -9,12 +9,13 @@ module beta_cpu_1 (
     input slowclk,
     input rst,
     input interrupt,
-    output reg [31:0] ia,
     input [31:0] instruction,
+    input [31:0] mem_data_input,
+    output reg [31:0] ia,
     output reg [31:0] mem_data_address,
     output reg [31:0] mem_data_output,
-    input [31:0] mem_data_input,
-    output reg xwr
+    output reg xwr,
+    output reg [31:0] debug
   );
   
   
@@ -83,7 +84,7 @@ module beta_cpu_1 (
   
   reg [31:0] M_pc_d, M_pc_q = 1'h0;
   
-  reg M_read_state_d, M_read_state_q = 1'h0;
+  reg [1:0] M_read_state_d, M_read_state_q = 1'h0;
   
   always @* begin
     M_pc_d = M_pc_q;
@@ -94,9 +95,12 @@ module beta_cpu_1 (
     M_control_system_opcode = instruction[26+5-:6];
     ia = M_pc_q;
     if (slowclk) begin
-      M_read_state_d = 1'h1;
+      M_read_state_d = 2'h1;
     end
-    if (M_read_state_q == 1'h1) begin
+    if (M_read_state_q == 2'h1) begin
+      M_read_state_d = M_read_state_q + 1'h1;
+    end
+    if (M_read_state_q == 2'h2) begin
       
       case (M_control_system_pcsel)
         3'h0: begin
@@ -193,6 +197,7 @@ module beta_cpu_1 (
     endcase
     mem_data_address = M_alu_system_out;
     xwr = M_control_system_xwr;
+    debug = M_control_system_pcsel;
   end
   
   always @(posedge clk) begin

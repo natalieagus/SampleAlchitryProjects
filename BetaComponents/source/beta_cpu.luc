@@ -3,12 +3,14 @@ module beta_cpu (
     input slowclk,
     input rst,
     input interrupt,
-    output ia[32],
     input instruction[32],
+    input mem_data_input[32],
+    output ia[32],
     output mem_data_address[32],
     output mem_data_output[32],
-    input mem_data_input[32],
-    output xwr
+    output xwr,
+    // for debug, connect it to show any output
+    output debug[32]
   ) {
   
   control_unit control_system;
@@ -17,7 +19,7 @@ module beta_cpu (
   
   dff pc[32](#INIT(0),.clk(clk));
   
-  dff read_state(.clk(clk));
+  dff read_state[2](.clk(clk));
  
 
   always {
@@ -31,10 +33,14 @@ module beta_cpu (
    ia = pc.q; 
    
    if (slowclk){ // a hack to slow down the CPU
-      read_state.d = b1;
-    }
+      read_state.d = b01;
+   }
+     
+   if (read_state.q == b01){
+        read_state.d = read_state.q + 1; 
+   }
     
-    if (read_state.q == b1){ //only change the pcsel 1 clock cycle later after we get the output from the RAM
+    if (read_state.q == b10){ //only change the pcsel 2 clock cycles later after we get the output from the RAM
    // PCSEL mux 
    case (control_system.pcsel){
       b000: 
@@ -123,5 +129,8 @@ module beta_cpu (
     
     mem_data_address = alu_system.out;
     xwr = control_system.xwr;
+    
+    //for debug 
+    debug = control_system.pcsel;
   }
 }

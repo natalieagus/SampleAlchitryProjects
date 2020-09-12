@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Sat Sep 12 03:57:38 2020
+| Date         : Sat Sep 12 13:03:48 2020
 | Host         : DESKTOP-9GBQU5S running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file au_top_0_control_sets_placed.rpt
 | Design       : au_top_0
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    36 |
-|    Minimum number of control sets                        |    36 |
+| Total control sets                                       |    13 |
+|    Minimum number of control sets                        |    13 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    12 |
+| Unused register locations in slices containing registers |     8 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    36 |
+| Total control sets |    13 |
 | >= 0 to < 4        |     0 |
 | >= 4 to < 6        |     1 |
 | >= 6 to < 8        |     0 |
 | >= 8 to < 10       |     0 |
 | >= 10 to < 12      |     0 |
-| >= 12 to < 14      |     0 |
+| >= 12 to < 14      |     1 |
 | >= 14 to < 16      |     0 |
-| >= 16              |    35 |
+| >= 16              |    11 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,57 +58,34 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              43 |           13 |
+| No           | No                    | No                     |              63 |           24 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |              33 |            9 |
-| Yes          | No                    | No                     |             992 |          474 |
+| Yes          | No                    | No                     |             224 |          116 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              32 |           11 |
+| Yes          | Yes                   | No                     |              32 |           15 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------+------------------------------------+----------------------------+------------------+----------------+
-|  Clock Signal  |            Enable Signal           |      Set/Reset Signal      | Slice Load Count | Bel Load Count |
-+----------------+------------------------------------+----------------------------+------------------+----------------+
-|  clk_IBUF_BUFG |                                    | reset_cond/M_reset_cond_in |                1 |              4 |
-|  clk_IBUF_BUFG |                                    | reset_cond/Q[0]            |                8 |             29 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_279  |                            |               18 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_283  |                            |               16 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_271  |                            |               13 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_277  |                            |               13 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_278  |                            |               16 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_269  |                            |               17 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_275  |                            |               14 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_281  |                            |               13 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_274  |                            |               13 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_266  |                            |               17 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_270  |                            |               12 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_255  |                            |               15 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_261  |                            |               17 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_268  |                            |               17 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_272  |                            |               12 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_276  |                            |               12 |             32 |
-|  clk_IBUF_BUFG | beta/control_system/E[0]           | beta/M_writer_counter_d    |               11 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_284  |                            |               14 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_280  |                            |               13 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_259  |                            |               15 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_262  |                            |               15 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_256  |                            |               18 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_282  |                            |               14 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_285  |                            |               17 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_265  |                            |               17 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_273  |                            |               14 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_264  |                            |               19 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_257  |                            |               13 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_260  |                            |               15 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_267  |                            |               21 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_263  |                            |               19 |             32 |
-|  clk_IBUF_BUFG | memory_unit/read_data_reg[26]_258  |                            |               15 |             32 |
-|  clk_IBUF_BUFG |                                    |                            |               13 |             43 |
-|  clk_IBUF_BUFG | memory_unit/M_memory_unit_write_en |                            |                6 |             48 |
-+----------------+------------------------------------+----------------------------+------------------+----------------+
++----------------+-----------------------------------------------------+----------------------------+------------------+----------------+
+|  Clock Signal  |                    Enable Signal                    |      Set/Reset Signal      | Slice Load Count | Bel Load Count |
++----------------+-----------------------------------------------------+----------------------------+------------------+----------------+
+|  clk_IBUF_BUFG |                                                     | reset_cond/M_reset_cond_in |                1 |              4 |
+|  clk_IBUF_BUFG | M_memory_unit_instruction_write_enable              |                            |                3 |             12 |
+|  clk_IBUF_BUFG |                                                     | reset_cond/Q[0]            |                8 |             29 |
+|  clk_IBUF_BUFG | beta/control_system/E[0]                            | beta/regfile_system/SR[0]  |               15 |             32 |
+|  clk_IBUF_BUFG | memory_unit/instruction_memory/M_beta_xwr           |                            |                8 |             32 |
+|  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_38 |                            |               17 |             32 |
+|  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_41 |                            |               17 |             32 |
+|  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_42 |                            |               15 |             32 |
+|  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_39 |                            |               16 |             32 |
+|  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_43 |                            |               18 |             32 |
+|  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_40 |                            |               18 |             32 |
+|  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_44 |                            |               15 |             32 |
+|  clk_IBUF_BUFG |                                                     |                            |               24 |             63 |
++----------------+-----------------------------------------------------+----------------------------+------------------+----------------+
 
 

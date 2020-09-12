@@ -25,6 +25,7 @@ module au_top_0 (
   wire [32-1:0] M_beta_mem_data_address;
   wire [32-1:0] M_beta_mem_data_output;
   wire [1-1:0] M_beta_xwr;
+  wire [32-1:0] M_beta_debug;
   reg [1-1:0] M_beta_slowclk;
   reg [1-1:0] M_beta_rst;
   reg [1-1:0] M_beta_interrupt;
@@ -40,7 +41,8 @@ module au_top_0 (
     .ia(M_beta_ia),
     .mem_data_address(M_beta_mem_data_address),
     .mem_data_output(M_beta_mem_data_output),
-    .xwr(M_beta_xwr)
+    .xwr(M_beta_xwr),
+    .debug(M_beta_debug)
   );
   
   wire [1-1:0] M_slowclock_value;
@@ -60,28 +62,36 @@ module au_top_0 (
   
   localparam SAMPLE_CODE = 160'h7823fffb607f0020643f002090410800c03f0007;
   
-  wire [32-1:0] M_memory_unit_read_data;
-  reg [4-1:0] M_memory_unit_waddr;
-  reg [32-1:0] M_memory_unit_write_data;
-  reg [1-1:0] M_memory_unit_write_en;
-  reg [4-1:0] M_memory_unit_raddr;
-  simple_dual_ram_4 #(.SIZE(6'h20), .DEPTH(5'h10)) memory_unit (
-    .wclk(clk),
-    .rclk(clk),
-    .waddr(M_memory_unit_waddr),
-    .write_data(M_memory_unit_write_data),
-    .write_en(M_memory_unit_write_en),
+  wire [32-1:0] M_memory_unit_data_memory_output;
+  wire [32-1:0] M_memory_unit_instruction;
+  reg [6-1:0] M_memory_unit_raddr;
+  reg [6-1:0] M_memory_unit_waddr;
+  reg [32-1:0] M_memory_unit_data_memory_input;
+  reg [1-1:0] M_memory_unit_xwr;
+  reg [6-1:0] M_memory_unit_ia;
+  reg [1-1:0] M_memory_unit_instruction_write_enable;
+  reg [32-1:0] M_memory_unit_instruction_towrite;
+  memoryunit_4 memory_unit (
+    .clk(clk),
     .raddr(M_memory_unit_raddr),
-    .read_data(M_memory_unit_read_data)
+    .waddr(M_memory_unit_waddr),
+    .data_memory_input(M_memory_unit_data_memory_input),
+    .xwr(M_memory_unit_xwr),
+    .ia(M_memory_unit_ia),
+    .instruction_write_enable(M_memory_unit_instruction_write_enable),
+    .instruction_towrite(M_memory_unit_instruction_towrite),
+    .data_memory_output(M_memory_unit_data_memory_output),
+    .instruction(M_memory_unit_instruction)
   );
   
   reg [2:0] M_writer_counter_d, M_writer_counter_q = 1'h0;
   
   
-  localparam WRITE_code_writer = 1'd0;
-  localparam GO_code_writer = 1'd1;
+  localparam INSTRUCTIONLOAD_code_writer = 2'd0;
+  localparam WAIT_code_writer = 2'd1;
+  localparam GO_code_writer = 2'd2;
   
-  reg M_code_writer_d, M_code_writer_q = WRITE_code_writer;
+  reg [1:0] M_code_writer_d, M_code_writer_q = INSTRUCTIONLOAD_code_writer;
   
   wire [1-1:0] M_reset_cond_out;
   reg [1-1:0] M_reset_cond_in;
@@ -105,29 +115,36 @@ module au_top_0 (
     M_slowclockedge_in = M_slowclock_value;
     M_beta_interrupt = 1'h0;
     M_beta_slowclk = M_slowclockedge_out;
-    M_beta_instruction = 32'h00000000;
     M_beta_rst = 1'h0;
+    io_led[0+7-:8] = M_beta_ia[0+7-:8];
     io_led[8+7-:8] = M_beta_mem_data_address[0+7-:8];
     io_led[16+7-:8] = M_beta_mem_data_output[0+7-:8];
-    io_led[0+7-:8] = M_beta_ia[0+7-:8];
-    led[2+5-:6] = M_memory_unit_read_data[26+5-:6];
-    M_beta_instruction = M_memory_unit_read_data;
-    M_beta_mem_data_input = M_memory_unit_read_data;
-    M_memory_unit_write_data = M_beta_mem_data_output;
-    M_memory_unit_write_en = M_beta_xwr;
-    M_memory_unit_waddr = M_beta_mem_data_address[2+3-:4];
-    M_memory_unit_raddr = M_beta_ia[2+2-:3];
+    led[2+5-:6] = M_memory_unit_instruction[26+5-:6];
+    led[0+2-:3] = M_memory_unit_data_memory_output;
+    M_beta_instruction = M_memory_unit_instruction;
+    M_beta_mem_data_input = M_memory_unit_data_memory_output;
+    M_memory_unit_ia = M_beta_ia[0+31-:32];
+    M_memory_unit_data_memory_input = M_beta_mem_data_output;
+    M_memory_unit_xwr = M_beta_xwr;
+    M_memory_unit_waddr = M_beta_mem_data_address[0+31-:32];
+    M_memory_unit_raddr = M_beta_mem_data_address[0+31-:32];
+    M_memory_unit_instruction_write_enable = 1'h0;
+    M_memory_unit_instruction_towrite = 32'h00000000;
     
     case (M_code_writer_q)
-      WRITE_code_writer: begin
+      INSTRUCTIONLOAD_code_writer: begin
         M_beta_rst = 1'h1;
         M_writer_counter_d = M_writer_counter_q + 1'h1;
-        M_memory_unit_write_data = SAMPLE_CODE[(M_writer_counter_q)*32+31-:32];
-        M_memory_unit_write_en = 1'h1;
-        M_memory_unit_waddr = M_writer_counter_q;
+        M_memory_unit_instruction_towrite = SAMPLE_CODE[(M_writer_counter_q)*32+31-:32];
+        M_memory_unit_instruction_write_enable = 1'h1;
+        M_memory_unit_ia = M_writer_counter_q << 2'h2;
         if (M_writer_counter_q == 3'h4) begin
-          M_code_writer_d = GO_code_writer;
+          M_code_writer_d = WAIT_code_writer;
         end
+      end
+      WAIT_code_writer: begin
+        M_beta_rst = 1'h1;
+        M_code_writer_d = GO_code_writer;
       end
       GO_code_writer: begin
         M_code_writer_d = GO_code_writer;
@@ -136,12 +153,12 @@ module au_top_0 (
   end
   
   always @(posedge clk) begin
-    M_writer_counter_q <= M_writer_counter_d;
+    M_code_writer_q <= M_code_writer_d;
   end
   
   
   always @(posedge clk) begin
-    M_code_writer_q <= M_code_writer_d;
+    M_writer_counter_q <= M_writer_counter_d;
   end
   
 endmodule
