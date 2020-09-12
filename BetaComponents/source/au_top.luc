@@ -15,7 +15,7 @@ module au_top (
  // control_unit control;   // for test
   
   beta_cpu beta(.clk(clk));
-  counter slowclock(#SIZE(1), #DIV(28), .clk(clk), .rst(rst));
+  counter slowclock(#SIZE(27), .clk(clk), .rst(rst));
   edge_detector slowclockedge(#RISE(1), #FALL(0), .clk(clk));
   
 //ADDC(R31, 7, R1)
@@ -69,7 +69,7 @@ module au_top (
 
     
       // general setup of beta 
-      slowclockedge.in = slowclock.value;
+      slowclockedge.in = slowclock.value[26];
       beta.interrupt = 0;
       beta.slowclk = slowclockedge.out;
       beta.rst = 0;

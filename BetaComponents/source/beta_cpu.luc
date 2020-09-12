@@ -18,9 +18,6 @@ module beta_cpu (
   regfile regfile_system(.clk(clk));
   
   dff pc[32](#INIT(0),.clk(clk));
-  
-  dff read_state[2](.clk(clk));
- 
 
   always {
   
@@ -31,12 +28,9 @@ module beta_cpu (
     
    //*****PC unit******// 
    ia = pc.q; 
-   
-   if (slowclk){ // a hack to slow down the CPU
-      read_state.d = b01;
-   }
+  
     
-    if (read_state.q == b01){ //only change the pcsel 1 clock cycle later after we get the output from the RAM
+    if (slowclk){ 
    // PCSEL mux 
    case (control_system.pcsel){
       b000: 
@@ -53,8 +47,6 @@ module beta_cpu (
       default:
         pc.d = pc.q;
     }
-      //reset dff 
-      read_state.d = b0;
     }
     
     //reset mux 

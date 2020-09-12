@@ -45,7 +45,7 @@ module au_top_0 (
     .debug(M_beta_debug)
   );
   
-  wire [1-1:0] M_slowclock_value;
+  wire [27-1:0] M_slowclock_value;
   counter_2 slowclock (
     .clk(clk),
     .rst(rst),
@@ -112,7 +112,7 @@ module au_top_0 (
     io_led = 24'h000000;
     io_seg = 8'h00;
     io_sel = 4'h0;
-    M_slowclockedge_in = M_slowclock_value;
+    M_slowclockedge_in = M_slowclock_value[26+0-:1];
     M_beta_interrupt = 1'h0;
     M_beta_slowclk = M_slowclockedge_out;
     M_beta_rst = 1'h0;
