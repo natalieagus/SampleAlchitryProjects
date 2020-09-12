@@ -13,7 +13,7 @@ module beta_cpu (
     output debug[32]
   ) {
   
-  control_unit control_system;
+  control_unit control_system(.clk(clk));
   alu alu_system;
   regfile regfile_system(.clk(clk));
   

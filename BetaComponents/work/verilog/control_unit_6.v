@@ -5,6 +5,7 @@
 */
 
 module control_unit_6 (
+    input clk,
     input irq,
     input z,
     input reset,
@@ -25,7 +26,12 @@ module control_unit_6 (
   
   localparam CU_ROM = 1152'h700100c6c030b00c0c700100acc02f300b0c700100eec03ab00e6c70011c004020b0080c70010046c010b0040c7001002cc00f30030c7001006ec01ab0066c70011c004000b0000c08d58234408d11c00448d11c00406004081670011c00470011c00470011c00470011c00470011c00470011c00470011c00470011c00470011c00470011c00470011c00470011c004;
   
+  reg M_irq_sampler_d, M_irq_sampler_q = 1'h0;
+  
   always @* begin
+    M_irq_sampler_d = M_irq_sampler_q;
+    
+    M_irq_sampler_d = irq;
     pcsel = CU_ROM[(opcode)*18+15+2-:3];
     wasel = CU_ROM[(opcode)*18+14+0-:1];
     asel = CU_ROM[(opcode)*18+13+0-:1];
@@ -47,7 +53,7 @@ module control_unit_6 (
       xwr = 1'h0;
       werf = 1'h0;
     end
-    if (irq == 1'h1) begin
+    if (M_irq_sampler_q == 1'h1) begin
       pcsel = 3'h4;
       wasel = 1'h1;
       werf = 1'h1;
@@ -55,4 +61,9 @@ module control_unit_6 (
       xwr = 1'h0;
     end
   end
+  
+  always @(posedge clk) begin
+    M_irq_sampler_q <= M_irq_sampler_d;
+  end
+  
 endmodule

@@ -1,4 +1,5 @@
 module control_unit (
+    input clk,
     input irq, 
     input z,
     input reset,    
@@ -79,8 +80,12 @@ module control_unit (
     b011100000000000100,
     b011100000000000100,
     b011100000000000100};
+    
+  dff irq_sampler(#INIT(0), .clk(clk));
 
   always {
+  
+    irq_sampler.d = irq;
   
     pcsel = CU_ROM[opcode][17:15]; 
     wasel = CU_ROM[opcode][14]; 
@@ -109,7 +114,7 @@ module control_unit (
     }
     
     // interrupt checker, will overwrite everything hence we put at the bottom    
-    if (irq == 1){
+    if (irq_sampler.q == 1){
       pcsel = b100;
       wasel = 1;
       werf = 1;

@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Sat Sep 12 13:03:48 2020
+| Date         : Sat Sep 12 15:18:10 2020
 | Host         : DESKTOP-9GBQU5S running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file au_top_0_control_sets_placed.rpt
 | Design       : au_top_0
@@ -76,15 +76,15 @@ Table of Contents
 |  clk_IBUF_BUFG |                                                     | reset_cond/M_reset_cond_in |                1 |              4 |
 |  clk_IBUF_BUFG | M_memory_unit_instruction_write_enable              |                            |                3 |             12 |
 |  clk_IBUF_BUFG |                                                     | reset_cond/Q[0]            |                8 |             29 |
-|  clk_IBUF_BUFG | beta/control_system/E[0]                            | beta/regfile_system/SR[0]  |               15 |             32 |
-|  clk_IBUF_BUFG | memory_unit/instruction_memory/M_beta_xwr           |                            |                8 |             32 |
+|  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_40 |                            |               18 |             32 |
 |  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_38 |                            |               17 |             32 |
-|  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_41 |                            |               17 |             32 |
-|  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_42 |                            |               15 |             32 |
 |  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_39 |                            |               16 |             32 |
 |  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_43 |                            |               18 |             32 |
-|  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_40 |                            |               18 |             32 |
 |  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_44 |                            |               15 |             32 |
+|  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_42 |                            |               15 |             32 |
+|  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_41 |                            |               17 |             32 |
+|  clk_IBUF_BUFG | beta/control_system/E[0]                            | beta/regfile_system/SR[0]  |               15 |             32 |
+|  clk_IBUF_BUFG | memory_unit/instruction_memory/M_beta_xwr           |                            |                8 |             32 |
 |  clk_IBUF_BUFG |                                                     |                            |               24 |             63 |
 +----------------+-----------------------------------------------------+----------------------------+------------------+----------------+
 

@@ -35,6 +35,7 @@ module beta_cpu_1 (
   reg [1-1:0] M_control_system_reset;
   reg [6-1:0] M_control_system_opcode;
   control_unit_6 control_system (
+    .clk(clk),
     .irq(M_control_system_irq),
     .z(M_control_system_z),
     .reset(M_control_system_reset),
@@ -201,12 +202,12 @@ module beta_cpu_1 (
   end
   
   always @(posedge clk) begin
-    M_pc_q <= M_pc_d;
+    M_read_state_q <= M_read_state_d;
   end
   
   
   always @(posedge clk) begin
-    M_read_state_q <= M_read_state_d;
+    M_pc_q <= M_pc_d;
   end
   
 endmodule
