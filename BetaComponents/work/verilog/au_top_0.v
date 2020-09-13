@@ -62,6 +62,8 @@ module au_top_0 (
   
   localparam SAMPLE_CODE = 160'h7823fffb607f0020643f002090410800c03f0007;
   
+  localparam NUMBER_OF_INSTR = 3'h5;
+  
   wire [32-1:0] M_memory_unit_data_memory_output;
   wire [32-1:0] M_memory_unit_instruction;
   reg [6-1:0] M_memory_unit_raddr;
@@ -138,7 +140,7 @@ module au_top_0 (
         M_memory_unit_instruction_towrite = SAMPLE_CODE[(M_writer_counter_q)*32+31-:32];
         M_memory_unit_instruction_write_enable = 1'h1;
         M_memory_unit_ia = M_writer_counter_q << 2'h2;
-        if (M_writer_counter_q == 3'h4) begin
+        if (M_writer_counter_q == 3'h5) begin
           M_code_writer_d = WAIT_code_writer;
         end
       end
@@ -153,12 +155,12 @@ module au_top_0 (
   end
   
   always @(posedge clk) begin
-    M_code_writer_q <= M_code_writer_d;
+    M_writer_counter_q <= M_writer_counter_d;
   end
   
   
   always @(posedge clk) begin
-    M_writer_counter_q <= M_writer_counter_d;
+    M_code_writer_q <= M_code_writer_d;
   end
   
 endmodule

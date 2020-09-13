@@ -1,11 +1,15 @@
 +--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
 |       Launch Clock       |      Capture Clock       |                                                 Pin                                                      |
 +--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
-|                    clk_0 |                    clk_0 |                                                               memory_unit/data_memory/read_data_reg[23]/D|
-|                    clk_0 |                    clk_0 |                                                                memory_unit/data_memory/read_data_reg[5]/D|
-|                    clk_0 |                    clk_0 |                                                                memory_unit/data_memory/read_data_reg[4]/D|
+|                    clk_0 |                    clk_0 |                                                              beta/regfile_system/M_registers_q_reg[923]/D|
+|                    clk_0 |                    clk_0 |                                                              beta/regfile_system/M_registers_q_reg[112]/D|
 |                    clk_0 |                    clk_0 |                                                                memory_unit/data_memory/read_data_reg[9]/D|
+|                    clk_0 |                    clk_0 |                                                               memory_unit/data_memory/read_data_reg[30]/D|
 |                    clk_0 |                    clk_0 |                                                               memory_unit/data_memory/read_data_reg[12]/D|
-|                    clk_0 |                    clk_0 |                                                               memory_unit/data_memory/read_data_reg[11]/D|
+|                    clk_0 |                    clk_0 |                                                                memory_unit/data_memory/read_data_reg[5]/D|
+|                    clk_0 |                    clk_0 |                                                               memory_unit/data_memory/read_data_reg[27]/D|
+|                    clk_0 |                    clk_0 |                                                               memory_unit/data_memory/read_data_reg[26]/D|
+|                    clk_0 |                    clk_0 |                                                               memory_unit/data_memory/read_data_reg[16]/D|
+|                    clk_0 |                    clk_0 |                                                               memory_unit/data_memory/read_data_reg[23]/D|
 |                    clk_0 |                    clk_0 |                                                                                      beta/M_pc_q_reg[0]/D|
 +--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+

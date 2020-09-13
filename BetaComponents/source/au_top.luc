@@ -24,9 +24,10 @@ module au_top (
 //LD(R31, 32, R3)
 //BNE(R3, 0, R1)
   const SAMPLE_CODE = {32h7823FFFB, 32h607F0020, 32h643F0020, 32h90410800, 32hC03F0007};
+  const NUMBER_OF_INSTR = 5;
   memoryunit memory_unit(#DEPTH(16), .clk(clk)); // can fit 16 * 32 bits 
   
-  dff writer_counter[3](.clk(clk));
+  dff writer_counter[$clog2(NUMBER_OF_INSTR)](.clk(clk));
   fsm code_writer(.clk(clk)) = {INSTRUCTIONLOAD, WAIT, GO};
   
   .clk(clk) {
@@ -109,7 +110,7 @@ module au_top (
               memory_unit.instruction_towrite = SAMPLE_CODE[writer_counter.q];
               memory_unit.instruction_write_enable = b1;
               memory_unit.ia = writer_counter.q<<2; // pad with two zeroes to make it byte addressable
-              if (writer_counter.q == b100){
+              if (writer_counter.q == NUMBER_OF_INSTR){
                   code_writer.d = code_writer.WAIT; // wait one more clock cycle to allow the last instruction to be loaded before start execution
                }
         

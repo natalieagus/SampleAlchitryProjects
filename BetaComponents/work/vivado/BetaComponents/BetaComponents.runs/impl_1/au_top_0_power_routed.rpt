@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date             : Sun Sep 13 01:37:21 2020
+| Date             : Sun Sep 13 15:37:11 2020
 | Host             : DESKTOP-9GBQU5S running 64-bit major release  (build 9200)
 | Command          : report_power -file au_top_0_power_routed.rpt -pb au_top_0_power_summary_routed.pb -rpx au_top_0_power_routed.rpx
 | Design           : au_top_0
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.111        |
+| Total On-Chip Power (W)  | 0.107        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.040        |
+| Dynamic (W)              | 0.036        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 4.9          |
 | Max Ambient (C)          | 84.5         |
@@ -53,18 +53,18 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.002 |        3 |       --- |             --- |
-| Slice Logic              |     0.003 |     1707 |       --- |             --- |
-|   LUT as Logic           |     0.003 |     1094 |     20800 |            5.26 |
+| Slice Logic              |     0.003 |     1598 |       --- |             --- |
+|   LUT as Logic           |     0.002 |      997 |     20800 |            4.79 |
 |   CARRY4                 |    <0.001 |       37 |      8150 |            0.45 |
-|   Register               |    <0.001 |      353 |     41600 |            0.85 |
-|   F7/F8 Muxes            |    <0.001 |      125 |     32600 |            0.38 |
+|   Register               |    <0.001 |      351 |     41600 |            0.84 |
+|   F7/F8 Muxes            |    <0.001 |      128 |     32600 |            0.39 |
 |   LUT as Distributed RAM |    <0.001 |       44 |      9600 |            0.46 |
 |   Others                 |     0.000 |       22 |       --- |             --- |
-| Signals                  |     0.006 |     1495 |       --- |             --- |
+| Signals                  |     0.005 |     1382 |       --- |             --- |
 | DSPs                     |     0.003 |        3 |        90 |            3.33 |
-| I/O                      |     0.026 |       48 |       170 |           28.24 |
+| I/O                      |     0.023 |       48 |       170 |           28.24 |
 | Static Power             |     0.072 |          |           |                 |
-| Total                    |     0.111 |          |           |                 |
+| Total                    |     0.107 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,8 +74,8 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.023 |       0.014 |      0.010 |
-| Vccaux    |       1.800 |     0.014 |       0.001 |      0.013 |
+| Vccint    |       1.000 |     0.022 |       0.012 |      0.010 |
+| Vccaux    |       1.800 |     0.013 |       0.001 |      0.013 |
 | Vcco33    |       3.300 |     0.008 |       0.007 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
@@ -143,12 +143,12 @@ Table of Contents
 +------------------------+-----------+
 | Name                   | Power (W) |
 +------------------------+-----------+
-| au_top_0               |     0.040 |
-|   beta                 |     0.007 |
+| au_top_0               |     0.036 |
+|   beta                 |     0.006 |
 |     alu_system         |     0.003 |
 |     regfile_system     |     0.002 |
-|   memory_unit          |     0.007 |
-|     instruction_memory |     0.006 |
+|   memory_unit          |     0.006 |
+|     instruction_memory |     0.005 |
 +------------------------+-----------+
 
 
