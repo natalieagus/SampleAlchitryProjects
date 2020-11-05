@@ -1,0 +1,87 @@
+module au_top (
+    input clk,              // 100MHz clock
+    input rst_n,            // reset button (active low)
+    output led [8],         // 8 user controllable LEDs
+    input usb_rx,           // USB->Serial input
+    output usb_tx,          // USB->Serial output
+    output io_led [3][8],   // LEDs on IO Shield
+    output io_seg [8],      // 7-segment LEDs on IO Shield
+    output io_sel [4],      // Digit select on IO Shield
+    input io_button [5],    // 5 buttons on IO Shield
+    input io_dip [3][8]     // DIP switches on IO Shield
+  ) {
+  
+  sig rst;                  // reset signal
+  sig coin[2];
+  sig collect;
+  
+  .clk(clk) {
+    // The reset conditioner is used to synchronize the reset signal to the FPGA
+    // clock. This ensures the entire FPGA comes out of reset at the same time.
+    reset_conditioner reset_cond;
+    edge_detector edge_det[5](#RISE(1),#FALL(0));
+    button_conditioner btn_cnd[5];
+    .rst(rst){
+      cokemachine sutdcm;
+      dff displaylatch;
+      dff changelatch[2];
+      dff dispenselatch;
+    }
+    
+  }
+  
+  always {
+    reset_cond.in = ~rst_n; // input raw inverted reset signal
+    rst = reset_cond.out;   // conditioned reset
+    
+    usb_tx = usb_rx;        // loop serial port
+    
+    led = 8h00;             // turn LEDs off
+    
+    io_led = 3x{{8h00}};    // turn LEDs off
+    io_seg = 8hff;          // turn segments off
+    io_sel = 4hf;           // select no digits
+    
+    btn_cnd.in = io_button;
+    edge_det.in = btn_cnd.out;
+    coin = 0;
+    collect = 0;
+    
+    if (edge_det.out == b00001){
+      coin = b01;
+    } else if (edge_det.out == b10000){
+      coin = b10;
+    } else if (edge_det.out == b00100){
+      coin = b11;
+    } else if (edge_det.out == b01000){
+      collect = 1;
+    }
+    
+    sutdcm.coin = coin;
+    
+    io_led[2][7] = sutdcm.test;
+    
+    io_led[2][0] = displaylatch.q;
+    io_led[1][1:0] = changelatch.q;
+    io_led[0][0] = dispenselatch.q;
+    
+    dispenselatch.d = dispenselatch.q;
+    changelatch.d = changelatch.q;
+    displaylatch.d = displaylatch.q;
+    
+    if (sutdcm.dispense !=0){
+      dispenselatch.d = sutdcm.dispense;
+    }
+    if (sutdcm.change != 0){
+      changelatch.d = sutdcm.change;
+    }
+    if (sutdcm.display != 0){
+      displaylatch.d = sutdcm.display;
+    }
+    if (collect == 1){
+      dispenselatch.d = 0;
+      changelatch.d = 0;
+    }
+    
+  }
+}
