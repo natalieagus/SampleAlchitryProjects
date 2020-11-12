@@ -2,11 +2,11 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Mon Sep  7 01:32:30 2020
-# Process ID: 1644
-# Current directory: C:/Users/NatalieAgus/Desktop/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.runs/synth_1
+# Start of session at: Fri Nov 13 01:09:01 2020
+# Process ID: 9180
+# Current directory: C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.runs/synth_1
 # Command line: vivado.exe -log au_top_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source au_top_0.tcl
-# Log file: C:/Users/NatalieAgus/Desktop/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.runs/synth_1/au_top_0.vds
-# Journal file: C:/Users/NatalieAgus/Desktop/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.runs/synth_1\vivado.jou
+# Log file: C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.runs/synth_1/au_top_0.vds
+# Journal file: C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source au_top_0.tcl -notrace

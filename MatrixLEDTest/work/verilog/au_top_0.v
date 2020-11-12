@@ -80,7 +80,7 @@ module au_top_0 (
     io_led = 24'h000000;
     io_seg = 8'hff;
     io_sel = 4'hf;
-    M_matrixwriter_data = 6'h2d;
+    M_matrixwriter_data = 6'h24;
     red0 = M_matrixwriter_red0;
     red1 = M_matrixwriter_red1;
     green0 = M_matrixwriter_green0;
@@ -91,5 +91,13 @@ module au_top_0 (
     sclk_out = M_matrixwriter_sclk_out;
     blank = M_matrixwriter_blank;
     address = M_matrixwriter_address;
+    led[0+3-:4] = M_matrixwriter_address;
+    led[4+0-:1] = M_matrixwriter_sclk_out;
+    io_led[0+0+0-:1] = M_matrixwriter_red0;
+    io_led[0+1+0-:1] = M_matrixwriter_green0;
+    io_led[0+2+0-:1] = M_matrixwriter_blue0;
+    io_led[0+3+0-:1] = M_matrixwriter_red1;
+    io_led[0+4+0-:1] = M_matrixwriter_green1;
+    io_led[0+5+0-:1] = M_matrixwriter_blue1;
   end
 endmodule

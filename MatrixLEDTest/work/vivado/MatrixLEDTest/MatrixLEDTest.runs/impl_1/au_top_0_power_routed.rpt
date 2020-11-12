@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date             : Mon Sep  7 01:33:57 2020
+| Date             : Fri Nov 13 01:10:26 2020
 | Host             : DESKTOP-9GBQU5S running 64-bit major release  (build 9200)
 | Command          : report_power -file au_top_0_power_routed.rpt -pb au_top_0_power_summary_routed.pb -rpx au_top_0_power_routed.rpx
 | Design           : au_top_0
@@ -33,7 +33,7 @@ Table of Contents
 | Total On-Chip Power (W)  | 0.073        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.001        |
+| Dynamic (W)              | 0.002        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 4.9          |
 | Max Ambient (C)          | 84.6         |
@@ -53,11 +53,11 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |       73 |       --- |             --- |
+| Slice Logic    |    <0.001 |       74 |       --- |             --- |
 |   LUT as Logic |    <0.001 |       30 |     20800 |            0.14 |
-|   Register     |    <0.001 |       29 |     41600 |            0.07 |
+|   Register     |    <0.001 |       30 |     41600 |            0.07 |
 |   Others       |     0.000 |        6 |       --- |             --- |
-| Signals        |    <0.001 |       51 |       --- |             --- |
+| Signals        |    <0.001 |       53 |       --- |             --- |
 | I/O            |    <0.001 |       61 |       170 |           35.88 |
 | Static Power   |     0.072 |          |           |                 |
 | Total          |     0.073 |          |           |                 |
@@ -139,7 +139,7 @@ Table of Contents
 +----------+-----------+
 | Name     | Power (W) |
 +----------+-----------+
-| au_top_0 |     0.001 |
+| au_top_0 |     0.002 |
 +----------+-----------+
 
 

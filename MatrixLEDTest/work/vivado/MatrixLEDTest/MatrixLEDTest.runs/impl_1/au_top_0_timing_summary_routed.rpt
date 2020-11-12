@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Mon Sep  7 01:33:58 2020
+| Date         : Fri Nov 13 01:10:26 2020
 | Host         : DESKTOP-9GBQU5S running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file au_top_0_timing_summary_routed.rpt -pb au_top_0_timing_summary_routed.pb -rpx au_top_0_timing_summary_routed.rpx -warn_on_violation
 | Design       : au_top_0
@@ -83,7 +83,7 @@ Table of Contents
 
 6. checking no_output_delay
 ---------------------------
- There are 11 ports with no output delay specified. (HIGH)
+ There are 16 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
@@ -128,7 +128,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      6.418        0.000                      0                   63        0.175        0.000                      0                   63        4.500        0.000                       0                    30  
+      6.258        0.000                      0                   66        0.210        0.000                      0                   66        4.500        0.000                       0                    31  
 
 
 All user specified timing constraints are met.
@@ -151,7 +151,7 @@ clk_0  {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-clk_0               6.418        0.000                      0                   63        0.175        0.000                      0                   63        4.500        0.000                       0                    30  
+clk_0               6.258        0.000                      0                   66        0.210        0.000                      0                   66        4.500        0.000                       0                    31  
 
 
 ------------------------------------------------------------------------------------------------
@@ -182,83 +182,26 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  clk_0
   To Clock:  clk_0
 
-Setup :            0  Failing Endpoints,  Worst Slack        6.418ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.175ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        6.258ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.210ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             6.418ns  (required time - arrival time)
-  Source:                 matrixwriter/M_led_bit_counter_q_reg[1]/C
+Slack (MET) :             6.258ns  (required time - arrival time)
+  Source:                 matrixwriter/M_sclk_counter_q_reg[0]/C
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            matrixwriter/M_sclk_q_reg/R
-                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk_0
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
-  Data Path Delay:        3.095ns  (logic 0.842ns (27.202%)  route 2.253ns (72.798%))
-  Logic Levels:           2  (LUT6=2)
-  Clock Path Skew:        -0.022ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.917ns = ( 14.917 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.214ns
-    Clock Pessimism Removal (CPR):    0.275ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_0 rise edge)      0.000     0.000 r  
-    N14                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.972     3.488    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          1.630     5.214    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[1]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X1Y16          FDRE (Prop_fdre_C_Q)         0.419     5.633 f  matrixwriter/M_led_bit_counter_q_reg[1]/Q
-                         net (fo=7, routed)           0.725     6.359    matrixwriter/M_led_bit_counter_q_reg[1]
-    SLICE_X0Y16          LUT6 (Prop_lut6_I4_O)        0.299     6.658 r  matrixwriter/M_current_address_q[3]_i_3/O
-                         net (fo=13, routed)          0.854     7.512    matrixwriter/M_current_address_q[3]_i_3_n_0
-    SLICE_X0Y17          LUT6 (Prop_lut6_I4_O)        0.124     7.636 r  matrixwriter/M_sclk_q_i_1/O
-                         net (fo=1, routed)           0.674     8.310    matrixwriter/M_sclk_q_i_1_n_0
-    SLICE_X0Y16          FDRE                                         r  matrixwriter/M_sclk_q_reg/R
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_0 rise edge)     10.000    10.000 r  
-    N14                                               0.000    10.000 r  clk (IN)
-                         net (fo=0)                   0.000    10.000    clk
-    N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.868    13.314    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          1.512    14.917    matrixwriter/clk_IBUF_BUFG
-    SLICE_X0Y16          FDRE                                         r  matrixwriter/M_sclk_q_reg/C
-                         clock pessimism              0.275    15.192    
-                         clock uncertainty           -0.035    15.157    
-    SLICE_X0Y16          FDRE (Setup_fdre_C_R)       -0.429    14.728    matrixwriter/M_sclk_q_reg
-  -------------------------------------------------------------------
-                         required time                         14.728    
-                         arrival time                          -8.310    
-  -------------------------------------------------------------------
-                         slack                                  6.418    
-
-Slack (MET) :             6.462ns  (required time - arrival time)
-  Source:                 matrixwriter/M_sclk_counter_q_reg[4]/C
-                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            matrixwriter/M_led_bit_counter_q_reg[0]/R
+  Destination:            matrixwriter/M_sclk_q_reg/CE
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
-  Data Path Delay:        3.054ns  (logic 0.840ns (27.509%)  route 2.214ns (72.491%))
-  Logic Levels:           2  (LUT6=2)
-  Clock Path Skew:        -0.020ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.917ns = ( 14.917 - 10.000 ) 
+  Data Path Delay:        3.478ns  (logic 0.940ns (27.027%)  route 2.538ns (72.973%))
+  Logic Levels:           2  (LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.913ns = ( 14.913 - 10.000 ) 
     Source Clock Delay      (SCD):    5.210ns
     Clock Pessimism Removal (CPR):    0.273ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
@@ -275,16 +218,16 @@ Slack (MET) :             6.462ns  (required time - arrival time)
     N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.972     3.488    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          1.626     5.210    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y19          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[4]/C
+                         net (fo=30, routed)          1.626     5.210    matrixwriter/clk_IBUF_BUFG
+    SLICE_X3Y30          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[0]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y19          FDRE (Prop_fdre_C_Q)         0.419     5.629 r  matrixwriter/M_sclk_counter_q_reg[4]/Q
-                         net (fo=6, routed)           0.854     6.484    matrixwriter/M_sclk_counter_q_reg[4]
-    SLICE_X0Y18          LUT6 (Prop_lut6_I4_O)        0.297     6.781 r  matrixwriter/M_current_address_q[3]_i_6/O
-                         net (fo=8, routed)           1.011     7.792    matrixwriter/M_current_address_q[3]_i_6_n_0
-    SLICE_X1Y17          LUT6 (Prop_lut6_I5_O)        0.124     7.916 r  matrixwriter/M_led_bit_counter_q[6]_i_1/O
-                         net (fo=7, routed)           0.348     8.264    matrixwriter/M_led_bit_counter_q[6]_i_1_n_0
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[0]/R
+    SLICE_X3Y30          FDRE (Prop_fdre_C_Q)         0.456     5.666 r  matrixwriter/M_sclk_counter_q_reg[0]/Q
+                         net (fo=11, routed)          1.449     7.115    matrixwriter/M_sclk_counter_q_reg[0]
+    SLICE_X1Y30          LUT5 (Prop_lut5_I2_O)        0.152     7.267 f  matrixwriter/M_current_address_q[3]_i_3/O
+                         net (fo=3, routed)           0.431     7.699    matrixwriter/M_current_address_q[3]_i_3_n_0
+    SLICE_X1Y29          LUT6 (Prop_lut6_I1_O)        0.332     8.031 r  matrixwriter/M_sclk_q_i_2/O
+                         net (fo=2, routed)           0.658     8.688    matrixwriter/M_sclk_d1_out
+    SLICE_X1Y29          FDRE                                         r  matrixwriter/M_sclk_q_reg/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_0 rise edge)     10.000    10.000 r  
@@ -293,29 +236,29 @@ Slack (MET) :             6.462ns  (required time - arrival time)
     N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.868    13.314    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          1.512    14.917    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[0]/C
-                         clock pessimism              0.273    15.190    
-                         clock uncertainty           -0.035    15.155    
-    SLICE_X1Y16          FDRE (Setup_fdre_C_R)       -0.429    14.726    matrixwriter/M_led_bit_counter_q_reg[0]
+                         net (fo=30, routed)          1.508    14.913    matrixwriter/clk_IBUF_BUFG
+    SLICE_X1Y29          FDRE                                         r  matrixwriter/M_sclk_q_reg/C
+                         clock pessimism              0.273    15.186    
+                         clock uncertainty           -0.035    15.151    
+    SLICE_X1Y29          FDRE (Setup_fdre_C_CE)      -0.205    14.946    matrixwriter/M_sclk_q_reg
   -------------------------------------------------------------------
-                         required time                         14.726    
-                         arrival time                          -8.264    
+                         required time                         14.946    
+                         arrival time                          -8.688    
   -------------------------------------------------------------------
-                         slack                                  6.462    
+                         slack                                  6.258    
 
-Slack (MET) :             6.462ns  (required time - arrival time)
-  Source:                 matrixwriter/M_sclk_counter_q_reg[4]/C
+Slack (MET) :             6.258ns  (required time - arrival time)
+  Source:                 matrixwriter/M_sclk_counter_q_reg[0]/C
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            matrixwriter/M_led_bit_counter_q_reg[1]/R
+  Destination:            matrixwriter/M_sclk_q_reg_lopt_replica/CE
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
-  Data Path Delay:        3.054ns  (logic 0.840ns (27.509%)  route 2.214ns (72.491%))
-  Logic Levels:           2  (LUT6=2)
-  Clock Path Skew:        -0.020ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.917ns = ( 14.917 - 10.000 ) 
+  Data Path Delay:        3.478ns  (logic 0.940ns (27.027%)  route 2.538ns (72.973%))
+  Logic Levels:           2  (LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.913ns = ( 14.913 - 10.000 ) 
     Source Clock Delay      (SCD):    5.210ns
     Clock Pessimism Removal (CPR):    0.273ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
@@ -332,73 +275,16 @@ Slack (MET) :             6.462ns  (required time - arrival time)
     N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.972     3.488    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          1.626     5.210    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y19          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[4]/C
+                         net (fo=30, routed)          1.626     5.210    matrixwriter/clk_IBUF_BUFG
+    SLICE_X3Y30          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[0]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y19          FDRE (Prop_fdre_C_Q)         0.419     5.629 r  matrixwriter/M_sclk_counter_q_reg[4]/Q
-                         net (fo=6, routed)           0.854     6.484    matrixwriter/M_sclk_counter_q_reg[4]
-    SLICE_X0Y18          LUT6 (Prop_lut6_I4_O)        0.297     6.781 r  matrixwriter/M_current_address_q[3]_i_6/O
-                         net (fo=8, routed)           1.011     7.792    matrixwriter/M_current_address_q[3]_i_6_n_0
-    SLICE_X1Y17          LUT6 (Prop_lut6_I5_O)        0.124     7.916 r  matrixwriter/M_led_bit_counter_q[6]_i_1/O
-                         net (fo=7, routed)           0.348     8.264    matrixwriter/M_led_bit_counter_q[6]_i_1_n_0
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[1]/R
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_0 rise edge)     10.000    10.000 r  
-    N14                                               0.000    10.000 r  clk (IN)
-                         net (fo=0)                   0.000    10.000    clk
-    N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.868    13.314    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          1.512    14.917    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[1]/C
-                         clock pessimism              0.273    15.190    
-                         clock uncertainty           -0.035    15.155    
-    SLICE_X1Y16          FDRE (Setup_fdre_C_R)       -0.429    14.726    matrixwriter/M_led_bit_counter_q_reg[1]
-  -------------------------------------------------------------------
-                         required time                         14.726    
-                         arrival time                          -8.264    
-  -------------------------------------------------------------------
-                         slack                                  6.462    
-
-Slack (MET) :             6.462ns  (required time - arrival time)
-  Source:                 matrixwriter/M_sclk_counter_q_reg[4]/C
-                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            matrixwriter/M_led_bit_counter_q_reg[2]/R
-                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk_0
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
-  Data Path Delay:        3.054ns  (logic 0.840ns (27.509%)  route 2.214ns (72.491%))
-  Logic Levels:           2  (LUT6=2)
-  Clock Path Skew:        -0.020ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.917ns = ( 14.917 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.210ns
-    Clock Pessimism Removal (CPR):    0.273ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_0 rise edge)      0.000     0.000 r  
-    N14                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.972     3.488    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          1.626     5.210    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y19          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[4]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X1Y19          FDRE (Prop_fdre_C_Q)         0.419     5.629 r  matrixwriter/M_sclk_counter_q_reg[4]/Q
-                         net (fo=6, routed)           0.854     6.484    matrixwriter/M_sclk_counter_q_reg[4]
-    SLICE_X0Y18          LUT6 (Prop_lut6_I4_O)        0.297     6.781 r  matrixwriter/M_current_address_q[3]_i_6/O
-                         net (fo=8, routed)           1.011     7.792    matrixwriter/M_current_address_q[3]_i_6_n_0
-    SLICE_X1Y17          LUT6 (Prop_lut6_I5_O)        0.124     7.916 r  matrixwriter/M_led_bit_counter_q[6]_i_1/O
-                         net (fo=7, routed)           0.348     8.264    matrixwriter/M_led_bit_counter_q[6]_i_1_n_0
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[2]/R
+    SLICE_X3Y30          FDRE (Prop_fdre_C_Q)         0.456     5.666 r  matrixwriter/M_sclk_counter_q_reg[0]/Q
+                         net (fo=11, routed)          1.449     7.115    matrixwriter/M_sclk_counter_q_reg[0]
+    SLICE_X1Y30          LUT5 (Prop_lut5_I2_O)        0.152     7.267 f  matrixwriter/M_current_address_q[3]_i_3/O
+                         net (fo=3, routed)           0.431     7.699    matrixwriter/M_current_address_q[3]_i_3_n_0
+    SLICE_X1Y29          LUT6 (Prop_lut6_I1_O)        0.332     8.031 r  matrixwriter/M_sclk_q_i_2/O
+                         net (fo=2, routed)           0.658     8.688    matrixwriter/M_sclk_d1_out
+    SLICE_X1Y29          FDRE                                         r  matrixwriter/M_sclk_q_reg_lopt_replica/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_0 rise edge)     10.000    10.000 r  
@@ -407,31 +293,31 @@ Slack (MET) :             6.462ns  (required time - arrival time)
     N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.868    13.314    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          1.512    14.917    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[2]/C
-                         clock pessimism              0.273    15.190    
-                         clock uncertainty           -0.035    15.155    
-    SLICE_X1Y16          FDRE (Setup_fdre_C_R)       -0.429    14.726    matrixwriter/M_led_bit_counter_q_reg[2]
+                         net (fo=30, routed)          1.508    14.913    matrixwriter/clk_IBUF_BUFG
+    SLICE_X1Y29          FDRE                                         r  matrixwriter/M_sclk_q_reg_lopt_replica/C
+                         clock pessimism              0.273    15.186    
+                         clock uncertainty           -0.035    15.151    
+    SLICE_X1Y29          FDRE (Setup_fdre_C_CE)      -0.205    14.946    matrixwriter/M_sclk_q_reg_lopt_replica
   -------------------------------------------------------------------
-                         required time                         14.726    
-                         arrival time                          -8.264    
+                         required time                         14.946    
+                         arrival time                          -8.688    
   -------------------------------------------------------------------
-                         slack                                  6.462    
+                         slack                                  6.258    
 
-Slack (MET) :             6.462ns  (required time - arrival time)
-  Source:                 matrixwriter/M_sclk_counter_q_reg[4]/C
+Slack (MET) :             6.425ns  (required time - arrival time)
+  Source:                 matrixwriter/M_sclk_counter_q_reg[3]/C
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            matrixwriter/M_led_bit_counter_q_reg[3]/R
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
-  Data Path Delay:        3.054ns  (logic 0.840ns (27.509%)  route 2.214ns (72.491%))
+  Data Path Delay:        3.071ns  (logic 0.839ns (27.321%)  route 2.232ns (72.679%))
   Logic Levels:           2  (LUT6=2)
-  Clock Path Skew:        -0.020ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.917ns = ( 14.917 - 10.000 ) 
+  Clock Path Skew:        -0.040ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.911ns = ( 14.911 - 10.000 ) 
     Source Clock Delay      (SCD):    5.210ns
-    Clock Pessimism Removal (CPR):    0.273ns
+    Clock Pessimism Removal (CPR):    0.259ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -446,16 +332,16 @@ Slack (MET) :             6.462ns  (required time - arrival time)
     N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.972     3.488    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          1.626     5.210    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y19          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[4]/C
+                         net (fo=30, routed)          1.626     5.210    matrixwriter/clk_IBUF_BUFG
+    SLICE_X3Y30          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[3]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y19          FDRE (Prop_fdre_C_Q)         0.419     5.629 r  matrixwriter/M_sclk_counter_q_reg[4]/Q
-                         net (fo=6, routed)           0.854     6.484    matrixwriter/M_sclk_counter_q_reg[4]
-    SLICE_X0Y18          LUT6 (Prop_lut6_I4_O)        0.297     6.781 r  matrixwriter/M_current_address_q[3]_i_6/O
-                         net (fo=8, routed)           1.011     7.792    matrixwriter/M_current_address_q[3]_i_6_n_0
-    SLICE_X1Y17          LUT6 (Prop_lut6_I5_O)        0.124     7.916 r  matrixwriter/M_led_bit_counter_q[6]_i_1/O
-                         net (fo=7, routed)           0.348     8.264    matrixwriter/M_led_bit_counter_q[6]_i_1_n_0
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[3]/R
+    SLICE_X3Y30          FDRE (Prop_fdre_C_Q)         0.419     5.629 r  matrixwriter/M_sclk_counter_q_reg[3]/Q
+                         net (fo=7, routed)           0.852     6.481    matrixwriter/M_sclk_counter_q_reg[3]
+    SLICE_X2Y30          LUT6 (Prop_lut6_I1_O)        0.296     6.777 r  matrixwriter/M_current_address_q[3]_i_5/O
+                         net (fo=8, routed)           0.867     7.644    matrixwriter/M_current_address_q[3]_i_5_n_0
+    SLICE_X2Y29          LUT6 (Prop_lut6_I1_O)        0.124     7.768 r  matrixwriter/M_led_bit_counter_q[6]_i_1/O
+                         net (fo=7, routed)           0.513     8.281    matrixwriter/M_led_bit_counter_q[6]_i_1_n_0
+    SLICE_X4Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[3]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_0 rise edge)     10.000    10.000 r  
@@ -464,31 +350,31 @@ Slack (MET) :             6.462ns  (required time - arrival time)
     N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.868    13.314    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          1.512    14.917    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[3]/C
-                         clock pessimism              0.273    15.190    
-                         clock uncertainty           -0.035    15.155    
-    SLICE_X1Y16          FDRE (Setup_fdre_C_R)       -0.429    14.726    matrixwriter/M_led_bit_counter_q_reg[3]
+                         net (fo=30, routed)          1.506    14.911    matrixwriter/clk_IBUF_BUFG
+    SLICE_X4Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[3]/C
+                         clock pessimism              0.259    15.170    
+                         clock uncertainty           -0.035    15.135    
+    SLICE_X4Y29          FDRE (Setup_fdre_C_R)       -0.429    14.706    matrixwriter/M_led_bit_counter_q_reg[3]
   -------------------------------------------------------------------
-                         required time                         14.726    
-                         arrival time                          -8.264    
+                         required time                         14.706    
+                         arrival time                          -8.281    
   -------------------------------------------------------------------
-                         slack                                  6.462    
+                         slack                                  6.425    
 
-Slack (MET) :             6.462ns  (required time - arrival time)
-  Source:                 matrixwriter/M_sclk_counter_q_reg[4]/C
+Slack (MET) :             6.425ns  (required time - arrival time)
+  Source:                 matrixwriter/M_sclk_counter_q_reg[3]/C
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            matrixwriter/M_led_bit_counter_q_reg[4]/R
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
-  Data Path Delay:        3.054ns  (logic 0.840ns (27.509%)  route 2.214ns (72.491%))
+  Data Path Delay:        3.071ns  (logic 0.839ns (27.321%)  route 2.232ns (72.679%))
   Logic Levels:           2  (LUT6=2)
-  Clock Path Skew:        -0.020ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.917ns = ( 14.917 - 10.000 ) 
+  Clock Path Skew:        -0.040ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.911ns = ( 14.911 - 10.000 ) 
     Source Clock Delay      (SCD):    5.210ns
-    Clock Pessimism Removal (CPR):    0.273ns
+    Clock Pessimism Removal (CPR):    0.259ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -503,16 +389,16 @@ Slack (MET) :             6.462ns  (required time - arrival time)
     N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.972     3.488    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          1.626     5.210    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y19          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[4]/C
+                         net (fo=30, routed)          1.626     5.210    matrixwriter/clk_IBUF_BUFG
+    SLICE_X3Y30          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[3]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y19          FDRE (Prop_fdre_C_Q)         0.419     5.629 r  matrixwriter/M_sclk_counter_q_reg[4]/Q
-                         net (fo=6, routed)           0.854     6.484    matrixwriter/M_sclk_counter_q_reg[4]
-    SLICE_X0Y18          LUT6 (Prop_lut6_I4_O)        0.297     6.781 r  matrixwriter/M_current_address_q[3]_i_6/O
-                         net (fo=8, routed)           1.011     7.792    matrixwriter/M_current_address_q[3]_i_6_n_0
-    SLICE_X1Y17          LUT6 (Prop_lut6_I5_O)        0.124     7.916 r  matrixwriter/M_led_bit_counter_q[6]_i_1/O
-                         net (fo=7, routed)           0.348     8.264    matrixwriter/M_led_bit_counter_q[6]_i_1_n_0
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[4]/R
+    SLICE_X3Y30          FDRE (Prop_fdre_C_Q)         0.419     5.629 r  matrixwriter/M_sclk_counter_q_reg[3]/Q
+                         net (fo=7, routed)           0.852     6.481    matrixwriter/M_sclk_counter_q_reg[3]
+    SLICE_X2Y30          LUT6 (Prop_lut6_I1_O)        0.296     6.777 r  matrixwriter/M_current_address_q[3]_i_5/O
+                         net (fo=8, routed)           0.867     7.644    matrixwriter/M_current_address_q[3]_i_5_n_0
+    SLICE_X2Y29          LUT6 (Prop_lut6_I1_O)        0.124     7.768 r  matrixwriter/M_led_bit_counter_q[6]_i_1/O
+                         net (fo=7, routed)           0.513     8.281    matrixwriter/M_led_bit_counter_q[6]_i_1_n_0
+    SLICE_X4Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[4]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_0 rise edge)     10.000    10.000 r  
@@ -521,31 +407,31 @@ Slack (MET) :             6.462ns  (required time - arrival time)
     N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.868    13.314    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          1.512    14.917    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[4]/C
-                         clock pessimism              0.273    15.190    
-                         clock uncertainty           -0.035    15.155    
-    SLICE_X1Y16          FDRE (Setup_fdre_C_R)       -0.429    14.726    matrixwriter/M_led_bit_counter_q_reg[4]
+                         net (fo=30, routed)          1.506    14.911    matrixwriter/clk_IBUF_BUFG
+    SLICE_X4Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[4]/C
+                         clock pessimism              0.259    15.170    
+                         clock uncertainty           -0.035    15.135    
+    SLICE_X4Y29          FDRE (Setup_fdre_C_R)       -0.429    14.706    matrixwriter/M_led_bit_counter_q_reg[4]
   -------------------------------------------------------------------
-                         required time                         14.726    
-                         arrival time                          -8.264    
+                         required time                         14.706    
+                         arrival time                          -8.281    
   -------------------------------------------------------------------
-                         slack                                  6.462    
+                         slack                                  6.425    
 
-Slack (MET) :             6.462ns  (required time - arrival time)
-  Source:                 matrixwriter/M_sclk_counter_q_reg[4]/C
+Slack (MET) :             6.425ns  (required time - arrival time)
+  Source:                 matrixwriter/M_sclk_counter_q_reg[3]/C
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            matrixwriter/M_led_bit_counter_q_reg[5]/R
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
-  Data Path Delay:        3.054ns  (logic 0.840ns (27.509%)  route 2.214ns (72.491%))
+  Data Path Delay:        3.071ns  (logic 0.839ns (27.321%)  route 2.232ns (72.679%))
   Logic Levels:           2  (LUT6=2)
-  Clock Path Skew:        -0.020ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.917ns = ( 14.917 - 10.000 ) 
+  Clock Path Skew:        -0.040ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.911ns = ( 14.911 - 10.000 ) 
     Source Clock Delay      (SCD):    5.210ns
-    Clock Pessimism Removal (CPR):    0.273ns
+    Clock Pessimism Removal (CPR):    0.259ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -560,16 +446,16 @@ Slack (MET) :             6.462ns  (required time - arrival time)
     N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.972     3.488    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          1.626     5.210    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y19          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[4]/C
+                         net (fo=30, routed)          1.626     5.210    matrixwriter/clk_IBUF_BUFG
+    SLICE_X3Y30          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[3]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y19          FDRE (Prop_fdre_C_Q)         0.419     5.629 r  matrixwriter/M_sclk_counter_q_reg[4]/Q
-                         net (fo=6, routed)           0.854     6.484    matrixwriter/M_sclk_counter_q_reg[4]
-    SLICE_X0Y18          LUT6 (Prop_lut6_I4_O)        0.297     6.781 r  matrixwriter/M_current_address_q[3]_i_6/O
-                         net (fo=8, routed)           1.011     7.792    matrixwriter/M_current_address_q[3]_i_6_n_0
-    SLICE_X1Y17          LUT6 (Prop_lut6_I5_O)        0.124     7.916 r  matrixwriter/M_led_bit_counter_q[6]_i_1/O
-                         net (fo=7, routed)           0.348     8.264    matrixwriter/M_led_bit_counter_q[6]_i_1_n_0
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[5]/R
+    SLICE_X3Y30          FDRE (Prop_fdre_C_Q)         0.419     5.629 r  matrixwriter/M_sclk_counter_q_reg[3]/Q
+                         net (fo=7, routed)           0.852     6.481    matrixwriter/M_sclk_counter_q_reg[3]
+    SLICE_X2Y30          LUT6 (Prop_lut6_I1_O)        0.296     6.777 r  matrixwriter/M_current_address_q[3]_i_5/O
+                         net (fo=8, routed)           0.867     7.644    matrixwriter/M_current_address_q[3]_i_5_n_0
+    SLICE_X2Y29          LUT6 (Prop_lut6_I1_O)        0.124     7.768 r  matrixwriter/M_led_bit_counter_q[6]_i_1/O
+                         net (fo=7, routed)           0.513     8.281    matrixwriter/M_led_bit_counter_q[6]_i_1_n_0
+    SLICE_X4Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[5]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_0 rise edge)     10.000    10.000 r  
@@ -578,29 +464,257 @@ Slack (MET) :             6.462ns  (required time - arrival time)
     N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.868    13.314    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          1.512    14.917    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[5]/C
-                         clock pessimism              0.273    15.190    
-                         clock uncertainty           -0.035    15.155    
-    SLICE_X1Y16          FDRE (Setup_fdre_C_R)       -0.429    14.726    matrixwriter/M_led_bit_counter_q_reg[5]
+                         net (fo=30, routed)          1.506    14.911    matrixwriter/clk_IBUF_BUFG
+    SLICE_X4Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[5]/C
+                         clock pessimism              0.259    15.170    
+                         clock uncertainty           -0.035    15.135    
+    SLICE_X4Y29          FDRE (Setup_fdre_C_R)       -0.429    14.706    matrixwriter/M_led_bit_counter_q_reg[5]
   -------------------------------------------------------------------
-                         required time                         14.726    
-                         arrival time                          -8.264    
+                         required time                         14.706    
+                         arrival time                          -8.281    
   -------------------------------------------------------------------
-                         slack                                  6.462    
+                         slack                                  6.425    
 
-Slack (MET) :             6.462ns  (required time - arrival time)
-  Source:                 matrixwriter/M_sclk_counter_q_reg[4]/C
+Slack (MET) :             6.425ns  (required time - arrival time)
+  Source:                 matrixwriter/M_sclk_counter_q_reg[3]/C
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            matrixwriter/M_led_bit_counter_q_reg[6]/R
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
-  Data Path Delay:        3.054ns  (logic 0.840ns (27.509%)  route 2.214ns (72.491%))
+  Data Path Delay:        3.071ns  (logic 0.839ns (27.321%)  route 2.232ns (72.679%))
   Logic Levels:           2  (LUT6=2)
-  Clock Path Skew:        -0.020ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.917ns = ( 14.917 - 10.000 ) 
+  Clock Path Skew:        -0.040ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.911ns = ( 14.911 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.210ns
+    Clock Pessimism Removal (CPR):    0.259ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.972     3.488    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.626     5.210    matrixwriter/clk_IBUF_BUFG
+    SLICE_X3Y30          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y30          FDRE (Prop_fdre_C_Q)         0.419     5.629 r  matrixwriter/M_sclk_counter_q_reg[3]/Q
+                         net (fo=7, routed)           0.852     6.481    matrixwriter/M_sclk_counter_q_reg[3]
+    SLICE_X2Y30          LUT6 (Prop_lut6_I1_O)        0.296     6.777 r  matrixwriter/M_current_address_q[3]_i_5/O
+                         net (fo=8, routed)           0.867     7.644    matrixwriter/M_current_address_q[3]_i_5_n_0
+    SLICE_X2Y29          LUT6 (Prop_lut6_I1_O)        0.124     7.768 r  matrixwriter/M_led_bit_counter_q[6]_i_1/O
+                         net (fo=7, routed)           0.513     8.281    matrixwriter/M_led_bit_counter_q[6]_i_1_n_0
+    SLICE_X4Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[6]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)     10.000    10.000 r  
+    N14                                               0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.868    13.314    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.506    14.911    matrixwriter/clk_IBUF_BUFG
+    SLICE_X4Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[6]/C
+                         clock pessimism              0.259    15.170    
+                         clock uncertainty           -0.035    15.135    
+    SLICE_X4Y29          FDRE (Setup_fdre_C_R)       -0.429    14.706    matrixwriter/M_led_bit_counter_q_reg[6]
+  -------------------------------------------------------------------
+                         required time                         14.706    
+                         arrival time                          -8.281    
+  -------------------------------------------------------------------
+                         slack                                  6.425    
+
+Slack (MET) :             6.429ns  (required time - arrival time)
+  Source:                 matrixwriter/M_sclk_counter_q_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            matrixwriter/M_led_bit_counter_q_reg[0]/R
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        3.067ns  (logic 0.839ns (27.360%)  route 2.228ns (72.640%))
+  Logic Levels:           2  (LUT6=2)
+  Clock Path Skew:        -0.040ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.911ns = ( 14.911 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.210ns
+    Clock Pessimism Removal (CPR):    0.259ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.972     3.488    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.626     5.210    matrixwriter/clk_IBUF_BUFG
+    SLICE_X3Y30          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y30          FDRE (Prop_fdre_C_Q)         0.419     5.629 r  matrixwriter/M_sclk_counter_q_reg[3]/Q
+                         net (fo=7, routed)           0.852     6.481    matrixwriter/M_sclk_counter_q_reg[3]
+    SLICE_X2Y30          LUT6 (Prop_lut6_I1_O)        0.296     6.777 r  matrixwriter/M_current_address_q[3]_i_5/O
+                         net (fo=8, routed)           0.867     7.644    matrixwriter/M_current_address_q[3]_i_5_n_0
+    SLICE_X2Y29          LUT6 (Prop_lut6_I1_O)        0.124     7.768 r  matrixwriter/M_led_bit_counter_q[6]_i_1/O
+                         net (fo=7, routed)           0.509     8.277    matrixwriter/M_led_bit_counter_q[6]_i_1_n_0
+    SLICE_X5Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[0]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)     10.000    10.000 r  
+    N14                                               0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.868    13.314    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.506    14.911    matrixwriter/clk_IBUF_BUFG
+    SLICE_X5Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[0]/C
+                         clock pessimism              0.259    15.170    
+                         clock uncertainty           -0.035    15.135    
+    SLICE_X5Y29          FDRE (Setup_fdre_C_R)       -0.429    14.706    matrixwriter/M_led_bit_counter_q_reg[0]
+  -------------------------------------------------------------------
+                         required time                         14.706    
+                         arrival time                          -8.277    
+  -------------------------------------------------------------------
+                         slack                                  6.429    
+
+Slack (MET) :             6.429ns  (required time - arrival time)
+  Source:                 matrixwriter/M_sclk_counter_q_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            matrixwriter/M_led_bit_counter_q_reg[1]/R
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        3.067ns  (logic 0.839ns (27.360%)  route 2.228ns (72.640%))
+  Logic Levels:           2  (LUT6=2)
+  Clock Path Skew:        -0.040ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.911ns = ( 14.911 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.210ns
+    Clock Pessimism Removal (CPR):    0.259ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.972     3.488    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.626     5.210    matrixwriter/clk_IBUF_BUFG
+    SLICE_X3Y30          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y30          FDRE (Prop_fdre_C_Q)         0.419     5.629 r  matrixwriter/M_sclk_counter_q_reg[3]/Q
+                         net (fo=7, routed)           0.852     6.481    matrixwriter/M_sclk_counter_q_reg[3]
+    SLICE_X2Y30          LUT6 (Prop_lut6_I1_O)        0.296     6.777 r  matrixwriter/M_current_address_q[3]_i_5/O
+                         net (fo=8, routed)           0.867     7.644    matrixwriter/M_current_address_q[3]_i_5_n_0
+    SLICE_X2Y29          LUT6 (Prop_lut6_I1_O)        0.124     7.768 r  matrixwriter/M_led_bit_counter_q[6]_i_1/O
+                         net (fo=7, routed)           0.509     8.277    matrixwriter/M_led_bit_counter_q[6]_i_1_n_0
+    SLICE_X5Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[1]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)     10.000    10.000 r  
+    N14                                               0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.868    13.314    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.506    14.911    matrixwriter/clk_IBUF_BUFG
+    SLICE_X5Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[1]/C
+                         clock pessimism              0.259    15.170    
+                         clock uncertainty           -0.035    15.135    
+    SLICE_X5Y29          FDRE (Setup_fdre_C_R)       -0.429    14.706    matrixwriter/M_led_bit_counter_q_reg[1]
+  -------------------------------------------------------------------
+                         required time                         14.706    
+                         arrival time                          -8.277    
+  -------------------------------------------------------------------
+                         slack                                  6.429    
+
+Slack (MET) :             6.429ns  (required time - arrival time)
+  Source:                 matrixwriter/M_sclk_counter_q_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            matrixwriter/M_led_bit_counter_q_reg[2]/R
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        3.067ns  (logic 0.839ns (27.360%)  route 2.228ns (72.640%))
+  Logic Levels:           2  (LUT6=2)
+  Clock Path Skew:        -0.040ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.911ns = ( 14.911 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.210ns
+    Clock Pessimism Removal (CPR):    0.259ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.972     3.488    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.626     5.210    matrixwriter/clk_IBUF_BUFG
+    SLICE_X3Y30          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y30          FDRE (Prop_fdre_C_Q)         0.419     5.629 r  matrixwriter/M_sclk_counter_q_reg[3]/Q
+                         net (fo=7, routed)           0.852     6.481    matrixwriter/M_sclk_counter_q_reg[3]
+    SLICE_X2Y30          LUT6 (Prop_lut6_I1_O)        0.296     6.777 r  matrixwriter/M_current_address_q[3]_i_5/O
+                         net (fo=8, routed)           0.867     7.644    matrixwriter/M_current_address_q[3]_i_5_n_0
+    SLICE_X2Y29          LUT6 (Prop_lut6_I1_O)        0.124     7.768 r  matrixwriter/M_led_bit_counter_q[6]_i_1/O
+                         net (fo=7, routed)           0.509     8.277    matrixwriter/M_led_bit_counter_q[6]_i_1_n_0
+    SLICE_X5Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[2]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)     10.000    10.000 r  
+    N14                                               0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.868    13.314    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          1.506    14.911    matrixwriter/clk_IBUF_BUFG
+    SLICE_X5Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[2]/C
+                         clock pessimism              0.259    15.170    
+                         clock uncertainty           -0.035    15.135    
+    SLICE_X5Y29          FDRE (Setup_fdre_C_R)       -0.429    14.706    matrixwriter/M_led_bit_counter_q_reg[2]
+  -------------------------------------------------------------------
+                         required time                         14.706    
+                         arrival time                          -8.277    
+  -------------------------------------------------------------------
+                         slack                                  6.429    
+
+Slack (MET) :             6.456ns  (required time - arrival time)
+  Source:                 matrixwriter/M_sclk_counter_q_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            matrixwriter/M_latch_blank_q_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        3.417ns  (logic 0.940ns (27.508%)  route 2.477ns (72.492%))
+  Logic Levels:           2  (LUT5=2)
+  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.913ns = ( 14.913 - 10.000 ) 
     Source Clock Delay      (SCD):    5.210ns
     Clock Pessimism Removal (CPR):    0.273ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
@@ -617,73 +731,16 @@ Slack (MET) :             6.462ns  (required time - arrival time)
     N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.972     3.488    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          1.626     5.210    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y19          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[4]/C
+                         net (fo=30, routed)          1.626     5.210    matrixwriter/clk_IBUF_BUFG
+    SLICE_X3Y30          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[0]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y19          FDRE (Prop_fdre_C_Q)         0.419     5.629 r  matrixwriter/M_sclk_counter_q_reg[4]/Q
-                         net (fo=6, routed)           0.854     6.484    matrixwriter/M_sclk_counter_q_reg[4]
-    SLICE_X0Y18          LUT6 (Prop_lut6_I4_O)        0.297     6.781 r  matrixwriter/M_current_address_q[3]_i_6/O
-                         net (fo=8, routed)           1.011     7.792    matrixwriter/M_current_address_q[3]_i_6_n_0
-    SLICE_X1Y17          LUT6 (Prop_lut6_I5_O)        0.124     7.916 r  matrixwriter/M_led_bit_counter_q[6]_i_1/O
-                         net (fo=7, routed)           0.348     8.264    matrixwriter/M_led_bit_counter_q[6]_i_1_n_0
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[6]/R
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_0 rise edge)     10.000    10.000 r  
-    N14                                               0.000    10.000 r  clk (IN)
-                         net (fo=0)                   0.000    10.000    clk
-    N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.868    13.314    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          1.512    14.917    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[6]/C
-                         clock pessimism              0.273    15.190    
-                         clock uncertainty           -0.035    15.155    
-    SLICE_X1Y16          FDRE (Setup_fdre_C_R)       -0.429    14.726    matrixwriter/M_led_bit_counter_q_reg[6]
-  -------------------------------------------------------------------
-                         required time                         14.726    
-                         arrival time                          -8.264    
-  -------------------------------------------------------------------
-                         slack                                  6.462    
-
-Slack (MET) :             6.544ns  (required time - arrival time)
-  Source:                 matrixwriter/M_sclk_counter_q_reg[4]/C
-                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            matrixwriter/M_rgb_data_q_reg[0]/CE
-                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk_0
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
-  Data Path Delay:        3.194ns  (logic 1.076ns (33.689%)  route 2.118ns (66.311%))
-  Logic Levels:           2  (LUT4=1 LUT6=1)
-  Clock Path Skew:        -0.022ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.913ns = ( 14.913 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.210ns
-    Clock Pessimism Removal (CPR):    0.275ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_0 rise edge)      0.000     0.000 r  
-    N14                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.972     3.488    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          1.626     5.210    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y19          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[4]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X1Y19          FDRE (Prop_fdre_C_Q)         0.419     5.629 f  matrixwriter/M_sclk_counter_q_reg[4]/Q
-                         net (fo=6, routed)           1.160     6.790    matrixwriter/M_sclk_counter_q_reg[4]
-    SLICE_X1Y19          LUT4 (Prop_lut4_I0_O)        0.325     7.115 f  matrixwriter/M_rgb_data_q[0]_i_2/O
-                         net (fo=2, routed)           0.363     7.477    matrixwriter/M_rgb_data_q[0]_i_2_n_0
-    SLICE_X0Y19          LUT6 (Prop_lut6_I5_O)        0.332     7.809 r  matrixwriter/M_rgb_data_q[0]_i_1/O
-                         net (fo=4, routed)           0.595     8.404    matrixwriter/M_rgb_data_d
-    SLICE_X0Y19          FDRE                                         r  matrixwriter/M_rgb_data_q_reg[0]/CE
+    SLICE_X3Y30          FDRE (Prop_fdre_C_Q)         0.456     5.666 f  matrixwriter/M_sclk_counter_q_reg[0]/Q
+                         net (fo=11, routed)          1.449     7.115    matrixwriter/M_sclk_counter_q_reg[0]
+    SLICE_X1Y30          LUT5 (Prop_lut5_I2_O)        0.152     7.267 r  matrixwriter/M_current_address_q[3]_i_3/O
+                         net (fo=3, routed)           0.833     8.101    matrixwriter/M_current_address_q[3]_i_3_n_0
+    SLICE_X1Y29          LUT5 (Prop_lut5_I4_O)        0.332     8.433 r  matrixwriter/M_latch_blank_q[0]_i_2/O
+                         net (fo=1, routed)           0.195     8.628    matrixwriter/M_latch_blank_q[0]_i_2_n_0
+    SLICE_X0Y29          FDRE                                         r  matrixwriter/M_latch_blank_q_reg[0]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_0 rise edge)     10.000    10.000 r  
@@ -692,73 +749,16 @@ Slack (MET) :             6.544ns  (required time - arrival time)
     N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
                          net (fo=1, routed)           1.868    13.314    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          1.508    14.913    matrixwriter/clk_IBUF_BUFG
-    SLICE_X0Y19          FDRE                                         r  matrixwriter/M_rgb_data_q_reg[0]/C
-                         clock pessimism              0.275    15.188    
-                         clock uncertainty           -0.035    15.153    
-    SLICE_X0Y19          FDRE (Setup_fdre_C_CE)      -0.205    14.948    matrixwriter/M_rgb_data_q_reg[0]
+                         net (fo=30, routed)          1.508    14.913    matrixwriter/clk_IBUF_BUFG
+    SLICE_X0Y29          FDRE                                         r  matrixwriter/M_latch_blank_q_reg[0]/C
+                         clock pessimism              0.273    15.186    
+                         clock uncertainty           -0.035    15.151    
+    SLICE_X0Y29          FDRE (Setup_fdre_C_D)       -0.067    15.084    matrixwriter/M_latch_blank_q_reg[0]
   -------------------------------------------------------------------
-                         required time                         14.948    
-                         arrival time                          -8.404    
+                         required time                         15.084    
+                         arrival time                          -8.628    
   -------------------------------------------------------------------
-                         slack                                  6.544    
-
-Slack (MET) :             6.544ns  (required time - arrival time)
-  Source:                 matrixwriter/M_sclk_counter_q_reg[4]/C
-                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            matrixwriter/M_rgb_data_q_reg[0]_lopt_replica/CE
-                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk_0
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (clk_0 rise@10.000ns - clk_0 rise@0.000ns)
-  Data Path Delay:        3.194ns  (logic 1.076ns (33.689%)  route 2.118ns (66.311%))
-  Logic Levels:           2  (LUT4=1 LUT6=1)
-  Clock Path Skew:        -0.022ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    4.913ns = ( 14.913 - 10.000 ) 
-    Source Clock Delay      (SCD):    5.210ns
-    Clock Pessimism Removal (CPR):    0.275ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_0 rise edge)      0.000     0.000 r  
-    N14                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    N14                  IBUF (Prop_ibuf_I_O)         1.517     1.517 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.972     3.488    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.584 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          1.626     5.210    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y19          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[4]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X1Y19          FDRE (Prop_fdre_C_Q)         0.419     5.629 f  matrixwriter/M_sclk_counter_q_reg[4]/Q
-                         net (fo=6, routed)           1.160     6.790    matrixwriter/M_sclk_counter_q_reg[4]
-    SLICE_X1Y19          LUT4 (Prop_lut4_I0_O)        0.325     7.115 f  matrixwriter/M_rgb_data_q[0]_i_2/O
-                         net (fo=2, routed)           0.363     7.477    matrixwriter/M_rgb_data_q[0]_i_2_n_0
-    SLICE_X0Y19          LUT6 (Prop_lut6_I5_O)        0.332     7.809 r  matrixwriter/M_rgb_data_q[0]_i_1/O
-                         net (fo=4, routed)           0.595     8.404    matrixwriter/M_rgb_data_d
-    SLICE_X0Y19          FDRE                                         r  matrixwriter/M_rgb_data_q_reg[0]_lopt_replica/CE
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_0 rise edge)     10.000    10.000 r  
-    N14                                               0.000    10.000 r  clk (IN)
-                         net (fo=0)                   0.000    10.000    clk
-    N14                  IBUF (Prop_ibuf_I_O)         1.446    11.446 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           1.868    13.314    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.405 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          1.508    14.913    matrixwriter/clk_IBUF_BUFG
-    SLICE_X0Y19          FDRE                                         r  matrixwriter/M_rgb_data_q_reg[0]_lopt_replica/C
-                         clock pessimism              0.275    15.188    
-                         clock uncertainty           -0.035    15.153    
-    SLICE_X0Y19          FDRE (Setup_fdre_C_CE)      -0.205    14.948    matrixwriter/M_rgb_data_q_reg[0]_lopt_replica
-  -------------------------------------------------------------------
-                         required time                         14.948    
-                         arrival time                          -8.404    
-  -------------------------------------------------------------------
-                         slack                                  6.544    
+                         slack                                  6.456    
 
 
 
@@ -766,19 +766,19 @@ Slack (MET) :             6.544ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.175ns  (arrival time - required time)
-  Source:                 matrixwriter/M_state_q_reg[0]/C
+Slack (MET) :             0.210ns  (arrival time - required time)
+  Source:                 matrixwriter/M_led_bit_counter_q_reg[0]/C
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            matrixwriter/M_current_address_q_reg[3]/D
+  Destination:            matrixwriter/M_led_bit_counter_q_reg[4]/D
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
-  Data Path Delay:        0.279ns  (logic 0.186ns (66.708%)  route 0.093ns (33.292%))
+  Data Path Delay:        0.330ns  (logic 0.189ns (57.224%)  route 0.141ns (42.776%))
   Logic Levels:           1  (LUT5=1)
   Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.047ns
-    Source Clock Delay      (SCD):    1.532ns
+    Destination Clock Delay (DCD):    2.043ns
+    Source Clock Delay      (SCD):    1.528ns
     Clock Pessimism Removal (CPR):    0.502ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -789,14 +789,14 @@ Slack (MET) :             0.175ns  (arrival time - required time)
     N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.634     0.918    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          0.588     1.532    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y18          FDRE                                         r  matrixwriter/M_state_q_reg[0]/C
+                         net (fo=30, routed)          0.584     1.528    matrixwriter/clk_IBUF_BUFG
+    SLICE_X5Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[0]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y18          FDRE (Prop_fdre_C_Q)         0.141     1.673 f  matrixwriter/M_state_q_reg[0]/Q
-                         net (fo=11, routed)          0.093     1.766    matrixwriter/M_state_q_reg_n_0_[0]
-    SLICE_X0Y18          LUT5 (Prop_lut5_I2_O)        0.045     1.811 r  matrixwriter/M_current_address_q[3]_i_2/O
-                         net (fo=1, routed)           0.000     1.811    matrixwriter/M_current_address_q[3]_i_2_n_0
-    SLICE_X0Y18          FDRE                                         r  matrixwriter/M_current_address_q_reg[3]/D
+    SLICE_X5Y29          FDRE (Prop_fdre_C_Q)         0.141     1.669 r  matrixwriter/M_led_bit_counter_q_reg[0]/Q
+                         net (fo=8, routed)           0.141     1.810    matrixwriter/M_led_bit_counter_q_reg[0]
+    SLICE_X4Y29          LUT5 (Prop_lut5_I3_O)        0.048     1.858 r  matrixwriter/M_led_bit_counter_q[4]_i_1/O
+                         net (fo=1, routed)           0.000     1.858    matrixwriter/p_0_in[4]
+    SLICE_X4Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[4]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_0 rise edge)      0.000     0.000 r  
@@ -805,30 +805,30 @@ Slack (MET) :             0.175ns  (arrival time - required time)
     N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.689     1.161    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          0.857     2.047    matrixwriter/clk_IBUF_BUFG
-    SLICE_X0Y18          FDRE                                         r  matrixwriter/M_current_address_q_reg[3]/C
-                         clock pessimism             -0.502     1.545    
-    SLICE_X0Y18          FDRE (Hold_fdre_C_D)         0.091     1.636    matrixwriter/M_current_address_q_reg[3]
+                         net (fo=30, routed)          0.853     2.043    matrixwriter/clk_IBUF_BUFG
+    SLICE_X4Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[4]/C
+                         clock pessimism             -0.502     1.541    
+    SLICE_X4Y29          FDRE (Hold_fdre_C_D)         0.107     1.648    matrixwriter/M_led_bit_counter_q_reg[4]
   -------------------------------------------------------------------
-                         required time                         -1.636    
-                         arrival time                           1.811    
+                         required time                         -1.648    
+                         arrival time                           1.858    
   -------------------------------------------------------------------
-                         slack                                  0.175    
+                         slack                                  0.210    
 
-Slack (MET) :             0.227ns  (arrival time - required time)
-  Source:                 matrixwriter/M_led_bit_counter_q_reg[6]/C
+Slack (MET) :             0.223ns  (arrival time - required time)
+  Source:                 matrixwriter/M_led_bit_counter_q_reg[0]/C
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            matrixwriter/M_led_bit_counter_q_reg[6]/D
+  Destination:            matrixwriter/M_led_bit_counter_q_reg[3]/D
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
-  Data Path Delay:        0.319ns  (logic 0.186ns (58.398%)  route 0.133ns (41.602%))
-  Logic Levels:           1  (LUT5=1)
-  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.049ns
-    Source Clock Delay      (SCD):    1.534ns
-    Clock Pessimism Removal (CPR):    0.515ns
+  Data Path Delay:        0.327ns  (logic 0.186ns (56.832%)  route 0.141ns (43.168%))
+  Logic Levels:           1  (LUT4=1)
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.043ns
+    Source Clock Delay      (SCD):    1.528ns
+    Clock Pessimism Removal (CPR):    0.502ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -838,14 +838,14 @@ Slack (MET) :             0.227ns  (arrival time - required time)
     N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.634     0.918    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          0.590     1.534    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[6]/C
+                         net (fo=30, routed)          0.584     1.528    matrixwriter/clk_IBUF_BUFG
+    SLICE_X5Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[0]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y16          FDRE (Prop_fdre_C_Q)         0.141     1.675 r  matrixwriter/M_led_bit_counter_q_reg[6]/Q
-                         net (fo=14, routed)          0.133     1.807    matrixwriter/M_led_bit_counter_q_reg[6]
-    SLICE_X1Y16          LUT5 (Prop_lut5_I0_O)        0.045     1.852 r  matrixwriter/M_led_bit_counter_q[6]_i_3/O
-                         net (fo=1, routed)           0.000     1.852    matrixwriter/p_0_in[6]
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[6]/D
+    SLICE_X5Y29          FDRE (Prop_fdre_C_Q)         0.141     1.669 r  matrixwriter/M_led_bit_counter_q_reg[0]/Q
+                         net (fo=8, routed)           0.141     1.810    matrixwriter/M_led_bit_counter_q_reg[0]
+    SLICE_X4Y29          LUT4 (Prop_lut4_I1_O)        0.045     1.855 r  matrixwriter/M_led_bit_counter_q[3]_i_1/O
+                         net (fo=1, routed)           0.000     1.855    matrixwriter/p_0_in[3]
+    SLICE_X4Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[3]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_0 rise edge)      0.000     0.000 r  
@@ -854,30 +854,30 @@ Slack (MET) :             0.227ns  (arrival time - required time)
     N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.689     1.161    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          0.859     2.049    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[6]/C
-                         clock pessimism             -0.515     1.534    
-    SLICE_X1Y16          FDRE (Hold_fdre_C_D)         0.092     1.626    matrixwriter/M_led_bit_counter_q_reg[6]
+                         net (fo=30, routed)          0.853     2.043    matrixwriter/clk_IBUF_BUFG
+    SLICE_X4Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[3]/C
+                         clock pessimism             -0.502     1.541    
+    SLICE_X4Y29          FDRE (Hold_fdre_C_D)         0.091     1.632    matrixwriter/M_led_bit_counter_q_reg[3]
   -------------------------------------------------------------------
-                         required time                         -1.626    
-                         arrival time                           1.852    
+                         required time                         -1.632    
+                         arrival time                           1.855    
   -------------------------------------------------------------------
-                         slack                                  0.227    
+                         slack                                  0.223    
 
-Slack (MET) :             0.227ns  (arrival time - required time)
-  Source:                 matrixwriter/M_current_address_q_reg[0]/C
+Slack (MET) :             0.223ns  (arrival time - required time)
+  Source:                 matrixwriter/M_led_bit_counter_q_reg[0]/C
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            matrixwriter/M_current_address_q_reg[1]/D
+  Destination:            matrixwriter/M_led_bit_counter_q_reg[5]/D
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
-  Data Path Delay:        0.332ns  (logic 0.186ns (55.983%)  route 0.146ns (44.017%))
+  Data Path Delay:        0.328ns  (logic 0.186ns (56.658%)  route 0.142ns (43.342%))
   Logic Levels:           1  (LUT6=1)
   Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.047ns
-    Source Clock Delay      (SCD):    1.533ns
-    Clock Pessimism Removal (CPR):    0.501ns
+    Destination Clock Delay (DCD):    2.043ns
+    Source Clock Delay      (SCD):    1.528ns
+    Clock Pessimism Removal (CPR):    0.502ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -887,61 +887,14 @@ Slack (MET) :             0.227ns  (arrival time - required time)
     N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.634     0.918    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          0.589     1.533    matrixwriter/clk_IBUF_BUFG
-    SLICE_X0Y17          FDRE                                         r  matrixwriter/M_current_address_q_reg[0]/C
+                         net (fo=30, routed)          0.584     1.528    matrixwriter/clk_IBUF_BUFG
+    SLICE_X5Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[0]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X0Y17          FDRE (Prop_fdre_C_Q)         0.141     1.674 r  matrixwriter/M_current_address_q_reg[0]/Q
-                         net (fo=5, routed)           0.146     1.820    matrixwriter/M_current_address_q_reg[3]_0[0]
-    SLICE_X0Y18          LUT6 (Prop_lut6_I1_O)        0.045     1.865 r  matrixwriter/M_current_address_q[1]_i_1/O
-                         net (fo=1, routed)           0.000     1.865    matrixwriter/M_current_address_q[1]_i_1_n_0
-    SLICE_X0Y18          FDRE                                         r  matrixwriter/M_current_address_q_reg[1]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_0 rise edge)      0.000     0.000 r  
-    N14                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.689     1.161    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          0.857     2.047    matrixwriter/clk_IBUF_BUFG
-    SLICE_X0Y18          FDRE                                         r  matrixwriter/M_current_address_q_reg[1]/C
-                         clock pessimism             -0.501     1.546    
-    SLICE_X0Y18          FDRE (Hold_fdre_C_D)         0.092     1.638    matrixwriter/M_current_address_q_reg[1]
-  -------------------------------------------------------------------
-                         required time                         -1.638    
-                         arrival time                           1.865    
-  -------------------------------------------------------------------
-                         slack                                  0.227    
-
-Slack (MET) :             0.243ns  (arrival time - required time)
-  Source:                 reset_cond/M_stage_q_reg[1]/C
-                            (rising edge-triggered cell FDSE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            reset_cond/M_stage_q_reg[2]/D
-                            (rising edge-triggered cell FDSE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
-  Data Path Delay:        0.313ns  (logic 0.141ns (45.034%)  route 0.172ns (54.966%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.045ns
-    Source Clock Delay      (SCD):    1.530ns
-    Clock Pessimism Removal (CPR):    0.515ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_0 rise edge)      0.000     0.000 r  
-    N14                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.634     0.918    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          0.586     1.530    reset_cond/clk_IBUF_BUFG
-    SLICE_X0Y20          FDSE                                         r  reset_cond/M_stage_q_reg[1]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X0Y20          FDSE (Prop_fdse_C_Q)         0.141     1.671 r  reset_cond/M_stage_q_reg[1]/Q
-                         net (fo=1, routed)           0.172     1.843    reset_cond/M_stage_d[2]
-    SLICE_X0Y20          FDSE                                         r  reset_cond/M_stage_q_reg[2]/D
+    SLICE_X5Y29          FDRE (Prop_fdre_C_Q)         0.141     1.669 r  matrixwriter/M_led_bit_counter_q_reg[0]/Q
+                         net (fo=8, routed)           0.142     1.811    matrixwriter/M_led_bit_counter_q_reg[0]
+    SLICE_X4Y29          LUT6 (Prop_lut6_I2_O)        0.045     1.856 r  matrixwriter/M_led_bit_counter_q[5]_i_1/O
+                         net (fo=1, routed)           0.000     1.856    matrixwriter/p_0_in[5]
+    SLICE_X4Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[5]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_0 rise edge)      0.000     0.000 r  
@@ -950,25 +903,25 @@ Slack (MET) :             0.243ns  (arrival time - required time)
     N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.689     1.161    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          0.855     2.045    reset_cond/clk_IBUF_BUFG
-    SLICE_X0Y20          FDSE                                         r  reset_cond/M_stage_q_reg[2]/C
-                         clock pessimism             -0.515     1.530    
-    SLICE_X0Y20          FDSE (Hold_fdse_C_D)         0.070     1.600    reset_cond/M_stage_q_reg[2]
+                         net (fo=30, routed)          0.853     2.043    matrixwriter/clk_IBUF_BUFG
+    SLICE_X4Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[5]/C
+                         clock pessimism             -0.502     1.541    
+    SLICE_X4Y29          FDRE (Hold_fdre_C_D)         0.092     1.633    matrixwriter/M_led_bit_counter_q_reg[5]
   -------------------------------------------------------------------
-                         required time                         -1.600    
-                         arrival time                           1.843    
+                         required time                         -1.633    
+                         arrival time                           1.856    
   -------------------------------------------------------------------
-                         slack                                  0.243    
+                         slack                                  0.223    
 
-Slack (MET) :             0.248ns  (arrival time - required time)
-  Source:                 matrixwriter/M_sclk_counter_q_reg[5]/C
+Slack (MET) :             0.249ns  (arrival time - required time)
+  Source:                 matrixwriter/M_sclk_counter_q_reg[1]/C
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            matrixwriter/M_sclk_counter_q_reg[5]/D
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
-  Data Path Delay:        0.340ns  (logic 0.186ns (54.767%)  route 0.154ns (45.233%))
+  Data Path Delay:        0.341ns  (logic 0.186ns (54.563%)  route 0.155ns (45.437%))
   Logic Levels:           1  (LUT6=1)
   Clock Path Skew:        0.000ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    2.046ns
@@ -983,14 +936,14 @@ Slack (MET) :             0.248ns  (arrival time - required time)
     N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.634     0.918    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          0.587     1.531    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y19          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[5]/C
+                         net (fo=30, routed)          0.587     1.531    matrixwriter/clk_IBUF_BUFG
+    SLICE_X3Y30          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[1]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y19          FDRE (Prop_fdre_C_Q)         0.141     1.672 r  matrixwriter/M_sclk_counter_q_reg[5]/Q
-                         net (fo=9, routed)           0.154     1.825    matrixwriter/M_sclk_counter_q_reg[5]
-    SLICE_X1Y19          LUT6 (Prop_lut6_I5_O)        0.045     1.870 r  matrixwriter/M_sclk_counter_q[5]_i_1/O
-                         net (fo=1, routed)           0.000     1.870    matrixwriter/M_sclk_counter_d[5]
-    SLICE_X1Y19          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[5]/D
+    SLICE_X3Y30          FDRE (Prop_fdre_C_Q)         0.141     1.672 r  matrixwriter/M_sclk_counter_q_reg[1]/Q
+                         net (fo=9, routed)           0.155     1.827    matrixwriter/M_sclk_counter_q_reg[1]
+    SLICE_X3Y30          LUT6 (Prop_lut6_I3_O)        0.045     1.872 r  matrixwriter/M_sclk_counter_q[5]_i_1/O
+                         net (fo=1, routed)           0.000     1.872    matrixwriter/M_sclk_counter_d[5]
+    SLICE_X3Y30          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[5]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_0 rise edge)      0.000     0.000 r  
@@ -999,78 +952,29 @@ Slack (MET) :             0.248ns  (arrival time - required time)
     N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.689     1.161    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          0.856     2.046    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y19          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[5]/C
+                         net (fo=30, routed)          0.856     2.046    matrixwriter/clk_IBUF_BUFG
+    SLICE_X3Y30          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[5]/C
                          clock pessimism             -0.515     1.531    
-    SLICE_X1Y19          FDRE (Hold_fdre_C_D)         0.092     1.623    matrixwriter/M_sclk_counter_q_reg[5]
+    SLICE_X3Y30          FDRE (Hold_fdre_C_D)         0.092     1.623    matrixwriter/M_sclk_counter_q_reg[5]
   -------------------------------------------------------------------
                          required time                         -1.623    
-                         arrival time                           1.870    
+                         arrival time                           1.872    
   -------------------------------------------------------------------
-                         slack                                  0.248    
+                         slack                                  0.249    
 
-Slack (MET) :             0.248ns  (arrival time - required time)
-  Source:                 matrixwriter/M_led_bit_counter_q_reg[0]/C
+Slack (MET) :             0.269ns  (arrival time - required time)
+  Source:                 matrixwriter/M_led_bit_counter_q_reg[5]/C
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            matrixwriter/M_led_bit_counter_q_reg[5]/D
+  Destination:            matrixwriter/M_led_bit_counter_q_reg[6]/D
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
-  Data Path Delay:        0.340ns  (logic 0.186ns (54.652%)  route 0.154ns (45.348%))
-  Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.049ns
-    Source Clock Delay      (SCD):    1.534ns
-    Clock Pessimism Removal (CPR):    0.515ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_0 rise edge)      0.000     0.000 r  
-    N14                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.634     0.918    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          0.590     1.534    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[0]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X1Y16          FDRE (Prop_fdre_C_Q)         0.141     1.675 r  matrixwriter/M_led_bit_counter_q_reg[0]/Q
-                         net (fo=8, routed)           0.154     1.829    matrixwriter/M_led_bit_counter_q_reg[0]
-    SLICE_X1Y16          LUT6 (Prop_lut6_I2_O)        0.045     1.874 r  matrixwriter/M_led_bit_counter_q[5]_i_1/O
-                         net (fo=1, routed)           0.000     1.874    matrixwriter/p_0_in[5]
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[5]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_0 rise edge)      0.000     0.000 r  
-    N14                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.689     1.161    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          0.859     2.049    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[5]/C
-                         clock pessimism             -0.515     1.534    
-    SLICE_X1Y16          FDRE (Hold_fdre_C_D)         0.092     1.626    matrixwriter/M_led_bit_counter_q_reg[5]
-  -------------------------------------------------------------------
-                         required time                         -1.626    
-                         arrival time                           1.874    
-  -------------------------------------------------------------------
-                         slack                                  0.248    
-
-Slack (MET) :             0.252ns  (arrival time - required time)
-  Source:                 matrixwriter/M_led_bit_counter_q_reg[2]/C
-                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            matrixwriter/M_led_bit_counter_q_reg[4]/D
-                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
-  Data Path Delay:        0.359ns  (logic 0.230ns (64.146%)  route 0.129ns (35.854%))
+  Data Path Delay:        0.361ns  (logic 0.186ns (51.560%)  route 0.175ns (48.440%))
   Logic Levels:           1  (LUT5=1)
   Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.049ns
-    Source Clock Delay      (SCD):    1.534ns
+    Destination Clock Delay (DCD):    2.043ns
+    Source Clock Delay      (SCD):    1.528ns
     Clock Pessimism Removal (CPR):    0.515ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -1081,63 +985,14 @@ Slack (MET) :             0.252ns  (arrival time - required time)
     N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.634     0.918    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          0.590     1.534    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[2]/C
+                         net (fo=30, routed)          0.584     1.528    matrixwriter/clk_IBUF_BUFG
+    SLICE_X4Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[5]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y16          FDRE (Prop_fdre_C_Q)         0.128     1.662 r  matrixwriter/M_led_bit_counter_q_reg[2]/Q
-                         net (fo=6, routed)           0.129     1.790    matrixwriter/M_led_bit_counter_q_reg[2]
-    SLICE_X1Y16          LUT5 (Prop_lut5_I1_O)        0.102     1.892 r  matrixwriter/M_led_bit_counter_q[4]_i_1/O
-                         net (fo=1, routed)           0.000     1.892    matrixwriter/p_0_in[4]
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[4]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_0 rise edge)      0.000     0.000 r  
-    N14                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.689     1.161    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          0.859     2.049    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[4]/C
-                         clock pessimism             -0.515     1.534    
-    SLICE_X1Y16          FDRE (Hold_fdre_C_D)         0.107     1.641    matrixwriter/M_led_bit_counter_q_reg[4]
-  -------------------------------------------------------------------
-                         required time                         -1.641    
-                         arrival time                           1.892    
-  -------------------------------------------------------------------
-                         slack                                  0.252    
-
-Slack (MET) :             0.263ns  (arrival time - required time)
-  Source:                 matrixwriter/M_led_bit_counter_q_reg[2]/C
-                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            matrixwriter/M_led_bit_counter_q_reg[3]/D
-                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
-  Data Path Delay:        0.355ns  (logic 0.226ns (63.741%)  route 0.129ns (36.259%))
-  Logic Levels:           1  (LUT4=1)
-  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.049ns
-    Source Clock Delay      (SCD):    1.534ns
-    Clock Pessimism Removal (CPR):    0.515ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_0 rise edge)      0.000     0.000 r  
-    N14                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.634     0.918    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          0.590     1.534    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[2]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X1Y16          FDRE (Prop_fdre_C_Q)         0.128     1.662 r  matrixwriter/M_led_bit_counter_q_reg[2]/Q
-                         net (fo=6, routed)           0.129     1.790    matrixwriter/M_led_bit_counter_q_reg[2]
-    SLICE_X1Y16          LUT4 (Prop_lut4_I3_O)        0.098     1.888 r  matrixwriter/M_led_bit_counter_q[3]_i_1/O
-                         net (fo=1, routed)           0.000     1.888    matrixwriter/p_0_in[3]
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[3]/D
+    SLICE_X4Y29          FDRE (Prop_fdre_C_Q)         0.141     1.669 r  matrixwriter/M_led_bit_counter_q_reg[5]/Q
+                         net (fo=3, routed)           0.175     1.843    matrixwriter/M_led_bit_counter_q_reg[5]
+    SLICE_X4Y29          LUT5 (Prop_lut5_I4_O)        0.045     1.888 r  matrixwriter/M_led_bit_counter_q[6]_i_3/O
+                         net (fo=1, routed)           0.000     1.888    matrixwriter/p_0_in[6]
+    SLICE_X4Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[6]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_0 rise edge)      0.000     0.000 r  
@@ -1146,79 +1001,30 @@ Slack (MET) :             0.263ns  (arrival time - required time)
     N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.689     1.161    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          0.859     2.049    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[3]/C
-                         clock pessimism             -0.515     1.534    
-    SLICE_X1Y16          FDRE (Hold_fdre_C_D)         0.092     1.626    matrixwriter/M_led_bit_counter_q_reg[3]
+                         net (fo=30, routed)          0.853     2.043    matrixwriter/clk_IBUF_BUFG
+    SLICE_X4Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[6]/C
+                         clock pessimism             -0.515     1.528    
+    SLICE_X4Y29          FDRE (Hold_fdre_C_D)         0.092     1.620    matrixwriter/M_led_bit_counter_q_reg[6]
   -------------------------------------------------------------------
-                         required time                         -1.626    
+                         required time                         -1.620    
                          arrival time                           1.888    
   -------------------------------------------------------------------
-                         slack                                  0.263    
-
-Slack (MET) :             0.272ns  (arrival time - required time)
-  Source:                 matrixwriter/M_led_bit_counter_q_reg[6]/C
-                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            matrixwriter/M_current_address_q_reg[0]/D
-                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
-  Data Path Delay:        0.377ns  (logic 0.186ns (49.359%)  route 0.191ns (50.641%))
-  Logic Levels:           1  (LUT5=1)
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.048ns
-    Source Clock Delay      (SCD):    1.534ns
-    Clock Pessimism Removal (CPR):    0.501ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_0 rise edge)      0.000     0.000 r  
-    N14                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.634     0.918    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          0.590     1.534    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[6]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X1Y16          FDRE (Prop_fdre_C_Q)         0.141     1.675 f  matrixwriter/M_led_bit_counter_q_reg[6]/Q
-                         net (fo=14, routed)          0.191     1.866    matrixwriter/M_led_bit_counter_q_reg[6]
-    SLICE_X0Y17          LUT5 (Prop_lut5_I3_O)        0.045     1.911 r  matrixwriter/M_current_address_q[0]_i_1/O
-                         net (fo=1, routed)           0.000     1.911    matrixwriter/M_current_address_d[0]
-    SLICE_X0Y17          FDRE                                         r  matrixwriter/M_current_address_q_reg[0]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_0 rise edge)      0.000     0.000 r  
-    N14                                               0.000     0.000 r  clk (IN)
-                         net (fo=0)                   0.000     0.000    clk
-    N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
-                         net (fo=1, routed)           0.689     1.161    clk_IBUF
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          0.858     2.048    matrixwriter/clk_IBUF_BUFG
-    SLICE_X0Y17          FDRE                                         r  matrixwriter/M_current_address_q_reg[0]/C
-                         clock pessimism             -0.501     1.547    
-    SLICE_X0Y17          FDRE (Hold_fdre_C_D)         0.092     1.639    matrixwriter/M_current_address_q_reg[0]
-  -------------------------------------------------------------------
-                         required time                         -1.639    
-                         arrival time                           1.911    
-  -------------------------------------------------------------------
-                         slack                                  0.272    
+                         slack                                  0.269    
 
 Slack (MET) :             0.277ns  (arrival time - required time)
-  Source:                 matrixwriter/M_led_bit_counter_q_reg[6]/C
+  Source:                 matrixwriter/M_led_bit_counter_q_reg[0]/C
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            matrixwriter/M_state_q_reg[0]/D
+  Destination:            matrixwriter/M_led_bit_counter_q_reg[1]/D
                             (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
-  Data Path Delay:        0.381ns  (logic 0.186ns (48.795%)  route 0.195ns (51.205%))
-  Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        0.012ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    2.047ns
-    Source Clock Delay      (SCD):    1.534ns
-    Clock Pessimism Removal (CPR):    0.501ns
+  Data Path Delay:        0.384ns  (logic 0.183ns (47.716%)  route 0.201ns (52.284%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.043ns
+    Source Clock Delay      (SCD):    1.528ns
+    Clock Pessimism Removal (CPR):    0.515ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1228,14 +1034,14 @@ Slack (MET) :             0.277ns  (arrival time - required time)
     N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.634     0.918    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          0.590     1.534    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y16          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[6]/C
+                         net (fo=30, routed)          0.584     1.528    matrixwriter/clk_IBUF_BUFG
+    SLICE_X5Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[0]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y16          FDRE (Prop_fdre_C_Q)         0.141     1.675 f  matrixwriter/M_led_bit_counter_q_reg[6]/Q
-                         net (fo=14, routed)          0.195     1.870    matrixwriter/M_led_bit_counter_q_reg[6]
-    SLICE_X1Y18          LUT6 (Prop_lut6_I4_O)        0.045     1.915 r  matrixwriter/M_state_q[0]_i_1/O
-                         net (fo=1, routed)           0.000     1.915    matrixwriter/M_state_q[0]_i_1_n_0
-    SLICE_X1Y18          FDRE                                         r  matrixwriter/M_state_q_reg[0]/D
+    SLICE_X5Y29          FDRE (Prop_fdre_C_Q)         0.141     1.669 r  matrixwriter/M_led_bit_counter_q_reg[0]/Q
+                         net (fo=8, routed)           0.201     1.869    matrixwriter/M_led_bit_counter_q_reg[0]
+    SLICE_X5Y29          LUT2 (Prop_lut2_I0_O)        0.042     1.911 r  matrixwriter/M_led_bit_counter_q[1]_i_1/O
+                         net (fo=1, routed)           0.000     1.911    matrixwriter/p_0_in[1]
+    SLICE_X5Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[1]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_0 rise edge)      0.000     0.000 r  
@@ -1244,15 +1050,211 @@ Slack (MET) :             0.277ns  (arrival time - required time)
     N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
                          net (fo=1, routed)           0.689     1.161    clk_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
-                         net (fo=29, routed)          0.857     2.047    matrixwriter/clk_IBUF_BUFG
-    SLICE_X1Y18          FDRE                                         r  matrixwriter/M_state_q_reg[0]/C
-                         clock pessimism             -0.501     1.546    
-    SLICE_X1Y18          FDRE (Hold_fdre_C_D)         0.092     1.638    matrixwriter/M_state_q_reg[0]
+                         net (fo=30, routed)          0.853     2.043    matrixwriter/clk_IBUF_BUFG
+    SLICE_X5Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[1]/C
+                         clock pessimism             -0.515     1.528    
+    SLICE_X5Y29          FDRE (Hold_fdre_C_D)         0.107     1.635    matrixwriter/M_led_bit_counter_q_reg[1]
+  -------------------------------------------------------------------
+                         required time                         -1.635    
+                         arrival time                           1.911    
+  -------------------------------------------------------------------
+                         slack                                  0.277    
+
+Slack (MET) :             0.277ns  (arrival time - required time)
+  Source:                 matrixwriter/M_sclk_counter_q_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            matrixwriter/M_sclk_counter_q_reg[2]/D
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        0.384ns  (logic 0.183ns (47.606%)  route 0.201ns (52.394%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.046ns
+    Source Clock Delay      (SCD):    1.531ns
+    Clock Pessimism Removal (CPR):    0.515ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.634     0.918    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          0.587     1.531    matrixwriter/clk_IBUF_BUFG
+    SLICE_X3Y30          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y30          FDRE (Prop_fdre_C_Q)         0.141     1.672 r  matrixwriter/M_sclk_counter_q_reg[1]/Q
+                         net (fo=9, routed)           0.201     1.873    matrixwriter/M_sclk_counter_q_reg[1]
+    SLICE_X3Y30          LUT3 (Prop_lut3_I2_O)        0.042     1.915 r  matrixwriter/M_sclk_counter_q[2]_i_1/O
+                         net (fo=1, routed)           0.000     1.915    matrixwriter/M_sclk_counter_d[2]
+    SLICE_X3Y30          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.689     1.161    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          0.856     2.046    matrixwriter/clk_IBUF_BUFG
+    SLICE_X3Y30          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[2]/C
+                         clock pessimism             -0.515     1.531    
+    SLICE_X3Y30          FDRE (Hold_fdre_C_D)         0.107     1.638    matrixwriter/M_sclk_counter_q_reg[2]
   -------------------------------------------------------------------
                          required time                         -1.638    
                          arrival time                           1.915    
   -------------------------------------------------------------------
                          slack                                  0.277    
+
+Slack (MET) :             0.283ns  (arrival time - required time)
+  Source:                 matrixwriter/M_led_bit_counter_q_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            matrixwriter/M_led_bit_counter_q_reg[2]/D
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        0.387ns  (logic 0.184ns (47.604%)  route 0.203ns (52.396%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.043ns
+    Source Clock Delay      (SCD):    1.528ns
+    Clock Pessimism Removal (CPR):    0.515ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.634     0.918    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          0.584     1.528    matrixwriter/clk_IBUF_BUFG
+    SLICE_X5Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X5Y29          FDRE (Prop_fdre_C_Q)         0.141     1.669 r  matrixwriter/M_led_bit_counter_q_reg[0]/Q
+                         net (fo=8, routed)           0.203     1.871    matrixwriter/M_led_bit_counter_q_reg[0]
+    SLICE_X5Y29          LUT3 (Prop_lut3_I0_O)        0.043     1.914 r  matrixwriter/M_led_bit_counter_q[2]_i_1/O
+                         net (fo=1, routed)           0.000     1.914    matrixwriter/p_0_in[2]
+    SLICE_X5Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.689     1.161    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          0.853     2.043    matrixwriter/clk_IBUF_BUFG
+    SLICE_X5Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[2]/C
+                         clock pessimism             -0.515     1.528    
+    SLICE_X5Y29          FDRE (Hold_fdre_C_D)         0.104     1.632    matrixwriter/M_led_bit_counter_q_reg[2]
+  -------------------------------------------------------------------
+                         required time                         -1.632    
+                         arrival time                           1.914    
+  -------------------------------------------------------------------
+                         slack                                  0.283    
+
+Slack (MET) :             0.296ns  (arrival time - required time)
+  Source:                 matrixwriter/M_led_bit_counter_q_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            matrixwriter/M_led_bit_counter_q_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        0.387ns  (logic 0.186ns (48.122%)  route 0.201ns (51.878%))
+  Logic Levels:           1  (LUT1=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.043ns
+    Source Clock Delay      (SCD):    1.528ns
+    Clock Pessimism Removal (CPR):    0.515ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.634     0.918    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          0.584     1.528    matrixwriter/clk_IBUF_BUFG
+    SLICE_X5Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X5Y29          FDRE (Prop_fdre_C_Q)         0.141     1.669 f  matrixwriter/M_led_bit_counter_q_reg[0]/Q
+                         net (fo=8, routed)           0.201     1.869    matrixwriter/M_led_bit_counter_q_reg[0]
+    SLICE_X5Y29          LUT1 (Prop_lut1_I0_O)        0.045     1.914 r  matrixwriter/M_led_bit_counter_q[0]_i_1/O
+                         net (fo=1, routed)           0.000     1.914    matrixwriter/p_0_in[0]
+    SLICE_X5Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.689     1.161    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          0.853     2.043    matrixwriter/clk_IBUF_BUFG
+    SLICE_X5Y29          FDRE                                         r  matrixwriter/M_led_bit_counter_q_reg[0]/C
+                         clock pessimism             -0.515     1.528    
+    SLICE_X5Y29          FDRE (Hold_fdre_C_D)         0.091     1.619    matrixwriter/M_led_bit_counter_q_reg[0]
+  -------------------------------------------------------------------
+                         required time                         -1.619    
+                         arrival time                           1.914    
+  -------------------------------------------------------------------
+                         slack                                  0.296    
+
+Slack (MET) :             0.296ns  (arrival time - required time)
+  Source:                 matrixwriter/M_sclk_counter_q_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            matrixwriter/M_sclk_counter_q_reg[1]/D
+                            (rising edge-triggered cell FDRE clocked by clk_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_0 rise@0.000ns - clk_0 rise@0.000ns)
+  Data Path Delay:        0.387ns  (logic 0.186ns (48.011%)  route 0.201ns (51.989%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.046ns
+    Source Clock Delay      (SCD):    1.531ns
+    Clock Pessimism Removal (CPR):    0.515ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.284     0.284 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.634     0.918    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     0.944 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          0.587     1.531    matrixwriter/clk_IBUF_BUFG
+    SLICE_X3Y30          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y30          FDRE (Prop_fdre_C_Q)         0.141     1.672 r  matrixwriter/M_sclk_counter_q_reg[1]/Q
+                         net (fo=9, routed)           0.201     1.873    matrixwriter/M_sclk_counter_q_reg[1]
+    SLICE_X3Y30          LUT2 (Prop_lut2_I1_O)        0.045     1.918 r  matrixwriter/M_sclk_counter_q[1]_i_1/O
+                         net (fo=1, routed)           0.000     1.918    matrixwriter/M_sclk_counter_d[1]
+    SLICE_X3Y30          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_0 rise edge)      0.000     0.000 r  
+    N14                                               0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    N14                  IBUF (Prop_ibuf_I_O)         0.472     0.472 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.689     1.161    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.190 r  clk_IBUF_BUFG_inst/O
+                         net (fo=30, routed)          0.856     2.046    matrixwriter/clk_IBUF_BUFG
+    SLICE_X3Y30          FDRE                                         r  matrixwriter/M_sclk_counter_q_reg[1]/C
+                         clock pessimism             -0.515     1.531    
+    SLICE_X3Y30          FDRE (Hold_fdre_C_D)         0.091     1.622    matrixwriter/M_sclk_counter_q_reg[1]
+  -------------------------------------------------------------------
+                         required time                         -1.622    
+                         arrival time                           1.918    
+  -------------------------------------------------------------------
+                         slack                                  0.296    
 
 
 
@@ -1267,35 +1269,35 @@ Sources:            { clk }
 
 Check Type        Corner  Lib Pin  Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location       Pin
 Min Period        n/a     BUFG/I   n/a            2.155         10.000      7.845      BUFGCTRL_X0Y0  clk_IBUF_BUFG_inst/I
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y17    matrixwriter/M_current_address_q_reg[0]/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y18    matrixwriter/M_current_address_q_reg[1]/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y17    matrixwriter/M_current_address_q_reg[2]/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y18    matrixwriter/M_current_address_q_reg[3]/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X2Y18    matrixwriter/M_latch_blank_q_reg[0]/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X1Y17    matrixwriter/M_latch_blank_q_reg[1]/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X1Y16    matrixwriter/M_led_bit_counter_q_reg[0]/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X1Y16    matrixwriter/M_led_bit_counter_q_reg[1]/C
-Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X1Y16    matrixwriter/M_led_bit_counter_q_reg[2]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y17    matrixwriter/M_current_address_q_reg[0]/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y18    matrixwriter/M_current_address_q_reg[1]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y18    matrixwriter/M_current_address_q_reg[1]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y17    matrixwriter/M_current_address_q_reg[2]/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y18    matrixwriter/M_current_address_q_reg[3]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y18    matrixwriter/M_current_address_q_reg[3]/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X2Y18    matrixwriter/M_latch_blank_q_reg[0]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X2Y18    matrixwriter/M_latch_blank_q_reg[0]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X1Y17    matrixwriter/M_latch_blank_q_reg[1]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X1Y16    matrixwriter/M_led_bit_counter_q_reg[0]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y17    matrixwriter/M_current_address_q_reg[0]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y17    matrixwriter/M_current_address_q_reg[2]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X1Y17    matrixwriter/M_latch_blank_q_reg[1]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X1Y16    matrixwriter/M_led_bit_counter_q_reg[0]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X1Y16    matrixwriter/M_led_bit_counter_q_reg[1]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X1Y16    matrixwriter/M_led_bit_counter_q_reg[2]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X1Y16    matrixwriter/M_led_bit_counter_q_reg[3]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X1Y16    matrixwriter/M_led_bit_counter_q_reg[4]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X1Y16    matrixwriter/M_led_bit_counter_q_reg[5]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X1Y16    matrixwriter/M_led_bit_counter_q_reg[6]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y31    matrixwriter/M_current_address_q_reg[0]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y30    matrixwriter/M_current_address_q_reg[1]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y30    matrixwriter/M_current_address_q_reg[2]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y31    matrixwriter/M_current_address_q_reg[3]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y29    matrixwriter/M_latch_blank_q_reg[0]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X2Y29    matrixwriter/M_latch_blank_q_reg[1]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X5Y29    matrixwriter/M_led_bit_counter_q_reg[0]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X5Y29    matrixwriter/M_led_bit_counter_q_reg[1]/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X5Y29    matrixwriter/M_led_bit_counter_q_reg[2]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y31    matrixwriter/M_current_address_q_reg[0]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y31    matrixwriter/M_current_address_q_reg[0]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y30    matrixwriter/M_current_address_q_reg[1]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y30    matrixwriter/M_current_address_q_reg[2]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y31    matrixwriter/M_current_address_q_reg[3]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y31    matrixwriter/M_current_address_q_reg[3]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X2Y30    matrixwriter/M_rgb_data_q_reg[5]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X2Y30    matrixwriter/M_rgb_data_q_reg[5]_lopt_replica_3/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X3Y30    matrixwriter/M_sclk_counter_q_reg[0]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X3Y30    matrixwriter/M_sclk_counter_q_reg[1]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X5Y29    matrixwriter/M_led_bit_counter_q_reg[0]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X5Y29    matrixwriter/M_led_bit_counter_q_reg[1]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X5Y29    matrixwriter/M_led_bit_counter_q_reg[2]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X4Y29    matrixwriter/M_led_bit_counter_q_reg[3]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X4Y29    matrixwriter/M_led_bit_counter_q_reg[4]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X4Y29    matrixwriter/M_led_bit_counter_q_reg[5]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X4Y29    matrixwriter/M_led_bit_counter_q_reg[6]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y28    matrixwriter/M_rgb_data_q_reg[5]_lopt_replica/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y28    matrixwriter/M_rgb_data_q_reg[5]_lopt_replica_2/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y31    matrixwriter/M_current_address_q_reg[0]/C
 
 
 
