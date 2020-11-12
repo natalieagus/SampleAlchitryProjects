@@ -13,6 +13,8 @@ module au_top (
   ) {
   
   sig rst;                  // reset signal
+  const LEDCOLOR = {hFF0000, h00FF00, h0000FF};
+  
   ws2812b_writer led_strip(#PIXEL_COUNT(3), .clk(clk), .rst(rst)); //set for 3 pixels
   .clk(clk) {
     // The reset conditioner is used to synchronize the reset signal to the FPGA
@@ -34,7 +36,7 @@ module au_top (
     
 
     led_strip.update=1; //sample write 
-    led_strip.color=24b1; //sample color RED for all
+    led_strip.color=LEDCOLOR[led_strip.pixel]; 
     outled=led_strip.led;
   }
 }

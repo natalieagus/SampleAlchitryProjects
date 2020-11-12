@@ -26,10 +26,8 @@ module ws2812b_writer_1 (
   reg M_state_d, M_state_q = SEND_PIXEL_state;
   reg [1:0] M_pixel_ctr_d, M_pixel_ctr_q = 1'h0;
   reg [4:0] M_bit_ctr_d, M_bit_ctr_q = 1'h0;
-  reg [5:0] M_ctr_d, M_ctr_q = 1'h0;
+  reg [6:0] M_ctr_d, M_ctr_q = 1'h0;
   reg [12:0] M_rst_ctr_d, M_rst_ctr_q = 1'h0;
-  
-  reg [23:0] bits;
   
   always @* begin
     M_state_d = M_state_q;
@@ -39,18 +37,17 @@ module ws2812b_writer_1 (
     M_pixel_ctr_d = M_pixel_ctr_q;
     
     led = 1'h0;
-    bits = {color[0+0-:1], color[1+0-:1], color[2+0-:1], color[3+0-:1], color[4+0-:1], color[5+0-:1], color[6+0-:1], color[7+0-:1], color[16+0-:1], color[17+0-:1], color[18+0-:1], color[19+0-:1], color[20+0-:1], color[21+0-:1], color[22+0-:1], color[23+0-:1], color[8+0-:1], color[9+0-:1], color[10+0-:1], color[11+0-:1], color[12+0-:1], color[13+0-:1], color[14+0-:1], color[15+0-:1]};
     pixel = M_pixel_ctr_q;
     
     case (M_state_q)
       SEND_PIXEL_state: begin
-        if (bits[(M_bit_ctr_q)*1+0-:1]) begin
-          led = M_ctr_q < 7'h52;
+        if (color[(M_bit_ctr_q)*1+0-:1]) begin
+          led = M_ctr_q < 7'h50;
         end else begin
           led = M_ctr_q < 6'h28;
         end
         M_ctr_d = M_ctr_q + 1'h1;
-        if (M_ctr_q == 7'h7a) begin
+        if (M_ctr_q == 7'h7d) begin
           M_ctr_d = 1'h0;
           M_bit_ctr_d = M_bit_ctr_q + 1'h1;
           if (M_bit_ctr_q == 5'h17) begin

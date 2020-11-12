@@ -22,6 +22,8 @@ module au_top_0 (
   
   reg rst;
   
+  localparam LEDCOLOR = 72'hff000000ff000000ff;
+  
   wire [2-1:0] M_led_strip_pixel;
   wire [1-1:0] M_led_strip_led;
   reg [1-1:0] M_led_strip_update;
@@ -52,7 +54,7 @@ module au_top_0 (
     io_seg = 8'hff;
     io_sel = 4'hf;
     M_led_strip_update = 1'h1;
-    M_led_strip_color = 24'h000001;
+    M_led_strip_color = LEDCOLOR[(M_led_strip_pixel)*24+23-:24];
     outled = M_led_strip_led;
   end
 endmodule

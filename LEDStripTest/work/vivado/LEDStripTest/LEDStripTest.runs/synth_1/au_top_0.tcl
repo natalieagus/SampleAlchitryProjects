@@ -22,15 +22,15 @@ create_project -in_memory -part xc7a35tftg256-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/NatalieAgus/Desktop/LEDStripTest/work/vivado/LEDStripTest/LEDStripTest.cache/wt [current_project]
-set_property parent.project_path C:/Users/NatalieAgus/Desktop/LEDStripTest/work/vivado/LEDStripTest/LEDStripTest.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/LEDStripTest/work/vivado/LEDStripTest/LEDStripTest.cache/wt [current_project]
+set_property parent.project_path C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/LEDStripTest/work/vivado/LEDStripTest/LEDStripTest.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
-  C:/Users/NatalieAgus/Desktop/LEDStripTest/work/vivado/LEDStripTest/LEDStripTest.srcs/sources_1/imports/verilog/reset_conditioner_2.v
-  C:/Users/NatalieAgus/Desktop/LEDStripTest/work/vivado/LEDStripTest/LEDStripTest.srcs/sources_1/imports/verilog/ws2812b_writer_1.v
-  C:/Users/NatalieAgus/Desktop/LEDStripTest/work/vivado/LEDStripTest/LEDStripTest.srcs/sources_1/imports/verilog/au_top_0.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/LEDStripTest/work/vivado/LEDStripTest/LEDStripTest.srcs/sources_1/imports/verilog/reset_conditioner_2.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/LEDStripTest/work/vivado/LEDStripTest/LEDStripTest.srcs/sources_1/imports/verilog/ws2812b_writer_1.v
+  C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/LEDStripTest/work/vivado/LEDStripTest/LEDStripTest.srcs/sources_1/imports/verilog/au_top_0.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -40,11 +40,11 @@ read_verilog -library xil_defaultlib {
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/NatalieAgus/Desktop/LEDStripTest/work/constraint/custom.xdc
-set_property used_in_implementation false [get_files C:/Users/NatalieAgus/Desktop/LEDStripTest/work/constraint/custom.xdc]
-
 read_xdc {{C:/Program Files/Alchitry/Alchitry Labs/library/components/au.xdc}}
 set_property used_in_implementation false [get_files {{C:/Program Files/Alchitry/Alchitry Labs/library/components/au.xdc}}]
+
+read_xdc C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/LEDStripTest/work/constraint/custom.xdc
+set_property used_in_implementation false [get_files C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/LEDStripTest/work/constraint/custom.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]

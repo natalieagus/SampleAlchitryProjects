@@ -15,32 +15,24 @@ module ws2812b_writer #(
       fsm state = {SEND_PIXEL, RESET};
       dff pixel_ctr[$clog2(PIXEL_COUNT)];
       dff bit_ctr[5];
-      dff ctr[6];
+      dff ctr[7];
       dff rst_ctr [$clog2(5000)]; //reset requires 50us of zeroes 
     }
   }
   
-  sig bits[24];
-  
   always {
     led = 0;
     
-    bits = c{color[0], color[1],color[2], color[3], color[4], color[5], color[6], color[7],
-      color[16], color[17], color[18], color[19], color[20], color[21], color[22], color[23],
-      color[8], color[9], color[10], color[11], color[12], color[13], color[14], color[15]};
-    
-    
-    // 
     pixel = pixel_ctr.q;
     case (state.q) {
       state.SEND_PIXEL:
-        if (bits[bit_ctr.q])
-          led = ctr.q < 82;
-        else
+        if (color[bit_ctr.q]) //if current bit is HIGH, send 80 1's and 45 0's
+          led = ctr.q < 80;
+        else //if current bit is LOW, send 40 1's, and 85 0's
           led = ctr.q < 40;
         
         ctr.d = ctr.q + 1;
-        if (ctr.q == 122){ //check if you can send next bit 
+        if (ctr.q == 125){ //check if you can send next bit 
           ctr.d = 0;
           
           bit_ctr.d = bit_ctr.q + 1;
