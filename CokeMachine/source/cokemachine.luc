@@ -1,0 +1,62 @@
+module cokemachine (
+    input clk,  // clock
+    input rst,  // reset
+    input coin[2], // 01 = 50c, 10 = 100c, 11 = 10c
+    output dispense,
+    output change[2],
+    output display,
+    output test
+  ) {
+  
+  .clk(clk){
+    .rst(rst){
+    fsm cm={NOCOIN, COIN};
+    }
+  }
+
+  always {
+    dispense = 0;
+    change = 0;
+    display = 0;
+    test = cm.q;
+    
+    case (cm.q){
+      cm.NOCOIN: 
+        if (coin == b10){
+          cm.d = cm.NOCOIN;
+          dispense = 1;
+          change = 0;
+          display = 0;
+        } else if (coin == b01){
+          cm.d = cm.COIN;
+          dispense = 0;
+          change = 0;
+          display = 1;
+        } else{
+          cm.d = cm.NOCOIN;
+          dispense = 0;
+          change = coin;
+          display = 0;
+        }
+      cm.COIN:
+        //cm.d = cm.q;
+       if (coin == b01){
+          cm.d = cm.NOCOIN;
+          dispense = 1;
+          change = 0;
+          display = 0;
+          
+        } else if (coin == b10){
+          cm.d = cm.NOCOIN;
+          dispense = 1;
+          change = b01;
+          display = 0;
+        } else{
+          cm.d = cm.COIN;
+          dispense = 0;
+          change = coin;
+          display = 1;
+        }
+    }
+  }
+}
