@@ -2,8 +2,8 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Fri Nov 13 01:09:42 2020
-# Process ID: 5660
+# Start of session at: Fri Nov 13 11:15:31 2020
+# Process ID: 6436
 # Current directory: C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.runs/impl_1
 # Command line: vivado.exe -log au_top_0.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source au_top_0.tcl -notrace
 # Log file: C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.runs/impl_1/au_top_0.vdi

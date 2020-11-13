@@ -5,7 +5,7 @@ set device xc7a35tftg256-1
 if {[file exists "$projDir/$projName"]} { file delete -force "$projDir/$projName" }
 create_project $projName "$projDir/$projName" -part $device
 set_property design_mode RTL [get_filesets sources_1]
-set verilogSources [list "C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/verilog/au_top_0.v" "C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/verilog/matrix_writer_1.v" "C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/verilog/reset_conditioner_2.v" ]
+set verilogSources [list "C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/verilog/au_top_0.v" "C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/verilog/matrix_writer_1.v" "C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/verilog/matrix_ram_sample_2.v" "C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/verilog/reset_conditioner_3.v" "C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/verilog/simple_ram_4.v" ]
 import_files -fileset [get_filesets sources_1] -force -norecurse $verilogSources
 set xdcSources [list "C:/Program\ Files/Alchitry/Alchitry\ Labs/library/components/au.xdc" "C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/constraint/custom.xdc" ]
 read_xdc $xdcSources

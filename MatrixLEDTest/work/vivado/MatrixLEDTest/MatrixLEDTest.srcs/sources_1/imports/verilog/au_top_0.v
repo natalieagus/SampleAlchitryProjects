@@ -64,9 +64,22 @@ module au_top_0 (
     .debug(M_matrixwriter_debug)
   );
   
+  wire [3-1:0] M_matrixram_top_out;
+  wire [3-1:0] M_matrixram_bottom_out;
+  reg [4-1:0] M_matrixram_row_address;
+  reg [6-1:0] M_matrixram_col_address;
+  matrix_ram_sample_2 matrixram (
+    .clk(clk),
+    .rst(rst),
+    .row_address(M_matrixram_row_address),
+    .col_address(M_matrixram_col_address),
+    .top_out(M_matrixram_top_out),
+    .bottom_out(M_matrixram_bottom_out)
+  );
+  
   wire [1-1:0] M_reset_cond_out;
   reg [1-1:0] M_reset_cond_in;
-  reset_conditioner_2 reset_cond (
+  reset_conditioner_3 reset_cond (
     .clk(clk),
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
@@ -80,7 +93,9 @@ module au_top_0 (
     io_led = 24'h000000;
     io_seg = 8'hff;
     io_sel = 4'hf;
-    M_matrixwriter_data = 6'h24;
+    M_matrixram_row_address = 4'h0;
+    M_matrixram_col_address = 6'h00;
+    M_matrixwriter_data = {M_matrixram_bottom_out, M_matrixram_top_out};
     red0 = M_matrixwriter_red0;
     red1 = M_matrixwriter_red1;
     green0 = M_matrixwriter_green0;

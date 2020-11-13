@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Fri Nov 13 01:10:05 2020
+| Date         : Fri Nov 13 11:15:54 2020
 | Host         : DESKTOP-9GBQU5S running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file au_top_0_control_sets_placed.rpt
 | Design       : au_top_0
@@ -40,11 +40,11 @@ Table of Contents
 |       Fanout       | Count |
 +--------------------+-------+
 | Total control sets |     8 |
-| >= 0 to < 4        |     3 |
+| >= 0 to < 4        |     2 |
 | >= 4 to < 6        |     3 |
 | >= 6 to < 8        |     2 |
 | >= 8 to < 10       |     0 |
-| >= 10 to < 12      |     0 |
+| >= 10 to < 12      |     1 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
 | >= 16              |     0 |
@@ -58,29 +58,29 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               2 |            1 |
+| No           | No                    | No                     |               4 |            2 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              10 |            2 |
+| No           | Yes                   | No                     |              10 |            4 |
 | Yes          | No                    | No                     |               1 |            1 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              17 |            7 |
+| Yes          | Yes                   | No                     |              23 |            5 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------+---------------------------------------------+---------------------------------------------+------------------+----------------+
-|  Clock Signal  |                Enable Signal                |               Set/Reset Signal              | Slice Load Count | Bel Load Count |
-+----------------+---------------------------------------------+---------------------------------------------+------------------+----------------+
-|  clk_IBUF_BUFG | matrixwriter/M_state_q0                     |                                             |                1 |              1 |
-|  clk_IBUF_BUFG |                                             |                                             |                1 |              2 |
-|  clk_IBUF_BUFG | matrixwriter/M_sclk_d1_out                  | matrixwriter/M_sclk_q_i_1_n_0               |                1 |              2 |
-|  clk_IBUF_BUFG |                                             | reset_cond/M_reset_cond_in                  |                1 |              4 |
-|  clk_IBUF_BUFG | matrixwriter/M_current_address_q[3]_i_1_n_0 | reset_cond/Q[0]                             |                2 |              4 |
-|  clk_IBUF_BUFG | matrixwriter/M_rgb_data_d                   | reset_cond/Q[0]                             |                2 |              4 |
-|  clk_IBUF_BUFG |                                             | reset_cond/Q[0]                             |                1 |              6 |
-|  clk_IBUF_BUFG | matrixwriter/M_state_d19_out                | matrixwriter/M_led_bit_counter_q[6]_i_1_n_0 |                2 |              7 |
-+----------------+---------------------------------------------+---------------------------------------------+------------------+----------------+
++----------------+---------------------------------------------+-------------------------------+------------------+----------------+
+|  Clock Signal  |                Enable Signal                |        Set/Reset Signal       | Slice Load Count | Bel Load Count |
++----------------+---------------------------------------------+-------------------------------+------------------+----------------+
+|  clk_IBUF_BUFG | matrixwriter/M_state_q0                     |                               |                1 |              1 |
+|  clk_IBUF_BUFG | matrixwriter/M_sclk_d1_out                  | reset_cond/M_stage_q_reg[3]_0 |                1 |              2 |
+|  clk_IBUF_BUFG |                                             |                               |                2 |              4 |
+|  clk_IBUF_BUFG |                                             | reset_cond/M_reset_cond_in    |                1 |              4 |
+|  clk_IBUF_BUFG | matrixwriter/M_current_address_q[3]_i_1_n_0 | reset_cond/Q[0]               |                1 |              4 |
+|  clk_IBUF_BUFG |                                             | reset_cond/Q[0]               |                3 |              6 |
+|  clk_IBUF_BUFG | matrixwriter/E[0]                           | reset_cond/SR[0]              |                1 |              7 |
+|  clk_IBUF_BUFG | matrixram/sel                               | reset_cond/Q[0]               |                2 |             10 |
++----------------+---------------------------------------------+-------------------------------+------------------+----------------+
 
 

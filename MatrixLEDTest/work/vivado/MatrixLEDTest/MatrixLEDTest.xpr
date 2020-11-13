@@ -6,7 +6,7 @@
 <Project Version="7" Minor="44" Path="C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="6f2ac5f6d9ed41c4a3d66b6352a91e0c"/>
+    <Option Name="Id" Val="61062016a5dc4fb6a7942203ecdcbd47"/>
     <Option Name="Part" Val="xc7a35tftg256-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -58,19 +58,37 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
-      <File Path="$PSRCDIR/sources_1/imports/verilog/matrix_writer_1.v">
+      <File Path="$PSRCDIR/sources_1/imports/verilog/matrix_ram_sample_2.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/matrix_writer_1.v"/>
-          <Attr Name="ImportTime" Val="1605200933"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/matrix_ram_sample_2.v"/>
+          <Attr Name="ImportTime" Val="1605237282"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/verilog/reset_conditioner_2.v">
+      <File Path="$PSRCDIR/sources_1/imports/verilog/matrix_writer_1.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/reset_conditioner_2.v"/>
-          <Attr Name="ImportTime" Val="1605200933"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/matrix_writer_1.v"/>
+          <Attr Name="ImportTime" Val="1605237282"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/reset_conditioner_3.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/reset_conditioner_3.v"/>
+          <Attr Name="ImportTime" Val="1605237282"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/simple_ram_4.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/simple_ram_4.v"/>
+          <Attr Name="ImportTime" Val="1605237282"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -79,7 +97,7 @@
       <File Path="$PSRCDIR/sources_1/imports/verilog/au_top_0.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/au_top_0.v"/>
-          <Attr Name="ImportTime" Val="1605200933"/>
+          <Attr Name="ImportTime" Val="1605237282"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>

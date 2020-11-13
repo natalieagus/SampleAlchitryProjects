@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="MatrixLEDTest" board="Alchitry Au" language="Lucid" version="3">
   <files>
+    <component>simple_ram.v</component>
     <src>matrix_writer.luc</src>
     <component>reset_conditioner.luc</component>
+    <src>matrix_ram_sample.luc</src>
     <src top="true">au_top.luc</src>
     <constraint lib="true">au.xdc</constraint>
     <constraint>custom.acf</constraint>
