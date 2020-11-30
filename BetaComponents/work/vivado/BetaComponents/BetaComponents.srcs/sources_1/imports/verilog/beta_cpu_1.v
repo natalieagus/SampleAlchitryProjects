@@ -92,7 +92,9 @@ module beta_cpu_1 (
     M_control_system_irq = interrupt;
     M_control_system_opcode = instruction[26+5-:6];
     ia = M_pc_q;
+    M_regfile_system_write_enable = 1'h0;
     if (slowclk) begin
+      M_regfile_system_write_enable = M_control_system_werf;
       
       case (M_control_system_pcsel)
         3'h0: begin
@@ -143,7 +145,6 @@ module beta_cpu_1 (
       end
     endcase
     M_regfile_system_read_address_1 = instruction[16+4-:5];
-    M_regfile_system_write_enable = M_control_system_werf;
     M_control_system_z = (~|M_regfile_system_read_data_1);
     mem_data_output = M_regfile_system_read_data_2;
     M_alu_system_alufn_signal = M_control_system_alufn;

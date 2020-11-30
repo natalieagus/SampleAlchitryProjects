@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Sun Sep 13 15:36:27 2020
+| Date         : Mon Nov 30 12:42:23 2020
 | Host         : DESKTOP-9GBQU5S running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file au_top_0_control_sets_placed.rpt
 | Design       : au_top_0
@@ -58,34 +58,34 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              60 |           23 |
+| No           | No                    | No                     |              60 |           24 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              31 |            8 |
-| Yes          | No                    | No                     |             224 |          119 |
+| No           | Yes                   | No                     |              31 |            9 |
+| Yes          | No                    | No                     |             224 |           90 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              32 |           12 |
+| Yes          | Yes                   | No                     |              32 |           17 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------+-----------------------------------------------------+----------------------------+------------------+----------------+
-|  Clock Signal  |                    Enable Signal                    |      Set/Reset Signal      | Slice Load Count | Bel Load Count |
-+----------------+-----------------------------------------------------+----------------------------+------------------+----------------+
-|  clk_IBUF_BUFG |                                                     | reset_cond/M_reset_cond_in |                1 |              4 |
-|  clk_IBUF_BUFG | M_memory_unit_instruction_write_enable              |                            |                3 |             12 |
-|  clk_IBUF_BUFG |                                                     | reset_cond/Q[0]            |                7 |             27 |
-|  clk_IBUF_BUFG | beta/control_system/E[0]                            | beta/regfile_system/SR[0]  |               12 |             32 |
-|  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_46 |                            |               15 |             32 |
-|  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_49 |                            |               14 |             32 |
-|  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_45 |                            |               17 |             32 |
-|  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_50 |                            |               19 |             32 |
-|  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_51 |                            |               17 |             32 |
-|  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_47 |                            |               18 |             32 |
-|  clk_IBUF_BUFG | memory_unit/instruction_memory/read_data_reg[26]_48 |                            |               19 |             32 |
-|  clk_IBUF_BUFG | memory_unit/instruction_memory/M_beta_xwr           |                            |                8 |             32 |
-|  clk_IBUF_BUFG |                                                     |                            |               23 |             60 |
-+----------------+-----------------------------------------------------+----------------------------+------------------+----------------+
++----------------+--------------------------------------------------+----------------------------+------------------+----------------+
+|  Clock Signal  |                   Enable Signal                  |      Set/Reset Signal      | Slice Load Count | Bel Load Count |
++----------------+--------------------------------------------------+----------------------------+------------------+----------------+
+|  clk_IBUF_BUFG |                                                  | reset_cond/M_reset_cond_in |                2 |              4 |
+|  clk_IBUF_BUFG | M_memory_unit_instruction_write_enable           |                            |                3 |             12 |
+|  clk_IBUF_BUFG |                                                  | reset_cond/Q[0]            |                7 |             27 |
+|  clk_IBUF_BUFG | memory_unit/instruction_memory/M_ctr_q_reg[26]_0 |                            |               10 |             32 |
+|  clk_IBUF_BUFG | memory_unit/instruction_memory/M_ctr_q_reg[26]_3 |                            |               15 |             32 |
+|  clk_IBUF_BUFG | memory_unit/instruction_memory/M_ctr_q_reg[26]_5 |                            |               13 |             32 |
+|  clk_IBUF_BUFG | memory_unit/instruction_memory/M_ctr_q_reg[26]_4 |                            |               10 |             32 |
+|  clk_IBUF_BUFG | memory_unit/instruction_memory/M_ctr_q_reg[26]_2 |                            |               12 |             32 |
+|  clk_IBUF_BUFG | memory_unit/instruction_memory/M_beta_xwr        |                            |                8 |             32 |
+|  clk_IBUF_BUFG | memory_unit/instruction_memory/M_ctr_q_reg[26]   |                            |               15 |             32 |
+|  clk_IBUF_BUFG | memory_unit/instruction_memory/M_ctr_q_reg[26]_1 |                            |               15 |             32 |
+|  clk_IBUF_BUFG | beta/control_system/E[0]                         | beta/M_beta_rst            |               17 |             32 |
+|  clk_IBUF_BUFG |                                                  |                            |               24 |             60 |
++----------------+--------------------------------------------------+----------------------------+------------------+----------------+
 
 

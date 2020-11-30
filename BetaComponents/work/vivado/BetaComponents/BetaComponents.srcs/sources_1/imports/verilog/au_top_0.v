@@ -155,12 +155,12 @@ module au_top_0 (
   end
   
   always @(posedge clk) begin
-    M_writer_counter_q <= M_writer_counter_d;
+    M_code_writer_q <= M_code_writer_d;
   end
   
   
   always @(posedge clk) begin
-    M_code_writer_q <= M_code_writer_d;
+    M_writer_counter_q <= M_writer_counter_d;
   end
   
 endmodule
