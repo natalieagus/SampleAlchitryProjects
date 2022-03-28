@@ -6,32 +6,33 @@
 
 /*
    Parameters:
-     STAGES = 4
+     DEPTH = NUM_SYNC
 */
-module reset_conditioner_3 (
+module pipeline_8 (
     input clk,
     input in,
     output reg out
   );
   
-  localparam STAGES = 3'h4;
+  localparam DEPTH = 2'h2;
   
   
-  reg [3:0] M_stage_d, M_stage_q = 4'hf;
+  reg [1:0] M_pipe_d, M_pipe_q = 1'h0;
+  
+  integer i;
   
   always @* begin
-    M_stage_d = M_stage_q;
+    M_pipe_d = M_pipe_q;
     
-    M_stage_d = {M_stage_q[0+2-:3], 1'h0};
-    out = M_stage_q[3+0-:1];
+    M_pipe_d[0+0-:1] = in;
+    out = M_pipe_q[1+0-:1];
+    for (i = 1'h1; i < 2'h2; i = i + 1) begin
+      M_pipe_d[(i)*1+0-:1] = M_pipe_q[(i - 1'h1)*1+0-:1];
+    end
   end
   
   always @(posedge clk) begin
-    if (in == 1'b1) begin
-      M_stage_q <= 4'hf;
-    end else begin
-      M_stage_q <= M_stage_d;
-    end
+    M_pipe_q <= M_pipe_d;
   end
   
 endmodule

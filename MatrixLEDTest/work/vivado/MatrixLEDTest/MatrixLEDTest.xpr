@@ -6,7 +6,7 @@
 <Project Version="7" Minor="54" Path="C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="51606da4fdf6458199c70abd29028d3e"/>
+    <Option Name="Id" Val="a533b00d568d4cc8a59269a958d74228"/>
     <Option Name="Part" Val="xc7a35tftg256-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -35,6 +35,7 @@
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
+    <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
     <Option Name="IPDefaultOutputPath" Val="$PGENDIR/sources_1"/>
     <Option Name="IPCachePermission" Val="read"/>
     <Option Name="IPCachePermission" Val="write"/>
@@ -72,10 +73,37 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
       <Filter Type="Srcs"/>
-      <File Path="$PSRCDIR/sources_1/imports/verilog/matrix_ram_2.v">
+      <File Path="$PSRCDIR/sources_1/imports/verilog/button_conditioner_6.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/matrix_ram_2.v"/>
-          <Attr Name="ImportTime" Val="1648471630"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/button_conditioner_6.v"/>
+          <Attr Name="ImportTime" Val="1648490469"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/edge_detector_5.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/edge_detector_5.v"/>
+          <Attr Name="ImportTime" Val="1648490469"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/matrix_ram_3.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/matrix_ram_3.v"/>
+          <Attr Name="ImportTime" Val="1648490469"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/matrix_ram_writer_2.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/matrix_ram_writer_2.v"/>
+          <Attr Name="ImportTime" Val="1648490469"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -84,25 +112,34 @@
       <File Path="$PSRCDIR/sources_1/imports/verilog/matrix_writer_1.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/matrix_writer_1.v"/>
-          <Attr Name="ImportTime" Val="1648471630"/>
+          <Attr Name="ImportTime" Val="1648490469"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/verilog/reset_conditioner_3.v">
+      <File Path="$PSRCDIR/sources_1/imports/verilog/pipeline_8.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/reset_conditioner_3.v"/>
-          <Attr Name="ImportTime" Val="1648471630"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/pipeline_8.v"/>
+          <Attr Name="ImportTime" Val="1648490469"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/verilog/simple_dual_ram_4.v">
+      <File Path="$PSRCDIR/sources_1/imports/verilog/reset_conditioner_4.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/simple_dual_ram_4.v"/>
-          <Attr Name="ImportTime" Val="1648471630"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/reset_conditioner_4.v"/>
+          <Attr Name="ImportTime" Val="1648490469"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/verilog/simple_dual_ram_7.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/simple_dual_ram_7.v"/>
+          <Attr Name="ImportTime" Val="1648490469"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -111,7 +148,7 @@
       <File Path="$PSRCDIR/sources_1/imports/verilog/au_top_0.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/au_top_0.v"/>
-          <Attr Name="ImportTime" Val="1648471629"/>
+          <Attr Name="ImportTime" Val="1648490469"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -193,7 +230,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7a35tftg256-1" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" SynthRun="synth_1" IncludeInArchive="true" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/impl_1">
+    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7a35tftg256-1" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020">
           <Desc>Default settings for Implementation.</Desc>
@@ -210,6 +247,7 @@
           <Option Id="BinFile">1</Option>
         </Step>
       </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2020"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>

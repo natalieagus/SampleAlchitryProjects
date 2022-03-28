@@ -45,7 +45,7 @@
    value read in this case is undefined.
 */
 
-module simple_dual_ram_4 #(
+module simple_dual_ram_7 #(
     parameter SIZE = 8,                // size of each entry
     parameter DEPTH = 8                // number of entries
   )(

@@ -64,17 +64,60 @@ module au_top_0 (
     .debug(M_matrixwriter_debug)
   );
   
-  wire [1-1:0] M_matrixram_loading_done;
+  wire [4-1:0] M_ramwriter_row_address_top;
+  wire [6-1:0] M_ramwriter_col_address_top;
+  wire [1-1:0] M_ramwriter_we_top;
+  wire [3-1:0] M_ramwriter_wd_top;
+  wire [4-1:0] M_ramwriter_row_address_btm;
+  wire [6-1:0] M_ramwriter_col_address_btm;
+  wire [1-1:0] M_ramwriter_we_btm;
+  wire [3-1:0] M_ramwriter_wd_btm;
+  wire [1-1:0] M_ramwriter_ready;
+  reg [1-1:0] M_ramwriter_reload;
+  reg [16-1:0] M_ramwriter_new_data;
+  matrix_ram_writer_2 ramwriter (
+    .clk(clk),
+    .rst(rst),
+    .reload(M_ramwriter_reload),
+    .new_data(M_ramwriter_new_data),
+    .row_address_top(M_ramwriter_row_address_top),
+    .col_address_top(M_ramwriter_col_address_top),
+    .we_top(M_ramwriter_we_top),
+    .wd_top(M_ramwriter_wd_top),
+    .row_address_btm(M_ramwriter_row_address_btm),
+    .col_address_btm(M_ramwriter_col_address_btm),
+    .we_btm(M_ramwriter_we_btm),
+    .wd_btm(M_ramwriter_wd_btm),
+    .ready(M_ramwriter_ready)
+  );
+  
   wire [3-1:0] M_matrixram_top_out;
   wire [3-1:0] M_matrixram_bottom_out;
   reg [4-1:0] M_matrixram_row_address;
   reg [6-1:0] M_matrixram_col_address;
-  matrix_ram_2 matrixram (
+  reg [4-1:0] M_matrixram_row_address_top;
+  reg [6-1:0] M_matrixram_col_address_top;
+  reg [1-1:0] M_matrixram_we_top;
+  reg [3-1:0] M_matrixram_wd_top;
+  reg [4-1:0] M_matrixram_row_address_btm;
+  reg [6-1:0] M_matrixram_col_address_btm;
+  reg [1-1:0] M_matrixram_we_btm;
+  reg [3-1:0] M_matrixram_wd_btm;
+  reg [1-1:0] M_matrixram_ready;
+  matrix_ram_3 matrixram (
     .clk(clk),
     .rst(rst),
     .row_address(M_matrixram_row_address),
     .col_address(M_matrixram_col_address),
-    .loading_done(M_matrixram_loading_done),
+    .row_address_top(M_matrixram_row_address_top),
+    .col_address_top(M_matrixram_col_address_top),
+    .we_top(M_matrixram_we_top),
+    .wd_top(M_matrixram_wd_top),
+    .row_address_btm(M_matrixram_row_address_btm),
+    .col_address_btm(M_matrixram_col_address_btm),
+    .we_btm(M_matrixram_we_btm),
+    .wd_btm(M_matrixram_wd_btm),
+    .ready(M_matrixram_ready),
     .top_out(M_matrixram_top_out),
     .bottom_out(M_matrixram_bottom_out)
   );
@@ -85,10 +128,24 @@ module au_top_0 (
   
   wire [1-1:0] M_reset_cond_out;
   reg [1-1:0] M_reset_cond_in;
-  reset_conditioner_3 reset_cond (
+  reset_conditioner_4 reset_cond (
     .clk(clk),
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
+  );
+  wire [1-1:0] M_reload_button_edge_detector_out;
+  reg [1-1:0] M_reload_button_edge_detector_in;
+  edge_detector_5 reload_button_edge_detector (
+    .clk(clk),
+    .in(M_reload_button_edge_detector_in),
+    .out(M_reload_button_edge_detector_out)
+  );
+  wire [1-1:0] M_reload_button_cond_out;
+  reg [1-1:0] M_reload_button_cond_in;
+  button_conditioner_6 reload_button_cond (
+    .clk(clk),
+    .in(M_reload_button_cond_in),
+    .out(M_reload_button_cond_out)
   );
   
   always @* begin
@@ -97,11 +154,24 @@ module au_top_0 (
     
     M_reset_cond_in = ~rst_n;
     rst = M_reset_cond_out;
+    M_reload_button_cond_in = io_button[0+0-:1];
+    M_reload_button_edge_detector_in = M_reload_button_cond_out;
     usb_tx = usb_rx;
     led = 8'h00;
     io_led = 24'h000000;
     io_seg = 8'hff;
     io_sel = 4'hf;
+    M_ramwriter_reload = M_reload_button_edge_detector_out;
+    M_ramwriter_new_data = {io_dip[8+7-:8], io_dip[0+7-:8]};
+    M_matrixram_row_address_top = M_ramwriter_row_address_top;
+    M_matrixram_col_address_top = M_ramwriter_col_address_top;
+    M_matrixram_we_top = M_ramwriter_we_top;
+    M_matrixram_wd_top = M_ramwriter_wd_top;
+    M_matrixram_row_address_btm = M_ramwriter_row_address_btm;
+    M_matrixram_col_address_btm = M_ramwriter_col_address_btm;
+    M_matrixram_we_btm = M_ramwriter_we_btm;
+    M_matrixram_wd_btm = M_ramwriter_wd_btm;
+    M_matrixram_ready = M_ramwriter_ready;
     M_matrixram_row_address = M_matrixwriter_row_index;
     M_matrixram_col_address = M_matrixwriter_col_index;
     M_matrixwriter_data = {M_matrixram_bottom_out, M_matrixram_top_out};
@@ -123,16 +193,16 @@ module au_top_0 (
     io_led[0+3+0-:1] = M_matrixwriter_red1;
     io_led[0+4+0-:1] = M_matrixwriter_green1;
     io_led[0+5+0-:1] = M_matrixwriter_blue1;
-    io_led[0+7-:8] = M_matrixwriter_debug;
+    io_led[0+0+2-:3] = M_matrixram_top_out;
+    io_led[0+3+2-:3] = M_matrixram_bottom_out;
     if (M_matrixwriter_row_index != 1'h0) begin
       M_row_index_d = M_matrixwriter_row_index;
     end
     if (M_matrixwriter_col_index != 1'h0) begin
       M_col_index_d = M_matrixwriter_col_index;
     end
-    io_led[8+4+3-:4] = M_matrixwriter_address;
-    io_led[8+0+3-:4] = M_row_index_q;
-    io_led[16+7-:8] = M_col_index_q;
+    io_led[8+0+3-:4] = M_matrixwriter_address;
+    io_led[16+7-:8] = M_matrixwriter_debug;
   end
   
   always @(posedge clk) begin

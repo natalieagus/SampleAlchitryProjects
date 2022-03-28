@@ -84,10 +84,14 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/matrix_ram_2.v
+  C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/button_conditioner_6.v
+  C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/edge_detector_5.v
+  C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/matrix_ram_3.v
+  C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/matrix_ram_writer_2.v
   C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/matrix_writer_1.v
-  C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/reset_conditioner_3.v
-  C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/simple_dual_ram_4.v
+  C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/pipeline_8.v
+  C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/reset_conditioner_4.v
+  C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/simple_dual_ram_7.v
   C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/au_top_0.v
 }
 OPTRACE "Adding files" END { }

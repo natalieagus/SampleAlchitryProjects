@@ -26,6 +26,7 @@ module au_top (
   sig rst;                  // reset signal
   
   matrix_writer matrixwriter(.clk(clk), .rst(rst));
+  matrix_ram_writer ramwriter(#DATA_WIDTH(16), .clk(clk), .rst(rst));
   matrix_ram matrixram(.clk(clk), .rst(rst));
   
   dff row_index[8](.clk(clk));
@@ -35,11 +36,18 @@ module au_top (
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
     reset_conditioner reset_cond;
+    edge_detector reload_button_edge_detector(#RISE(1), #FALL(0));
+    button_conditioner reload_button_cond;
   }
   
   always {
     reset_cond.in = ~rst_n; // input raw inverted reset signal
     rst = reset_cond.out;   // conditioned reset
+    reload_button_cond.in = io_button[0];
+    reload_button_edge_detector.in = reload_button_cond.out;
+    
+    
+    
     
     usb_tx = usb_rx;        // loop serial port
     
@@ -49,8 +57,29 @@ module au_top (
     io_seg = 8hff;          // turn segments off
     io_sel = 4hf;           // select no digits
     
+    ramwriter.reload = reload_button_edge_detector.out; // replace this from reload signal from CPU 
+    ramwriter.new_data = c{io_dip[1], io_dip[0]}; // replace this from reg content from CPU
+    
+    matrixram.row_address_top = ramwriter.row_address_top;
+    matrixram.col_address_top = ramwriter.col_address_top;
+    matrixram.we_top = ramwriter.we_top;
+    matrixram.wd_top = ramwriter.wd_top;
+    
+    matrixram.row_address_btm = ramwriter.row_address_btm;
+    matrixram.col_address_btm = ramwriter.col_address_btm;
+    matrixram.we_btm = ramwriter.we_btm;
+    matrixram.wd_btm = ramwriter.wd_btm;
+    
+    matrixram.ready = ramwriter.ready;
+    
+    // these indexes are offset by 2 for unknown reasons
+    // to debug with more data in the matrix_ram so that we know if we don't offset the rows too 
+    // right now it is handled inside matrix_ram by reducing by 2 before feeding it to the ram
     matrixram.row_address = matrixwriter.row_index;
     matrixram.col_address = matrixwriter.col_index;
+    
+    // matrixram.row_address = matrixwriter.address;
+    // matrixram.col_address = matrixwriter.debug;
    
     
    // matrixwriter.data = 6b100100; // BLUE sample. change to the output of some RAM unit 
@@ -76,7 +105,8 @@ module au_top (
     io_led[0][4] = matrixwriter.green1;
     io_led[0][5] = matrixwriter.blue1;
     
-    io_led[0] = matrixwriter.debug;
+    io_led[0][2:0] = matrixram.top_out;
+    io_led[0][5:3] = matrixram.bottom_out;
     
     if (matrixwriter.row_index != 0){
       row_index.d = matrixwriter.row_index;
@@ -86,9 +116,8 @@ module au_top (
       col_index.d = matrixwriter.col_index;
     }
     
-    io_led[1][7:4] = matrixwriter.address;
-    io_led[1][3:0] = row_index.q;
-    io_led[2] = col_index.q;
+    io_led[1][3:0] = matrixwriter.address;
+    io_led[2] = matrixwriter.debug;
     
     
     
