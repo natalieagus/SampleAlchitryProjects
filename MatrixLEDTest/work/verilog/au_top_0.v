@@ -136,12 +136,12 @@ module au_top_0 (
   end
   
   always @(posedge clk) begin
-    M_col_index_q <= M_col_index_d;
+    M_row_index_q <= M_row_index_d;
   end
   
   
   always @(posedge clk) begin
-    M_row_index_q <= M_row_index_d;
+    M_col_index_q <= M_col_index_d;
   end
   
 endmodule

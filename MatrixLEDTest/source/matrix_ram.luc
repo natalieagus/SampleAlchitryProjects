@@ -20,14 +20,7 @@ module matrix_ram #(
     fsm ram_state(.clk(clk)) = {LOAD_ADDRESS, LOAD_WAIT, LOOP};
   
   
-    const ROW_DATA_BOTTOM = {3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
-  3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
-    3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
-    3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
-    3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
-    3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
-    3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
-    3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001, 
+    const ROW_DATA_BOTTOM = {
     3b001, 3b001,3b001,3b001,3b001,3b001,3b001,3b001,
     3b001, 3b001,3b001,3b001,3b001,3b001,3b001,3b001,
     3b001, 3b001,3b001,3b001,3b001,3b001,3b001,3b001,
@@ -36,8 +29,9 @@ module matrix_ram #(
     3b001, 3b001,3b001,3b001,3b001,3b001,3b001,3b001,
     3b001, 3b001,3b001,3b001,3b001,3b001,3b001,3b001,
     3b001, 3b001,3b001,3b001,3b001,3b001,3b001,3b001}; // 64 by 3 : B0 G0 R0  per entry, index[0] is at the bottom right
+    
     const ROW_DATA_TOP = {3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
-  3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
+    3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
     3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
     3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
     3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
@@ -93,7 +87,7 @@ module matrix_ram #(
           ram_state.LOOP:
             //provide output from ram after writing is done
             loading_done = 1;
-            top_ram.raddr = row_address * MATRIX_WIDTH + col_address - 2; // offset by 2 clock cycles than what's required by matrix_writer, strange
+            top_ram.raddr = row_address * MATRIX_WIDTH + col_address - 2; // -2 should offset by 2 clock cycles than what's required by matrix_writer, strange
             bottom_ram.raddr = row_address * MATRIX_WIDTH + col_address - 2;
             top_out = top_ram.read_data;
             bottom_out = bottom_ram.read_data;

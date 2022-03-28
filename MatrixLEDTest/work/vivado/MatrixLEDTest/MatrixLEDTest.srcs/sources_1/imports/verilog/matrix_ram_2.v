@@ -60,7 +60,7 @@ module matrix_ram_2 (
   
   reg [1:0] M_ram_state_d, M_ram_state_q = LOAD_ADDRESS_ram_state;
   
-  localparam ROW_DATA_BOTTOM = 384'h0a2ce90a2ce90a2ce90a2ce90a2ce90a2ce90a2ce90a2ce9249249249249249249249249249249249249249249249249;
+  localparam ROW_DATA_BOTTOM = 192'h249249249249249249249249249249249249249249249249;
   
   localparam ROW_DATA_TOP = 192'h0a2ce90a2ce90a2ce90a2ce90a2ce90a2ce90a2ce90a2ce9;
   
@@ -115,21 +115,21 @@ module matrix_ram_2 (
   end
   
   always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_ram_writer_address_q <= 1'h0;
+    end else begin
+      M_ram_writer_address_q <= M_ram_writer_address_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
     M_data_address_q <= M_data_address_d;
   end
   
   
   always @(posedge clk) begin
     M_ram_state_q <= M_ram_state_d;
-  end
-  
-  
-  always @(posedge clk) begin
-    if (rst == 1'b1) begin
-      M_ram_writer_address_q <= 1'h0;
-    end else begin
-      M_ram_writer_address_q <= M_ram_writer_address_d;
-    end
   end
   
 endmodule
