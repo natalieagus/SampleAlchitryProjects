@@ -64,7 +64,7 @@ module matrix_ram_2 (
   
   localparam ROW_DATA_TOP = 192'h0a2ce90a2ce90a2ce90a2ce90a2ce90a2ce90a2ce90a2ce9;
   
-  reg [6:0] M_data_address_d, M_data_address_q = 1'h0;
+  reg [5:0] M_data_address_d, M_data_address_q = 1'h0;
   
   reg [9:0] M_ram_writer_address_d, M_ram_writer_address_q = 1'h0;
   
@@ -124,12 +124,12 @@ module matrix_ram_2 (
   
   
   always @(posedge clk) begin
-    M_data_address_q <= M_data_address_d;
+    M_ram_state_q <= M_ram_state_d;
   end
   
   
   always @(posedge clk) begin
-    M_ram_state_q <= M_ram_state_d;
+    M_data_address_q <= M_data_address_d;
   end
   
 endmodule

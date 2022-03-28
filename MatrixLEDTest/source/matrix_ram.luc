@@ -39,7 +39,7 @@ module matrix_ram #(
     3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
     3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001}; // 64 by 3 : B G R  per entry, index[0] is at the bottom right
   
-    dff data_address[$clog2(MATRIX_WIDTH)+1](#INIT(0),.clk(clk));
+    dff data_address[$clog2(MATRIX_WIDTH)](#INIT(0),.clk(clk));
    
       
     // to write to all 3-bit cells in top_ram and bottom_ram 
