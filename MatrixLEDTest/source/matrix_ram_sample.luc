@@ -8,43 +8,13 @@ module matrix_ram_sample #(
     input rst,
     input row_address[ADDRESS_SIZE],
     input col_address[$clog2(MATRIX_WIDTH)],
-    output top_out[3], //gbr
-    output bottom_out[3] //gbr
+    output top_out[3], // bgr
+    output bottom_out[3] // bgr
   ) {
 
-     const ROW_DATA_BOTTOM = {3b100, 3b100, 3b100, 3b100,
-                    3b100, 3b100, 3b100, 3b100,
-                    3b100, 3b100, 3b100, 3b100,
-                    3b100, 3b100, 3b100, 3b100,
-                    3b100, 3b100, 3b100, 3b100,
-                    3b100, 3b100, 3b100, 3b100,
-                    3b100, 3b100, 3b100, 3b100,
-                    3b100, 3b100, 3b100, 3b100,
-                    3b100, 3b100, 3b100, 3b100,
-                    3b100, 3b100, 3b100, 3b100,
-                    3b100, 3b100, 3b100, 3b100,
-                    3b100, 3b100, 3b100, 3b100,
-                    3b100, 3b100, 3b100, 3b100,
-                    3b100, 3b100, 3b100, 3b100,
-                    3b100, 3b100, 3b100, 3b100,
-                    3b100, 3b100, 3b100, 3b100}; // 64 by 3 : B0 G0 R0  per entry, index[0] is at the bottom right
+     const ROW_DATA_BOTTOM = {3b100, 3b101}; // 64 by 3 : B0 G0 R0  per entry, index[0] is at the bottom right
   
-       const ROW_DATA_TOP = {3b001, 3b001, 3b001, 3b001,
-                    3b001, 3b001, 3b001, 3b001,
-                    3b001, 3b001, 3b001, 3b001,
-                    3b001, 3b001, 3b001, 3b001,
-                    3b001, 3b001, 3b001, 3b001,
-                    3b111, 3b110, 3b110, 3b110,
-                    3b110, 3b110, 3b110, 3b110,
-                    3b110, 3b111, 3b110, 3b110,
-                    3b110, 3b110, 3b110, 3b110,
-                    3b110, 3b110, 3b111, 3b110,
-                    3b110, 3b110, 3b110, 3b110,
-                    3b110, 3b110, 3b110, 3b110,
-                    3b110, 3b110, 3b110, 3b110,
-                    3b110, 3b110, 3b110, 3b110,
-                    3b110, 3b110, 3b110, 3b110,
-                    3b110, 3b110, 3b110, 3b110}; // 64 by 3 : B G R  per entry, index[0] is at the bottom right
+       const ROW_DATA_TOP = {3b110, 3b001}; // 64 by 3 : B G R  per entry, index[0] is at the bottom right
       
     dff ram_writer_address[$clog2(MATRIX_WIDTH*$pow(ADDRESS_SIZE, 2))](#INIT(0), .clk(clk), .rst(rst));
     simple_ram top_ram(#SIZE(3), #DEPTH(MATRIX_WIDTH*$pow(ADDRESS_SIZE, 2)), .clk(clk));

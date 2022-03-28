@@ -18,15 +18,15 @@ module au_top (
     output green1,
     output blue1,
     output latch, 
-    output blank,
+    output blank, // also known as oe
     output sclk_out,
-    output address[4] //row address current write to LED matrix
+    output address[4] // row address current write to LED matrix
   ) {
   
   sig rst;                  // reset signal
   
   matrix_writer matrixwriter(.clk(clk), .rst(rst));
-  matrix_ram_sample matrixram(.clk(clk), .rst(rst));
+  matrix_ram matrixram(.clk(clk), .rst(rst));
   
   .clk(clk) {
     // The reset conditioner is used to synchronize the reset signal to the FPGA
@@ -46,8 +46,9 @@ module au_top (
     io_seg = 8hff;          // turn segments off
     io_sel = 4hf;           // select no digits
     
-    matrixram.row_address = b0000;
-    matrixram.col_address = b000000;
+    matrixram.row_address = matrixwriter.row_index;
+    matrixram.col_address = matrixwriter.col_index;
+   
     
    // matrixwriter.data = 6b100100; // BLUE sample. change to the output of some RAM unit 
     matrixwriter.data = c{matrixram.bottom_out, matrixram.top_out};
@@ -71,6 +72,10 @@ module au_top (
     io_led[0][3] = matrixwriter.red1;
     io_led[0][4] = matrixwriter.green1;
     io_led[0][5] = matrixwriter.blue1;
+    
+    
+    io_led[1] = matrixram.bottom_out;
+    io_led[2] = matrixram.top_out;
     
     
     

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tftg256-1" LaunchTime="1605237323">
+<GenRun Id="impl_1" LaunchPart="xc7a35tftg256-1" LaunchTime="1648456593">
   <File Type="BITSTR-BMM" Name="au_top_0_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="au_top_0_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="au_top_0_timing_summary_init.rpt"/>
@@ -75,12 +75,12 @@
   <File Type="BG-DRC" Name="au_top_0.drc"/>
   <File Type="RDI-RDI" Name="au_top_0.vdi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/imports/verilog/matrix_ram_sample_2.v">
+    <File Path="$PSRCDIR/sources_1/imports/verilog/matrix_ram_2.v">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/matrix_ram_sample_2.v"/>
-        <Attr Name="ImportTime" Val="1605237282"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/matrix_ram_2.v"/>
+        <Attr Name="ImportTime" Val="1648456527"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -89,7 +89,7 @@
     <File Path="$PSRCDIR/sources_1/imports/verilog/matrix_writer_1.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/matrix_writer_1.v"/>
-        <Attr Name="ImportTime" Val="1605237282"/>
+        <Attr Name="ImportTime" Val="1648456527"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -98,16 +98,16 @@
     <File Path="$PSRCDIR/sources_1/imports/verilog/reset_conditioner_3.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/reset_conditioner_3.v"/>
-        <Attr Name="ImportTime" Val="1605237282"/>
+        <Attr Name="ImportTime" Val="1648456527"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/verilog/simple_ram_4.v">
+    <File Path="$PSRCDIR/sources_1/imports/verilog/simple_dual_ram_4.v">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/simple_ram_4.v"/>
-        <Attr Name="ImportTime" Val="1605237282"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/simple_dual_ram_4.v"/>
+        <Attr Name="ImportTime" Val="1648456527"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -116,7 +116,7 @@
     <File Path="$PSRCDIR/sources_1/imports/verilog/au_top_0.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../verilog/au_top_0.v"/>
-        <Attr Name="ImportTime" Val="1605237282"/>
+        <Attr Name="ImportTime" Val="1648456527"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -153,7 +153,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020">
       <Desc>Default settings for Implementation.</Desc>
     </StratHandle>
     <Step Id="init_design"/>
@@ -161,7 +161,7 @@
     <Step Id="power_opt_design"/>
     <Step Id="place_design"/>
     <Step Id="post_place_power_opt_design"/>
-    <Step Id="phys_opt_design" EnableStepBool="1"/>
+    <Step Id="phys_opt_design"/>
     <Step Id="route_design"/>
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream">

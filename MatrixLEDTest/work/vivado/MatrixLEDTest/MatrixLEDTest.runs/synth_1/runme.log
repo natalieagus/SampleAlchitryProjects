@@ -3,10 +3,11 @@
     with args -log au_top_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source au_top_0.tcl
 
 
-****** Vivado v2019.2 (64-bit)
-  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
-  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+****** Vivado v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 
 source au_top_0.tcl -notrace
 Command: synth_design -top au_top_0 -part xc7a35tftg256-1
@@ -14,171 +15,97 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Device 21-403] Loading part xc7a35tftg256-1
-INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 10216 
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 5360
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 768.711 ; gain = 234.070
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1153.621 ; gain = 0.000
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'au_top_0' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/au_top_0.v:7]
-INFO: [Synth 8-6157] synthesizing module 'matrix_writer_1' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/matrix_writer_1.v:12]
+INFO: [Synth 8-6157] synthesizing module 'au_top_0' [C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/au_top_0.v:7]
+INFO: [Synth 8-6157] synthesizing module 'matrix_writer_1' [C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/matrix_writer_1.v:12]
 	Parameter ADDRESS_SIZE bound to: 3'b100 
 	Parameter MATRIX_WIDTH bound to: 7'b1000000 
 	Parameter DIV bound to: 3'b110 
-INFO: [Synth 8-6155] done synthesizing module 'matrix_writer_1' (1#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/matrix_writer_1.v:12]
-INFO: [Synth 8-6157] synthesizing module 'matrix_ram_sample_2' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/matrix_ram_sample_2.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'matrix_writer_1' (1#1) [C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/matrix_writer_1.v:12]
+INFO: [Synth 8-6157] synthesizing module 'matrix_ram_2' [C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/matrix_ram_2.v:12]
 	Parameter ADDRESS_SIZE bound to: 3'b100 
 	Parameter MATRIX_WIDTH bound to: 7'b1000000 
-	Parameter ROW_DATA_BOTTOM bound to: 192'b100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100100 
-	Parameter ROW_DATA_TOP bound to: 192'b001001001001001001001001001001001001001001001001001001001001111110110110110110110110110111110110110110110110110110111110110110110110110110110110110110110110110110110110110110110110110110110110 
 	Parameter LOAD_ADDRESS_ram_state bound to: 2'b00 
 	Parameter LOAD_WAIT_ram_state bound to: 2'b01 
 	Parameter LOOP_ram_state bound to: 2'b10 
-INFO: [Synth 8-6157] synthesizing module 'simple_ram_4' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/simple_ram_4.v:50]
+	Parameter ROW_DATA_BOTTOM bound to: 6'b010010 
+	Parameter ROW_DATA_TOP bound to: 6'b001001 
+INFO: [Synth 8-6157] synthesizing module 'simple_dual_ram_4' [C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/simple_dual_ram_4.v:48]
 	Parameter SIZE bound to: 2'b11 
 	Parameter DEPTH bound to: 12'b010000000000 
-INFO: [Synth 8-6155] done synthesizing module 'simple_ram_4' (2#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/simple_ram_4.v:50]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/matrix_ram_sample_2.v:75]
-INFO: [Synth 8-6155] done synthesizing module 'matrix_ram_sample_2' (3#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/matrix_ram_sample_2.v:12]
-INFO: [Synth 8-6157] synthesizing module 'reset_conditioner_3' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/reset_conditioner_3.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'simple_dual_ram_4' (2#1) [C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/simple_dual_ram_4.v:48]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/matrix_ram_2.v:83]
+INFO: [Synth 8-6155] done synthesizing module 'matrix_ram_2' (3#1) [C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/matrix_ram_2.v:12]
+INFO: [Synth 8-6157] synthesizing module 'reset_conditioner_3' [C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/reset_conditioner_3.v:11]
 	Parameter STAGES bound to: 3'b100 
-INFO: [Synth 8-6155] done synthesizing module 'reset_conditioner_3' (4#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/reset_conditioner_3.v:11]
-INFO: [Synth 8-6155] done synthesizing module 'au_top_0' (5#1) [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/au_top_0.v:7]
-WARNING: [Synth 8-3917] design au_top_0 has port led[7] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port led[6] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port led[5] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[23] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[22] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[21] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[20] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[19] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[18] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[17] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[16] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[15] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[14] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[13] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[12] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[11] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[10] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[9] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[8] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[7] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[6] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_seg[7] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_seg[6] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_seg[5] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_seg[4] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_seg[3] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_seg[2] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_seg[1] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_seg[0] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_sel[3] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_sel[2] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_sel[1] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_sel[0] driven by constant 1
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[4]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[3]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[2]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[1]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[0]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[23]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[22]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[21]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[20]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[19]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[18]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[17]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[16]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[15]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[14]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[13]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[12]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[11]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[10]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[9]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[8]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[7]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[6]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[5]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[4]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[3]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[2]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[1]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[0]
+INFO: [Synth 8-6155] done synthesizing module 'reset_conditioner_3' (4#1) [C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/reset_conditioner_3.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'au_top_0' (5#1) [C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/au_top_0.v:7]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 841.281 ; gain = 306.641
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 1153.621 ; gain = 0.000
 ---------------------------------------------------------------------------------
-
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 841.281 ; gain = 306.641
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:10 . Memory (MB): peak = 1153.621 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 841.281 ; gain = 306.641
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:10 . Memory (MB): peak = 1153.621 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 841.281 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1153.621 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [C:/Program Files/Alchitry/Alchitry Labs/library/components/au.xdc]
 Finished Parsing XDC File [C:/Program Files/Alchitry/Alchitry Labs/library/components/au.xdc]
-Parsing XDC File [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/constraint/custom.xdc]
-Finished Parsing XDC File [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/constraint/custom.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/constraint/custom.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/au_top_0_propImpl.xdc].
+Parsing XDC File [C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/constraint/custom.xdc]
+Finished Parsing XDC File [C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/constraint/custom.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/constraint/custom.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/au_top_0_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/au_top_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 941.109 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1153.621 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 941.109 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1153.621 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 941.109 ; gain = 406.469
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:18 . Memory (MB): peak = 1153.621 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tftg256-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 941.109 ; gain = 406.469
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:18 . Memory (MB): peak = 1153.621 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 941.109 ; gain = 406.469
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:19 . Memory (MB): peak = 1153.621 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 941.109 ; gain = 406.469
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:19 . Memory (MB): peak = 1153.621 ; gain = 0.000
 ---------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     10 Bit       Adders := 2     
-	   2 Input      7 Bit       Adders := 1     
-	   2 Input      6 Bit       Adders := 1     
-	   2 Input      4 Bit       Adders := 1     
+	   2 Input   10 Bit       Adders := 2     
+	   2 Input    7 Bit       Adders := 1     
+	   2 Input    6 Bit       Adders := 1     
+	   2 Input    4 Bit       Adders := 1     
 +---Registers : 
 	               16 Bit    Registers := 1     
-	               10 Bit    Registers := 2     
+	               10 Bit    Registers := 1     
 	                7 Bit    Registers := 1     
 	                6 Bit    Registers := 2     
 	                4 Bit    Registers := 2     
@@ -186,75 +113,23 @@ Detailed RTL Component Info :
 	                2 Bit    Registers := 3     
 	                1 Bit    Registers := 1     
 +---RAMs : 
-	               3K Bit         RAMs := 2     
+	               3K Bit	(1024 X 3 bit)          RAMs := 2     
 +---Muxes : 
-	   4 Input     10 Bit        Muxes := 1     
-	   2 Input      6 Bit        Muxes := 1     
-	   6 Input      6 Bit        Muxes := 1     
-	   5 Input      4 Bit        Muxes := 1     
-	   6 Input      4 Bit        Muxes := 1     
-	   4 Input      3 Bit        Muxes := 2     
-	   6 Input      2 Bit        Muxes := 1     
-	   7 Input      2 Bit        Muxes := 1     
-	   5 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 4     
-	   7 Input      1 Bit        Muxes := 1     
-	   5 Input      1 Bit        Muxes := 1     
-	   4 Input      1 Bit        Muxes := 3     
+	   4 Input   10 Bit        Muxes := 2     
+	   2 Input    6 Bit        Muxes := 1     
+	   6 Input    6 Bit        Muxes := 1     
+	   5 Input    4 Bit        Muxes := 1     
+	   6 Input    4 Bit        Muxes := 1     
+	   4 Input    3 Bit        Muxes := 4     
+	   6 Input    2 Bit        Muxes := 1     
+	   7 Input    2 Bit        Muxes := 1     
+	   5 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 4     
+	   7 Input    1 Bit        Muxes := 1     
+	   5 Input    1 Bit        Muxes := 1     
+	   4 Input    1 Bit        Muxes := 3     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start RTL Hierarchical Component Statistics 
----------------------------------------------------------------------------------
-Hierarchical RTL Component report 
-Module matrix_writer_1 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      7 Bit       Adders := 1     
-	   2 Input      6 Bit       Adders := 1     
-	   2 Input      4 Bit       Adders := 1     
-+---Registers : 
-	               16 Bit    Registers := 1     
-	                7 Bit    Registers := 1     
-	                6 Bit    Registers := 2     
-	                4 Bit    Registers := 1     
-	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input      6 Bit        Muxes := 1     
-	   6 Input      6 Bit        Muxes := 1     
-	   5 Input      4 Bit        Muxes := 1     
-	   6 Input      4 Bit        Muxes := 1     
-	   6 Input      2 Bit        Muxes := 1     
-	   7 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 4     
-	   7 Input      1 Bit        Muxes := 1     
-	   5 Input      1 Bit        Muxes := 1     
-Module simple_ram_4 
-Detailed RTL Component Info : 
-+---Registers : 
-	                3 Bit    Registers := 1     
-+---RAMs : 
-	               3K Bit         RAMs := 1     
-Module matrix_ram_sample_2 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     10 Bit       Adders := 2     
-+---Registers : 
-	               10 Bit    Registers := 2     
-	                2 Bit    Registers := 1     
-+---Muxes : 
-	   4 Input     10 Bit        Muxes := 1     
-	   4 Input      3 Bit        Muxes := 2     
-	   5 Input      2 Bit        Muxes := 1     
-	   4 Input      1 Bit        Muxes := 3     
-Module reset_conditioner_3 
-Detailed RTL Component Info : 
-+---Registers : 
-	                4 Bit    Registers := 1     
----------------------------------------------------------------------------------
-Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Part Resource Summary
@@ -268,141 +143,60 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-4471] merging register 'matrixram/M_ram_writer_address_q_reg[9:0]' into 'matrixram/M_ram_writer_address_q_reg[9:0]' [C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.srcs/sources_1/imports/verilog/matrix_ram_sample_2.v:100]
-WARNING: [Synth 8-3917] design au_top_0 has port led[7] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port led[6] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port led[5] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[23] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[22] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[21] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[20] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[19] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[18] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[17] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[16] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[15] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[14] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[13] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[12] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[11] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[10] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[9] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[8] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[7] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_led[6] driven by constant 0
-WARNING: [Synth 8-3917] design au_top_0 has port io_seg[7] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_seg[6] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_seg[5] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_seg[4] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_seg[3] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_seg[2] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_seg[1] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_seg[0] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_sel[3] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_sel[2] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_sel[1] driven by constant 1
-WARNING: [Synth 8-3917] design au_top_0 has port io_sel[0] driven by constant 1
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[4]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[3]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[2]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[1]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_button[0]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[23]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[22]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[21]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[20]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[19]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[18]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[17]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[16]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[15]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[14]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[13]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[12]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[11]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[10]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[9]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[8]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[7]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[6]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[5]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[4]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[3]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[2]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[1]
-WARNING: [Synth 8-3331] design au_top_0 has unconnected port io_dip[0]
-INFO: [Synth 8-3886] merging instance 'matrixwriter/M_state_q_reg[1]' (FDE) to 'matrixwriter/M_latch_blank_q_reg[1]'
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 941.109 ; gain = 406.469
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:22 . Memory (MB): peak = 1153.621 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 
 Block RAM: Preliminary Mapping	Report (see note below)
 +------------+------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 |Module Name | RTL Object                   | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
 +------------+------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|au_top_0    | matrixram/top_ram/ram_reg    | 1 K x 3(READ_FIRST)    | W | R |                        |   |   | Port A           | 1      | 0      | 
-|au_top_0    | matrixram/bottom_ram/ram_reg | 1 K x 3(READ_FIRST)    | W | R |                        |   |   | Port A           | 1      | 0      | 
+|au_top_0    | matrixram/top_ram/mem_reg    | 1 K x 3(READ_FIRST)    | W |   | 1 K x 3(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|au_top_0    | matrixram/bottom_ram/mem_reg | 1 K x 3(READ_FIRST)    | W |   | 1 K x 3(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
 +------------+------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 
 Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
 ---------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 941.109 ; gain = 406.469
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:28 . Memory (MB): peak = 1153.621 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 948.836 ; gain = 414.195
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:29 . Memory (MB): peak = 1153.621 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 
 Block RAM: Final Mapping	Report
 +------------+------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 |Module Name | RTL Object                   | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
 +------------+------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|au_top_0    | matrixram/top_ram/ram_reg    | 1 K x 3(READ_FIRST)    | W | R |                        |   |   | Port A           | 1      | 0      | 
-|au_top_0    | matrixram/bottom_ram/ram_reg | 1 K x 3(READ_FIRST)    | W | R |                        |   |   | Port A           | 1      | 0      | 
+|au_top_0    | matrixram/top_ram/mem_reg    | 1 K x 3(READ_FIRST)    | W |   | 1 K x 3(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|au_top_0    | matrixram/bottom_ram/mem_reg | 1 K x 3(READ_FIRST)    | W |   | 1 K x 3(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
 +------------+------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 
 ---------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance matrixram/top_ram/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance matrixram/bottom_ram/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 950.082 ; gain = 415.441
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:29 . Memory (MB): peak = 1153.621 ; gain = 0.000
 ---------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -419,50 +213,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 955.871 ; gain = 421.230
+Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:33 . Memory (MB): peak = 1153.621 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 955.871 ; gain = 421.230
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:33 . Memory (MB): peak = 1153.621 ; gain = 0.000
 ---------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
-
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 955.871 ; gain = 421.230
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:33 . Memory (MB): peak = 1153.621 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 955.871 ; gain = 421.230
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:33 . Memory (MB): peak = 1153.621 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 955.871 ; gain = 421.230
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:33 . Memory (MB): peak = 1153.621 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 955.871 ; gain = 421.230
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:33 . Memory (MB): peak = 1153.621 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -475,58 +256,43 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+-----------+------+
-|      |Cell       |Count |
-+------+-----------+------+
-|1     |BUFG       |     1|
-|2     |CARRY4     |     2|
-|3     |LUT1       |     5|
-|4     |LUT2       |    15|
-|5     |LUT3       |    21|
-|6     |LUT4       |     6|
-|7     |LUT5       |    19|
-|8     |LUT6       |    24|
-|9     |RAMB18E1_1 |     2|
-|10    |FDRE       |    33|
-|11    |FDSE       |     4|
-|12    |IBUF       |     3|
-|13    |OBUF       |    58|
-+------+-----------+------+
-
-Report Instance Areas: 
-+------+---------------+--------------------+------+
-|      |Instance       |Module              |Cells |
-+------+---------------+--------------------+------+
-|1     |top            |                    |   193|
-|2     |  matrixram    |matrix_ram_sample_2 |    72|
-|3     |    bottom_ram |simple_ram_4        |    16|
-|4     |    top_ram    |simple_ram_4_0      |    20|
-|5     |  matrixwriter |matrix_writer_1     |    52|
-|6     |  reset_cond   |reset_conditioner_3 |     7|
-+------+---------------+--------------------+------+
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     1|
+|2     |CARRY4   |     3|
+|3     |LUT1     |     5|
+|4     |LUT2     |    16|
+|5     |LUT3     |    40|
+|6     |LUT4     |    15|
+|7     |LUT5     |    26|
+|8     |LUT6     |    46|
+|9     |RAMB18E1 |     2|
+|10    |FDRE     |    39|
+|11    |FDSE     |     4|
+|12    |IBUF     |     3|
+|13    |OBUF     |    58|
++------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 955.871 ; gain = 421.230
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:33 . Memory (MB): peak = 1153.621 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 62 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:23 . Memory (MB): peak = 955.871 ; gain = 321.402
-Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:25 . Memory (MB): peak = 955.871 ; gain = 421.230
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:30 . Memory (MB): peak = 1153.621 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:33 . Memory (MB): peak = 1153.621 ; gain = 0.000
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 955.871 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1153.621 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 5 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 959.508 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1153.621 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-25 Infos, 124 Warnings, 0 Critical Warnings and 0 Errors encountered.
+28 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 959.508 ; gain = 662.375
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 959.508 ; gain = 0.000
-WARNING: [Constraints 18-5210] No constraints selected for write.
-Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint 'C:/Users/NatalieAgus/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.runs/synth_1/au_top_0.dcp' has been generated.
+synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:45 . Memory (MB): peak = 1153.621 ; gain = 161.879
+INFO: [Common 17-1381] The checkpoint 'C:/Users/user-windows/Desktop/SampleAlchitryProjects/MatrixLEDTest/work/vivado/MatrixLEDTest/MatrixLEDTest.runs/synth_1/au_top_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file au_top_0_utilization_synth.rpt -pb au_top_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Nov 13 11:15:22 2020...
+INFO: [Common 17-206] Exiting Vivado at Mon Mar 28 01:36:28 2022...
