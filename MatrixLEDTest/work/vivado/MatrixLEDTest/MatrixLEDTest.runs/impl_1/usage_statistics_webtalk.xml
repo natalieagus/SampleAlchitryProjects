@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<webTalkData  fileName='usage_statistics_webtalk.xml'  majorVersion='1' minorVersion='0' timeStamp='Mon Mar 28 11:03:52 2022'>
+<webTalkData  fileName='usage_statistics_webtalk.xml'  majorVersion='1' minorVersion='0' timeStamp='Mon Mar 28 11:09:19 2022'>
 <section name="__ROOT__" level="0" order="1" description="">
  <section name="software_version_and_target_device" level="1" order="1" description="">
   <keyValuePair key="beta" value="FALSE" description="" />
   <keyValuePair key="build_version" value="3064766" description="" />
-  <keyValuePair key="date_generated" value="Mon Mar 28 11:03:52 2022" description="" />
+  <keyValuePair key="date_generated" value="Mon Mar 28 11:09:19 2022" description="" />
   <keyValuePair key="os_platform" value="WIN64" description="" />
   <keyValuePair key="product_version" value="Vivado v2020.2 (64-bit)" description="" />
-  <keyValuePair key="project_id" value="a533b00d568d4cc8a59269a958d74228" description="" />
+  <keyValuePair key="project_id" value="b9ad5e3cc7c04978be12f7dd3b57a9d9" description="" />
   <keyValuePair key="project_iteration" value="1" description="" />
   <keyValuePair key="random_id" value="2d4ae1950ecd53e48b47bc7c00d3bb67" description="" />
   <keyValuePair key="registration_id" value="2d4ae1950ecd53e48b47bc7c00d3bb67" description="" />
@@ -133,7 +133,7 @@
    <keyValuePair key="bidir_output_enable" value="1.000000" description="" />
    <keyValuePair key="board_layers" value="12to15 (12 to 15 Layers)" description="" />
    <keyValuePair key="board_selection" value="medium (10&quot;x10&quot;)" description="" />
-   <keyValuePair key="bram" value="0.002119" description="" />
+   <keyValuePair key="bram" value="0.002120" description="" />
    <keyValuePair key="clocks" value="0.000879" description="" />
    <keyValuePair key="confidence_level_clock_activity" value="High" description="" />
    <keyValuePair key="confidence_level_design_state" value="High" description="" />
@@ -146,7 +146,7 @@
    <keyValuePair key="devstatic" value="0.071796" description="" />
    <keyValuePair key="die" value="xc7a35tftg256-1" description="" />
    <keyValuePair key="dsp_output_toggle" value="12.500000" description="" />
-   <keyValuePair key="dynamic" value="0.014067" description="" />
+   <keyValuePair key="dynamic" value="0.014068" description="" />
    <keyValuePair key="effective_thetaja" value="4.85" description="" />
    <keyValuePair key="enable_probability" value="0.990000" description="" />
    <keyValuePair key="family" value="artix7" description="" />
@@ -167,12 +167,12 @@
    <keyValuePair key="mgtavtt_voltage" value="1.200000" description="" />
    <keyValuePair key="netlist_net_matched" value="NA" description="" />
    <keyValuePair key="off-chip_power" value="0.000000" description="" />
-   <keyValuePair key="on-chip_power" value="0.085863" description="" />
+   <keyValuePair key="on-chip_power" value="0.085864" description="" />
    <keyValuePair key="output_enable" value="1.000000" description="" />
    <keyValuePair key="output_load" value="5.000000" description="" />
    <keyValuePair key="output_toggle" value="12.500000" description="" />
    <keyValuePair key="package" value="ftg256" description="" />
-   <keyValuePair key="pct_clock_constrained" value="1.000000" description="" />
+   <keyValuePair key="pct_clock_constrained" value="0.000000" description="" />
    <keyValuePair key="pct_inputs_defined" value="5" description="" />
    <keyValuePair key="platform" value="nt64" description="" />
    <keyValuePair key="process" value="typical" description="" />
@@ -210,9 +210,9 @@
    <keyValuePair key="vccbram_static_current" value="0.000185" description="" />
    <keyValuePair key="vccbram_total_current" value="0.000358" description="" />
    <keyValuePair key="vccbram_voltage" value="1.000000" description="" />
-   <keyValuePair key="vccint_dynamic_current" value="0.003801" description="" />
+   <keyValuePair key="vccint_dynamic_current" value="0.003802" description="" />
    <keyValuePair key="vccint_static_current" value="0.009602" description="" />
-   <keyValuePair key="vccint_total_current" value="0.013402" description="" />
+   <keyValuePair key="vccint_total_current" value="0.013403" description="" />
    <keyValuePair key="vccint_voltage" value="1.000000" description="" />
    <keyValuePair key="vcco12_dynamic_current" value="0.000000" description="" />
    <keyValuePair key="vcco12_static_current" value="0.000000" description="" />
@@ -516,10 +516,10 @@
    <keyValuePair key="-verilog_define" value="default::[not_specified]" description="" />
   </section>
   <section name="usage" level="2" order="2" description="">
-   <keyValuePair key="elapsed" value="00:00:52s" description="" />
+   <keyValuePair key="elapsed" value="00:00:42s" description="" />
    <keyValuePair key="hls_ip" value="0" description="" />
-   <keyValuePair key="memory_gain" value="564.770MB" description="" />
-   <keyValuePair key="memory_peak" value="1190.777MB" description="" />
+   <keyValuePair key="memory_gain" value="87.957MB" description="" />
+   <keyValuePair key="memory_peak" value="1104.445MB" description="" />
   </section>
  </section>
  <section name="unisim_transformation" level="1" order="10" description="">

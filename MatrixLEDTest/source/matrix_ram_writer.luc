@@ -25,7 +25,7 @@ module matrix_ram_writer #(
   
     fsm writer_state(.clk(clk), .rst(rst)) = {START, LOAD_ADDRESS, LOAD_WAIT, LOOP};
  
-    const START_DATA = 16b0111111111111110;
+    const START_DATA = 16b0111111111111111; // some random triangle 
   
     // replace this with row-col mapping to form better-looking shapes
     const MAPPING = {

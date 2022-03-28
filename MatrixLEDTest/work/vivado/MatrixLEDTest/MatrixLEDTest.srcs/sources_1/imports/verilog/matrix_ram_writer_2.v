@@ -39,7 +39,7 @@ module matrix_ram_writer_2 (
   
   reg [1:0] M_writer_state_d, M_writer_state_q = START_writer_state;
   
-  localparam START_DATA = 16'h7ffe;
+  localparam START_DATA = 16'h7fff;
   
   localparam MAPPING = 192'h00024e24c24a24824620d20b2092071cc1ca1c818b18914a;
   
@@ -71,7 +71,7 @@ module matrix_ram_writer_2 (
     
     case (M_writer_state_q)
       START_writer_state: begin
-        M_data_d = 16'h7ffe;
+        M_data_d = 16'h7fff;
         M_writer_state_d = LOAD_ADDRESS_writer_state;
       end
       LOAD_ADDRESS_writer_state: begin
@@ -110,27 +110,18 @@ module matrix_ram_writer_2 (
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_writer_state_q <= 1'h0;
-    end else begin
-      M_writer_state_q <= M_writer_state_d;
-    end
-  end
-  
-  
-  always @(posedge clk) begin
-    if (rst == 1'b1) begin
-      M_data_q <= 1'h0;
-    end else begin
-      M_data_q <= M_data_d;
-    end
-  end
-  
-  
-  always @(posedge clk) begin
-    if (rst == 1'b1) begin
       M_ram_writer_address_q <= 1'h0;
     end else begin
       M_ram_writer_address_q <= M_ram_writer_address_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_data_col_address_q <= 1'h0;
+    end else begin
+      M_data_col_address_q <= M_data_col_address_d;
     end
   end
   
@@ -155,9 +146,18 @@ module matrix_ram_writer_2 (
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_data_col_address_q <= 1'h0;
+      M_data_q <= 1'h0;
     end else begin
-      M_data_col_address_q <= M_data_col_address_d;
+      M_data_q <= M_data_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_writer_state_q <= 1'h0;
+    end else begin
+      M_writer_state_q <= M_writer_state_d;
     end
   end
   
