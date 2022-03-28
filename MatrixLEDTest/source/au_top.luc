@@ -28,6 +28,9 @@ module au_top (
   matrix_writer matrixwriter(.clk(clk), .rst(rst));
   matrix_ram matrixram(.clk(clk), .rst(rst));
   
+  dff row_index[8](.clk(clk));
+  dff col_index[8](.clk(clk));
+  
   .clk(clk) {
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
@@ -47,7 +50,7 @@ module au_top (
     io_sel = 4hf;           // select no digits
     
     matrixram.row_address = matrixwriter.row_index;
-    matrixram.col_address = matrixwriter.col_index;
+    matrixram.col_address = matrixwriter.col_index-2;
    
     
    // matrixwriter.data = 6b100100; // BLUE sample. change to the output of some RAM unit 
@@ -73,9 +76,19 @@ module au_top (
     io_led[0][4] = matrixwriter.green1;
     io_led[0][5] = matrixwriter.blue1;
     
+    io_led[0] = c{matrixram.bottom_out, matrixram.top_out};
     
-    io_led[1] = matrixram.bottom_out;
-    io_led[2] = matrixram.top_out;
+    if (matrixwriter.row_index != 0){
+      row_index.d = matrixwriter.row_index;
+    }
+    
+    if (matrixwriter.col_index != 0){
+      col_index.d = matrixwriter.col_index;
+    }
+    
+    
+    io_led[1] = row_index.q;
+    io_led[2] = col_index.q;
     
     
     

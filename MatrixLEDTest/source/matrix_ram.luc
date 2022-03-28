@@ -19,8 +19,11 @@ module matrix_ram #(
     fsm ram_state(.clk(clk)) = {LOAD_ADDRESS, LOAD_WAIT, LOOP};
   
   
-    const ROW_DATA_BOTTOM = {3b010, 3b010}; // 64 by 3 : B0 G0 R0  per entry, index[0] is at the bottom right
-    const ROW_DATA_TOP = {3b001, 3b001}; // 64 by 3 : B G R  per entry, index[0] is at the bottom right
+    const ROW_DATA_BOTTOM = {3b000, 3b100, 3b010, 3b001}; // 64 by 3 : B0 G0 R0  per entry, index[0] is at the bottom right
+    const ROW_DATA_TOP = {3b000, 3b101, 3b010, 3b110}; // 64 by 3 : B G R  per entry, index[0] is at the bottom right
+  
+    dff data_address[2](#INIT(0),.clk(clk));
+   
       
     // to write to all 3-bit cells in top_ram and bottom_ram 
     // for 64 by 32 matrix, there are 64 by 16 cells in each ram, each cell contains 3 bit, so ram_writer_address is 10 bit long
@@ -47,8 +50,8 @@ module matrix_ram #(
           ram_state.LOAD_ADDRESS:
             top_ram.waddr = ram_writer_address.q;
             bottom_ram.waddr = ram_writer_address.q;
-            top_ram.write_data = ROW_DATA_TOP[ram_writer_address.q];
-            bottom_ram.write_data = ROW_DATA_BOTTOM[ram_writer_address.q];
+            top_ram.write_data = ROW_DATA_TOP[data_address.q];
+            bottom_ram.write_data = ROW_DATA_BOTTOM[data_address.q];
             top_ram.write_en = b1;
             bottom_ram.write_en = b1;
             ram_state.d = ram_state.LOAD_WAIT;
@@ -59,12 +62,13 @@ module matrix_ram #(
           ram_state.LOAD_WAIT:
             //advance write address by 1
             ram_writer_address.d = ram_writer_address.q + 1;
+            data_address.d = data_address.q +1;
             ram_state.d = ram_state.LOAD_ADDRESS;
          
           ram_state.LOOP:
             //provide output from ram after writing is done
-            top_ram.raddr = row_address * col_address;
-            bottom_ram.raddr = row_address * col_address;
+            top_ram.raddr = row_address * MATRIX_WIDTH + col_address;
+            bottom_ram.raddr = row_address * MATRIX_WIDTH + col_address;
             top_out = top_ram.read_data;
             bottom_out = bottom_ram.read_data;
             ram_state.d = ram_state.LOOP;

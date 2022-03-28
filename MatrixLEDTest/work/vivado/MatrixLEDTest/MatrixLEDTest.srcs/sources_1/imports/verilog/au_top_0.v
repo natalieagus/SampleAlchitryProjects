@@ -77,6 +77,10 @@ module au_top_0 (
     .bottom_out(M_matrixram_bottom_out)
   );
   
+  reg [7:0] M_row_index_d, M_row_index_q = 1'h0;
+  
+  reg [7:0] M_col_index_d, M_col_index_q = 1'h0;
+  
   wire [1-1:0] M_reset_cond_out;
   reg [1-1:0] M_reset_cond_in;
   reset_conditioner_3 reset_cond (
@@ -86,6 +90,9 @@ module au_top_0 (
   );
   
   always @* begin
+    M_col_index_d = M_col_index_q;
+    M_row_index_d = M_row_index_q;
+    
     M_reset_cond_in = ~rst_n;
     rst = M_reset_cond_out;
     usb_tx = usb_rx;
@@ -94,7 +101,7 @@ module au_top_0 (
     io_seg = 8'hff;
     io_sel = 4'hf;
     M_matrixram_row_address = M_matrixwriter_row_index;
-    M_matrixram_col_address = M_matrixwriter_col_index;
+    M_matrixram_col_address = M_matrixwriter_col_index - 2'h2;
     M_matrixwriter_data = {M_matrixram_bottom_out, M_matrixram_top_out};
     red0 = M_matrixwriter_red0;
     red1 = M_matrixwriter_red1;
@@ -114,7 +121,24 @@ module au_top_0 (
     io_led[0+3+0-:1] = M_matrixwriter_red1;
     io_led[0+4+0-:1] = M_matrixwriter_green1;
     io_led[0+5+0-:1] = M_matrixwriter_blue1;
-    io_led[8+7-:8] = M_matrixram_bottom_out;
-    io_led[16+7-:8] = M_matrixram_top_out;
+    io_led[0+7-:8] = {M_matrixram_bottom_out, M_matrixram_top_out};
+    if (M_matrixwriter_row_index != 1'h0) begin
+      M_row_index_d = M_matrixwriter_row_index;
+    end
+    if (M_matrixwriter_col_index != 1'h0) begin
+      M_col_index_d = M_matrixwriter_col_index;
+    end
+    io_led[8+7-:8] = M_row_index_q;
+    io_led[16+7-:8] = M_col_index_q;
   end
+  
+  always @(posedge clk) begin
+    M_row_index_q <= M_row_index_d;
+  end
+  
+  
+  always @(posedge clk) begin
+    M_col_index_q <= M_col_index_d;
+  end
+  
 endmodule

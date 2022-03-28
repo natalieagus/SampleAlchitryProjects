@@ -2,7 +2,6 @@
 <project name="MatrixLEDTest" board="Alchitry Au" language="Lucid" version="3">
   <files>
     <src>matrix_ram.luc</src>
-    <src>matrix_ram_sample.luc</src>
     <component>simple_dual_ram.v</component>
     <component>simple_ram.v</component>
     <src top="true">au_top.luc</src>

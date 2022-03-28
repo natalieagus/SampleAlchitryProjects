@@ -1,0 +1,89 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Mon Mar 28 03:32:37 2022
+| Host         : DESKTOP-6P6FIIL running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file au_top_0_control_sets_placed.rpt
+| Design       : au_top_0
+| Device       : xc7a35t
+-------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    11 |
+|    Minimum number of control sets                        |    11 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    40 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    11 |
+| >= 0 to < 4        |     2 |
+| >= 4 to < 6        |     3 |
+| >= 6 to < 8        |     5 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     0 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               6 |            3 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              10 |            3 |
+| Yes          | No                    | No                     |              11 |            5 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              29 |            8 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+---------------------------------------------+-------------------------------+------------------+----------------+--------------+
+|  Clock Signal  |                Enable Signal                |        Set/Reset Signal       | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------+---------------------------------------------+-------------------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG | matrixwriter/M_state_q0                     |                               |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG | matrixwriter/M_sclk_d1_out                  | reset_cond/M_stage_q_reg[3]_0 |                1 |              2 |         2.00 |
+|  clk_IBUF_BUFG |                                             | reset_cond/M_reset_cond_in    |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | matrixwriter/M_current_address_q[3]_i_1_n_0 | reset_cond/Q[0]               |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | matrixwriter/E[0]                           |                               |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG |                                             |                               |                3 |              6 |         2.00 |
+|  clk_IBUF_BUFG |                                             | reset_cond/Q[0]               |                2 |              6 |         3.00 |
+|  clk_IBUF_BUFG | matrixwriter/M_led_bit_counter_q_reg[0]_0   |                               |                2 |              6 |         3.00 |
+|  clk_IBUF_BUFG | matrixwriter/M_rgb_data_d                   | reset_cond/Q[0]               |                1 |              6 |         6.00 |
+|  clk_IBUF_BUFG | matrixwriter/M_sclk_counter_q_reg[0]_0      | reset_cond/SR[0]              |                1 |              7 |         7.00 |
+|  clk_IBUF_BUFG | matrixram/sel                               | reset_cond/Q[0]               |                4 |             10 |         2.50 |
++----------------+---------------------------------------------+-------------------------------+------------------+----------------+--------------+
+
+

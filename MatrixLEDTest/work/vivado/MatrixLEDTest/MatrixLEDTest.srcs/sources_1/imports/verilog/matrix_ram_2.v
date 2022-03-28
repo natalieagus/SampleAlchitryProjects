@@ -59,14 +59,17 @@ module matrix_ram_2 (
   
   reg [1:0] M_ram_state_d, M_ram_state_q = LOAD_ADDRESS_ram_state;
   
-  localparam ROW_DATA_BOTTOM = 6'h12;
+  localparam ROW_DATA_BOTTOM = 12'h111;
   
-  localparam ROW_DATA_TOP = 6'h09;
+  localparam ROW_DATA_TOP = 12'h156;
+  
+  reg [1:0] M_data_address_d, M_data_address_q = 1'h0;
   
   reg [9:0] M_ram_writer_address_d, M_ram_writer_address_q = 1'h0;
   
   always @* begin
     M_ram_state_d = M_ram_state_q;
+    M_data_address_d = M_data_address_q;
     M_ram_writer_address_d = M_ram_writer_address_q;
     
     M_top_ram_raddr = 1'h0;
@@ -84,8 +87,8 @@ module matrix_ram_2 (
       LOAD_ADDRESS_ram_state: begin
         M_top_ram_waddr = M_ram_writer_address_q;
         M_bottom_ram_waddr = M_ram_writer_address_q;
-        M_top_ram_write_data = ROW_DATA_TOP[(M_ram_writer_address_q)*3+2-:3];
-        M_bottom_ram_write_data = ROW_DATA_BOTTOM[(M_ram_writer_address_q)*3+2-:3];
+        M_top_ram_write_data = ROW_DATA_TOP[(M_data_address_q)*3+2-:3];
+        M_bottom_ram_write_data = ROW_DATA_BOTTOM[(M_data_address_q)*3+2-:3];
         M_top_ram_write_en = 1'h1;
         M_bottom_ram_write_en = 1'h1;
         M_ram_state_d = LOAD_WAIT_ram_state;
@@ -95,11 +98,12 @@ module matrix_ram_2 (
       end
       LOAD_WAIT_ram_state: begin
         M_ram_writer_address_d = M_ram_writer_address_q + 1'h1;
+        M_data_address_d = M_data_address_q + 1'h1;
         M_ram_state_d = LOAD_ADDRESS_ram_state;
       end
       LOOP_ram_state: begin
-        M_top_ram_raddr = row_address * col_address;
-        M_bottom_ram_raddr = row_address * col_address;
+        M_top_ram_raddr = row_address * 7'h40 + col_address;
+        M_bottom_ram_raddr = row_address * 7'h40 + col_address;
         top_out = M_top_ram_read_data;
         bottom_out = M_bottom_ram_read_data;
         M_ram_state_d = LOOP_ram_state;
@@ -109,6 +113,11 @@ module matrix_ram_2 (
   
   always @(posedge clk) begin
     M_ram_state_q <= M_ram_state_d;
+  end
+  
+  
+  always @(posedge clk) begin
+    M_data_address_q <= M_data_address_d;
   end
   
   
