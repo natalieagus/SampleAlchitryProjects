@@ -32,10 +32,10 @@ module matrix_writer_1 (
   localparam MATRIX_WIDTH = 7'h40;
   
   
-  localparam DIV = 3'h6;
+  localparam DIV = 5'h1a;
   
   reg [1:0] M_state_d, M_state_q = 1'h0;
-  reg [5:0] M_sclk_counter_d, M_sclk_counter_q = 1'h0;
+  reg [25:0] M_sclk_counter_d, M_sclk_counter_q = 1'h0;
   reg [6:0] M_led_bit_counter_d, M_led_bit_counter_q = 1'h0;
   reg [3:0] M_current_address_d, M_current_address_q = 1'h0;
   reg [15:0] M_debug_dff_d, M_debug_dff_q = 1'h0;
@@ -68,6 +68,7 @@ module matrix_writer_1 (
     M_debug_dff_d = M_led_bit_counter_q;
     debug = M_debug_dff_q;
     M_sclk_counter_d = M_sclk_counter_q + 1'h1;
+    debug = M_led_bit_counter_q;
     if (M_state_q == 2'h0) begin
       M_latch_blank_d = 2'h1;
       M_current_address_d = 4'hf;
@@ -75,7 +76,7 @@ module matrix_writer_1 (
       row_index = 1'h0;
       M_state_d = 2'h1;
     end
-    if (M_sclk_counter_q == 6'h00 && M_state_q == 2'h1 && M_led_bit_counter_q <= 7'h40) begin
+    if (M_sclk_counter_q == 26'h0000000 && M_state_q == 2'h1 && M_led_bit_counter_q <= 7'h40) begin
       M_sclk_d = 1'h0;
       col_index = M_led_bit_counter_q[0+5-:6];
       row_index = M_current_address_q + 1'h1;
@@ -84,17 +85,17 @@ module matrix_writer_1 (
       if (M_sclk_counter_q == 1'h1 && M_state_q == 2'h1 && M_led_bit_counter_q <= 7'h40) begin
         M_rgb_data_d = data;
       end else begin
-        if (M_sclk_counter_q == 5'h1f && M_state_q == 2'h1) begin
+        if (M_sclk_counter_q == 25'h1ffffff && M_state_q == 2'h1) begin
           M_sclk_d = 1'h1;
         end else begin
-          if (M_sclk_counter_q == 6'h3f && M_state_q == 2'h1 && M_led_bit_counter_q == 7'h40) begin
+          if (M_sclk_counter_q == 26'h3ffffff && M_state_q == 2'h1 && M_led_bit_counter_q == 7'h40) begin
             M_state_d = 2'h2;
             M_latch_blank_d = 2'h3;
             M_current_address_d = M_current_address_q + 1'h1;
             M_sclk_d = 1'h0;
             M_led_bit_counter_d = 1'h0;
           end else begin
-            if (M_sclk_counter_q == 6'h3f && M_state_q == 2'h2) begin
+            if (M_sclk_counter_q == 26'h3ffffff && M_state_q == 2'h2) begin
               M_latch_blank_d = 2'h0;
               col_index = M_led_bit_counter_q[0+5-:6];
               row_index = M_current_address_q + 1'h1;

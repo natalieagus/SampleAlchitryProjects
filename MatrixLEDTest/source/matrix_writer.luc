@@ -31,7 +31,7 @@ module matrix_writer #(
   ) {
   
   
-  const DIV = 6; //slowdown speed of the CLK, suitable for 100MHz clock
+  const DIV = 26; //slowdown speed of the CLK, suitable for 100MHz clock
 
   //sample data
  /* const ROW_DATA = {6b111100, 6b111000, 6b000111, 6b111111,
@@ -144,6 +144,8 @@ module matrix_writer #(
     // internal counter to keep track what value we should give to shift register's clock sclk
     sclk_counter.d = sclk_counter.q + 1; //increase shift register clock 
     
+    // for debugging
+    debug = led_bit_counter.q;
     
     
     if (state.q == b00){ //START state

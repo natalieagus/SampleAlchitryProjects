@@ -64,6 +64,7 @@ module au_top_0 (
     .debug(M_matrixwriter_debug)
   );
   
+  wire [1-1:0] M_matrixram_loading_done;
   wire [3-1:0] M_matrixram_top_out;
   wire [3-1:0] M_matrixram_bottom_out;
   reg [4-1:0] M_matrixram_row_address;
@@ -73,6 +74,7 @@ module au_top_0 (
     .rst(rst),
     .row_address(M_matrixram_row_address),
     .col_address(M_matrixram_col_address),
+    .loading_done(M_matrixram_loading_done),
     .top_out(M_matrixram_top_out),
     .bottom_out(M_matrixram_bottom_out)
   );
@@ -101,7 +103,7 @@ module au_top_0 (
     io_seg = 8'hff;
     io_sel = 4'hf;
     M_matrixram_row_address = M_matrixwriter_row_index;
-    M_matrixram_col_address = M_matrixwriter_col_index - 2'h2;
+    M_matrixram_col_address = M_matrixwriter_col_index;
     M_matrixwriter_data = {M_matrixram_bottom_out, M_matrixram_top_out};
     red0 = M_matrixwriter_red0;
     red1 = M_matrixwriter_red1;
@@ -114,31 +116,32 @@ module au_top_0 (
     blank = M_matrixwriter_blank;
     address = M_matrixwriter_address;
     led[0+3-:4] = M_matrixwriter_address;
-    led[4+0-:1] = M_matrixwriter_sclk_out;
+    led[7+0-:1] = M_matrixwriter_sclk_out;
     io_led[0+0+0-:1] = M_matrixwriter_red0;
     io_led[0+1+0-:1] = M_matrixwriter_green0;
     io_led[0+2+0-:1] = M_matrixwriter_blue0;
     io_led[0+3+0-:1] = M_matrixwriter_red1;
     io_led[0+4+0-:1] = M_matrixwriter_green1;
     io_led[0+5+0-:1] = M_matrixwriter_blue1;
-    io_led[0+7-:8] = {M_matrixram_bottom_out, M_matrixram_top_out};
+    io_led[0+7-:8] = M_matrixwriter_debug;
     if (M_matrixwriter_row_index != 1'h0) begin
       M_row_index_d = M_matrixwriter_row_index;
     end
     if (M_matrixwriter_col_index != 1'h0) begin
       M_col_index_d = M_matrixwriter_col_index;
     end
-    io_led[8+7-:8] = M_row_index_q;
+    io_led[8+4+3-:4] = M_matrixwriter_address;
+    io_led[8+0+3-:4] = M_row_index_q;
     io_led[16+7-:8] = M_col_index_q;
   end
   
   always @(posedge clk) begin
-    M_row_index_q <= M_row_index_d;
+    M_col_index_q <= M_col_index_d;
   end
   
   
   always @(posedge clk) begin
-    M_col_index_q <= M_col_index_d;
+    M_row_index_q <= M_row_index_d;
   end
   
 endmodule

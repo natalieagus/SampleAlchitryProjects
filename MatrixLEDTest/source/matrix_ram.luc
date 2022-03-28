@@ -8,6 +8,7 @@ module matrix_ram #(
     input rst,
     input row_address[ADDRESS_SIZE],
     input col_address[$clog2(MATRIX_WIDTH)],
+    output loading_done,
     output top_out[3], // bgr
     output bottom_out[3] // bgr
   ) {
@@ -19,10 +20,32 @@ module matrix_ram #(
     fsm ram_state(.clk(clk)) = {LOAD_ADDRESS, LOAD_WAIT, LOOP};
   
   
-    const ROW_DATA_BOTTOM = {3b000, 3b100, 3b010, 3b001}; // 64 by 3 : B0 G0 R0  per entry, index[0] is at the bottom right
-    const ROW_DATA_TOP = {3b000, 3b101, 3b010, 3b110}; // 64 by 3 : B G R  per entry, index[0] is at the bottom right
+    const ROW_DATA_BOTTOM = {3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
+  3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
+    3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
+    3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
+    3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
+    3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
+    3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
+    3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001, 
+    3b001, 3b001,3b001,3b001,3b001,3b001,3b001,3b001,
+    3b001, 3b001,3b001,3b001,3b001,3b001,3b001,3b001,
+    3b001, 3b001,3b001,3b001,3b001,3b001,3b001,3b001,
+    3b001, 3b001,3b001,3b001,3b001,3b001,3b001,3b001,
+    3b001, 3b001,3b001,3b001,3b001,3b001,3b001,3b001,
+    3b001, 3b001,3b001,3b001,3b001,3b001,3b001,3b001,
+    3b001, 3b001,3b001,3b001,3b001,3b001,3b001,3b001,
+    3b001, 3b001,3b001,3b001,3b001,3b001,3b001,3b001}; // 64 by 3 : B0 G0 R0  per entry, index[0] is at the bottom right
+    const ROW_DATA_TOP = {3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
+  3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
+    3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
+    3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
+    3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
+    3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
+    3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001,
+    3b000, 3b010, 3b100, 3b010, 3b110, 3b011, 3b101, 3b001}; // 64 by 3 : B G R  per entry, index[0] is at the bottom right
   
-    dff data_address[2](#INIT(0),.clk(clk));
+    dff data_address[$clog2(MATRIX_WIDTH)+1](#INIT(0),.clk(clk));
    
       
     // to write to all 3-bit cells in top_ram and bottom_ram 
@@ -44,6 +67,8 @@ module matrix_ram #(
     
       top_out = 0;
       bottom_out = 0;
+    
+      loading_done = 0;
  
       
       case(ram_state.q){
@@ -67,8 +92,9 @@ module matrix_ram #(
          
           ram_state.LOOP:
             //provide output from ram after writing is done
-            top_ram.raddr = row_address * MATRIX_WIDTH + col_address;
-            bottom_ram.raddr = row_address * MATRIX_WIDTH + col_address;
+            loading_done = 1;
+            top_ram.raddr = row_address * MATRIX_WIDTH + col_address - 2; // offset by 2 clock cycles than what's required by matrix_writer, strange
+            bottom_ram.raddr = row_address * MATRIX_WIDTH + col_address - 2;
             top_out = top_ram.read_data;
             bottom_out = bottom_ram.read_data;
             ram_state.d = ram_state.LOOP;

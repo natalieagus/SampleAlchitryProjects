@@ -14,6 +14,7 @@ module matrix_ram_2 (
     input rst,
     input [3:0] row_address,
     input [5:0] col_address,
+    output reg loading_done,
     output reg [2:0] top_out,
     output reg [2:0] bottom_out
   );
@@ -59,11 +60,11 @@ module matrix_ram_2 (
   
   reg [1:0] M_ram_state_d, M_ram_state_q = LOAD_ADDRESS_ram_state;
   
-  localparam ROW_DATA_BOTTOM = 12'h111;
+  localparam ROW_DATA_BOTTOM = 384'h0a2ce90a2ce90a2ce90a2ce90a2ce90a2ce90a2ce90a2ce9249249249249249249249249249249249249249249249249;
   
-  localparam ROW_DATA_TOP = 12'h156;
+  localparam ROW_DATA_TOP = 192'h0a2ce90a2ce90a2ce90a2ce90a2ce90a2ce90a2ce90a2ce9;
   
-  reg [1:0] M_data_address_d, M_data_address_q = 1'h0;
+  reg [6:0] M_data_address_d, M_data_address_q = 1'h0;
   
   reg [9:0] M_ram_writer_address_d, M_ram_writer_address_q = 1'h0;
   
@@ -82,6 +83,7 @@ module matrix_ram_2 (
     M_bottom_ram_write_en = 1'h0;
     top_out = 1'h0;
     bottom_out = 1'h0;
+    loading_done = 1'h0;
     
     case (M_ram_state_q)
       LOAD_ADDRESS_ram_state: begin
@@ -102,8 +104,9 @@ module matrix_ram_2 (
         M_ram_state_d = LOAD_ADDRESS_ram_state;
       end
       LOOP_ram_state: begin
-        M_top_ram_raddr = row_address * 7'h40 + col_address;
-        M_bottom_ram_raddr = row_address * 7'h40 + col_address;
+        loading_done = 1'h1;
+        M_top_ram_raddr = row_address * 7'h40 + col_address - 2'h2;
+        M_bottom_ram_raddr = row_address * 7'h40 + col_address - 2'h2;
         top_out = M_top_ram_read_data;
         bottom_out = M_bottom_ram_read_data;
         M_ram_state_d = LOOP_ram_state;
@@ -112,12 +115,12 @@ module matrix_ram_2 (
   end
   
   always @(posedge clk) begin
-    M_ram_state_q <= M_ram_state_d;
+    M_data_address_q <= M_data_address_d;
   end
   
   
   always @(posedge clk) begin
-    M_data_address_q <= M_data_address_d;
+    M_ram_state_q <= M_ram_state_d;
   end
   
   
