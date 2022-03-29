@@ -58,7 +58,7 @@ module au_top (
     io_sel = 4hf;           // select no digits
     
     ramwriter.reload = reload_button_edge_detector.out; // replace this from reload signal from CPU 
-    ramwriter.new_data = c{io_dip[1], io_dip[0]}; // replace this from reg content from CPU
+    ramwriter.new_data = {c{io_dip[2], io_dip[2]}, c{io_dip[1], io_dip[1]}, c{io_dip[0], io_dip[0]}}; // replace this from reg content from CPU
     
     matrixram.row_address_top = ramwriter.row_address_top;
     matrixram.col_address_top = ramwriter.col_address_top;

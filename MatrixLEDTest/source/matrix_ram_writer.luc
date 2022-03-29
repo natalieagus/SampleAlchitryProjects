@@ -3,12 +3,13 @@ module matrix_ram_writer #(
   // both halves row i are written together for all rows 0 to 15 in a rapid loop 
   ADDRESS_SIZE = 4 : ADDRESS_SIZE > 0, //width of the address field (ABCD signals for matrix_led) 
   MATRIX_WIDTH = 64 : MATRIX_WIDTH > 0, //number of LEDs per row in the matrix
-  DATA_WIDTH = 16 : DATA_WIDTH > 0  
+  DATA_WIDTH = 16 : DATA_WIDTH > 0, 
+  DATA_SET = 3 : DATA_SET > 0
   )(
     input clk,  // clock
     input rst,  // reset
     input reload,
-    input new_data[DATA_WIDTH],
+    input new_data[DATA_SET][DATA_WIDTH],
     
     output row_address_top[ADDRESS_SIZE],
     output col_address_top[$clog2(MATRIX_WIDTH)],
@@ -25,7 +26,7 @@ module matrix_ram_writer #(
   
     fsm writer_state(.clk(clk), .rst(rst)) = {START, LOAD_ADDRESS, LOAD_WAIT, LOOP};
  
-    const START_DATA = 16b0111111111111111; // some random triangle 
+    const START_DATA = {16b0000000000000010, 16b0000001100000000, 16b0111111111111111}; // some random triangle 
   
     // replace this with row-col mapping to form better-looking shapes
     const MAPPING = {
@@ -48,7 +49,8 @@ module matrix_ram_writer #(
     };
   
     dff bitloader[$clog2(DATA_WIDTH)](#INIT(0), .clk(clk), .rst(rst));
-    dff data[DATA_WIDTH](#INIT(0), .clk(clk), .rst(rst));
+  
+    dff data[DATA_SET][DATA_WIDTH](.clk(clk), .rst(rst)); 
 
   
     dff data_col_address[$clog2(MATRIX_WIDTH)](#INIT(0),.clk(clk),.rst(rst));
@@ -59,7 +61,7 @@ module matrix_ram_writer #(
     dff ram_writer_address[$clog2(MATRIX_WIDTH*$pow(ADDRESS_SIZE, 2))](#INIT(0), .clk(clk), .rst(rst));
   
    
-
+ 
   always {
     ready = b0;
     we_top = b0;
@@ -84,8 +86,16 @@ module matrix_ram_writer #(
           
         row_address_btm = data_row_address.q;
         col_address_btm = data_col_address.q;
+        
+        // color accordingly
         wd_top = b000;
-        if (data.q[bitloader.q] == 1){
+        if (data.q[2][bitloader.q] == 1){
+            wd_top = b100;
+        }
+        else if (data.q[1][bitloader.q] == 1){
+            wd_top = b010;
+        }
+        else if (data.q[0][bitloader.q] == 1){
             wd_top = b001;
         }
   

@@ -74,7 +74,7 @@ module au_top_0 (
   wire [3-1:0] M_ramwriter_wd_btm;
   wire [1-1:0] M_ramwriter_ready;
   reg [1-1:0] M_ramwriter_reload;
-  reg [16-1:0] M_ramwriter_new_data;
+  reg [48-1:0] M_ramwriter_new_data;
   matrix_ram_writer_2 ramwriter (
     .clk(clk),
     .rst(rst),
@@ -162,7 +162,7 @@ module au_top_0 (
     io_seg = 8'hff;
     io_sel = 4'hf;
     M_ramwriter_reload = M_reload_button_edge_detector_out;
-    M_ramwriter_new_data = {io_dip[8+7-:8], io_dip[0+7-:8]};
+    M_ramwriter_new_data = {{io_dip[16+7-:8], io_dip[16+7-:8]}, {io_dip[8+7-:8], io_dip[8+7-:8]}, {io_dip[0+7-:8], io_dip[0+7-:8]}};
     M_matrixram_row_address_top = M_ramwriter_row_address_top;
     M_matrixram_col_address_top = M_ramwriter_col_address_top;
     M_matrixram_we_top = M_ramwriter_we_top;
@@ -206,12 +206,12 @@ module au_top_0 (
   end
   
   always @(posedge clk) begin
-    M_row_index_q <= M_row_index_d;
+    M_col_index_q <= M_col_index_d;
   end
   
   
   always @(posedge clk) begin
-    M_col_index_q <= M_col_index_d;
+    M_row_index_q <= M_row_index_d;
   end
   
 endmodule

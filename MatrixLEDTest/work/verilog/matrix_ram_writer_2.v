@@ -9,12 +9,13 @@
      ADDRESS_SIZE = 4
      MATRIX_WIDTH = 64
      DATA_WIDTH = 16
+     DATA_SET = 3
 */
 module matrix_ram_writer_2 (
     input clk,
     input rst,
     input reload,
-    input [15:0] new_data,
+    input [47:0] new_data,
     output reg [3:0] row_address_top,
     output reg [5:0] col_address_top,
     output reg we_top,
@@ -29,6 +30,7 @@ module matrix_ram_writer_2 (
   localparam ADDRESS_SIZE = 3'h4;
   localparam MATRIX_WIDTH = 7'h40;
   localparam DATA_WIDTH = 5'h10;
+  localparam DATA_SET = 2'h3;
   
   
   
@@ -39,13 +41,13 @@ module matrix_ram_writer_2 (
   
   reg [1:0] M_writer_state_d, M_writer_state_q = START_writer_state;
   
-  localparam START_DATA = 16'h7fff;
+  localparam START_DATA = 48'h000203007fff;
   
   localparam MAPPING = 192'h00024e24c24a24824620d20b2092071cc1ca1c818b18914a;
   
   reg [3:0] M_bitloader_d, M_bitloader_q = 1'h0;
   
-  reg [15:0] M_data_d, M_data_q = 1'h0;
+  reg [47:0] M_data_d, M_data_q = 1'h0;
   
   reg [5:0] M_data_col_address_d, M_data_col_address_q = 1'h0;
   
@@ -71,7 +73,7 @@ module matrix_ram_writer_2 (
     
     case (M_writer_state_q)
       START_writer_state: begin
-        M_data_d = 16'h7fff;
+        M_data_d = 48'h000203007fff;
         M_writer_state_d = LOAD_ADDRESS_writer_state;
       end
       LOAD_ADDRESS_writer_state: begin
@@ -80,8 +82,16 @@ module matrix_ram_writer_2 (
         row_address_btm = M_data_row_address_q;
         col_address_btm = M_data_col_address_q;
         wd_top = 3'h0;
-        if (M_data_q[(M_bitloader_q)*1+0-:1] == 1'h1) begin
-          wd_top = 3'h1;
+        if (M_data_q[32+(M_bitloader_q)*1+0-:1] == 1'h1) begin
+          wd_top = 3'h4;
+        end else begin
+          if (M_data_q[16+(M_bitloader_q)*1+0-:1] == 1'h1) begin
+            wd_top = 3'h2;
+          end else begin
+            if (M_data_q[0+(M_bitloader_q)*1+0-:1] == 1'h1) begin
+              wd_top = 3'h1;
+            end
+          end
         end
         wd_btm = 3'h4;
         we_top = 1'h1;
@@ -110,27 +120,18 @@ module matrix_ram_writer_2 (
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
+      M_writer_state_q <= 1'h0;
+    end else begin
+      M_writer_state_q <= M_writer_state_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
       M_ram_writer_address_q <= 1'h0;
     end else begin
       M_ram_writer_address_q <= M_ram_writer_address_d;
-    end
-  end
-  
-  
-  always @(posedge clk) begin
-    if (rst == 1'b1) begin
-      M_data_col_address_q <= 1'h0;
-    end else begin
-      M_data_col_address_q <= M_data_col_address_d;
-    end
-  end
-  
-  
-  always @(posedge clk) begin
-    if (rst == 1'b1) begin
-      M_data_row_address_q <= 1'h0;
-    end else begin
-      M_data_row_address_q <= M_data_row_address_d;
     end
   end
   
@@ -155,9 +156,18 @@ module matrix_ram_writer_2 (
   
   always @(posedge clk) begin
     if (rst == 1'b1) begin
-      M_writer_state_q <= 1'h0;
+      M_data_col_address_q <= 1'h0;
     end else begin
-      M_writer_state_q <= M_writer_state_d;
+      M_data_col_address_q <= M_data_col_address_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_data_row_address_q <= 1'h0;
+    end else begin
+      M_data_row_address_q <= M_data_row_address_d;
     end
   end
   
