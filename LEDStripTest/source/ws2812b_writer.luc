@@ -4,7 +4,7 @@ module ws2812b_writer #(
     input clk,  // clock
     input rst,  // reset
     input update, // feed '1' to enable this strip
-    input color[24],   			// GBR, 8 bits each, color to render for all LED 
+    input color[24],   			// GRB, 8 bits each, color to render for all LED , the high bit is sent first
     output pixel[$clog2(PIXEL_COUNT)],  // Index of the LED, with the color in color[24]
     output led		//Goes to the first LED in the chain
 
