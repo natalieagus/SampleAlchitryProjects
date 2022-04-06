@@ -3,7 +3,7 @@ module au_top (
     input rst_n,            // reset button (active low)
     output led [8],         // 8 user controllable LEDs
     input usb_rx,           // USB->Serial input
-    output outled,           // to LED strip, Br pin C49 
+    output outled,           // to LED strip, Br pin C49, connect LED Strip to 5V for power
     output usb_tx,          // USB->Serial output
     output io_led [3][8],   // LEDs on IO Shield
     output io_seg [8],      // 7-segment LEDs on IO Shield
