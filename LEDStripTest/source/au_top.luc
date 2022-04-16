@@ -13,7 +13,8 @@ module au_top (
   ) {
   
   sig rst;                  // reset signal
-  const LEDCOLOR = {hFF0000, h00FF00, h0000FF};
+
+  const LEDCOLOR = {hFF0000, h00FF00, h0000FF}; // blue for the third LED, red for the second LED, green for the first LED (nearest to the connector)
   
   ws2812b_writer led_strip(#PIXEL_COUNT(3), .clk(clk), .rst(rst)); //set for 3 pixels
   .clk(clk) {
