@@ -6,7 +6,7 @@ module matrix_writer #(
 )(
     input clk,  // clock
     input rst,  // reset
-    input data[6], // input data from a simple RAM [r1,g1,b1,r0,g0,b0], see sample data below
+    input data[6], // input data from a simple RAM [b1,g1,r1,b0,g0,r0], see sample data below
     
     // addresses to a simple RAM 
     output col_index[$clog2(MATRIX_WIDTH)],

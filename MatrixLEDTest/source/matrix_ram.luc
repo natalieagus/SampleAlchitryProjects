@@ -45,7 +45,7 @@ module matrix_ram #(
       bottom_out = 0;
     
       if (ready){
-        top_ram.raddr = row_address * MATRIX_WIDTH + col_address; // should offset by 2 clock cycles than what's required by matrix_writer, strange but works fine
+        top_ram.raddr = row_address * MATRIX_WIDTH + col_address; 
         bottom_ram.raddr = row_address * MATRIX_WIDTH + col_address;
         top_out = top_ram.read_data;
         bottom_out = bottom_ram.read_data;

@@ -1,3 +1,6 @@
+// This module is a custom module to load data to the RAM
+// DO NOT COPY this module blindly, it's not meant for general purpose
+
 module matrix_ram_writer #(
   // 32 by 64 LED matrix by default, separated into top-16 rows and bottom 16-rows
   // both halves row i are written together for all rows 0 to 15 in a rapid loop 
@@ -26,9 +29,12 @@ module matrix_ram_writer #(
   
     fsm writer_state(.clk(clk), .rst(rst)) = {START, LOAD_ADDRESS, LOAD_WAIT, LOOP};
  
-    const START_DATA = {16b0000000000000010, 16b0000001100000000, 16b0111111111111111}; // some random triangle 
+    // 3 triangles, each triangle has 15 pixels, to be rendered at the same coordinates
+    // 1 indicates that pixel in the triangle being ON 
+    const START_DATA = {16b0000000000000010, 16b0000001100000000, 16b0111111111111111}; 
   
     // replace this with row-col mapping to form better-looking shapes
+    // right now, this transform START_DATA[i] into col, row values for the matrix pixels
     const MAPPING = {
         {6d0, 6d0}, //unused
         {6d9, 6d14},
@@ -90,13 +96,13 @@ module matrix_ram_writer #(
         // color accordingly
         wd_top = b000;
         if (data.q[2][bitloader.q] == 1){
-            wd_top = b100;
+            wd_top = b100; // the third triangle BLUE pixels, takes the most precedence
         }
         else if (data.q[1][bitloader.q] == 1){
-            wd_top = b010;
+            wd_top = b010; // the second triangle GREEN pixels
         }
         else if (data.q[0][bitloader.q] == 1){
-            wd_top = b001;
+            wd_top = b001; // the first triangle has RED pixels, takes the least precedence
         }
   
         wd_btm = b100;

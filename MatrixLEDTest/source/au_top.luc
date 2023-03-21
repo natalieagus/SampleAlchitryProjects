@@ -46,9 +46,6 @@ module au_top (
     reload_button_cond.in = io_button[0];
     reload_button_edge_detector.in = reload_button_cond.out;
     
-    
-    
-    
     usb_tx = usb_rx;        // loop serial port
     
     led = 8h00;             // turn LEDs off
@@ -56,7 +53,8 @@ module au_top (
     io_led = 3x{{8h00}};    // turn LEDs off
     io_seg = 8hff;          // turn segments off
     io_sel = 4hf;           // select no digits
-    
+
+    // connect ramwriter to matrixram to load it with some pixel values 
     ramwriter.reload = reload_button_edge_detector.out; // replace this from reload signal from CPU 
     ramwriter.new_data = {c{io_dip[2], io_dip[2]}, c{io_dip[1], io_dip[1]}, c{io_dip[0], io_dip[0]}}; // replace this from reg content from CPU
     
@@ -72,17 +70,12 @@ module au_top (
     
     matrixram.ready = ramwriter.ready;
     
-    // these indexes are offset by 2 for unknown reasons
-    // to debug with more data in the matrix_ram so that we know if we don't offset the rows too 
-    // right now it is handled inside matrix_ram by reducing by 2 before feeding it to the ram
     matrixram.row_address = matrixwriter.row_index;
     matrixram.col_address = matrixwriter.col_index;
-    
-    // matrixram.row_address = matrixwriter.address;
-    // matrixram.col_address = matrixwriter.debug;
-   
-    
-   // matrixwriter.data = 6b100100; // BLUE sample. change to the output of some RAM unit 
+  
+   // connect matrixram with matrixwriter to push the pixel values out to the matrix
+
+   // matrixwriter.data = 6b100100; // BLUE sample, one at top half and one at bottom half. Change to the output of some RAM unit 
     matrixwriter.data = c{matrixram.bottom_out, matrixram.top_out};
   
     red0 = matrixwriter.red0;
